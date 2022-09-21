@@ -1,0 +1,534 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=iso-8859-1">
+  <title>Representing Specified Values in OWL: "value partitions" and "value
+sets"</title>
+  <link rel="stylesheet" type="text/css"
+ href="http://www.w3.org/StyleSheets/TR/W3C-WG-NOTE.css">
+</head>
+<body lang="en">
+<div class="head">
+<a href="http://www.w3.org/"><img
+ src="http://www.w3.org/Icons/w3c_home" alt="W3C" height="48"
+ width="72"></a>
+<h1>Representing Specified Values in OWL: "value partitions" and "value
+sets"</h1>
+<h2>W3C Working Group Note 17 May 2005
+</h2>
+<dl>
+  <dt>This version:</dt>
+  <dd><a href="http://www.w3.org/TR/2005/NOTE-swbp-specified-values-20050517">http://www.w3.org/TR/2005/NOTE-swbp-specified-values-20050517</a></dd>
+  <dt>Latest version:</dt>
+    <dd><a href="http://www.w3.org/TR/swbp-specified-values">http://www.w3.org/TR/swbp-specified-values</a></dd>
+  <dt>Previous version:</dt>
+    <dd><a href="http://www.w3.org/TR/2004/WD-swbp-specified-values-20040803">http://www.w3.org/TR/2004/WD-swbp-specified-values-20040803</a></dd>
+  <dt>Editors:</dt>
+  <dd><a href="http://www.cs.man.ac.uk/mig/people/rector/">Alan Rector</a>,
+University of Manchester</dd>
+</dl>
+<p class="copyright"><a href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a>
+&copy; 2005 <a href="http://www.w3.org/"><acronym
+ title="World Wide Web Consortium">W3C</acronym></a><sup>&reg;</sup> (<a
+ href="http://www.csail.mit.edu/"><acronym
+ title="Massachusetts Institute of Technology">MIT</acronym></a>, <a
+ href="http://www.ercim.org/"><acronym
+ title="European Research Consortium for Informatics and Mathematics">ERCIM</acronym></a>,
+<a href="http://www.keio.ac.jp/">Keio</a>), All Rights Reserved. W3C <a
+ href="http://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>,
+<a href="http://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a>,
+<a href="http://www.w3.org/Consortium/Legal/copyright-documents">document
+use</a>  rules apply.</p>
+<!-- end copyright -->
+<hr></div>
+<!-- end of head -->
+<h2 class="notoc"><a id="abstract" name="abstract">Abstract</a></h2>
+<p>Modelling various descriptive "features" (also known variously as
+"qualities", "attributes" or "modifiers") is a frequent requirement
+when creating ontologies. For example: "size" may describe persons or
+other physical objects and be constrained to take the values "small",
+"medium" or "large"; rank may describe military officers and restricted
+to a specific list of values depending on the military
+organisation.&nbsp; In OWL such descriptive features are modelled as
+properties whose range specifies the constraints on the values that the
+property can take on.&nbsp; This document describes two methods to
+represent such features and their specified values: 1) as partitions of
+classes; and 2) as enumerations of individuals.&nbsp; It does not
+discuss the use of datatypes to represent lists of values. </p>
+<h2 id="Status">Status of this Document</h2>
+<p><em>This section describes the status of this document at the time of its publication. 
+Other documents may supersede this document. A list of current W3C publications 
+and the latest revision of this technical report can be found in the <a href="http://www.w3.org/TR/">W3C 
+technical reports index</a> at http://www.w3.org/TR/.</em></p>
+<p>This document is a <a href="http://www.w3.org/2004/02/Process-20040205/tr.html#WGNote">Working 
+  Group Note</a>, produced by the <a href="http://www.w3.org/2001/sw/BestPractices/OEP/">Ontology 
+  Engineering and Patterns Task Force</a> in the <a href="http://www.w3.org/2001/sw/BestPractices/">Semantic 
+  Web Best Practices and Deployment Working Group</a>, part of the
+  <a href="http://www.w3.org/2001/sw/">W3C Semantic Web Activity</a>. 
+  This document is one of a series of documents that is produced by the 
+  task force.  Comments on this document may be sent to
+  <a href="mailto:public-swbp-wg@w3.org">public-swbp-wg@w3.org</a>,
+  a mailing list with a 
+  <a href="http://lists.w3.org/Archives/Public/public-swbp-wg/"
+   >public archive</a>.</p>
+<p>Publication as a Working Group Note does not imply endorsement by the W3C
+  Membership.  This is a draft document and may be updated, replaced or
+  obsoleted by other documents at any time. It is inappropriate to cite
+  this document as other than work in progress.</p>
+<hr>
+<h2 id="general">General issue</h2>
+<p>It is a common requirement in developing ontologies to be able to
+represent notions such as a "small man", a "high ranking officer" or a
+"health person."&nbsp; There are many such "features" (also known as
+"qualities", "attributes", or "modifiers") .&nbsp; In almost all such
+cases it is necessary to specify the constraints on the values for the
+"feature" - e.g. that size may be "small", "medium" or "large" or that
+a person may be in "poor health", "medium health" or "good
+health".&nbsp; In some
+circumstances
+we may also want to represent modified values - <em>e.g.</em>
+"very large", "moderately large", etc.&nbsp; or to otherwise further
+subdivide the original values. In
+other
+circumstances it is useful to be able to have two different collections
+of
+values covering the same feature, for example to have different
+collections
+of color values all partitioning the same "colour space" or to break up
+"health status" into four rather than three levels.</p>
+<p>There are at least three different ways to represent such specified
+collections of values:</p>
+<ol>
+  <li>As individuals whose enumeration makes up the parent class
+representing the feature;&nbsp;&nbsp; (See pattern 1). <br>
+  </li>
+  <li>As disjoint classes which exhaustively partition the parent class
+representing the feature.&nbsp; (see pattern 2);</li>
+  <li>As datatypes. Data types will more usually be used when there is
+a literal, numeric or derived data types rather than when there is an
+enumerated list of values. (Datatypes will not be considered further in
+this
+note because technical discussions are still continuing in other W3c
+committees.&nbsp; A supplement may be issued later when these issues
+are resolved.)</li>
+</ol>
+<h2 id="useCases">Use case examples</h2>
+<p>We want to describe persons as having qualities such as having size
+that is small, medium or large,&nbsp; body
+type
+that is slender, medium, or obese and as having health status that is
+good
+health, medium health, or poor health. It should not be possible to
+have more
+than one value for any of the qualities, <em>e.g.</em> it should be
+inconsistent (unsatisfiable) to be both slender and obese or in good
+health
+and poor health. We will use the feature "Health" in the examples. The
+others
+follow analogously.</p>
+<h2 id="conventions">Conventions used in this note<br>
+</h2>
+<h3 id="diagramming">Diagramming<br>
+</h3>
+The diagramming conventions used in this document are summarised
+below.&nbsp; Examples are given in the appendix. <br>
+<ul>
+  <li>Ellipses represent classes.</li>
+  <li>Squares represent instances. <br>
+  </li>
+  <li>Arrows:
+  <ul>
+    <li>Closed
+undecorated arrows (pointing upwards if possible) represent <code>rdfs:subclassOf;</code>
+      <br>
+    </li>
+    <li>Open undecorated arrows indicate <code>rdf:type</code>; <br>
+    </li>
+    <li>arrows decorated with a blob on the origin
+indicate
+restrictions if between classes or facts if between individuals. <br>
+    </li>
+  </ul></li>
+  <li>Dotted arrows indicate that
+the information represented is inferrable by a reasoner and not present
+explicitly in the code given. <br>
+  </li>
+  <li>Upward
+facing square union symbols if spanning a set of <code>rdfs:subclassOf</code>
+arrowsor <code>rdf:type</code> arrowsindicate <code><span
+ style="font-family: sans-serif;">that the subclasses or individuals
+exhaust the class - i.e. that they cover all possibilities.&nbsp; This
+is expressed in OWL using </span>owl:unionOf</code><code><span
+ style="font-family: sans-serif;"> for classes or </span>owl:oneOf</code><code><span
+ style="font-family: sans-serif;"> for individuals</span></code></li>
+  <li><span style="font-family: sans-serif;">Downwards facing braces
+are used to indicate pairwise disjointness between subclasses or </span><code>owl:allDifferent</code><span
+ style="font-family: sans-serif;"> for individuals. (All sibling
+classes are disjoint and all individuals of each type are different in
+these examples.)</span></li>
+</ul>
+<h3 id="codesyntax">Syntax for code</h3>
+In keeping with SWBP policy, the syntax within the body of note is
+N3.&nbsp; Details in alternative syntaxes are given by links.<br>
+<h3 id="vocabulary">Vocabulary</h3>
+<p><span style="font-weight: bold;">"Partition"</span>&nbsp; - a class
+is partitioned by a group of subclasses if a) the subclasses are
+mutually exclusive, i.e. pairwise disjoint; and b) the subclasses
+completely cover the parent class, i.e. that the union of the
+subclasses is equal to the parent class. <br>
+</p>
+<p><span style="font-weight: bold;">"Feature"</span> - a characteristic
+of some entity.&nbsp; Other words for feature include "quality" [Welty
+and Guarino], "attribute", "characteristic", and "modifier".&nbsp; For
+purposes of this note no distinction will be made between these
+terms.&nbsp; For further information on representing more complex
+"qualities" see the note on <a
+ href="http://www.w3.org/TR/swbp-n-aryRelations/">N-ary Relations</a>.)<br>
+</p>
+<p><span style="font-weight: bold;">"Feature space" </span>- the range
+of values that a feature can take on conceived of as a continuous range
+or 'space'.&nbsp; Also called quality space, see [Welty and Guarino].<br>
+</p>
+<h2 id="patterns">Representation patterns</h2>
+Two patterns are introduced.&nbsp; The first is simple and intuitive
+but has limitations.&nbsp; The second is more complex but is more
+flexible.&nbsp; Some classifiers also work more reliably with Pattern 2
+than Pattern 1. <br>
+<h3 id="pattern1">Pattern 1: Values as sets of individuals</h3>
+<p>In this approach, the class <code>Health_Value</code> is considered
+as the
+enumeration of the individuals <code>good_health</code>,
+<code>medium_health,</code> and <code>poor_health</code>. Values are
+sets of
+individuals. To say that "John is is in good health", is to say that
+"John
+has the value <code>good_health</code> for <code>health_status</code>"
+This assumes that a value is just
+a
+unique symbol, and a value set is just a a set of such symbols.
+Normally, the
+values will all need to be asserted to be different from each other. In
+OWL, any two individuals might represent the same thing unless there is
+an
+axiom to say, explicitly, that they are different. In other words, OWL
+does
+not make the "Unique Names Assumption". If we did not include the
+<code>differentFrom</code> axiom in the example, then it would be
+possible that <code>good_health</code> and <code>poor_health</code>&nbsp;
+where the same thing, so that it would be possible to
+have a person who was both in good health and poor health
+simultaneously.</p>
+<p>The approach is shown diagrammatically in Figure 1.</p>
+<p><img alt="Diagram use of set of individuals as a valuse list"
+ src="value-partitions-3.png" title=""></p>
+<p><strong>Figure 1: A class-instance diagram of the use of enumerated
+instances to represent lists of values</strong></p>
+<h3 id="representation1">Representation for Pattern 1</h3>
+<p style="text-indent: 25pt;"><em>{{The value set and make it equal to
+the enumeration of the three individual values}}</em></p>
+<pre>:Health_value<br>      a       owl:Class ;<br>      owl:equivalentClass<br>              [ a       owl:Class ;<br>               <span
+ style="font-family: helvetica; font-style: italic;">{{Define as one of three individuals}}</span>
+                owl:oneOf (:medium_health :good_health :poor_health)  <em></em>
+              ] .
+:good_health
+      a       :Health_value ; 
+     <span
+ style="font-family: helvetica; font-style: italic;">{{The next line make values different. Otherwise might be inferred the same}}</span>
+      owl:differentFrom :poor_health , :medium_health .  
+<br><span style="font-style: italic;">{{Define each of the individual values as an individual of type Health_value}}</span><br
+ style="font-style: italic;">:medium_health<br>      a       :Health_value ;<br>      owl:differentFrom :poor_health , :good_health  .<br><br>:poor_health<br>      a       :Health_value ;<br>      owl:differentFrom :good_health , :medium_health .<br><br>:has_health_status<br>      a       owl:ObjectProperty , owl:FunctionalProperty ;<br>      rdfs:range :Health_value .<br><br><span
+ style="font-family: helvetica; font-style: italic;">{{Define the individual John - and state that he has health_status good_health}}</span>
+:John
+      a       :Person ;
+      :has_health_status :good_health .
+
+<span style="font-family: helvetica; font-style: italic;">{{Define the class  Healthy_Person as the class of Person that has health_status good_health}}<br>{{                                   	 i.e. an individual of type (Person AND has_health_status  value(good_health))</span>
+:Healthy_person
+      a       owl:Class ;
+      owl:equivalentClass
+              [ a       owl:Class ;
+                owl:intersectionOf (:Person <br>                                    [ a       owl:Restriction ;<br>                                                 owl:hasValue :good_health ;<br>                                                 owl:onProperty :has_health_status<br>                                     ])<br>              ] .</pre>
+<h3 id="considerations1">Considerations using Pattern 1:</h3>
+<ul>
+  <li>There is a straight forward match to the usage in databases and
+many frame systems without any assumptions or conventions about
+anonymous individuals.</li>
+  <li>Many people find this the more intuitive approach.</li>
+  <li> There is no possibility of further subpartitioning of values.
+This is because OWL supports only equality or difference between
+individuals. It does not allow individuals to have partial overlaps. It
+is not possible, as it is for classes, to say that one individual is
+equivalent to the the union (disjunction) of two other individuals.</li>
+  <li>There is no way to represent alternative partitionings of the
+same feature space. Because individuals cannot overlap, if <code>Health_Value</code>
+is defined as equivalent to enumeration of one list of distinct values,
+it cannot also be equivalent to a different list of distinct values. To
+do so would cause the reasoner to indicate a contradiction. (i.e that <code>Health_Value</code>
+was "unsatisfiable".)</li>
+  <li>The representation is in OWL-DL, and DL reasoners should
+eventually be expected to make correct inferences with individuals used
+in this way. However, neither FaCT nor Racer (the two most widespread
+open source reasoners in use today) perform all the expected inferences
+reliably.</li>
+</ul>
+<p></p>
+<h4 id="code1">OWL code for this example</h4>
+[<a href="values-as-individuals.n3">N3</a>] [<a
+ href="values-as-individuals-01.owl">RDF/XML abbrev</a>] [<a
+ href="values-as-individuals-abstract-syntax.txt">Abstract syntax</a>]
+<p></p>
+<h3 id="pattern2">Pattern 2: Values as subclasses partitioning
+a
+"feature"</h3>
+<p>In this approach we consider the feature as a class representing a
+continuous space that is partitioned by the values in the collection of
+values. To say that "John is in good health" is to say that his health
+is
+inside the <code>Good_health_values</code> partition of the
+<code>Health_value</code> feature. Theoretically, there is an
+individual
+health value, J<code>ohns_health</code>, but all we know about it is
+that it
+lies someplace in the <code>Good_health_value</code> partition. The
+cass
+<code>Healthy_Person</code> is the class of all those persons who have
+a
+health in the <code>Good_health_value</code> partition.<br>
+</p>
+<p><br>
+<br>
+</p>
+<p><strong><img alt="Diagram of value partitions"
+ src="value-partitions-1.png" title=""></strong></p>
+<p><strong>Figure 2: A class-instance diagram of the use of
+partitioning
+classes for collections of values</strong></p>
+<p>Some may find an alternative diagrammatic format adapted from Venn
+diagrams as shown in Figure 3 makes the intention clearer as it shows
+the
+partioning more explicitly.</p>
+<p style="text-indent: 60pt;"><img
+ alt="Adapted Venn diagram of value partitions"
+ src="value-partitions-venn-style.png" title=""></p>
+<p><strong>Figure 3: An adapted Venn diagram showing the use of
+partitioning
+classes to represent lists of values.</strong></p>
+<h3 id="representation2">Representation for two variants of Pattern 2</h3>
+There are two variants presented: one in which the individual <code>Johns_health</code>
+is explicitly represented, the other in which it is implied by an
+existential restriction. <br>
+<h4 id="representation2v1">Representation variant 1: Using a fact about the individual</h4>
+<p style="text-indent: 25pt;"><em>{{Define the parent Value class to be
+partitioned}}</em></p>
+<pre>:Health_Value<br>      a       owl:Class ;<br>      owl:equivalentClass<br>              [ a       owl:Class ;<br>              <ins><span
+ style="font-family: helvetica;">{{The next line makes the partition exhaustive}}</span></ins><br>               owl:unionOf (:Poor_health_value :Medium_health_value :Good_health_value  <br>              ] .</pre>
+<pre><span style="font-style: italic;">{{Define each of the subclasses that make up the partitioon and make them pairwise disjoint}}</span> <br>:Good_health_value<br>      a       owl:Class ;<br>      rdfs:subClassOf :Health_Value ;<br>      <ins
+ style="text-decoration: underline; font-style: italic;"><span
+ style="font-family: helvetica;">{{The disjoint axioms make the subclasses partitioning}}</span></ins><span
+ style="font-family: helvetica; text-decoration: underline; font-style: italic;"> </span><br>      owl:disjointWith :Poor_health_value , :Medium_health_value . <br><br>:Medium_health_value<br>      a       owl:Class ;<br>      rdfs:subClassOf :Health_Value ;<br>      owl:disjointWith :Poor_health_value , :Good_health_value<br>  <br>:Poor_health_value<br>      a       owl:Class ;<br>      rdfs:subClassOf :Health_Value ;<br>      owl:disjointWith :Good_health_value , :Medium_health_value .</pre>
+<p style="text-indent: 25pt;"><em>{{Define the functional property
+has_health_status with domain Person and range Health_value}}</em></p>
+<pre>:has_health_status<br>      <ins style="font-style: italic;"><span
+ style="font-family: helvetica;">{{The property must be functional}}</span></ins><br>      a       owl:ObjectProperty , owl:FunctionalProperty ;        <br>      rdfs:domain :Person ;     <span
+ style="font-style: italic;">{{Domain is optional and might be broader}}</span><br>      rdfs:range :Health_Value  <span
+ style="font-style: italic;">{{Range is constrained to be Health_value and is mandatory for the pattern}}</span></pre>
+<p style="text-indent: 25pt;"><em>{{Define The class Person, its
+subclass
+Healthy_person}}</em></p>
+<pre>:Person<br>      a       owl:Class.<br><br><span
+ style="font-style: italic;">{{Define Healthy_person}}<br>{{A Healthy_person is anything that is both a Person and whose health status is in the }}</span><br
+ style="font-style: italic;"><span style="font-style: italic;">{{Good_health_value subclass of Health_value}}</span><br>:Healthy_person<br>      a       owl:Class ;<br>      owl:equivalentClass<br>              [ a       owl:Class ;<br>                owl:intersectionOf (:Person [ a       owl:Restriction ;<br>                            owl:onProperty :has_health_status ;<br>                            owl:someValuesFrom :Good_health_value<br>                          ])<br>              ] .<br><br><span
+ style="font-style: italic;">{{Define John as an individual of type person and state that he has a health status Johns_health}}</span><br>:John<br>      a       :Person ;<br>      :has_health_status :Johns_health .<br><br><span
+ style="font-style: italic;">{{Define the individual Johns_health as a Good_health_value}}</span><br>:johns_health<br>      a       :Good_health_value .<br></pre>
+<h4 id="representation2v2">Representation using variant 2: Placing an existential restriction
+on the
+individual</h4>
+It is not actually necessary to create the individual, <code>Johns_health
+</code>explicitly.&nbsp; Instead,&nbsp; it is possible to use an
+existential restriction to imply its existence but leave it
+anonymous.&nbsp;&nbsp; In Figure 3 below this is shown by preceding the
+name with an underscore and showing the box in dotted lines.<br>
+<br>
+<strong><img src="value-partitions-1b.png" title=""
+ alt="Diagram showing anonymous class"><br>
+Figure 4: Pattern 2 variant 2 with an anonymous individual for John's
+Health</strong> <br>
+<br>
+To understand how this is done formally, remember that&nbsp;
+restrictions in OWL are formally just another type of class, so to add
+a restriction to an individual, you make the individual a type of the
+restriction.&nbsp; So John is not only of of type&nbsp; <code>Person</code>,
+but also of type <code>restriction(has_health_status someValuesFrom
+(GoodHealthStatus )). </code>Or in N3 syntax:<br>
+<pre><span style="font-style: italic;">{{Define John as an individual of type person and of type has_health_status someValuesFrom Good_health_status}}</span><br>:John      a      :Person ;<br>          [a      owl:Restriction;                  <br>                     owl:onProperty :has_health_status ;                 <br>                     owl:someValuesFrom :Good_health_value].</pre>
+<h3 id="considerations2">Considerations using Pattern 2:</h3>
+<ul>
+  <li>The result is in OWL-DL and classifies correctly using either
+FaCT or Racer - and almost certainly any other reasoner that handles
+any reasonable subset of OWL-DL.The semantics faithfully represent the
+partitioning of a continuous feature space into a collection of
+discrete value.</li>
+  <li>The values can be further subpartitioned, e.g. <code>Good_health_value</code>
+might be split into <code>Moderately_good_health_value</code> and <code>Robust_good_health_value</code>,
+simply by subdividing the <code>Good_health_value</code> partition.</li>
+  <li>There can be several alternative partitionings of the same
+feature space.</li>
+  <li>If variant 2 is to be used as part of a database schema or
+similar, then a convention for creating anonymous instances in the
+database is required. (Logicians call such anonymous instances "skolem
+constants".) In practice, this can usually be ignored. A common
+convention is to use the class name or a string derived from it, e.g. "<code>good_health</code>"
+as the symbol in the database. The fact that, strictly speaking, the
+semantics require the symbol to be interpreted in each case as a
+different anonymous instance of the class <code>Good_health</code>_value
+will be irrelevant to most applications and invisible to
+most users.&nbsp; A problem only arises if the database is to be
+re-interpreted in OWL, in which case either variant 1 or variant 2 must
+be chosen and the necessary anonymous variables or restrictions
+constructed for each occurrence of the value in the database. <br>
+  </li>
+  <li>The use of classes for values seems unintuitive to many people
+who come from the database and frame communities where value sets are
+usually enumerated lists of symbols.</li>
+</ul>
+<h4 id="code2">Code for this example</h4>
+<p>[<a href="value-partitions-variant-1.n3">N3</a>]
+[<a href="value-partitions-variant-1.owl">RDF/XML
+abbrev</a>] [<a
+ href="value-lists-pattern-1-variant-1-abstract-syntax.txt">Abstract
+syntax</a>]
+</p>
+<h2 id="additional">Additional Considerations</h2>
+<ul>
+  <li>We would advise against mixing Pattern 1 and Pattern 2 in the
+same ontology because it becomes difficult for authors to remember when
+to use one and when the other.&nbsp;&nbsp; Maintaining a consistent
+style is almost always to be preferred. <br>
+  </li>
+  <li>In this note we have maintained the naming conventions that
+classes begin with upper case letters and included the suffix "_value"
+on the subclasses that make up value partitions. <br>
+  </li>
+  <li>Creating a group of pairwise disjoint classes requires
+combinatorially many disjoint axioms, i.e. it requires one axiom for
+every pair of pairwise disjoint classes.&nbsp; (This does not happen
+with individuals because the OWL standard provides an <code>allDifferent</code>
+axiom. Unfortunately it does not provide an analogous <code>alllDisjoint</code>
+axiom.)&nbsp; Tools that implement OWL literally will encounter this
+problem and OWL files implemented literally may grow very large very
+quickly.&nbsp; There is a known work around that will be covered in a
+supplementary note and is being implemented in some tools.<br>
+  </li>
+</ul>
+<p></p>
+<h4 id="acknowledgements">Acknowledgements</h4>
+<p>The code in these examples should be viewable with any owl tools.
+The
+following is for information only and with thanks to those involved in
+developing the tools. There is no endorsement intended or implied for
+the
+specific tools. These examples have been produced using the Protege OWl
+plugin and CO-ODE additional wizards and OwlViz available from <a
+ href="http://protege.stanford.edu">http://protege.stanford.edu</a> and
+following plugins/backends/owl. Some files may require the CO-ODE
+plugins
+linked to that page or at <a href="http://www.co-ode.org">http://www.co-ode.org.</a>
+Classification
+involving individuals cannot all be shown in this form and has been
+tested
+using OilEd available from <a href="http://oiled.man.ac.uk">http://oiled.man.ac.uk</a>.
+In all cases the
+Racer classifier has been used, available from <a
+ href="http://www.sts.tu-harburg.de/%7Er.f.moeller/racer/">http://www.sts.tu-harburg.de/~r.f.moeller/racer/.&nbsp;
+</a>Special thanks to Matthew Horridge for help with the final
+drawings, to Pat Hayes for help with draft diagrams, and to Mike
+Uschold for detailed reviews. <br>
+</p>
+<h3 id="references">References</h3>
+<p>Rector, A., Modularisation of Domain Ontologies Implemented in
+Description
+Logics and related formalisms including OWL. in Knowledge Capture 2003,
+(Sanibel Island, FL, 2003), ACM, 121-128. <a
+ href="http://www.cs.man.ac.uk/%7Erector/papers/rector-modularisation-kcap-2003-distrib.pdf">pdf
+here</a> <br>
+</p>
+<p>Welty, C. and Guarino, N. Supporting ontological analysis of
+taxonomic relationships. Data and Knowledge Engineering, 39 (1).
+51-74.&nbsp; <a href="http://www.loa-cnr.it/Papers/dke2001.pdf">pdf
+here</a><br>
+</p>
+<h2 id="appendix">Appendix: Diagramming conventions</h2>
+<ul>
+  <li>Ellipses represent classes, e.g.&nbsp;&nbsp;&nbsp; <br>
+    <img src="class-cropped.png" title=""
+ alt="ellipse representing the class &quot;Person&quot;"><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <br>
+  </li>
+  <li>Squares represent instances., e.g. John<br>
+    <img src="individual-cropped.png" title=""
+ alt="square reprsenting the individual &quot;John&quot;"><br>
+  </li>
+  <li>Arrows:
+  <ul>
+    <li>Closed
+undecorated arrows (pointing upwards if possible) represent <code>rdfs:subclassOf;</code></li>
+  </ul></li>
+</ul>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="subclass-arrow.png" title="" alt="upwards closed head arrow"><br>
+<code></code>
+<ul>
+  <li>
+  <ul>
+    <li>Open undecorated arrows indicate <code>rdf:type</code>; <br>
+    </li>
+  </ul>
+  </li>
+</ul>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="instanceof-arrow.png" title="" alt="open upwards arrow"><br>
+<ul>
+  <li>
+  <ul>
+    <li>arrows decorated with a blob on the origin
+indicate
+restrictions if between classes or facts if between individuals.</li>
+  </ul>
+  </li>
+</ul>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="restriction-arrow.png" title=""
+ alt="horizontal arrow with blob at end"><br>
+<ul>
+  <li>Dotted arrows indicate that
+the information represented is inferrable by a reasoner and not present
+explicitly in the code given. <br>
+  </li>
+  <li>Upward
+facing square union symbols if spanning a set of <code>rdfs:subclassOf</code>
+arrowsor <code>rdf:type</code> arrowsindicate <code><span
+ style="font-family: sans-serif;">that the subclasses or individuals
+exhaust the class - i.e. that they cover all possibilities.&nbsp; This
+is expressed in OWL using </span>owl:unionOf</code><code><span
+ style="font-family: sans-serif;"> for classes or </span>owl:oneOf</code><code><span
+ style="font-family: sans-serif;"> for individuals</span></code></li>
+</ul>
+<span style="font-family: sans-serif;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="exhaustive.png" title="" alt="upwards union across arrows"><br>
+</span>
+<ul>
+  <li><span style="font-family: sans-serif;">Downwards facing braces
+are used to indicate pairwise disjointness between subclasses or </span><code>owl:allDifferent</code><span
+ style="font-family: sans-serif;"> for individuals. (All sibling
+classes are disjoint and all individuals of each type are different in
+these examples.)</span></li>
+</ul>
+<span style="font-family: sans-serif;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="pairwise-disjoint.png" title=""
+ alt="downwards brace across arrows"><br>
+</span><br>
+<br>
+</body>
+</html>

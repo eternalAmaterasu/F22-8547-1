@@ -1,0 +1,1640 @@
+<!-- This HTML file has been created by timdif2html 1.11
+from wire-encoding.dif on 7 July 1998 -->
+<HTML>
+<HEAD>
+  <TITLE>HTTP-NG Binary Wire Protocol</TITLE>
+</HEAD>
+<BODY TEXT=#000000 BGCOLOR=#ffffff>
+<H3 align='right'>
+  <A HREF='http://www.w3.org/'><IMG border='0' align='left' alt='W3C' src='http://www.w3.org/Icons/WWW/w3c_home'></A>WD-HTTP-NG-wire-19980710
+</H3>
+<H1 align='center'>
+  HTTP-NG Binary Wire Protocol
+</H1>
+<H3 ALIGN=Center>
+  W3C Working Draft 10 July 1998
+</H3>
+<DL>
+  <DT>
+    This version:
+  <DD>
+    <A HREF="http://www.w3.org/TR/1998/WD-HTTP-NG-wire-19980710">http://www.w3.org/TR/1998/WD-HTTP-NG-wire-19980710</A>
+  <DT>
+    Latest version:
+  <DD>
+    <A HREF="http://www.w3.org/TR/WD-HTTP-NG-wire">http://www.w3.org/TR/WD-HTTP-NG-wire</A>
+  <DT>
+    Authors:
+  <DD>
+    Bill Janssen, Xerox PARC,
+    &lt;<A HREF="mailto:&lt;janssen@parc.xerox.com&gt;">janssen@parc.xerox.com</A>&gt;
+</DL>
+<p><small><A href='http://www.w3.org/Consortium/Legal/ipr-notice.html#Copyright'>Copyright</A>
+ &nbsp;&copy;&nbsp; 1998 <A href='http://www.w3.org'>W3C</A> (<A href='http://www.lcs.mit.edu'>MIT</A>,
+ <A href='http://www.inria.fr/'>INRIA</A>, <A href='http://www.keio.ac.jp/'>Keio</A> ),
+ All Rights Reserved. W3C <A href='http://www.w3.org/Consortium/Legal/ipr-notice.html#Legal Disclaimer'>liability,</A>
+ <A href='http://www.w3.org/Consortium/Legal/ipr-notice.html#W3C Trademarks'>trademark</A>,
+ <A href='http://www.w3.org/Consortium/Legal/copyright-documents.html'>document use
+ </A>and <A href='http://www.w3.org/Consortium/Legal/copyright-software.html'>software licensing </A>rules apply.
+</small></p>
+<H1>
+  1. Status of this Document
+</H1>
+<P>
+This is a W3C Working Draft for review by W3C members and other interested
+parties. It is a draft document and may be updated, replaced or obsoleted
+by other documents at any time. It is inappropriate to use W3C Working Drafts
+as reference material or to cite them as other than "work in progress". A
+list of current W3C technical reports can be found at
+<A HREF="http://www.w3.org/TR/">http://www.w3.org/TR</A>.
+<P>
+This document has been produced as part of the W3C HTTP-ng Activity. This
+is work in progress and does not imply endorsement by, or the consensus of,
+either W3C or members of the HTTP-ng Protocol Design Working Group. We expect
+the document to evolve as we get more data from the Web Characterization
+Group describing the current state of the Web.
+<P>
+This document describes a binary `on-the-wire' protocol to be used when sending
+HTTP-ng operation invocations or terminations across a network connection.
+It is part of a suite of documents describing the HTTP-NG design and prototype
+implementation:
+<UL>
+  <LI>
+    <A HREF="http://www.w3.org/TR/1998/WD-HTTP-NG-goals">HTTP-NG Short- and Longterm Goals</A>, WD
+  <LI>
+    <A HREF="http://www.w3.org/TR/WD-HTTP-NG-architecture">HTTP-NG Architectural Model</A>, WD
+  <LI>
+    <A HREF="http://www.w3.org/TR/WD-HTTP-NG-wire">HTTP-NG Wire Protocol</A>, WD
+  <LI>
+    <A HREF="http://www.w3.org/TR/WD-HTTP-NG-interfaces">The Classic Web Interfaces in HTTP-NG</A>,
+    WD
+  <LI>
+    <A HREF="http://www.w3.org/TR/WD-mux">The MUX Protocol</A>, WD
+  <LI>
+    <A HREF="http://www.w3.org/TR/NOTE-HTTP-NG-testbed">Description of the HTTP-NG Testbed</A>, Note
+</UL>
+<P>
+Please send comments on this specification to
+&lt;<A HREF="mailto:www-http-ng-comments@w3.org">www-http-ng-comments@w3.org</A>&gt;.
+<H1>
+  2. Syntax Used in this Document
+</H1>
+<P>
+<A NAME="IDX1"></A> <A NAME="IDX2"></A>
+<P>
+Two data description languages are used in this document. The first, called
+ISL, is an abstract language for defining data types and interfaces. It is
+described in
+<A HREF="ftp://ftp.parc.xerox.com/pub/ilu/2.0a12/manual-html/manual_2.html">the
+ILU manual</A>. The second is a pseudo-C syntax. It should be interpreted
+as C data structure layouts without any automatic padding to size boundaries,
+and allowing arbitrary bit-size limits on structs and unions as well as on
+ints and enums. Each use of ISL and pseudo-C is marked as to which language
+is being used.
+<P>
+<A NAME="IDX3"></A> <A NAME="IDX4"></A>
+<H1>
+  3. Model of Operation
+</H1>
+<P>
+This protocol assumes a particular model of operation based on conventional
+RPC technology, with certain variations. The basic idea is that clients make
+use of services exported from a server by invoking operations on objects
+resident in that server. The client is connected to the server by a
+<DFN>connection</DFN>, which carries operation invocation requests from the
+client (known as the <DFN>caller</DFN>) to the server (known as the
+<DFN>callee</DFN>), and operation results from the callee back to the caller.
+Multiple connections can exist simultaneously between the same client and
+server. The connection has state associated with it, which allows the caller
+and callee to use shorthand notations for some of the data passed to the
+other party.
+<P>
+Two RPC messages are defined by this protocol: the Request, which is used
+by the caller to invoke an operation on the callee, and the Reply, which
+is used to transfer operation results from the callee to the caller. Every
+Reply message is associated with a particular Request message, but not every
+Request message has a Reply message associated with it. Connections are
+directional; operation invocation Requests always flow from the caller to
+the callee; Replies always flow from the callee to the caller. In addition
+to the RPC messages, several control messages are defined for this protocol.
+These control messages are used to improve the efficiency and robustness
+of the connection. They are intended to be generated and consumed by the
+implementation of the wire protocol, and should have no direct effect on
+the applications using the protocol. <A NAME="IDX5"></A> <A NAME="IDX6"></A>
+<A NAME="IDX7"></A> <A NAME="IDX8"></A> <A NAME="IDX9"></A>
+<P>
+A Request message indicates two important elements, the <DFN>operation</DFN>
+and the <DFN>discriminant object</DFN>, or discriminant; it also contains
+data values which are the input parameters to the operation. The model used
+here assumes that operations are grouped into sets, the elements of which
+have a well-defined ordering; each operation set is called an
+<DFN>interface</DFN>. It further assumes that an interface can be identified
+by a URN which also a UUID; and that each operation in an interface can be
+identified with the ordinal number of the operation within the ordering of
+the elements of the interface. It assumes that every discriminant object
+can be identified with an <DFN>object ID</DFN>, also a URN and UUID. It provides
+for the fact that, with most distributed object systems, all of the discriminants
+available at a particular server share a common prefix to their object ID;
+this is called the <DFN>server ID</DFN>. Note that this characteristic is
+not required, but the protocol provides an efficiency optimization for the
+case where it is true. In such a case, we call the portion of the object
+ID <EM>not</EM> contained in the server ID the <DFN>instance handle</DFN>.
+Each request has an implicit connection-specific serial number associated
+with it; serial numbers begin with the value one (1), and have a maximum
+value of 16777215. When the maximum serial number of a connection has been
+reached, the connection must be terminated, and further operations must be
+invoked over a new connection.
+<P>
+A Reply message indicates the termination status of the operation, provides
+information about synchronization, and may contain data values which are
+output parameters or `return values' from the operation. It contains an explicit
+serial number to indicate which Request it is a reply to. Replies may either
+indicate successful completion of the operation, or several different kinds
+of exceptional termination; if an exception is signalled, additional information
+is passed to indicate which of the possible exceptions for the operation
+was raised. <A NAME="IDX10"></A> <A NAME="IDX11"></A> <A NAME="IDX12"></A>
+<A NAME="IDX13"></A>
+<P>
+The model assumes that the messages are carried back and forth between the
+two parties by a <DFN>transport</DFN> subsystem. It requires that the transport
+subsystem be <DFN>reliable</DFN>, <DFN>sequenced</DFN>, and
+<DFN>message-oriented</DFN>. By reliable, we mean that after a message is
+handed to the transport, the transport will either deliver it to the other
+party, or will signal an error if its reliable delivery cannot be ascertained.
+By sequenced, we mean that the transport will deliver messages to the other
+party in the same order in which the sender handed them to the transport.
+By message-oriented, we mean that the transport will provide indication of
+the beginning and ending of the messages, without reference to any data encoded
+inside the message. An example of this type of transport would be the record
+marking defined in
+<A HREF="http://info.internet.isi.edu:80/in-notes/rfc/files/rfc1831.txt">Internet
+RFC 1831</A> used with TCP/IP.
+<P>
+<H1>
+  4. Global Issues
+</H1>
+<P>
+<A NAME="IDX14"></A> <A NAME="IDX15"></A>
+<P>
+<H2>
+  4.1. Byte Order
+</H2>
+<P>
+All values use `network standard' byte order, i.e. big-endian, because all
+Internet protocols use it. If in the future this becomes a problem for the
+Internet, this protocol will be affected by whatever solution is used to
+solve the problem in the wider Internet context. Note that the data marshalling
+format defined in Internet RFC 1832, which this protocol incorporates by
+reference, is also defined to be a big-endian protocol. <A NAME="IDX16"></A>
+<A NAME="IDX17"></A>
+<P>
+<H2>
+  4.2. Alignment and Padding
+</H2>
+<P>
+The marshalled form of each value begins on a 32-bit boundary. The marshalled
+form of each value is padded-after, if necessary, to the next 32-bit boundary.
+The padding bits may be either 0 or 1 in any combination.
+<A NAME="IDX18"></A>
+<P>
+<H2>
+  4.3. Marshalling Format
+</H2>
+<P>
+Marshalling is via the XDR format specified in
+<A HREF="http://info.internet.isi.edu:80/in-notes/rfc/files/rfc1832.txt">Internet
+RFC 1832</A>. It could be argued that this format is inexcusably wasteful
+with certain value types, such as boolean (32 bits) or byte (32 bits), and
+that a 16-bit or 8-bit oriented format should be designed and used in its
+place. However, the argument of using an existing Internet standard for this
+purpose, rather than inventing a new one, is a strong one; a new format should
+only be defined if measurement of the overhead shows gross waste.
+<A NAME="IDX19"></A>
+<P>
+<H2>
+  4.4. Security
+</H2>
+<P>
+This protocol assumes that security provisions are made either at some level
+above it, typically in the application interfaces, or at some level below
+it, typically by use of a secure transport mechanism. It contains no
+protocol-level mechanisms for providing or assuring any of the concerns normally
+related to security. <A NAME="IDX20"></A>
+<P>
+<H2>
+  4.5. Session Context
+</H2>
+<P>
+Unlike some previous protocols, this protocol is <DFN>session-oriented</DFN>.
+That means that individual messages are sent in the context of a session,
+and are context-sensitive. This context-sensitivity allows session-wide
+compression. However, to support various kinds of marshalling architectures
+in implementations of this system, all marshalling can be done in a
+context-insensitive fashion, at the expense of sending additional bytes across
+the wire. However, unmarshalling implementations must always be capable of
+tracking and using context-sensitive information.
+<P>
+<H1>
+  5. Utility types
+</H1>
+<P>
+The following data structures are defined in pseudo-C: <A NAME="IDX21"></A>
+<PRE>
+typedef enum {
+ False = 0,
+ True = 1
+} Boolean;
+
+<A NAME="IDX22"></A>typedef enum {
+ InitializeConnection = 0,
+ TerminateConnection = 1,
+ DefaultCharset = 2
+} ControlMsgType;
+
+<A NAME="IDX23"></A>typedef enum {
+ Success = 0,
+ UserException = 1,             /* occurred during operation */
+ SystemExceptionBefore = 2,     /* occurred before beginning operation */
+ SystemExceptionAfter = 3       /* occurred after beginning operation */
+} ReplyStatus;
+
+<A NAME="IDX24"></A>typedef struct {
+ Boolean cached_disc : 1;       /* True if cached object key */
+ union {
+  struct {
+   Boolean cache_key : 1;       /* True if both sides cache it */
+   unsigned key_len : 13;       /* length of key bytes */
+  } uncached_key;
+  unsigned cache_index : 14;    /* cache index if cached */
+ } v;
+} DiscriminantID;
+
+<A NAME="IDX25"></A>typedef struct {
+ Boolean cached_op : 1;         /* True if cached id */
+ union {
+  struct {
+   Boolean cache_operation : 1; /* True if should be cached */
+   unsigned method_id : 13;     /* method index */
+  } uncached_op_info;
+  unsigned cache_index : 14;    /* cache index if "cached_op" set */
+ } v;
+} OperationID;
+
+<A NAME="IDX26"></A>typedef enum {
+ MangledMessage = 0,            /* bad protocol synchronization */
+ ProcessFinished = 1,           /* sending party has `exitted' */
+ ResourceManagement = 2,        /* transient close */
+ WrongCallee = 3,               /* bad server ID received */
+ MaxSerialNumber = 4            /* the maximum serial number was used */
+} TerminationCause;
+
+<A NAME="IDX27"></A>typedef struct {
+ unsigned major : 4;     
+ unsigned minor : 4;
+} ProtocolVersion;
+
+<A NAME="IDX28"></A>typedef unsigned Unused;
+</PRE>
+<H1>
+  6. Messages
+</H1>
+<P>
+<A NAME="IDX29"></A> <A NAME="IDX30"></A> <A NAME="IDX31"></A>
+<A NAME="IDX32"></A>
+<P>
+Only a few messages are defined. The <CODE>InitializeConnection</CODE> message
+is used by the caller to verify that it has connected to the right server,
+and that it is using the correct version of the wire protocol. The
+<CODE>DefaultCharset</CODE> message allows both sides to independently define
+a default value for string charsets. The <CODE>Request</CODE> message causes
+an operation to be started on the remote server. The <CODE>Reply</CODE> message
+is sent from the server to the client to inform it of the completion status
+of the operation, and to convey any result values. The
+<CODE>TerminateConnection</CODE> message allows either side to indicate graceful
+shutdown of a connection.
+<P>
+<A NAME="IDX33"></A>
+<H2>
+  6.1. Extension Headers
+</H2>
+<P>
+This protocol uses a feature called an <DFN>extension header</DFN> to provide
+for extensibility and tailorability. Features such as serialization contexts
+or global thread identifiers may be implemented via this feature. An extension
+header is an encapsulated value of the ISL type <CODE>ExtensionHeader</CODE>.
+Each request message and reply message may contain a value of type
+<CODE>ExtensionHeaderList</CODE>, which contains a number of extension headers.
+The following ISL fragment decribes the types
+<CODE>ExtensionHeaderList</CODE> and <CODE>ExtensionHeader</CODE>:
+<A NAME="IDX35"></A> <A NAME="IDX36"></A> <A NAME="IDX34"></A>
+<PRE>
+INTERFACE HTTP-ng-w3ng IMPORTS HTTP-ng END BRAND "http-ng.w3.org";
+...
+TYPE SimpleString = STRING LANGUAGE "i-default" LIMIT 0xFFFF;
+TYPE CinfoString = STRING LANGUAGE "i-httpngcinfo" LIMIT 0xFFFF;
+TYPE ExtensionHeader = RECORD
+     name : HTTP-ng.UUIDString,
+     value : PICKLE
+END;
+TYPE ExtensionHeaderList = SEQUENCE OF ExtensionHeader;
+...
+</PRE>
+<P>
+<H2>
+  6.2. <CODE>Request</CODE> Message
+</H2>
+<P>
+<A NAME="IDX37"></A>
+<P>
+Request header (pseudo-C):
+<P>
+<A NAME="IDX38"></A>
+<PRE>
+typedef struct {
+  Boolean control_msg : 1;        /* == FALSE */
+  Boolean ext_hdr_present : 1;    /* True if ext hdr list present */
+  OperationID operation_id : 15;  /* identifies operation */
+  DiscriminantID object_key : 15; /* identifies discriminant */
+} RequestMsgHeader                /* 4 bytes total */
+</PRE>
+<P>
+The actual message consists of the following sections:
+<P>
+[ <CODE>RequestMsgHeader</CODE> ]<BR>
+[ extension header list, if any ]<BR>
+[ XDR <CODE>string</CODE> containing object type ID of object type defining
+operation, if not cached ]<BR>
+[ bytes of <VAR>object_key</VAR>, if not cached, padded to 4 byte boundary
+]<BR>
+[ explicit input parameter values, if any, padded to a 4 byte boundary ]<BR>
+<A NAME="IDX39"></A>
+<P>
+The <VAR>operation_id</VAR> contains either a connection-specific 14-bit
+cache index, or a 13-bit method id (the zero-based ordinal position of the
+method in the ISL declaration of the object type in which the operation is
+defined) of the operation. If the method id is given, an additional value,
+an XDR <CODE>string</CODE> value containing the object type ID of the object
+type in which the operation is defined, is also passed. This means that this
+protocol will not support interfaces in which object types have more than
+8192 methods directly defined. <A NAME="IDX40"></A>
+<P>
+The <VAR>object_key</VAR> is either a 14-bit connection-specific cache index,
+or the length of a variable length octet sequence of 8192 or fewer bytes
+containing the service-point-relative name for the object (the
+<VAR>instance-handle</VAR> of the URL). The object key value of <CODE>{ False,
+False, 0 }</CODE>, normally a zero byte variable length object key, is reserved
+for use by the protocol. The <VAR>object_key</VAR> is marshalled onto the
+transport as an XDR value of type <CODE>fixed-length opaque data</CODE>,
+where the length is that specified in the <CODE>v.key_len</CODE> field of
+the <VAR>object_key</VAR>.
+<P>
+<A NAME="IDX41"></A> <A NAME="IDX42"></A> <A NAME="IDX43"></A>
+<H3>
+  6.2.1 Operation and Object Memoizing
+</H3>
+<P>
+Callers may reduce the size of messages by memoizing operation IDs and object
+IDs that are passed in the connection. This is done by the caller setting
+the <CODE>cache_key</CODE> (for object IDs) or <CODE>cache_operation</CODE>
+(for operation IDs) bit in the <CODE>DiscriminantID</CODE> or
+<CODE>OperationID</CODE> struct when the object key or operation ID is first
+sent. Each side must then assign the next available index to that object
+or operation. The space of operations is separate from the space of object
+ids, so that a total of 16383 possible values is available for memoizing
+of discriminant objects, and 16383 different possible values for memoizing
+of operations.
+<P>
+Note that the index is passed implicitly, so both sides of the connection
+must synchronize their use of indices.
+<P>
+A shared set of indices may be loaded into the connection by some mechanism
+before any messages are sent. This specification does not define a mechanism
+for doing so.
+<P>
+<H2>
+  6.3. <CODE>Reply</CODE> Message
+</H2>
+<P>
+<A NAME="IDX44"></A>
+<P>
+Reply header (pseudo-C):
+<P>
+<A NAME="IDX45"></A>
+<PRE>
+typedef struct {
+  Boolean control_msg : 1;        /* == FALSE */
+  Boolean ext_hdr_present : 1;    /* True if ext hdr list present */
+  ReplyStatus : 2;
+  Unused reply_1 : 4;
+  unsigned serial_no : 24;        /* serial # from Request */
+} ReplyMsgHeader;                 /* 4 bytes total */
+</PRE>
+<P>
+The actual message consists of the following fields:
+<P>
+[ <CODE>ReplyMsgHeader</CODE> ]<BR>
+[ extension header list, if any ]<BR>
+[ exception ID (32-bit unsigned), if any ]<BR>
+[ explicit output parameter values, if any, padded to 4 byte boundary ]<BR>
+<P>
+<H2>
+  6.4. <CODE>InitializeConnection</CODE> Message
+</H2>
+<P>
+<A NAME="IDX46"></A>
+<P>
+InitializeConnection header (pseudo-C): <A NAME="IDX47"></A>
+<P>
+<PRE>
+typedef struct {
+  Boolean control_msg : 1;        /* == TRUE */
+  ControlMsgType msg_type : 3;    /* == InitializeConnection */
+  Unused verify_1 : 4;
+  ProtocolVersion version : 8;    /* what version of the protocol? */
+  unsigned server_id_len : 16;    /* length of server ID */
+} InitializeConnectionMsgHeader;
+</PRE>
+<P>
+The actual message consists of the following fields:
+<P>
+[ <CODE>InitializeConnectionMsgHeader</CODE> ]<BR>
+[ <CODE>server_id_len</CODE>-length server ID for supposed callee, padded
+to 4-byte boundary ]<BR>
+<P>
+This message is sent from caller to callee as the first message of the
+connection. It is used to pass the server ID of the connection from client
+to server, so that both sides understand what the omitted prefix portion
+of discriminant IDs is. If the server ID received by the callee is not the
+correct server ID for the callee (i.e., the callee has objects which do not
+have that prefix in their object IDs), the callee should terminate the
+connection, with the appropriate reason. The server ID is passed as an XDR
+<CODE>fixed-length opaque data</CODE> value of the length specified in
+<CODE>server_id_len</CODE>.
+<P>
+<H2>
+  6.5. <CODE>TerminateConnection</CODE> Message
+</H2>
+<P>
+<A NAME="IDX48"></A>
+<P>
+TerminateConnection header (pseudo-C):
+<P>
+<A NAME="IDX49"></A>
+<PRE>
+typedef struct {
+  Boolean control_msg : 1;        /* == TRUE */
+  ControlMsgType msg_type : 3;    /* == TerminateConnection */
+  TerminationCause cause: 4;      /* why connection terminated */
+  unsigned serial_no : 24;        /* last request processed/sent */
+} TerminateConnectionMsgHeader;
+</PRE>
+<P>
+<A NAME="IDX50"></A>
+<P>
+The actual message consists simply of the header; it provides for graceful
+connection shutdown. It is sent either from the caller to the callee, or
+from the callee to the caller, and informs the other party that it is cancelling
+the connection, for one of these reasons:
+<OL>
+  <LI>
+    A badly formatted message has arrived from the other party, and protocol
+    sychronization is believe lost, or, the caller has sent a
+    <CODE>InitializeConnection</CODE> message with the wrong major version for
+    the protocol;
+  <LI>
+    This party (process, thread, whatever) is going away, and the other party
+    should not attempt to reconnect to it;
+  <LI>
+    This connection is being terminated due to active resource management; the
+    other party should attempt to reconnect if it needs to -- this reason is
+    typically only useful from callee to caller;
+  <LI>
+    The caller has sent a <CODE>InitializeConnection</CODE> message with the
+    wrong server ID;
+  <LI>
+    The caller has used the maximum serial number available for this connection.
+</OL>
+<P>
+The <CODE>serial_no</CODE> field contains the serial number of the last message
+completely processed by the caller (when <CODE>TerminateConnection</CODE>
+is sent from caller to callee), or the serial number of the last message
+sent by the callee (when sent from callee to caller). No further messages
+should be sent on the connection by a sender of a
+<CODE>TerminateConnection</CODE> message after it has been sent, or by a
+receiver of <CODE>TerminateConnection</CODE> messsage after it has been received.
+<P>
+<H2>
+  6.6. <CODE>DefaultCharset</CODE> Message
+</H2>
+<P>
+<A NAME="IDX51"></A>
+<P>
+DefaultCharset header (pseudo-C):
+<P>
+<A NAME="IDX52"></A>
+<PRE>
+typedef struct {
+  Boolean control_msg : 1;        /* == TRUE */
+  ControlMsgType msg_type : 3;    /* == DefaultCharset */
+  Unused bits_12: 12;             /* unused */
+  unsigned charset_mibenum : 16;  /* default charset */
+} DefaultCharsetMsgHeader;
+</PRE>
+<P>
+This message is sent by either side of a connection to establish a default
+charset for subsequent messages sent by that side of the connection. The
+charset defines how string values are marshalled as octet sequences. The
+default charset defines the default marshalling, unless overridden by an
+explicit charset in a string value. Each side of the connection may establish
+a default charset independently of the other side of the connection; the
+default charset only applies to string values in messages coming from that
+side. A new value of the default charset may be established at any time by
+sending another <CODE>DefaultCharset</CODE> message.
+<P>
+<H1>
+  7. Data Marshalling
+</H1>
+<P>
+<A NAME="IDX53"></A> <A NAME="IDX54"></A> <A NAME="IDX55"></A>
+<P>
+The data value format used for parameters is the XDR format specified in
+<A HREF="http://info.internet.isi.edu:80/in-notes/rfc/files/rfc1832.txt">Internet
+RFC 1832</A>. However, we extend the XDR specification with one additional
+type, called <DFN>flagged variable-length opaque data</DFN>. It is similar
+to XDR's regular variable-length opaque data, except that the high-order
+bit of the length field is used as a flag bit, instead of being part of the
+length. This means that flagged variable-length opaque data can only carry
+opaque data of lengths less than or equal to (2**31)-1.
+<PRE>
+            0     1     2     3     4     5   ...
+         ++----+-----+-----+-----+-----+-----+...+-----+-----+...+-----+
+ flag --&gt;||       length n       |byte0|byte1|...| n-1 |  0  |...|  0  |
+  bit    ++----+-----+-----+-----+-----+-----+...+-----+-----+...+-----+
+         ||&lt;------31 bits-------&gt;|&lt;------n bytes------&gt;|&lt;---r bytes---&gt;|
+                                 |&lt;----n+r (where (n+r) mod 4 = 0)----&gt;|
+                                          FLAGGED VARIABLE-LENGTH OPAQUE
+</PRE>
+<P>
+<H2>
+  7.1. Boolean Type
+</H2>
+<P>
+<A NAME="IDX56"></A>
+<P>
+Values of type <CODE>BOOLEAN</CODE> are passed as XDR <CODE>bool</CODE>.
+<A NAME="IDX57"></A>
+<P>
+<H2>
+  7.2. Enumeration Types
+</H2>
+<P>
+Values of enumeration types are passed as XDR <CODE>enum</CODE>. Each enumeration
+value is assigned its ordinal value as it appears in the declaration of the
+enumeration type, starting with the value `one'. <A NAME="IDX58"></A>
+<P>
+<H2>
+  7.3. Numeric Types
+</H2>
+<P>
+<A NAME="IDX59"></A> <A NAME="IDX60"></A>
+<H3>
+  7.3.1. Fixed-point Types
+</H3>
+<P>
+Values of fixed-point types are passed by passing the value of the numerator.
+We define a number of special cases for efficient marshalling of common integer
+types, as well as a general case for passing values of fixed-point types
+that are not covered by the special cases.
+<P>
+Special cases:<BR>
+<UL>
+  <LI>
+    <B>32-bit integer</B>: Fixed-point values with a minimum-numerator value
+    greater than or equal to -2147483648 and with a minimum numerator value less
+    than or equal to 2147483647 are passed as XDR <CODE>integer</CODE>.
+  <LI>
+    <B>32-bit unsigned integer</B>: Fixed-point values with a minimum-numerator
+    value greater than or equal to 0 and with a maximum numerator less than or
+    equal to 4294967295 are passed as XDR <CODE>unsigned integer</CODE>.
+  <LI>
+    <B>64-bit integer</B>: Fixed-point values with a with a minimum numerator
+    value greater than or equal to -9223372036854775808 and with a maximum numerator
+    less than or equal to 9223372036854775807are passed as XDR <CODE>hyper
+    integer</CODE>.
+  <LI>
+    <B>64-bit unsigned integer</B>: Fixed-point values with a minimum-numerator
+    value greater than or equal to 0 and with a maximum numerator value less
+    than or equal to 18446744073709551615 are passed as XDR <CODE>unsigned hyper
+    integer</CODE>.
+</UL>
+<P>
+General case:
+<P>
+The numerator of the value is passed as XDR <CODE>flagged variable-length
+opaque data</CODE>, with the bytes of the data containing the value expressed
+as a base-256 number, in big-endian order; that is, with the most significant
+digit of the value first. The flag bit is used to carry the sign; the flag
+bit is 0 for a positive number or zero, and 1 for a negative number.
+<P>
+<H3>
+  7.3.2. Floating-point Types
+</H3>
+<P>
+We define a number of special cases for efficient marshalling of common
+floating-point types, as well as a general case for passing values of
+floating-point types that are not covered by the special cases.
+<P>
+Special cases:<BR>
+<UL>
+  <LI>
+    <B>IEEE single</B>: floating point types matching the IEEE 32-bit floating-point
+    format (that is, with the parameters significand-size=24, exponent-base=2,
+    maximum-exponent-value=127, minimum-exponent-value=-126, has-Not-A-Number=TRUE,
+    has-Infinity=TRUE, denormalized-value-allowed=TRUE, and has-signed-zero=TRUE)
+    are passed as XDR <CODE>floating-point</CODE>.
+  <LI>
+    <B>IEEE double</B>: floating point types matching the IEEE 64-bit floating-point
+    format (that is, with the parameters significand-size=53, exponent-base=2,
+    maximum-exponent-value=1023, minimum-exponent-value=-1022, has-Not-A-Number=TRUE,
+    has-Infinity=TRUE, denormalized-value-allowed=TRUE, and has-signed-zero=TRUE)
+    are passed as XDR <CODE>double-precision floating-point</CODE>.
+  <LI>
+    <B>Intel extended double</B>: floating point types matching the Intel IEEE
+    floating-point-compliant extended double floating-point format (that is,
+    with the parameters significand-size=64, exponent-base=2,
+    maximum-exponent-value=16383, minimum-exponent-value=--16382,
+    has-Not-A-Number=TRUE, has-Infinity=TRUE, denormalized-value-allowed=TRUE,
+    and has-signed-zero=TRUE), are passed as a 12-byte value of XDR
+    <CODE>fixed-length opaque data</CODE>, containing the floating-point value
+    in the format specified in the UNIX System V Application Binary Interface
+    Intel 386 Processor Supplement (Intel ABI) document: the 63 bits of the fraction
+    occupy the first 7 bytes in little-endian order plus the low seven bits of
+    the eighth byte; the 1 bit explicit leading significand bit occupies the
+    high-order bit of the eighth byte; the 15 bits of the exponent occupy the
+    ninth byte and the low-order bits of the tenth byte, in little-endian order;
+    the sign bit occupies the high-order bit of the tenth byte; the eleventh
+    and twelfth bytes are unused, and should contain zero values.
+  <LI>
+    <B>SPARC &amp; PowerPC extended double</B>: floating point types matching
+    the XDR quadruple-precision floating-point format (that is, with the parameters
+    significand-size=113, exponent-base=2, maximum-exponent-value=16383,
+    minimum-exponent-value=-16382, has-Not-A-Number=TRUE, has-Infinity=TRUE,
+    denormalized-value-allowed=TRUE, and has-signed-zero=TRUE), which is the
+    form of extended double floating-point used by PowerPC and SPARC processors,
+    are passed as XDR <CODE>quadruple-precision floating-point</CODE>.
+</UL>
+<P>
+General case:
+<P>
+Values of floating-point types not matching the special cases identified
+above are passed as a value of the XDR struct type
+<CODE>GeneralFloatingPointValue</CODE>, which has the following definition:
+<A NAME="IDX62"></A> <A NAME="IDX63"></A> <A NAME="IDX61"></A>
+<PRE>
+/* XDR */
+enum { Normal = 1, NotANumber = 2, Infinity = 3 } FloatingPointValueType;
+struct {
+  flagged opaque FixedPointSignAndSignificand&lt;&gt;;
+  flagged opaque FixedPointExponent&lt;&gt;;
+} NormalFloatingPointValue;
+union switch (FloatingPointValueType disc) {
+  case Normal: NormalFloatingPointValue value;
+  case NotANumber: void;
+  case Infinity: void;
+} GeneralFloatingPointValue;
+</PRE>
+<P>
+The two fields of the <CODE>NormalFloatingPointValue</CODE> struct each contain
+an on-the-wire representation of a fixed-point value of the fixed-point type
+(denominator=1, no-mininum-numerator, no-maximum-numerator). The
+<CODE>FixedPointSignAndSignificand</CODE> field contains the sign of the
+floating-point value as the sign, and the actual significand as the absolute
+value of the fixed-point value. The <CODE>FixedPointExponent</CODE> field
+contains the exponent of the floating-point value.
+<P>
+<H2>
+  7.4. String Types
+</H2>
+<P>
+<A NAME="IDX64"></A>
+<P>
+Each string value sent in this protocol has a <DFN>charset</DFN> [RFC 2278]
+associated with it, identified by the charset's IANA-assigned MIBEnum value.
+Each side of a session may establish a <DFN>default charset</DFN> by sending
+the <CODE>DefaultCharset</CODE> message. String values that use the default
+character set do not contain explicit charset information; string values
+that use a charset other than the default charset contain the MIBEnum value
+for the charset, along with the bytes of the string.
+<P>
+We send a string value as a value of XDR <CODE>flagged variable-length opaque
+data</CODE>. If the flag bit is 1, the first two bytes of the string value
+are the MIBEnum of the charset, high-order byte first; the remaining bytes
+are the bytes of the string. If the flag bit is 0, the bytes of opaque data
+simply contain the bytes of the string; the charset is the default charset
+for the session. It is a marshalling error to send a string value with a
+flag bit of 0 over a session for which no default charset has been established.
+To avoid context-sensitivity in marshalling a string, it is always valid
+to marshal a string with an explicit charset value, even if the charset value
+is the same as the default charset for the session. When marshalling a string
+into a pickle, the charset should always be explicitly included.
+<P>
+<H2>
+  7.5. Sequence Types
+</H2>
+<P>
+<A NAME="IDX65"></A> <A NAME="IDX66"></A>
+<P>
+Values of sequence types are passed as XDR <CODE>variable-length arrays</CODE>,
+with one exception: Sequences of any fixed-point type with a minimum numerator
+greater than or equal to 0, and a maximum numerator less than or equal to
+255, are passed as XDR <CODE>variable-length opaque data</CODE>, with one
+numerator value per octet.
+<P>
+<H2>
+  7.6. Array Types
+</H2>
+<P>
+<A NAME="IDX67"></A> <A NAME="IDX68"></A>
+<P>
+Values of array types are passed as XDR <CODE>fixed-length arrays</CODE>,
+with one exception: Arrays of any fixed-point type with a minimum numerator
+greater than or equal to 0, and a maximum numerator less than or equal to
+255, are passed as XDR <CODE>fixed-length opaque data</CODE>, with one numerator
+value per octet. Values of array types are passed as XDR <CODE>fixed-length
+arrays</CODE>, with one exception:
+<P>
+<H2>
+  7.7. Record Types
+</H2>
+<P>
+<A NAME="IDX69"></A>
+<P>
+Values of record types are passed as XDR <CODE>struct</CODE>.
+<P>
+<H2>
+  7.8. Union Types
+</H2>
+<P>
+<A NAME="IDX70"></A>
+<P>
+Values of union types are passed as XDR <CODE>union</CODE>, with the union
+discriminant being the zero-based ordinal value for the encapsulated value's
+type.
+<P>
+<H2>
+  7.9. Pickle Type
+</H2>
+<P>
+<A NAME="IDX71"></A>
+<P>
+A pickle is passed as an XDR <CODE>variable-length opaque data</CODE>, containing
+the type ID of the pickled value's type, followed by the XDR-marshalled pickled
+value. To save pickle space for common value types used in metadata, we define
+a packed format for the type ID marshalling. A type ID is marshalled into
+a pickle as a 32-bit header, in an XDR <CODE>unsigned integer</CODE>, possibly
+followed by an XDR <CODE>fixed-length opaque data</CODE>, containing the
+string form of the type ID of the pickled type. The header has the following
+internal structure:
+<PRE>
+/* Pseudo-C */
+typedef struct {
+  unsigned              version : 8;
+  PickleTypeKind        type_kind : 8;
+  unsigned              type_id_len : 16;
+} TypeIDHeader;
+</PRE>
+<P>
+The <CODE>version</CODE> field gives the version number of the pickle format;
+the <CODE>type_kind</CODE> field contains a value from the enum
+<PRE>
+/* Pseudo-C */
+typedef enum {
+  TypeKind_unconstrained = 0,   /* anything not covered by other type kinds... */
+  TypeKind_boolean = 1, /* BOOLEAN */
+  TypeKind_s8 = 2,	/* FIXED-POINT DENOM=1 MIN-NUM=-128 MAX-NUM=127 */
+  TypeKind_s16 = 3,	/* FIXED-POINT DENOM=1 MIN-NUM=-32768 MAX-NUM=32767 */
+  TypeKind_s32 = 4,     /* FIXED-POINT DENOM=1 MIN-NUM=-2147483648 MAX-NUM=2147483647 */
+  TypeKind_s64 = 5,	/* FIXED-POINT DENOM=1 MIN-NUM=-9223372036854775808
+			   MAX-NUM=9223372036854775807 */
+  TypeKind_u8 = 6,      /* FIXED-POINT DENOM=1 MIN-NUM=0 MAX-NUM=255 */
+  TypeKind_u16 = 7,	/* FIXED-POINT DENOM=1 MIN-NUM=0 MAX-NUM=65535 */
+  TypeKind_u32 = 8,	/* FIXED-POINT DENOM=1 MIN-NUM=0 MAX-NUM=4294967296 */
+  TypeKind_u64 = 9,	/* FIXED-POINT DENOM=1 MIN-NUM=0 MAX-NUM=18446744073709551616 */
+  TypeKind_ieee_float32 = 10,   /* FLOATING-POINT SIGNIFICAND-SIZE=24 EXPONENT-BASE=2
+				   MAXIMUM-EXPONENT-VALUE=127 MINIMUM-EXPONENT-VALUE=-126
+				   HAS-NOT-A-NUMBER=TRUE HAS-INFINITY=TRUE
+				   DENORMALIZED-VALUE-ALLOWED=TRUE HAS-SIGNED-ZERO=TRUE */
+  TypeKind_ieee_float64 = 11,   /* FLOATING-POINT SIGNIFICAND-SIZE=53 EXPONENT-BASE=2
+                                   MAXIMUM-EXPONENT-VALUE=1023 MINIMUM-EXPONENT-VALUE=-1022,
+                                   HAS-NOT-A-NUMBER=TRUE HAS-INFINITY=TRUE
+                                   DENORMALIZED-VALUE-ALLOWED=TRUE HAS-SIGNED-ZERO=TRUE */
+  TypeKind_i_default_str = 12,  /* STRING LANGUAGE="i-default" */
+  TypeKind_object = 13,         /* local or remote object */
+  ...
+  /* other types like Date, etc, should be added here... */
+  ...
+} PickleTypeKind;
+</PRE>
+<P>
+If the value of <CODE>type_kind</CODE> is
+<CODE>TypeKind_unconstrained</CODE>, the value of <CODE>type_kind_len</CODE>
+is the length of a value of XDR type <CODE>fixed-length opaque data</CODE>,
+containing the full string type ID of the type, which immediately follows
+the header. Otherwise, no <CODE>opaque data</CODE> is marshalled.
+<P>
+For the purposes of marshalling, pickles have no default charset; this means
+that strings marshalled into a pickle should always contain an explicit charset.
+Pickles should be considered a single "message" for the purposes of marshalling
+aliased reference types.
+<P>
+<H2>
+  7.10. Reference Types
+</H2>
+<P>
+<H3>
+  7.10.1. Optional Types
+</H3>
+<P>
+<A NAME="IDX72"></A>
+<P>
+Optional types are passed as XDR <CODE>optional-data</CODE>.
+<P>
+<H3>
+  7.10.2. Aliased Types
+</H3>
+<P>
+<A NAME="IDX73"></A>
+<P>
+The scope of aliasing in this protocol is the message, as in Java RMI, rather
+than the call, as in DCE RPC. That is, aliasing occurs only within the context
+of a single invocation or result, rather than across a full invocation-result
+pair. For the purposes of marshalling, a pickle scope should be considered
+a single message scope.
+<P>
+Each unique value of an aliased type that is marshalled is assigned a 32-bit
+unsigned integer value, unique in the scope of aliasing, called its
+<DFN>aliased identifier</DFN>. This identifier is marshalled as an XDR
+<CODE>unsigned integer</CODE>. If the aliased value has not previously been
+sent in this scope, its value is then marshalled as a value of its base type
+would be. Note that this means that the full value of every aliased type
+is sent only once in a scope; subsequent occurrences send only the aliased
+identifier.
+<P>
+[ XXX - how to handle overflow of aliased value cache? ]
+<P>
+<H2>
+  7.11. Object Types
+</H2>
+<P>
+<A NAME="IDX74"></A>
+<P>
+An instance of an object type is passed as the state of the object type,
+which also contains information about the actual type of the value. For remote
+object types, this state is followed by the object identifier, and optionally
+information about how the instance may be contacted.
+<P>
+<H3>
+  7.11.1. Parameter Type Versus Actual Type
+</H3>
+<P>
+<A NAME="IDX75"></A>
+<P>
+When marshalling the state of an object, it's important to distinguish two
+important types of the value: the <DFN>parameter type</DFN>, which is the
+type that both sides of the session expect the value to have, and the
+<DFN>actual type</DFN> of the value, which is the most-derived type of the
+object, and may be a subtype of the parameter type. If the actual type is
+different from the parameter type, extra information must be passed along
+with the value to allow the receiver to properly distinguish the type and
+its associated data. However, if the actual type is the same as the parameter
+type, some of this information can be omitted.
+<P>
+<H3>
+  7.11.2. Passing the Actual Type ID
+</H3>
+<P>
+We pass the state of the object type as the type ID of the most-derived-type
+of the object, followed by the state attributes of each type of the object.
+The type ID is passed as one of three values, depending on the following
+conditions:<BR>
+<OL>
+  <LI>
+    If the parameter type of the object is sealed, both sides already know the
+    most-derived-type ID of the instance, and know that the actual type must
+    be the same as the parameter type. In this case, the type ID is passed as
+    XDR <CODE>void</CODE>.
+  <LI>
+    If the actual type of the object is the same as the parameter type, this
+    is indicated by passing a zero-length value of XDR <CODE>variable-length
+    opaque data</CODE>.
+  <LI>
+    Otherwise, the type ID is passed as a value of XDR <CODE>variable-length
+    opaque data</CODE> containing the type ID.
+</OL>
+<P>
+<H3>
+  7.11.3. Passing the State Attributes
+</H3>
+<P>
+The state attributes are marshalled in one of two ways:<BR>
+<OL>
+  <LI>
+    If the actual type of the instance is the same as the parameter type, the
+    state of each of the types of the object are passed by walking the supertype
+    inheritance tree of the instance in a depth-first order, passing the value
+    of each attribute of any particular state in the order in which they are
+    defined, as if each state formed an XDR <CODE>structure</CODE> with the
+    attributes as the components of the structure. The value of each attribute
+    is marshalled directly according to the type of the attribute.
+  <LI>
+    If the actual type of the instance is a subtype of the parameter type, the
+    receiver has to be able to handle state for types it has no knowledge of.
+    To allow for this, the state of each type is passed as an encapsulation.
+    That is, the state of the instance is passed as a sequence of XDR
+    <CODE>structure</CODE> values, each containing the state for one of the types
+    of the instance. Types of the instance which have no associated state do
+    not appear in this sequence. An XDR expression of the sequence would be the
+    following: <A NAME="IDX77"></A> <A NAME="IDX76"></A>
+    <PRE>
+/* XDR */
+struct {
+  opaque type_id&lt;0xFFFF&gt;;
+  opaque state&lt;&gt;;
+} TypeState;
+typedef TypeState StateSequence&lt;&gt;;
+</PRE>
+    <P>
+    The <I>type_id</I> field contains the type ID for that type of the the object
+    value. The variable-length opaque data field <I>state</I> contains the values
+    of the attributes of the state marshalled as an XDR <CODE>structure</CODE>,
+    where the components of the structure are the attributes of the state.
+</OL>
+<P>
+<H3>
+  7.11.4. Passing the Object ID and Contact Info
+</H3>
+<P>
+<A NAME="IDX78"></A> <A NAME="IDX79"></A> <A NAME="IDX80"></A>
+<A NAME="IDX81"></A> <A NAME="IDX82"></A>
+<P>
+In the case of a remote object type, the server ID, instance handle and contact
+info for the value are passed as a value of the following XDR structure type
+<CODE>RemoteObjectInfo</CODE>:
+<PRE>
+/* XDR */
+typedef string ContactInfo&lt;0xFFFF&gt;;
+struct {
+  opaque server_id&lt;&gt;;
+  opaque instance_handle&lt;&gt;;
+  ContactInfo cinfos&lt;&gt;;
+} RemoteObjectInfo;
+</PRE>
+<P>
+where <I>server_id</I> is a identifier for the server which supports the
+desired object, and <I>instance_handle</I> is a server-relative name for
+the object. The <I>cinfos</I> field contains zero or more pieces of information
+about the way in which the object needs to be contacted, including information
+such as whether various transport layers are involved.
+<P>
+<A NAME="IDX83"></A>
+<H1>
+  8. System Exceptions
+</H1>
+<P>
+<A NAME="IDX84"></A>
+<P>
+<H2>
+  8.1. <CODE>UnknownProblem</CODE>
+</H2>
+<P>
+Exception Code: 0<BR>
+ISL Values: None
+<P>
+An unknown problem occurred. <A NAME="IDX85"></A>
+<P>
+<H2>
+  8.2. <CODE>ImplementationLimit</CODE>
+</H2>
+<P>
+Exception Code: 1<BR>
+ISL Values: None
+<P>
+The request could not be properly addressed because of some implementation
+resource limit on the callee side. <A NAME="IDX86"></A>
+<H2>
+  8.3. <CODE>SwitchConnectionCinfo</CODE>
+</H2>
+<P>
+Exception Code: 2<BR>
+ISL Values: <VAR>NEW-CINFO</VAR> : <CODE>HTTP-ng-w3ng.CinfoString</CODE>
+<P>
+This exception requests the caller to upgrade the connection protocol and
+transport information to the cinfo specified as the argument, and re-try
+the call. This is the equivalent of the <CODE>UPGRADE</CODE> message in HTTP
+1.1, and the <CODE>RELOCATE_REPLY</CODE> message in CORBA GIOP.
+<A NAME="IDX87"></A>
+<H2>
+  8.4. <CODE>Marshal</CODE>
+</H2>
+<P>
+Exception Code: 3<BR>
+ISL Values: None
+<P>
+A marshalling problem was encountered. <A NAME="IDX88"></A>
+<H2>
+  8.5. <CODE>NoSuchObjectType</CODE>
+</H2>
+<P>
+Exception Code: 4<BR>
+ISL Values: None
+<P>
+The object type of the operation was unknown at the server.
+<A NAME="IDX89"></A>
+<H2>
+  8.6. <CODE>NoSuchMethod</CODE>
+</H2>
+<P>
+Exception Code: 5<BR>
+ISL Values: None
+<P>
+The object type of the operation was known at the server, but did not contain
+the indicated method. <A NAME="IDX90"></A>
+<H2>
+  8.7. <CODE>NoSuchObject</CODE>
+</H2>
+<P>
+Exception Code: 6<BR>
+ISL Values: None
+<P>
+The specified discriminant object was not available at the server.
+<A NAME="IDX91"></A>
+<H2>
+  8.8. <CODE>InvalidType</CODE>
+</H2>
+<P>
+Exception Code: 7<BR>
+ISL Values: None
+<P>
+The object specified by the discriminant did not participate in the type
+specified in the operation. <A NAME="IDX92"></A>
+<H2>
+  8.9. <CODE>Rejected</CODE>
+</H2>
+<P>
+Exception Code: 8<BR>
+ISL Values: <VAR>REASON</VAR> : <CODE>OPTIONAL SimpleString</CODE>
+<P>
+The server refused to process the request. It may return a string giving
+a reason for the rejection.
+<P>
+<H2>
+  8.10. <CODE>OperationOrDiscriminantCacheOverflow</CODE>
+</H2>
+<P>
+Exception Code: 9<BR>
+ISL Values: None
+<P>
+The request caused the receiver's cache of operations or discriminants to
+overflow. The sender may retry the request with uncached operation and
+discriminant values; subsequent requests should not cache any additional
+operation or discriminant values, but may continue to use previously successfully
+cached values.
+<P>
+<H1>
+  9. Discussion
+</H1>
+<P>
+<A NAME="IDX93"></A>
+<P>
+<H2>
+  9.1. Serial Numbers
+</H2>
+<P>
+Does this protocol need to assign serial numbers to requests and replies?
+We do so in order to be able to cancel operations by serial number, and to
+be able to return reply messages out of order. The first problem, that of
+cancelling operations, could be dealt with by keeping track of serial numbers
+implicitly, and using an explicit serial number only in the
+<CODE>CancelRequest</CODE> message. Doing this would imply that the replies
+would have to be returned in the order in which the requests were passed,
+but would allow us to have 6 byte request messages (4 bytes if we count the
+discriminant as part of the arguments, instead of part of the header), and
+4 byte reply messages. Thus the only real purpose for serial numbers is to
+allow replies to be returned out of order (and possibly to make debugging
+the protocol easier). There are other deeper unanswered questions here about
+the serialization semantics of the protocol. For instance, should the callee
+wait until dispatching a reply to one request until beginning to process
+the next one?
+<P>
+The current answer to these questions is that it is highly useful to allow
+a threaded callee to process multiple requests in parallel, and to allow
+it to return requests out of order. Thus serial numbers are useful. We assume
+that higher-level protocols desiring serialization will provide a serialization
+context as part of the context of the call, and that serialization will be
+handled at either a higher or lower level.
+<P>
+<A NAME="IDX94"></A>
+<H2>
+  9.2. Memoizing of PICKLE and Object Types?
+</H2>
+<P>
+A great deal of the traffic over this protocol may consist of values of type
+PICKLE (the equivalent of object-by-value, or of HTTP's MIME-encapsulated
+body type) or of some object type. It is tempting to introduce a form of
+memoizing for these value types, similar to that used for request discriminants.
+There are two reasons not to do so:
+<OL>
+  <LI>
+    XDR provides no explicit support for memoizing, which means that we would
+    have to provide a marshalling format for these types which has no clean layering
+    onto XDR. For instance, it might be possible to pass an object value as an
+    XDR 32-bit unsigned integer with the following (private) pseudo-C structure
+    <PRE>
+struct {
+  boolean   use_cached_value : 1;
+  boolean   cache_this_value : 1;
+  union {
+    unsigned int url_len : 30;
+    unsigned int cache_key : 30;
+  } v;
+};
+</PRE>
+    <P>
+    either by itself (if <CODE>use_cached_value</CODE> is set), or followed by
+    an XDR fixed length opaque value containing the URL for the object (if
+    <CODE>use_cached_value</CODE> is not set). This type of variable structure
+    has no equivalent in XDR. On the other hand, it could well be argued that
+    since we are marshalling an object type, something not explicitly covered
+    by XDR, that we are simply providing an extension to XDR, in the spirit of
+    the marshalling. We could even use a simpler construct, such as XDR union.
+  <LI>
+    A more powerful argument is that allowing arbitrary memoizing of large items
+    can let the caller place almost arbitrary loads on the storage requirements
+    of the callee. It could be argued that the callee can reset the connection
+    at any time if the load becomes too onerous via
+    <CODE>TerminateConnection</CODE>.
+</OL>
+<P>
+Neither of these arguments seems overwhelmingly powerful.
+<P>
+<H2>
+  9.3. URL Forms
+</H2>
+<P>
+Open issues:
+<UL>
+  <LI>
+    We need to specify a default object type (and default <VAR>CINFO</VAR>?).
+  <LI>
+    The exact format of <VAR>TYPEID</VAR> values and <VAR>CINFO</VAR> stacks
+    must also be specified.
+  <LI>
+    The form of <VAR>SERVER-ID</VAR> should also be defined to allow slash characters
+    internally.
+  <LI>
+    Should <VAR>SERVER-ID</VAR> be stylized in a way which makes it easy to use
+    with DNS?
+  <LI>
+    How should HTTP URLs be integrated into this, if at all?
+  <LI>
+    Should we have multiple URL forms, with some information about the cinfo
+    being integrated into some of the forms? For example, Henrik has suggested
+    that a URL of the form
+    <CODE>http-ng://foo.bar.com/<VAR>object-id</VAR></CODE> might be used to
+    indicate that object <VAR>object-id</VAR> is available at
+    <CODE>foo.bar.com</CODE>, and that the client should use some protocol
+    negotiation protocol to work out the exact shape of the cinfo.
+</UL>
+<P>
+<A NAME="IDX95"></A>
+<P>
+Proposed: URLs for HTTP-ng objects will be of the form
+<PRE>
+w3ng:<VAR>SERVER-ID</VAR>/<VAR>INSTANCE-HANDLE</VAR>[;type=<VAR>TYPE</VAR>][;cinfo=<VAR>CINFO</VAR>]
+</PRE>
+<P>
+where <VAR>SERVER-ID</VAR> is a identifier for the server which supports
+the desired object; <VAR>INSTANCE-HANDLE</VAR> is a server-relative name
+for the object; <VAR>TYPE</VAR> is the type ID for the most derived type
+of the object; and <VAR>CINFO</VAR> is information about the way in which
+the object needs to be contacted, including information such as whether various
+transport layers are involved. This form has the virtue of becoming a URN
+if the optional <VAR>CINFO</VAR> and <VAR>TYPE</VAR> fields are omitted.
+<P>
+<H2>
+  9.4. Current syntax of Cinfo strings
+</H2>
+<P>
+The syntax of cinfo currently follows the ILU definition. Each cinfo string
+has the form described below (where brackets indicate optionality, an
+&lt;ALPHANUMERIC-ID&gt; is an identifier composed of ASCII lowercase alphabetic
+and numeric characters, beginning with a lowercase alphabetic character,
+and a &lt;NON-UNDERSCORE-STRING&gt; is any string of ASCII characters not
+containing the underscore character '_'):
+<P>
+<PRE>
+&lt;cinfo&gt; := &lt;pinfo&gt; '@' &lt;tinfo-stack&gt;
+
+&lt;pinfo&gt; := &lt;scheme&gt; [ '_' &lt;parms&gt; ]
+
+&lt;scheme&gt; := &lt;ALPHANUMERIC-ID&gt;
+
+&lt;parms&gt; := &lt;parm&gt; [ '_' &lt;parms&gt; ]
+
+&lt;parm&gt; := &lt;NON-UNDERSCORE-STRING&gt; 
+
+&lt;tinfo-stack&gt; := &lt;tinfo&gt; [ '=' &lt;tinfo-stack&gt; ]
+
+&lt;tinfo&gt; := &lt;scheme&gt; [ '_' &lt;parms&gt; ]
+</PRE>
+<P>
+<H3>
+  9.4.1. Syntax of <CODE>w3ng</CODE> Pinfo
+</H3>
+<P>
+The current syntax of the pinfo string for the ILU implementation of the
+<CODE>w3ng</CODE> wire protocol is
+<P>
+<PRE>
+&lt;scheme&gt; := 'w3ng'
+
+&lt;parms&gt; := &lt;major-version&gt; [ '.' &lt;minor-version&gt; ]
+</PRE>
+<P>
+where <CODE>&lt;major-version&gt;</CODE> and
+<CODE>&lt;minor-version&gt;</CODE> are numbers between 0 and 15. If the
+<CODE>&lt;minor-version&gt;</CODE> is not specified, it defaults to 0.
+<P>
+<H3>
+  9.4.2. Syntax of <CODE>w3mux</CODE> Tinfo
+</H3>
+<P>
+The current syntax of the tinfo string for the ILU implementation of the
+<CODE>w3mux</CODE> transport layer is
+<P>
+<PRE>
+&lt;scheme&gt; := 'w3mux'
+
+&lt;parms&gt; := &lt;channel&gt; '_' &lt;endpoint&gt;
+</PRE>
+<P>
+where <CODE>&lt;channel&gt;</CODE> is a protocol ID number [MUX], and
+<CODE>&lt;endpoint&gt;</CODE> is a UUID string for an endpoint. The size
+of the <CODE>&lt;endpoint&gt;</CODE> string must be less than 1000 bytes.
+<P>
+<H3>
+  9.4.3. Syntax of <CODE>tcp</CODE> Tinfo
+</H3>
+<P>
+The current syntax of the tinfo string for the ILU implementation of the
+<CODE>tcp</CODE> transport layer is
+<P>
+<PRE>
+&lt;scheme&gt; := 'tcp'
+
+&lt;parms&gt; := &lt;host&gt; '_' &lt;port&gt;
+</PRE>
+<P>
+where <CODE>&lt;host&gt;</CODE> is string of less than 1000 bytes indicating
+the IP address or hostname of the remote machine, and
+<CODE>&lt;port&gt;</CODE> is the TCP port on which the host is listening.
+<P>
+<H3>
+  9.4.4. Syntax of <CODE>sunrpcrm</CODE> Tinfo
+</H3>
+<P>
+The current syntax of the tinfo string for the ILU implementation of the
+<CODE>sunrpcrm</CODE> transport layer is
+<P>
+<PRE>
+&lt;scheme&gt; := 'sunrpcrm'
+</PRE>
+<P>
+No parameters are defined. This layer implements the ONC RPC record-marking
+scheme on top of a reliable byte stream, as defined in section 10 of the
+ONC RPC RFC [ONC RPC].
+<P>
+<H1>
+  10. References
+</H1>
+<P>
+RFC 2278:
+<A HREF="http://info.internet.isi.edu:80/in-notes/rfc/files/rfc2278.txt">http://info.internet.isi.edu:80/in-notes/rfc/files/rfc2278.txt</A>
+<P>
+XDR [RFC 1832]:
+<A HREF="http://info.internet.isi.edu:80/in-notes/rfc/files/rfc1832.txt">http://info.internet.isi.edu:80/in-notes/rfc/files/rfc1832.txt</A>
+<P>
+ONC RPC [RFC 1831]:
+<A HREF="http://info.internet.isi.edu:80/in-notes/rfc/files/rfc1831.txt">http://info.internet.isi.edu:80/in-notes/rfc/files/rfc1831.txt</A>
+<P>
+ISL:
+<A HREF="ftp://ftp.parc.xerox.com/pub/ilu/2.0a12/manual-html/manual_2.html">ftp://ftp.parc.xerox.com/pub/ilu/2.0a12/manual-html/manual_2.html</A>
+<P>
+WD-HTTP-NG-arch-model (work in progress):
+<A HREF="http://www.w3.org/TR/1998/WD-HTTP-NG-architecture">http://www.w3.org/TR/1998/WD-HTTP-NG-architecture</A>
+<P>
+MUX (work in progress):
+<A HREF="http://www.w3.org/TR/1998/WD-mux-971203">http://www.w3.org/TR/1998/WD-mux</A>
+<P>
+ILU:
+<A HREF="ftp://ftp.parc.xerox.com/pub/ilu/2.0a12/manual-html/manual_2.html">ftp://ftp.parc.xerox.com/pub/ilu/2.0a12/manual-html/manual_2.html</A>
+<H1>
+  11. Address of Author
+</H1>
+<P>
+<A NAME="IDX96"></A>
+<P>
+Bill Janssen<BR>
+Xerox Palo Alto Research Center<BR>
+3333 Coyote Hill Rd<BR>
+Palo Alto, CA 94304<BR>
+<P>
+Phone: (650) 812-4763<BR>
+FAX: (650) 812-4777<BR>
+Email: janssen@parc.xerox.com<BR>
+HTTP: http://www.parc.xerox.com/istl/members/janssen/<BR>
+<H1>
+  Index
+</H1>
+<UL>
+  <LI>
+    <H2>
+      a
+    </H2>
+  <LI>
+    <A HREF="wire-encoding.html#IDX73">aliased types, marshalling of</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX17">alignment</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX68">array of byte, marshalling of</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX67">array types, marshalling of</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX96">author</A>
+    <H2>
+      b
+    </H2>
+  <LI>
+    <A HREF="wire-encoding.html#IDX15">big-endian</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX56"><CODE>BOOLEAN</CODE></A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX21"><CODE>Boolean</CODE> (pseudo-C enum
+    type)</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX57">boolean type, marshalling of</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX14">byte order</A>
+    <H2>
+      c
+    </H2>
+  <LI>
+    <A HREF="wire-encoding.html#IDX80">cinfo, marshalling of</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX3">connection, definition of</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX81">contact info, marshalling of</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX22"><CODE>ControlMsgType</CODE> (pseudo-C
+    enum type)</A>
+    <H2>
+      d
+    </H2>
+  <LI>
+    <A HREF="wire-encoding.html#IDX52"><CODE>DefaultCharsetMsgHeader</CODE> (pseudo-C
+    struct type)</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX42">discriminant object ID memoizing</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX40">discriminant, identification of</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX24"><CODE>DiscriminantID</CODE> (pseudo-C
+    struct type)</A>
+    <H2>
+      e
+    </H2>
+  <LI>
+    <A HREF="wire-encoding.html#IDX58">enumeration types, marshalling of</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX33">extension headers</A>
+    <H2>
+      f
+    </H2>
+  <LI>
+    <A HREF="wire-encoding.html#IDX60">fixed-point types, marshalling of</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX55">flagged variable-length opaque data (XDR
+    type)</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX62"><CODE>FloatingPointValueType</CODE> (XDR
+    type)</A>
+    <H2>
+      g
+    </H2>
+  <LI>
+    <A HREF="wire-encoding.html#IDX61"><CODE>GeneralFloatingPointValue</CODE>
+    (XDR type)</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX50">graceful connection shutdown</A>
+    <H2>
+      h
+    </H2>
+  <LI>
+    <A HREF="wire-encoding.html#IDX35"><CODE>HTTP-ng-w3ng.ExtensionHeader</CODE>
+    (ISL type)</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX34"><CODE>HTTP-ng-w3ng.ExtensionHeaderList</CODE>
+    (ISL type)</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX36"><CODE>HTTP-ng-w3ng.SimpleString</CODE>
+    (ISL type)</A>
+    <H2>
+      i
+    </H2>
+  <LI>
+    <A HREF="wire-encoding.html#IDX85"><CODE>ImplementationLimit</CODE> (system
+    exception)</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX46"><CODE>InitializeConnection</CODE>
+    message</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX47"><CODE>InitializeConnectionMsgHeader</CODE>
+    (pseudo-C struct type)</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX8">instance handle</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX78">instance handle, marshalling of</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX59">integer types, marshalling of</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX5">interface</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX91"><CODE>InvalidType</CODE> (system
+    exception)</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX53">ISL-&gt;XDR mapping</A>
+    <H2>
+      m
+    </H2>
+  <LI>
+    <A HREF="wire-encoding.html#IDX87"><CODE>Marshal</CODE> (system exception)</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX54">marshalling of data</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX43">memoizing</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX94">memoizing of pickle and object types</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX13">message-oriented transport</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX29">messages, description of</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX4">model of operation</A>
+    <H2>
+      n
+    </H2>
+  <LI>
+    <A HREF="wire-encoding.html#IDX63"><CODE>NormalFloatingPointValue</CODE>
+    (XDR type)</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX89"><CODE>NoSuchMethod</CODE> (system
+    exception)</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX90"><CODE>NoSuchObject</CODE> (system
+    exception)</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX88"><CODE>NoSuchObjectType</CODE> (system
+    exception)</A>
+    <H2>
+      o
+    </H2>
+  <LI>
+    <A HREF="wire-encoding.html#IDX7">object ID</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX75">object state, marshalling of</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX74">object types, marshalling of</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX41">operation ID memoizing</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX39">operation, identification of</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX25"><CODE>OperationID</CODE> (pseudo-C struct
+    type)</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX72">optional types, marshalling of</A>
+    <H2>
+      p
+    </H2>
+  <LI>
+    <A HREF="wire-encoding.html#IDX16">padding</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX71">pickle types, marshalling of</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX27"><CODE>ProtocolVersion</CODE> (pseudo-C
+    struct type)</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX2">pseudo-C syntax, definition of</A>
+    <H2>
+      r
+    </H2>
+  <LI>
+    <A HREF="wire-encoding.html#IDX69">record types, marshalling of</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX92"><CODE>Rejected</CODE> (system exception)</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX10">reliable sequenced message transport</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX79">remote object types, marshalling of</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX44"><CODE>Reply</CODE> message</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX45"><CODE>ReplyMsgHeader</CODE> (pseudo-C
+    struct type)</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX23"><CODE>ReplyStatus</CODE> (pseudo-C enum
+    type)</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX37"><CODE>Request</CODE> message</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX38"><CODE>RequestMsgHeader</CODE> (pseudo-C
+    struct type)</A>
+    <H2>
+      s
+    </H2>
+  <LI>
+    <A HREF="wire-encoding.html#IDX19">security</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX66">sequence of byte, marshalling of</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX65">sequence types, marshalling of</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX12">sequenced transport</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX93">serial numbers, discussion of</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX9">serial numbers, range of</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX6">server ID</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX20">session context</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX76"><CODE>StateSequence</CODE> (XDR type)</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX64">string types, marshalling of</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX30"><CODE>Success</CODE> subtype of Reply</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX86"><CODE>SwitchConnectionCinfo</CODE> (system
+    exception)</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX1">syntax used</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX83">system exceptions</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX32"><CODE>SystemException</CODE> subtype of
+    Reply</A>
+    <H2>
+      t
+    </H2>
+  <LI>
+    <A HREF="wire-encoding.html#IDX51"><CODE>TerminateConnection</CODE> message</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX49"><CODE>TerminateConnectionMsgHeader</CODE>
+    (pseudo-C struct type)</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX26"><CODE>TerminationCause</CODE> (pseudo-C
+    enum type)</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX11">transport requirements</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX77"><CODE>TypeState</CODE> (XDR type)</A>
+    <H2>
+      u
+    </H2>
+  <LI>
+    <A HREF="wire-encoding.html#IDX70">union types, marshalling of</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX84"><CODE>UnknownProblem</CODE> (system
+    exception)</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX28"><CODE>Unused</CODE> (pseudo-C alias
+    type)</A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX31"><CODE>UserException</CODE> subtype of
+    Reply</A>
+    <H2>
+      w
+    </H2>
+  <LI>
+    <A HREF="wire-encoding.html#IDX95"><CODE>w3ng</CODE> URL form</A>
+    <H2>
+      x
+    </H2>
+  <LI>
+    <A HREF="wire-encoding.html#IDX82">XDR type
+    <CODE>RemoteObjectInfo</CODE></A>
+  <LI>
+    <A HREF="wire-encoding.html#IDX18">XDR, Internet RFC 1832, use of</A>
+</UL>
+</BODY></HTML>

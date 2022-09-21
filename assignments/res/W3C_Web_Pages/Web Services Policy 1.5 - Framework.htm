@@ -1,0 +1,3148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en-US" xmlns="http://www.w3.org/1999/xhtml" xml:lang=
+"en-US">
+<head>
+<meta name="generator" content=
+"HTML Tidy for Linux/x86 (vers 12 April 2005), see www.w3.org" />
+<meta http-equiv="Content-Type" content=
+"text/html; charset=utf-8" />
+<title>Web Services Policy 1.5 - Framework</title>
+
+<style type="text/css">
+/*<![CDATA[*/
+/**/
+code           { font-family: monospace; }
+
+div.constraint,
+div.issue,
+div.note,
+div.notice     { margin-left: 2em; }
+
+ol.enumar      { list-style-type: decimal; }
+ol.enumla      { list-style-type: lower-alpha; }
+ol.enumlr      { list-style-type: lower-roman; }
+ol.enumua      { list-style-type: upper-alpha; }
+ol.enumur      { list-style-type: upper-roman; }
+
+dt.label       { display: run-in; }
+
+li, p           { margin-top: 0.3em;
+                 margin-bottom: 0.3em; }
+
+.diff-chg       { background-color: yellow; }
+.diff-del       { background-color: red; text-decoration: line-through;}
+.diff-add       { background-color: lime; }
+
+table          { empty-cells: show; }
+
+table caption {
+        font-weight: normal;
+        font-style: italic;
+        text-align: left;
+        margin-bottom: .5em;
+}
+
+div.issue {
+  color: red;
+}
+.rfc2119 {
+  font-variant: small-caps;
+}
+
+div.exampleInner pre { margin-left: 1em;
+                       margin-top: 0em; margin-bottom: 0em}
+div.exampleOuter {border: 4px double gray;
+                  margin: 0em; padding: 0em}
+div.exampleInner { background-color: #d5dee3;
+                   border-top-width: 4px;
+                   border-top-style: double;
+                   border-top-color: #d3d3d3;
+                   border-bottom-width: 4px;
+                   border-bottom-style: double;
+                   border-bottom-color: #d3d3d3;
+                   padding: 4px; margin: 0em }
+div.exampleWrapper { margin: 4px }
+div.exampleHeader { font-weight: bold;
+                    margin: 4px}
+/**/
+/*]]>*/
+</style>
+<link rel="stylesheet" type="text/css" href=
+"http://www.w3.org/StyleSheets/TR/W3C-REC.css" />
+</head>
+<body>
+<div class="head">
+<p><a href="http://www.w3.org/"><img src=
+"http://www.w3.org/Icons/w3c_home" alt="W3C" height="48" width=
+"72" /></a></p>
+<h1><a name="title" id="title"></a>Web Services Policy 1.5 -
+Framework</h1>
+<h2><a name="w3c-doctype" id="w3c-doctype"></a>W3C Recommendation
+04 September 2007</h2>
+<dl>
+<dt>This version:</dt>
+<dd><a href=
+"http://www.w3.org/TR/2007/REC-ws-policy-20070904">http://www.w3.org/TR/2007/REC-ws-policy-20070904</a></dd>
+<dt>Latest version:</dt>
+<dd><a href=
+"http://www.w3.org/TR/ws-policy">http://www.w3.org/TR/ws-policy</a></dd>
+<dt>Previous version:</dt>
+<dd><a href=
+"http://www.w3.org/TR/2007/PR-ws-policy-20070706/">http://www.w3.org/TR/2007/PR-ws-policy-20070706/</a></dd>
+<dt>Editors:</dt>
+<dd>Asir S Vedamuthu, Microsoft Corporation</dd>
+<dd>David Orchard, BEA Systems, Inc.</dd>
+<dd>Frederick Hirsch, Nokia</dd>
+<dd>Maryann Hondo, IBM Corporation</dd>
+<dd>Prasad Yendluri, webMethods (A subsidiary of Software AG)</dd>
+<dd>Toufic Boubez, Layer 7 Technologies</dd>
+<dd>Ümit Yalçinalp, SAP AG.</dd>
+</dl>
+<p>Please refer to the <a href=
+"http://www.w3.org/2002/ws/policy/7/framework-errata.html"><strong>errata</strong></a>
+for this document, which may include some normative
+corrections.</p>
+<p>See also <a href=
+"http://www.w3.org/2003/03/Translations/byTechnology?technology=ws-policy-framework">
+<strong>translations</strong></a>.</p>
+<p>This document is also available in these non-normative formats:
+<a href="ws-policy-framework.pdf">PDF</a>, <a href=
+"ws-policy-framework.ps">PostScript</a>, <a href=
+"ws-policy-framework.xml">XML</a>, and&nbsp;<a href=
+"ws-policy-framework.txt">plain text</a>.</p>
+<p class="copyright"><a href=
+"http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a>&nbsp;©&nbsp;2007&nbsp;<a href="http://www.w3.org/"><acronym title="World Wide Web Consortium">W3C</acronym></a><sup>®</sup>
+(<a href="http://www.csail.mit.edu/"><acronym title=
+"Massachusetts Institute of Technology">MIT</acronym></a>, <a href=
+"http://www.ercim.org/"><acronym title=
+"European Research Consortium for Informatics and Mathematics">ERCIM</acronym></a>,
+<a href="http://www.keio.ac.jp/">Keio</a>), All Rights Reserved.
+W3C <a href=
+"http://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>,
+<a href=
+"http://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a>
+and <a href=
+"http://www.w3.org/Consortium/Legal/copyright-documents">document
+use</a> rules apply.</p>
+</div>
+<hr />
+<div>
+<h2><a name="abstract" id="abstract"></a>Abstract</h2>
+<p>The Web Services Policy 1.5 - Framework provides a general
+purpose model and corresponding syntax to describe the policies of
+entities in a Web services-based system.</p>
+<p>Web Services Policy Framework defines a base set of constructs
+that can be used and extended by other Web services specifications
+to describe a broad range of service requirements and
+capabilities.</p>
+</div>
+<div>
+<h2><a name="status" id="status"></a>Status of this Document</h2>
+<p><em>This section describes the status of this document at the
+time of its publication. Other documents may supersede this
+document. A list of current W3C publications and the latest
+revision of this technical report can be found in the <a href=
+"http://www.w3.org/TR/">W3C technical reports index</a> at
+http://www.w3.org/TR/.</em></p>
+<p>This is the <a href=
+"http://www.w3.org/2005/10/Process-20051014/tr.html#RecsW3C">W3C
+Recommendation</a> of the Web Services Policy 1.5 - Framework
+specification. It has been produced by the <a href=
+"http://www.w3.org/2002/ws/policy/">Web Services Policy Working
+Group</a>, which is part of the <a href=
+"http://www.w3.org/2002/ws/Activity">W3C Web Services
+Activity</a>.</p>
+<p>This document has been reviewed by W3C Members, by software
+developers, and by other W3C groups and interested parties, and is
+endorsed by the Director as a W3C Recommendation. It is a stable
+document and may be used as reference material or cited from
+another document. W3C's role in making the Recommendation is to
+draw attention to the specification and to promote its widespread
+deployment. This enhances the functionality and interoperability of
+the Web.</p>
+<p>The Working Group released a test suite along with an <a href=
+"http://dev.w3.org/2006/ws/policy/interop/results/dashboard-summary.html">
+implementation report</a>. A <a href=
+"ws-policy-framework-diff20070706.html">diff-marked version against
+the previous version of this document</a> is available.</p>
+<p>The Working Group is tracking all comments via <a href=
+"http://www.w3.org/Bugs/Public/buglist.cgi?query_format=advanced&amp;short_desc_type=allwordssubstr&amp;short_desc=&amp;product=WS-Policy&amp;component=Framework&amp;component=Framework%2BAttachment&amp;component=Framework%2BAttachment%2BGuidelines&amp;component=Framework%2BAttachment%2BPrimer">
+Bugzilla</a> and highly prefers to receive comments via this
+system. If access to Bugzilla is not feasible, you may send your
+comments to the mailing list <a href=
+"mailto:public-ws-policy-comments@w3.org">public-ws-policy-comments@w3.org</a>
+mailing list (<a href=
+"http://lists.w3.org/Archives/Public/public-ws-policy-comments/">public
+archive</a>). Each Bugzilla entry and email message should contain
+only one comment. All comments on this specification should be made
+following the <a href=
+"http://www.w3.org/2002/ws/policy/#issues">Description for
+Issues</a> of the Working Group.</p>
+<p>This document was produced by a group operating under the
+<a href="http://www.w3.org/Consortium/Patent-Policy-20040205/">5
+February 2004 W3C Patent Policy</a>. W3C maintains a <a href=
+"http://www.w3.org/2004/01/pp-impl/39293/status">public list of any
+patent disclosures</a> made in connection with the deliverables of
+the group; that page also includes instructions for disclosing a
+patent. An individual who has actual knowledge of a patent which
+the individual believes contains <a href=
+"http://www.w3.org/Consortium/Patent-Policy-20040205/#def-essential">
+Essential Claim(s)</a> must disclose the information in accordance
+with <a href=
+"http://www.w3.org/Consortium/Patent-Policy-20040205/#sec-Disclosure">
+section 6 of the W3C Patent Policy</a>.</p>
+</div>
+<div class="toc">
+<h2><a name="contents" id="contents"></a>Table of Contents</h2>
+<p class="toc">1. <a href="#tocRange">Introduction</a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;1.1 <a href="#Example">Example</a><br />
+2. <a href="#Notation_Terminlogy">Notations and
+Terminology</a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;2.1 <a href=
+"#Notational_Conventions">Notational Conventions</a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;2.2 <a href=
+"#Extensibility">Extensibility</a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;2.3 <a href="#XML_Namespaces">XML
+Namespaces</a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;2.4 <a href=
+"#Terminology">Terminology</a><br />
+3. <a href="#Policy_Model">Policy Model</a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;3.1 <a href="#rPolicy_Assertion">Policy
+Assertion</a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;3.2 <a href="#rPolicy_Alternative">Policy
+Alternative</a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;3.3 <a href="#rPolicy">Policy</a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;3.4 <a href="#Web_services">Policies of
+Entities in a Web Services Based System</a><br />
+4. <a href="#rPolicy_Expression">Policy Expression</a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;4.1 <a href=
+"#Normal_Form_Policy_Expression">Normal Form Policy
+Expression</a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;4.2 <a href="#Policy_Identification">Policy
+Identification</a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;4.3 <a href=
+"#Compact_Policy_Expression">Compact Policy Expression</a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.3.1 <a href=
+"#Optional_Policy_Assertions">Optional Policy Assertions</a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.3.2 <a href=
+"#Policy_Assertion_Nesting">Policy Assertion Nesting</a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.3.3 <a href=
+"#Policy_Operators">Policy Operators</a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.3.4 <a href=
+"#Policy_References">Policy References</a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.3.5 <a href=
+"#Policy_Inclusion">Policy Inclusion</a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.3.6 <a href=
+"#normalization">Normalization</a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;4.4 <a href=
+"#ignorable-policy-assertions">Ignorable Policy
+Assertions</a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;4.5 <a href="#Policy_Intersection">Policy
+Intersection</a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;4.6 <a href="#IRI_Policy_Expressions">Use
+of IRIs in Policy Expressions</a><br />
+5. <a href="#Security_Considerations">Security
+Considerations</a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;5.1 <a href=
+"#information-disclosure-threats">Information Disclosure
+Threats</a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;5.2 <a href=
+"#spoofing-and-tampering-threats">Spoofing and Tampering
+Threats</a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;5.3 <a href="#downgrade-threats">Downgrade
+Threats</a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;5.4 <a href=
+"#repudiation-threats">Repudiation Threats</a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;5.5 <a href=
+"#denial-of-service-threats">Denial of Service Threats</a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;5.6 <a href=
+"#general-xml-considerations">General XML Considerations</a><br />
+6. <a href="#Conformance">Conformance</a><br /></p>
+<h3><a name="appendices" id="appendices"></a>Appendices</h3>
+<p class="toc">A. <a href="#media-type">The
+application/wspolicy+xml Media Type</a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;A.1 <a href=
+"#ietf-reg">Registration</a><br />
+B. <a href="#References">References</a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;B.1 <a href=
+"#Normative-References">Normative References</a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;B.2 <a href="#Informative-References">Other
+References</a><br />
+C. <a href="#acknowledgments">Acknowledgements</a>
+(Non-Normative)<br /></p>
+</div>
+<hr />
+<div class="body">
+<div class="div1">
+<h2><a name="tocRange" id="tocRange"></a>1. Introduction</h2>
+<p>Web Services Policy 1.5 - Framework defines a framework and a
+model for expressing policies that refer to domain-specific
+capabilities, requirements, and general characteristics of entities
+in a Web services-based system.</p>
+<p>A <a title="policy" href="#policy">policy</a> is a collection of
+policy alternatives. A <a title="policy alternative" href=
+"#policy_alternative">policy alternative</a> is a collection of
+policy assertions. A <a title="policy assertion" href=
+"#policy_assertion">policy assertion</a> represents a requirement,
+capability, or other property of a behavior. A <a title=
+"policy expression" href="#policy_expression">policy expression</a>
+is an XML Infoset representation of its policy, either in a normal
+form or in its equivalent compact form. Some policy assertions
+specify traditional requirements and capabilities that will
+manifest themselves in the messages exchanged(e.g., authentication
+scheme, transport protocol selection). Other policy assertions have
+no wire manifestation in the messages exchanged, yet are relevant
+to service selection and usage (e.g., privacy policy, QoS
+characteristics). Web Services Policy 1.5 - Framework provides a
+single policy language to allow both kinds of assertions to be
+expressed and evaluated in a consistent manner.</p>
+<p>Web Services Policy 1.5 - Framework does not cover discovery of
+policy, policy scopes and subjects, or their respective attachment
+mechanisms. A <a title="policy expression" href=
+"#policy_expression">policy attachment</a> is a mechanism for
+associating policy with one or more policy scopes. A <a title=
+"policy scope" href="#policy_scope">policy scope</a> is a
+collection of policy subjects to which a policy applies. A
+<a title="policy subject" href="#policy_subject">policy subject</a>
+is an entity (e.g., an endpoint, message, resource, interaction)
+with which a policy can be associated. Web Services Policy 1.5 -
+Attachment [<cite><a href="#WS-PolicyAttachment">Web Services
+Policy Attachment</a></cite>] defines such policy attachment
+mechanisms, especially for associating policy with arbitrary XML
+elements [<cite><a href="#XML10">XML 1.0</a></cite>], WSDL
+artifacts [<cite><a href="#WSDL11">WSDL 1.1</a></cite>,
+<cite><a href="#WSDL20">WSDL 2.0 Core Language</a></cite>], and
+UDDI elements [<cite><a href="#UDDIAPI20">UDDI API 2.0</a></cite>,
+<cite><a href="#UDDIDataStructure20">UDDI Data Structure
+2.0</a></cite>, <cite><a href="#UDDI30">UDDI 3.0</a></cite>]. Other
+specifications are free to define either extensions to the
+mechanisms defined in Web Services Policy 1.5 - Attachment
+[<cite><a href="#WS-PolicyAttachment">Web Services Policy
+Attachment</a></cite>], or additional mechanisms not covered by Web
+Services Policy 1.5 - Attachment [<cite><a href=
+"#WS-PolicyAttachment">Web Services Policy Attachment</a></cite>],
+for purposes of associating policy with policy scopes and
+subjects.</p>
+<div class="div2">
+<h3><a name="Example" id="Example"></a>1.1 Example</h3>
+<p><a href="#ex-wsp-use-security-assertations">Example 1-1</a>
+illustrates a security <a title="policy expression" href=
+"#policy_expression">policy expression</a> using assertions defined
+in WS-SecurityPolicy [<cite><a href=
+"#WS-SecurityPolicy">WS-SecurityPolicy</a></cite>]:</p>
+<div class="exampleOuter">
+<p style="text-align: left" class="exampleHead"><a name=
+"ex-wsp-use-security-assertations" id=
+"ex-wsp-use-security-assertations"></a><i><span>Example 1-1.</span>
+Use of Web Services Policy with security policy assertions.</i></p>
+<div class="exampleInner">
+<pre>
+                
+(01) &lt;wsp:Policy
+        xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702"
+        xmlns:wsp="http://www.w3.org/ns/ws-policy" &gt;
+(02)   &lt;wsp:ExactlyOne&gt;
+(03)     &lt;wsp:All&gt;
+(04)        &lt;sp:SignedParts&gt;
+(05)           &lt;sp:Body/&gt;
+(06)        &lt;/sp:SignedParts&gt;
+(07)     &lt;/wsp:All&gt;
+(08)     &lt;wsp:All&gt;
+(09)        &lt;sp:EncryptedParts&gt;
+(10)           &lt;sp:Body/&gt;
+(11)        &lt;/sp:EncryptedParts&gt;
+(12)     &lt;/wsp:All&gt;
+(13)   &lt;/wsp:ExactlyOne&gt;
+(14) &lt;/wsp:Policy&gt;
+</pre></div>
+</div>
+<p>Lines (03-07) represent one policy alternative for signing a
+message body.</p>
+<p>Lines (08-12) represent a second policy alternative for
+encrypting a message body.</p>
+<p>Lines (02-13) illustrate the <code>ExactlyOne</code> policy
+operator. Policy operators group policy assertions into policy
+alternatives. A valid interpretation of the policy above would be
+that an invocation of a Web service will either sign or encrypt the
+message body.</p>
+</div>
+</div>
+<div class="div1">
+<h2><a name="Notation_Terminlogy" id="Notation_Terminlogy"></a>2.
+Notations and Terminology</h2>
+<p>This section specifies the notations, namespaces, and
+terminology used in this specification.</p>
+<div class="div2">
+<h3><a name="Notational_Conventions" id=
+"Notational_Conventions"></a>2.1 Notational Conventions</h3>
+<p>This specification uses the following syntax within normative
+outlines:</p>
+<ul>
+<li>
+<p>The syntax appears as an XML instance, but values in
+<em>italics</em> indicate data types instead of literal values.</p>
+</li>
+<li>
+<p>Characters are appended to elements and attributes to indicate
+cardinality:</p>
+<ul>
+<li>
+<p>"?" (0 or 1)</p>
+</li>
+<li>
+<p>"*" (0 or more)</p>
+</li>
+<li>
+<p>"+" (1 or more)</p>
+</li>
+</ul>
+</li>
+<li>
+<p>The character "|" is used to indicate an exclusive choice
+between alternatives.</p>
+</li>
+<li>
+<p>The characters "(" and ")" are used to indicate that contained
+items are to be treated as a group with respect to cardinality or
+choice.</p>
+</li>
+<li>
+<p>This document relies on the XML Information Set [<cite><a href=
+"#XMLInfoset">XML Information Set</a></cite>]. Information item
+properties are indicated by the style <strong>[infoset
+property]</strong>.</p>
+</li>
+<li>
+<p>XML namespace prefixes (see <a href="#nsprefix">Table 2-1</a>)
+are used to indicate the namespace of the element or attribute
+being defined.</p>
+</li>
+<li>
+<p>The ellipses characters "…" are used to indicate a point of
+extensibility that allows other Element or Attribute Information
+Items.</p>
+</li>
+</ul>
+<p>Elements and Attributes defined by this specification are
+referred to in the text of this document using XPath 1.0 [XPATH
+1.0] expressions. Extensibility points are referred to using an
+extended version of this syntax:</p>
+<ul>
+<li>
+<p>An element extensibility point is referred to using {any} in
+place of the element name. This indicates that any element name can
+be used, from any namespace, unless specified otherwise such as in
+Section <a href="#Policy_Operators"><b>4.3.3 Policy
+Operators</b></a>.</p>
+</li>
+<li>
+<p>An attribute extensibility point is referred to using @{any} in
+place of the attribute name. This indicates that any attribute name
+can be used, from any namespace.</p>
+</li>
+</ul>
+<p>Normative text within this specification takes precedence over
+normative outlines, which in turn take precedence over the XML
+Schema [<cite><a href="#XMLSchemaPart1">XML Schema
+Structures</a></cite>] descriptions.</p>
+</div>
+<div class="div2">
+<h3><a name="Extensibility" id="Extensibility"></a>2.2
+Extensibility</h3>
+<p>Within normative outlines, in this specification, ellipses
+(i.e., "…") indicate a point of extensibility that allows other
+Element or Attribute Information Items. Information Items
+<span class="rfc2119">MAY</span> be added at the indicated
+extension points but <span class="rfc2119">MUST NOT</span>
+contradict the semantics of the element information item indicated
+by the <strong>[parent]</strong> or <strong>[owner]</strong>
+property of the extension. In this context, if an Attribute
+Information Item is not recognized, it <span class=
+"rfc2119">SHOULD</span> be ignored. If an Element Information Item
+is not recognized, it <span class="rfc2119">MUST</span> be treated
+as a policy assertion, unless specified otherwise such as in
+Section <a href="#Policy_References"><b>4.3.4 Policy
+References</b></a>.</p>
+</div>
+<div class="div2">
+<h3><a name="XML_Namespaces" id="XML_Namespaces"></a>2.3 XML
+Namespaces</h3>
+<p>This specification uses a number of namespace prefixes
+throughout; they are listed in <a href="#nsprefix">Table 2-1</a>.
+Note that the choice of any namespace prefix is arbitrary and not
+semantically significant (see [<cite><a href="#XML-NS">XML
+Namespaces</a></cite>]).</p>
+<a name="nsprefix" id="nsprefix"></a>
+<table summary="Namespace prefixes usage in this specification"
+border="1" cellspacing="0" cellpadding="5">
+<caption>Table 2-1. Prefixes and Namespaces used in this
+specification</caption>
+<thead>
+<tr>
+<th rowspan="1" colspan="1">Prefix</th>
+<th rowspan="1" colspan="1">Namespace</th>
+<th rowspan="1" colspan="1">Specification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td rowspan="1" colspan="1"><code>sp</code></td>
+<td rowspan="1" colspan="1">
+<code>http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702</code></td>
+<td rowspan="1" colspan="1">[<cite><a href=
+"#WS-SecurityPolicy">WS-SecurityPolicy</a></cite>]</td>
+</tr>
+<tr>
+<td rowspan="1" colspan="1"><code>wsam</code></td>
+<td rowspan="1" colspan="1">
+<code>http://www.w3.org/2007/05/addressing/metadata</code></td>
+<td rowspan="1" colspan="1">[<cite><a href=
+"#WS-AddressingMetadata">WS-Addressing Metadata</a></cite>]</td>
+</tr>
+<tr>
+<td rowspan="1" colspan="1"><code>wsp</code></td>
+<td rowspan="1" colspan="1">
+<code>http://www.w3.org/ns/ws-policy</code></td>
+<td rowspan="1" colspan="1">This specification</td>
+</tr>
+<tr>
+<td rowspan="1" colspan="1"><code>wsu</code></td>
+<td rowspan="1" colspan="1">
+<code>http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd</code></td>
+<td rowspan="1" colspan="1">[<cite><a href=
+"#WS-Security">WS-Security 2004</a></cite>]</td>
+</tr>
+<tr>
+<td rowspan="1" colspan="1"><code>xs</code></td>
+<td rowspan="1" colspan="1">
+<code>http://www.w3.org/2001/XMLSchema</code></td>
+<td rowspan="1" colspan="1">[<cite><a href="#XMLSchemaPart1">XML
+Schema Structures</a></cite>]</td>
+</tr>
+</tbody>
+</table>
+<br />
+<p>All information items defined by this specification are
+identified by the XML namespace URI [<cite><a href="#XML-NS">XML
+Namespaces</a></cite>] <code>http://www.w3.org/ns/ws-policy</code>.
+A <a href="http://www.w3.org/2007/02/ws-policy.xsd">normative XML
+Schema</a> [<cite><a href="#XMLSchemaPart1">XML Schema
+Structures</a></cite>, <cite><a href="#XMLSchemaPart2">XML Schema
+Datatypes</a></cite>] document can be obtained indirectly by
+dereferencing the namespace document at the WS-Policy 1.5 namespace
+URI.</p>
+<p>It is the intent of the W3C Web Services Policy Working Group
+that the Web Services Policy 1.5 - Framework and Web Services
+Policy 1.5 - Attachment XML namespace URI will not change
+arbitrarily with each subsequent revision of the corresponding XML
+Schema documents as the specifications transition through Candidate
+Recommendation, Proposed Recommendation and Recommendation status.
+However, should the specifications revert to Working Draft status,
+and a subsequent revision, published as a WD, CR or PR draft,
+results in non-backwardly compatible changes from a previously
+published WD, CR or PR draft of the specification, the namespace
+URI will be changed accordingly.</p>
+<p>Under this policy, the following are examples of backwards
+compatible changes that would not result in assignment of a new XML
+namespace URI:</p>
+<ul>
+<li>
+<p>Addition of new global element, attribute, complexType and
+simpleType definitions.</p>
+</li>
+<li>
+<p>Addition of new elements or attributes in locations covered by a
+previously specified wildcard.</p>
+</li>
+<li>
+<p>Modifications to the pattern facet of a type definition for
+which the value-space of the previous definition remains valid or
+for which the value-space of the vast majority of instances would
+remain valid.</p>
+</li>
+<li>
+<p>Modifications to the cardinality of elements (i.e. modifications
+to minOccurs or maxOccurs attribute value of an element
+declaration) for which the value-space of possible instance
+documents conformant to the previous revision of the schema would
+still be valid with regards to the revised cardinality rule.</p>
+</li>
+</ul>
+</div>
+<div class="div2">
+<h3><a name="Terminology" id="Terminology"></a>2.4 Terminology</h3>
+<p>The keywords "<span class="rfc2119">MUST</span>", "<span class=
+"rfc2119">MUST NOT</span>", "<span class=
+"rfc2119">REQUIRED</span>", "<span class="rfc2119">SHALL</span>",
+"<span class="rfc2119">SHALL NOT</span>", "<span class=
+"rfc2119">SHOULD</span>", "<span class="rfc2119">SHOULD
+NOT</span>", "<span class="rfc2119">RECOMMENDED</span>",
+"<span class="rfc2119">MAY</span>", and "<span class=
+"rfc2119">OPTIONAL</span>" in this document are to be interpreted
+as described in RFC 2119 [<cite><a href="#RFC2119">IETF RFC
+2119</a></cite>].</p>
+<p>We introduce the following terms that are used throughout this
+document:</p>
+<dl>
+<dt class="label"><a href="#collection">collection</a></dt>
+<dd>
+<p>The items in a <b>collection</b> in this specification are
+unordered and may contain duplicates.</p>
+</dd>
+<dt class="label"><a href="#ignorable_policy_assertion">ignorable
+policy assertion</a></dt>
+<dd>
+<p>An <b>ignorable policy assertion</b> is an assertion that may be
+ignored for purposes of determining the compatibility of
+alternatives in policy intersection in a lax mode (as defined in
+<a href="http://www.w3.org/TR/ws-policy#Policy_Intersection">4.5
+Policy Intersection</a>).</p>
+</dd>
+<dt class="label"><a href="#nested_policy_expression">nested policy
+expression</a></dt>
+<dd>
+<p>A <b>nested policy expression</b> is a <a title=
+"policy expression" href="#policy_expression">policy expression</a>
+that is an Element Information Item in the
+<strong>[children]</strong> property of a <a title=
+"policy assertion" href="#policy_assertion">policy
+assertion</a>.</p>
+</dd>
+<dt class="label"><a href="#policy">policy</a></dt>
+<dd>
+<p>A <b>policy</b> is a potentially empty collection of <a title=
+"policy alternative" href="#policy_alternative">policy
+alternatives</a>.</p>
+</dd>
+<dt class="label"><a href="#policy_alternative">policy
+alternative</a></dt>
+<dd>
+<p>A <b>policy alternative</b> is a potentially empty <a title=
+"collection" href="#collection">collection</a> of <a title=
+"policy assertion" href="#policy_assertion">policy
+assertions</a>.</p>
+</dd>
+<dt class="label"><a href="#policy_assertion">policy
+assertion</a></dt>
+<dd>
+<p>A <b>policy assertion</b> represents a requirement, a
+capability, or other property of a behavior.</p>
+</dd>
+<dt class="label"><a href="#policy_assertion_parameter">policy
+assertion parameter</a></dt>
+<dd>
+<p>A <b>policy assertion parameter</b> qualifies the behavior
+indicated by a <a title="policy assertion" href=
+"#policy_assertion">policy assertion</a>.</p>
+</dd>
+<dt class="label"><a href="#policy_assertion_type">policy assertion
+type</a></dt>
+<dd>
+<p>A <b>policy assertion type</b> represents a class of <a title=
+"policy assertion" href="#policy_assertion">policy assertions</a>
+and implies a schema for the assertion and assertion-specific
+semantics.</p>
+</dd>
+<dt class="label"><a href="#policy_attachment">policy
+attachment</a></dt>
+<dd>
+<p>A <b>policy attachment</b> is a mechanism for associating
+<a title="policy" href="#policy">policy</a> with one or more
+<a title="policy scope" href="#policy_scope">policy scopes</a>.</p>
+</dd>
+<dt class="label"><a href="#policy_expression">policy
+expression</a></dt>
+<dd>
+<p>A <b>policy expression</b> is an XML Infoset representation of a
+<a title="policy" href="#policy">policy</a>, either in a normal
+form or in an equivalent compact form.</p>
+</dd>
+<dt class="label"><a href="#policy_scope">policy scope</a></dt>
+<dd>
+<p>A <b>policy scope</b> is a collection of <a title=
+"policy subject" href="#policy_subject">policy subjects</a> to
+which a policy may apply.</p>
+</dd>
+<dt class="label"><a href="#policy_subject">policy subject</a></dt>
+<dd>
+<p>A <b>policy subject</b> is an entity (e.g., an endpoint,
+message, resource, operation) with which a <a title="policy" href=
+"#policy">policy</a> can be associated.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="div1">
+<h2><a name="Policy_Model" id="Policy_Model"></a>3. Policy
+Model</h2>
+<p>This section defines an abstract model for policies and for
+operations upon policies.</p>
+<p>The descriptions below use XML Infoset terminology for
+convenience of description. However, this abstract model itself is
+independent of how it is represented as an XML Infoset.</p>
+<div class="div2">
+<h3><a name="rPolicy_Assertion" id="rPolicy_Assertion"></a>3.1
+Policy Assertion</h3>
+<p>[<a name="policy_assertion" id="policy_assertion" title=
+"policy assertion">Definition</a>: A <b>policy assertion</b>
+represents a requirement, a capability, or other property of a
+behavior.] A <a title="policy assertion" href=
+"#policy_assertion">policy assertion</a> identifies a behavior that
+is a requirement or capability of a <a title="policy subject" href=
+"#policy_subject">policy subject</a>. [<a name="policy_subject" id=
+"policy_subject" title="policy subject">Definition</a>: A <b>policy
+subject</b> is an entity (e.g., an endpoint, message, resource,
+operation) with which a <a title="policy" href="#policy">policy</a>
+can be associated. ] Assertions indicate domain-specific (e.g.,
+security, transactions) semantics and are expected to be defined in
+separate, domain-specific specifications.</p>
+<p>An assertion MAY indicate that it is an ignorable policy
+assertion (see <a href="#ignorable-policy-assertions"><b>4.4
+Ignorable Policy Assertions</b></a>). [<a name=
+"ignorable_policy_assertion" id="ignorable_policy_assertion" title=
+"ignorable policy assertion">Definition</a>: An <b>ignorable policy
+assertion</b> is an assertion that may be ignored for purposes of
+determining the compatibility of alternatives in policy
+intersection in a lax mode (as defined in <a href=
+"http://www.w3.org/TR/ws-policy#Policy_Intersection">4.5 Policy
+Intersection</a>).] By default, an assertion is not ignorable for
+policy intersection.</p>
+<p>Assertions are typed by the authors that define them. [<a name=
+"policy_assertion_type" id="policy_assertion_type" title=
+"policy assertion type">Definition</a>: A <b>policy assertion
+type</b> represents a class of <a title="policy assertion" href=
+"#policy_assertion">policy assertions</a> and implies a schema for
+the assertion and assertion-specific semantics.] The <a title=
+"policy assertion type" href="#policy_assertion_type">policy
+assertion type</a> is identified only by the XML Infoset
+<strong>[namespace name]</strong> and <strong>[local name]</strong>
+properties (that is, the qualified name or QName) of the root
+Element Information Item representing the assertion. Assertions of
+a given type <span class="rfc2119">MUST</span> be consistently
+interpreted independent of their <a title="policy subject" href=
+"#policy_subject">policy subjects</a>.</p>
+<p>Authors <span class="rfc2119">MAY</span> define that an
+assertion contains a <a title="policy expression" href=
+"#policy_expression">policy expression</a> (as defined in <a href=
+"#rPolicy_Expression"><b>4. Policy Expression</b></a>) as one of
+its <strong>[children]</strong>. <a title=
+"nested policy expression" href="#nested_policy_expression">Nested
+policy expression(s)</a> are used by authors to further qualify one
+or more specific aspects of the parent policy assertion. The
+qualification may indicate a relationship or context between the
+parent policy assertion and a nested policy expression. For example
+within a security domain, security policy authors may define an
+assertion describing a set of security algorithms to qualify the
+specific behavior of a security binding assertion. A parent policy
+assertion of one domain may also serve as a container for the
+nested policy expression from another domain.</p>
+<p>The XML Infoset of a <a title="policy assertion" href=
+"#policy_assertion">policy assertion</a> <span class=
+"rfc2119">MAY</span> contain a non-empty
+<strong>[attributes]</strong> property and/or a non-empty
+<strong>[children]</strong> property. Such properties, excluding
+the Attribute and Element Information Items from the WS-Policy
+language XML namespace name are <a title=
+"policy assertion parameter" href=
+"#policy_assertion_parameter">policy assertion parameters</a> and
+<span class="rfc2119">MAY</span> be used to parameterize the
+behavior indicated by the assertion. [<a name=
+"policy_assertion_parameter" id="policy_assertion_parameter" title=
+"policy assertion parameter">Definition</a>: A <b>policy assertion
+parameter</b> qualifies the behavior indicated by a <a title=
+"policy assertion" href="#policy_assertion">policy assertion</a>.]
+For example, an assertion identifying support for a specific
+reliable messaging mechanism might include an attribute information
+item to indicate how long an endpoint will wait before sending an
+acknowledgement.</p>
+<p>Authors should be cognizant of the processing requirements when
+defining complex assertions containing <a title=
+"policy assertion parameter" href=
+"#policy_assertion_parameter">policy assertion parameters</a> or
+<a title="nested policy expression" href=
+"#nested_policy_expression">nested policy expressions</a>.
+Specifically, authors are encouraged to consider when the identity
+of the root Element Information Item alone is enough to convey the
+requirement or capability.</p>
+</div>
+<div class="div2">
+<h3><a name="rPolicy_Alternative" id="rPolicy_Alternative"></a>3.2
+Policy Alternative</h3>
+<p>[<a name="policy_alternative" id="policy_alternative" title=
+"policy alternative">Definition</a>: A <b>policy alternative</b> is
+a potentially empty <a title="collection" href=
+"#collection">collection</a> of <a title="policy assertion" href=
+"#policy_assertion">policy assertions</a>.] [<a name="collection"
+id="collection" title="collection">Definition</a>: The items in a
+<b>collection</b> in this specification are unordered and may
+contain duplicates. ] An alternative with zero assertions indicates
+no behaviors. An alternative with one or more assertions indicates
+behaviors implied by those, and only those assertions.</p>
+<p>Assertions within an alternative are not ordered, and thus
+aspects such as the order in which behaviors (indicated by
+assertions) are applied to a <a title="policy subject" href=
+"#policy_subject">subject</a> are beyond the scope of this
+specification. However, authors can write assertions that control
+the order in which behaviors are applied.</p>
+<p>A policy alternative <span class="rfc2119">MAY</span> contain
+multiple assertions of the same type. Mechanisms for determining
+the aggregate behavior indicated by the assertions (and their
+Post-Schema-Validation Infoset (PSVI) (See XML Schema Part 1
+[<cite><a href="#XMLSchemaPart1">XML Schema Structures</a></cite>])
+content, if any) are specific to the assertion type and are outside
+the scope of this document. If policy assertion authors did not
+specify the semantics of repetition of <a title="policy assertion"
+href="#policy_assertion">policy assertions</a> of a <a title=
+"policy assertion type" href="#policy_assertion_type">type</a> that
+allows neither <a title="policy assertion parameter" href=
+"#policy_assertion_parameter">parameters</a> nor <a title=
+"nested policy expression" href="#nested_policy_expression">nested
+policy expressions</a> within a <a title="policy alternative" href=
+"#policy_alternative">policy alternative</a>, then repetition is
+simply redundancy, and multiple <a title="policy assertion" href=
+"#policy_assertion">assertions</a> of the <a title=
+"policy assertion type" href="#policy_assertion_type">assertion
+type</a> within a <a title="policy alternative" href=
+"#policy_alternative">policy alternative</a> have the same meaning
+as a single <a title="policy assertion" href=
+"#policy_assertion">assertion</a> of the <a title=
+"policy assertion type" href="#policy_assertion_type">type</a>
+within the <a title="policy alternative" href=
+"#policy_alternative">policy alternative</a>.</p>
+<p>Note: Depending on the semantics of the domain specific policy
+assertions regardless if they are qualified by nested policy
+expressions, a combination of the policy assertions can be required
+to specify a particular behavior. For example, a combination of two
+or three assertions from the WS-SecurityPolicy [<cite><a href=
+"#WS-SecurityPolicy">WS-SecurityPolicy</a></cite>] specification is
+used to indicate message-level security for protecting messages -
+that is, the <code>sp:AsymmetricBinding</code> assertion is used to
+indicate message-level security, the <code>sp:SignedParts</code>
+assertion is used to indicate the parts of a message to be
+protected and the <code>sp:EncryptedParts</code> assertion is used
+to indicate the parts of a message that require
+confidentiality.</p>
+</div>
+<div class="div2">
+<h3><a name="rPolicy" id="rPolicy"></a>3.3 Policy</h3>
+<p>[<a name="policy" id="policy" title="policy">Definition</a>: A
+<b>policy</b> is a potentially empty collection of <a title=
+"policy alternative" href="#policy_alternative">policy
+alternatives</a>. ] A policy with zero alternatives contains no
+choices; a policy with one or more alternatives indicates choice in
+requirements or capabilities within the policy.</p>
+<p>Alternatives are not ordered, and thus aspects such as
+preferences between alternatives in a given context are beyond the
+scope of this specification.</p>
+<p>Alternatives within a policy may differ significantly in terms
+of the behaviors they indicate. Conversely, alternatives within a
+policy may be very similar. In either case, the value or
+suitability of an alternative is generally a function of the
+semantics of assertions within the alternative and is therefore
+beyond the scope of this specification.</p>
+</div>
+<div class="div2">
+<h3><a name="Web_services" id="Web_services"></a>3.4 Policies of
+Entities in a Web Services Based System</h3>
+<p>Applied to a Web services based system, <a title="policy" href=
+"#policy">policy</a> is used to convey conditions on an interaction
+between entities (requester application, provider service, Web
+infrastructure component, etc). An interaction involves one or more
+message exchanges between two entities. It is the responsibility of
+<a title="policy assertion" href="#policy_assertion">assertion</a>
+authors to define the interaction scope of an assertion including
+any constraints on the <a title="policy subject" href=
+"#policy_subject">policy subjects</a> to which the assertion may be
+attached and a clear specification of the message (s) within that
+interaction scope to which the assertion applies.</p>
+<p>Any entity in a Web services based system may expose a policy to
+convey conditions under which it functions. Satisfying assertions
+in the policy usually results in behavior that reflects these
+conditions. For example, if two entities - requester and provider -
+expose their policies, a requester might use the policy of the
+provider to decide whether or not to use the service. A requester
+<span class="rfc2119">MAY</span> choose any alternative since each
+is a valid configuration for interaction with the service, but a
+requester <span class="rfc2119">MUST</span> choose only a single
+alternative for an interaction with a service since each represents
+an alternative configuration.</p>
+<p>A <a title="policy assertion" href="#policy_assertion">policy
+assertion</a> is supported by an entity in the web services based
+system if and only if the entity satisfies the requirement (or
+accommodates the capability) corresponding to the assertion. A
+<a title="policy alternative" href="#policy_alternative">policy
+alternative</a> is supported by an entity if and only if the entity
+supports all the assertions in the alternative. And, a <a title=
+"policy" href="#policy">policy</a> is supported by an entity if and
+only if the entity supports at least one of the alternatives in the
+policy. Note that although policy alternatives are meant to be
+mutually exclusive, it cannot be decided in general whether or not
+more than one alternative can be supported at the same time.</p>
+<p>Note that an entity may be able to support a policy even if the
+entity does not understand the type of each assertion in the
+policy; the entity only has to understand the type of each
+assertion in a policy alternative that the entity supports. This
+characteristic is crucial to versioning and incremental deployment
+of new assertions because this allows a provider's policy to
+include new assertions in new alternatives while allowing entities
+to continue to use old alternatives in a backward-compatible
+manner.</p>
+</div>
+</div>
+<div class="div1">
+<h2><a name="rPolicy_Expression" id="rPolicy_Expression"></a>4.
+Policy Expression</h2>
+<p>This section describes how to convey <a title="policy" href=
+"#policy">policy</a> in an interoperable form, using the XML
+Infoset representation of a policy. [<a name="policy_expression"
+id="policy_expression" title="policy expression">Definition</a>: A
+<b>policy expression</b> is an XML Infoset representation of a
+<a title="policy" href="#policy">policy</a>, either in a normal
+form or in an equivalent compact form.]</p>
+<p>The normal form (see Section <a href=
+"#Normal_Form_Policy_Expression"><b>4.1 Normal Form Policy
+Expression</b></a>) of a policy expression is the most
+straightforward XML Infoset representation of the policy data
+model. Equivalent, alternative representations allow policy authors
+to compactly express a policy (see Section <a href=
+"#Compact_Policy_Expression"><b>4.3 Compact Policy
+Expression</b></a>). Policy authors might be more interested in the
+compact form (see Section <a href=
+"#Compact_Policy_Expression"><b>4.3 Compact Policy
+Expression</b></a>), where the outlines and definitions describe
+what is valid with regards to the policy language XML Schema.</p>
+<p>While the policy language XML Schema is a representation of the
+compact form, the normal form is more restrictive as outlined in
+Section <a href="#Normal_Form_Policy_Expression"><b>4.1 Normal Form
+Policy Expression</b></a>.</p>
+<div class="div2">
+<h3><a name="Normal_Form_Policy_Expression" id=
+"Normal_Form_Policy_Expression"></a>4.1 Normal Form Policy
+Expression</h3>
+<p>To facilitate interoperability, this specification defines a
+normal form for <a title="policy expression" href=
+"#policy_expression">policy expressions</a> that is a
+straightforward XML Infoset representation of a policy, enumerating
+each of its <a title="policy alternative" href=
+"#policy_alternative">alternatives</a> that in turn enumerate each
+of their <a title="policy assertion" href=
+"#policy_assertion">assertions</a>. The schema outline for the
+normal form of a policy expression is as follows:</p>
+<div class="exampleInner">
+<pre>
+(01) &lt;wsp:Policy … &gt;
+(02)   &lt;wsp:ExactlyOne&gt;
+(03)     ( &lt;wsp:All&gt; ( &lt;<b>Assertion</b> …&gt; … &lt;/<b>Assertion</b>&gt; )* &lt;/wsp:All&gt; )*
+(04)   &lt;/wsp:ExactlyOne&gt;
+(05) &lt;/wsp:Policy&gt; 
+</pre></div>
+<p>The following describes the Element Information Items defined in
+the schema outline above:</p>
+<dl>
+<dt class="label"><code>/wsp:Policy</code></dt>
+<dd>
+<p>A policy expression.</p>
+</dd>
+<dt class="label"><code>/wsp:Policy/wsp:ExactlyOne</code></dt>
+<dd>
+<p>A collection of policy alternatives. If there are no Element
+Information Items in the <strong>[children]</strong> property,
+there are no admissible policy alternatives, i.e., no behavior is
+admissible.</p>
+</dd>
+<dt class="label">
+<code>/wsp:Policy/wsp:ExactlyOne/wsp:All</code></dt>
+<dd>
+<p>A policy alternative; a collection of policy assertions. If
+there are no Element Information Items in the
+<strong>[children]</strong> property, this is an admissible policy
+alternative that is empty, i.e., no behavior is specified.</p>
+</dd>
+<dt class="label">
+<code>/wsp:Policy/wsp:ExactlyOne/wsp:All/*</code></dt>
+<dd>
+<p>XML Infoset representation of a policy assertion.</p>
+</dd>
+<dt class="label"><code>/wsp:Policy/@{any}</code></dt>
+<dd>
+<p>Additional attributes <span class="rfc2119">MAY</span> be
+specified but <span class="rfc2119">MUST NOT</span> contradict the
+semantics of the <strong>[owner element]</strong>; if an attribute
+is not recognized, it <span class="rfc2119">SHOULD</span> be
+ignored.</p>
+</dd>
+</dl>
+<p>If an <a title="policy assertion" href=
+"#policy_assertion">assertion</a> in the normal form of a policy
+expression contains a <a title="nested policy expression" href=
+"#nested_policy_expression">nested policy expression</a>, the
+nested policy expression <span class="rfc2119">MUST</span> contain
+at most one policy alternative (see <a href=
+"#Policy_Assertion_Nesting"><b>4.3.2 Policy Assertion
+Nesting</b></a>).</p>
+<p>To simplify processing and improve interoperability, the normal
+form of a policy expression <span class="rfc2119">SHOULD</span> be
+used where practical.</p>
+<p>For example, the following is the normal form of a policy
+expression.</p>
+<div class="exampleInner">
+<pre>
+(01) &lt;wsp:Policy
+        xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702"
+        xmlns:wsp="http://www.w3.org/ns/ws-policy" &gt;
+(02)   &lt;wsp:ExactlyOne&gt;
+(03)     &lt;wsp:All&gt;
+(04)        &lt;sp:SignedParts&gt;
+(05)           &lt;sp:Body/&gt;
+(06)        &lt;/sp:SignedParts&gt;
+(07)     &lt;/wsp:All&gt;
+(08)     &lt;wsp:All&gt;
+(09)        &lt;sp:EncryptedParts&gt;
+(10)           &lt;sp:Body/&gt;
+(11)        &lt;/sp:EncryptedParts&gt;
+(12)     &lt;/wsp:All&gt;
+(13)   &lt;/wsp:ExactlyOne&gt;
+(14) &lt;/wsp:Policy&gt;
+</pre></div>
+<p>Lines (03-07) and Lines (08-12) express the two alternatives in
+the policy. If the first alternative is selected, the message body
+needs to be signed [<cite><a href=
+"#WS-SecurityPolicy">WS-SecurityPolicy</a></cite>] is supported;
+conversely, if the second alternative is selected, the message body
+needs to be encrypted.</p>
+</div>
+<div class="div2">
+<h3><a name="Policy_Identification" id=
+"Policy_Identification"></a>4.2 Policy Identification</h3>
+<p>A <a title="policy expression" href="#policy_expression">policy
+expression</a> <span class="rfc2119">MAY</span> be associated with
+an IRI [<cite><a href="#RFC3987">IETF RFC 3987</a></cite>]. The
+schema outline for attributes to associate an IRI is as
+follows:</p>
+<div class="exampleInner">
+<pre>
+(01) &lt;wsp:Policy ( Name="<b>xs:anyURI</b>" )?
+(02)                 ( wsu:Id="<b>xs:ID</b>" | xml:id="<b>xs:ID</b>" )?
+(03)             … &gt;
+(04)   …
+(05) &lt;/wsp:Policy&gt;
+</pre></div>
+<p>The following describes the Attribute Information Items listed
+and defined in the schema outline above:</p>
+<dl>
+<dt class="label"><code>/wsp:Policy/@Name</code></dt>
+<dd>
+<p>The identity of the policy expression as an absolute IRI
+[<cite><a href="#RFC3987">IETF RFC 3987</a></cite>]. If omitted,
+there is no implied value. This IRI <span class=
+"rfc2119">MAY</span> be used to refer to a policy from other XML
+documents using a <a title="policy attachment" href=
+"#policy_attachment">policy attachment</a> mechanism such as those
+defined in WS-PolicyAttachment [<cite><a href=
+"#WS-PolicyAttachment">Web Services Policy Attachment</a></cite>].
+[<a name="policy_attachment" id="policy_attachment" title=
+"policy attachment">Definition</a>: A <b>policy attachment</b> is a
+mechanism for associating <a title="policy" href=
+"#policy">policy</a> with one or more <a title="policy scope" href=
+"#policy_scope">policy scopes</a>.] [<a name="policy_scope" id=
+"policy_scope" title="policy scope">Definition</a>: A <b>policy
+scope</b> is a collection of <a title="policy subject" href=
+"#policy_subject">policy subjects</a> to which a policy may
+apply.]</p>
+</dd>
+<dt class="label"><code>/wsp:Policy/(@wsu:Id | @xml:id)</code></dt>
+<dd>
+<p>The identity of the policy expression as an <code>ID</code>
+within the enclosing XML document. If omitted, there is no implied
+value. The constraints of the XML 1.0 [<cite><a href="#XML10">XML
+1.0</a></cite>] ID type MUST be met. To refer to this policy
+expression, an IRI-reference <span class="rfc2119">MAY</span> be
+formed using this value per Section 4.2 of WS-Security
+[<cite><a href="#WS-Security">WS-Security 2004</a></cite>] when
+@wsu:Id is used.</p>
+<div class="note">
+<p class="prefix"><b>Note:</b></p>
+<p>The use of <code>xml:id</code> attribute in conjunction with
+Canonical XML 1.0 is inappropriate as described in Appendix C of
+xml:id Version 1.0 [<cite><a href="#XMLID">XML ID</a></cite>] and
+thus this combination must be avoided (see [<cite><a href=
+"#C14NNOTE">C14N 1.0 Note</a></cite>]). For example, a policy
+expression identified using <code>xml:id</code> attribute should
+not be signed using XML Digital Signature when Canonical XML 1.0 is
+being used as the canonicalization method.</p>
+</div>
+<div class="note">
+<p class="prefix"><b>Note:</b></p>
+<p>Canonical XML 1.1 [<cite><a href="#C14N11">C14N11</a></cite>] is
+intended to address the issues that occur with Canonical XML 1.0
+with regards to <code>xml:id</code>. The W3C XML Security
+Specifications Maintenance WG has been chartered to address how to
+integrate Canonical XML 1.1 with XML Security, including XML
+Signature [<cite><a href=
+"#SecSpecMaintWG">SecSpecMaintWG</a></cite>] (See
+http://www.w3.org/2007/xmlsec/.)</p>
+</div>
+</dd>
+</dl>
+<p>The following example illustrates how to associate a policy
+expression with the absolute IRI
+<code>"http://www.example.com/policies/P1"</code>:</p>
+<div class="exampleInner">
+<pre>
+(01) &lt;wsp:Policy
+        Name="http://www.example.com/policies/P1"
+        xmlns:wsp="http://www.w3.org/ns/ws-policy" &gt;
+(02)   &lt;!-- Details omitted for readability --&gt;
+(03) &lt;/wsp:Policy&gt;
+</pre></div>
+<p>The following example illustrates how to associate a policy
+expression with the IRI-reference <code>"#P1"</code>:</p>
+<div class="exampleInner">
+<pre>
+(01) &lt;wsp:Policy
+        wsu:Id="P1"
+        xmlns:wsp="http://www.w3.org/ns/ws-policy"
+        xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" &gt;
+(02)   &lt;!-- Details omitted for readability --&gt;
+(03) &lt;/wsp:Policy&gt;
+</pre></div>
+</div>
+<div class="div2">
+<h3><a name="Compact_Policy_Expression" id=
+"Compact_Policy_Expression"></a>4.3 Compact Policy Expression</h3>
+<p>To express a <a title="policy" href="#policy">policy</a> in a
+more compact form while still using the XML Infoset, this
+specification defines three constructs: an attribute to decorate an
+<a title="policy assertion" href="#policy_assertion">assertion</a>,
+semantics for recursively nested policy operators, and a policy
+reference/inclusion mechanism. Each sub section below describes a
+construct and its equivalent normal form. To interpret a compact
+expression in an interoperable form, a policy expression in the
+compact form can be converted (see Section <a href=
+"#normalization"><b>4.3.6 Normalization</b></a>) to the normal form
+(see Section <a href="#Normal_Form_Policy_Expression"><b>4.1 Normal
+Form Policy Expression</b></a>).</p>
+<p>A <a title="policy expression" href="#policy_expression">policy
+expression</a> consists of a <code>wsp:Policy</code> wrapper
+element and zero or more child and descendent elements.</p>
+<div class="div3">
+<h4><a name="Optional_Policy_Assertions" id=
+"Optional_Policy_Assertions"></a>4.3.1 Optional Policy
+Assertions</h4>
+<p>To indicate that a <a title="policy assertion" href=
+"#policy_assertion">policy assertion</a> is optional, this
+specification defines an attribute that is a compact authoring
+style for expressing a pair of <a title="policy alternative" href=
+"#policy_alternative">alternatives</a>, one with and one without
+that assertion. The schema outline for this attribute is as
+follows:</p>
+<div class="exampleInner">
+<pre>
+(01) &lt;<b>Assertion</b> ( wsp:Optional="<b>xs:boolean</b>" )? …&gt; … &lt;/<b>Assertion</b>&gt;
+</pre></div>
+<p>The following describes the Attribute Information Item defined
+in the schema outline above:</p>
+<dl>
+<dt class="label"><code>/Assertion/@wsp:Optional</code></dt>
+<dd>
+<p>If the actual value (See XML Schema Part 1 [<cite><a href=
+"#XMLSchemaPart1">XML Schema Structures</a></cite>]) is true, the
+expression of the assertion is semantically equivalent to the
+following:</p>
+<div class="exampleInner">
+<pre>
+(01) &lt;wsp:ExactlyOne&gt;
+(02)   &lt;wsp:All&gt; &lt;<b>Assertion</b> …&gt; … &lt;/<b>Assertion</b>&gt; &lt;/wsp:All&gt;
+(03)   &lt;wsp:All /&gt;
+(04) &lt;/wsp:ExactlyOne&gt;
+</pre></div>
+<p>If the actual value (See XML Schema Part 1 [<cite><a href=
+"#XMLSchemaPart1">XML Schema Structures</a></cite>]) is false, the
+expression of the assertion is semantically equivalent to the
+following:</p>
+<div class="exampleInner">
+<pre>
+(01) &lt;wsp:ExactlyOne&gt;
+(02)   &lt;wsp:All&gt; &lt;<b>Assertion</b> …&gt; … &lt;/<b>Assertion</b>&gt; &lt;/wsp:All&gt;
+(03) &lt;/wsp:ExactlyOne&gt;
+</pre></div>
+<p>Omitting this attribute is semantically equivalent to including
+it with a value of false. Policy expressions should not include
+this attribute with a value of false, but policy parsers must
+accept this attribute with a value of false.</p>
+</dd>
+</dl>
+<p>For example, the following compact policy expression:</p>
+<div class="exampleInner">
+<pre>
+(01) &lt;wsp:Policy
+        xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702"
+        xmlns:wsp="http://www.w3.org/ns/ws-policy" &gt;
+(02)   &lt;sp:IncludeTimestamp wsp:Optional="true" /&gt;
+(03) &lt;/wsp:Policy&gt;
+</pre></div>
+<p>is equivalent to the following normal form policy
+expression:</p>
+<div class="exampleInner">
+<pre>
+(01) &lt;wsp:Policy
+        xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702"
+        xmlns:wsp="http://www.w3.org/ns/ws-policy" &gt;
+(02)   &lt;wsp:ExactlyOne&gt;
+(03)     &lt;wsp:All&gt;
+(04)       &lt;sp:IncludeTimestamp /&gt;
+(05)     &lt;/wsp:All&gt;
+(06)     &lt;wsp:All /&gt;
+(07)   &lt;/wsp:ExactlyOne&gt;
+(08) &lt;/wsp:Policy&gt;
+</pre></div>
+<p>The <code>@wsp:Optional</code> attribute in Line (02) of the
+first policy expression indicates that the assertion in Line (02)
+is to be included in a policy alternative whilst excluded from
+another; it is included in Lines (03-05) and excluded in Line (06).
+Note that <code>@wsp:Optional</code> does not appear in the normal
+form of a policy expression.</p>
+</div>
+<div class="div3">
+<h4><a name="Policy_Assertion_Nesting" id=
+"Policy_Assertion_Nesting"></a>4.3.2 Policy Assertion Nesting</h4>
+<p>Any <a title="policy assertion" href="#policy_assertion">policy
+assertion</a> <span class="rfc2119">MAY</span> contain a <a title=
+"policy expression" href="#policy_expression">policy
+expression</a>. [<a name="nested_policy_expression" id=
+"nested_policy_expression" title=
+"nested policy expression">Definition</a>: A <b>nested policy
+expression</b> is a <a title="policy expression" href=
+"#policy_expression">policy expression</a> that is an Element
+Information Item in the <strong>[children]</strong> property of a
+<a title="policy assertion" href="#policy_assertion">policy
+assertion</a>.] The schema outline for a <a title=
+"nested policy expression" href="#nested_policy_expression">nested
+policy expression</a> is:</p>
+<div class="exampleInner">
+<pre>
+(01) &lt;<b>Assertion</b> …&gt;
+(02)   …
+(03)   ( &lt;wsp:Policy …&gt; … &lt;/wsp:Policy&gt; )?
+(04)   …
+(05) &lt;/<b>Assertion</b>&gt;
+</pre></div>
+<p>The following describes additional processing constraints on the
+outline listed above:</p>
+<dl>
+<dt class="label"><code>/Assertion/wsp:Policy</code></dt>
+<dd>
+<p>This indicates that the assertion contains a nested policy
+expression. If there is no <code>wsp:Policy</code> Element
+Information Item in the <strong>[children]</strong> property, the
+assertion has no nested policy expression.</p>
+<p>If the schema outline for an assertion type requires a nested
+policy expression but the assertion does not further qualify one or
+more aspects of the behavior indicated by the assertion type (i.e.,
+no assertions are needed in the nested policy expression), the
+assertion <span class="rfc2119">MUST</span> include an empty
+<code>&lt;wsp:Policy/&gt;</code> Element Information Item in its
+<strong>[children]</strong> property. As explained in Section
+<a href="#Policy_Operators"><b>4.3.3 Policy Operators</b></a>, this
+is equivalent to a nested policy expression with a single
+alternative that has zero assertions.</p>
+<p>Note: This specification does not define processing for
+arbitrary <code>wsp:Policy</code> Element Information Items in the
+descendants of an assertion parameter, e.g., in the
+<strong>[children]</strong> property of one of the
+<strong>[children]</strong> as in:</p>
+<div class="exampleInner">
+<pre>
+(01)&lt;wsp:Policy&gt;
+(02)   &lt;Lorem&gt;
+(03)       &lt;Ipsum&gt;
+(04)           &lt;wsp:Policy&gt; 
+(05)           …
+(06)           &lt;/wsp:Policy&gt;
+(07)       &lt;/Ipsum&gt;
+(08)   &lt;/Lorem&gt;
+(09)&lt;/wsp:Policy&gt;
+</pre></div>
+</dd>
+</dl>
+<p>Policy assertions containing a nested policy expression are
+normalized recursively. The nesting of a policy expression (and a
+<code>wsp:Policy</code> child) is retained in the normal form, but
+in the normal form, each nested policy expression contains at most
+one policy alternative. If an assertion A contains a nested policy
+expression E, and if E contains more than one policy alternative, A
+is duplicated such that there are as many instances of A as choices
+in E, and the nested policy expression of a duplicate A contains a
+single choice. This process is applied recursively to the
+assertions within those choices and to their nested policy
+expression, if any. Intuitively, if a compact policy is thought of
+as a tree whose branches have branches etc, in the normal form, a
+policy is a stump with straight vines.</p>
+<p>For example, consider the following policy expression with
+nested policy expressions in a compact form:</p>
+<div class="exampleInner">
+<pre>
+(01) &lt;wsp:Policy
+        xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702"
+        xmlns:wsp="http://www.w3.org/ns/ws-policy" &gt;
+(02)   &lt;sp:TransportBinding&gt;
+(03)     &lt;wsp:Policy&gt;
+(04)       &lt;sp:AlgorithmSuite&gt;
+(05)         &lt;wsp:Policy&gt;
+(06)           &lt;wsp:ExactlyOne&gt;
+(07)             &lt;sp:Basic256Rsa15 /&gt;
+(08)             &lt;sp:TripleDesRsa15 /&gt;
+(09)           &lt;/wsp:ExactlyOne&gt;
+(10)         &lt;/wsp:Policy&gt;
+(11)       &lt;/sp:AlgorithmSuite&gt;
+(12)       &lt;sp:TransportToken&gt;
+(13)         &lt;wsp:Policy&gt;
+               &lt;sp:HttpsToken&gt;
+                 &lt;wsp:Policy/&gt;
+               &lt;/sp:HttpsToken&gt;
+(15)         &lt;/wsp:Policy&gt;
+(16)       &lt;/sp:TransportToken&gt;
+           &lt;!-- Details omitted for readability --&gt;
+(17)      &lt;/wsp:Policy&gt;
+(18)    &lt;/sp:TransportBinding&gt;
+(19) &lt;/wsp:Policy&gt;
+</pre></div>
+<p>Lines (02-18) in this policy expression contain a single
+transport binding security policy assertion; within its nested
+policy expression (Lines 03-17), is an algorithm suite assertion
+(Lines 04-11) whose nested policy expression (Lines 05-10) contains
+two policy alternatives (Lines 07-08). Generally, a nested policy
+expression implies recursive processing; in the example above, the
+behavior indicated by the transport binding assertion requires the
+behavior indicated by one of the assertions within the algorithm
+suite assertion.</p>
+<p>The example above is equivalent to the following:</p>
+<div class="exampleInner">
+<pre>
+(01) &lt;wsp:Policy
+        xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702"
+        xmlns:wsp="http://www.w3.org/ns/ws-policy" &gt;
+(02)   &lt;wsp:ExactlyOne&gt;
+(03)     &lt;wsp:All&gt;
+(04)       &lt;sp:TransportBinding&gt;
+(05)         &lt;wsp:Policy&gt;
+(06)           &lt;sp:AlgorithmSuite&gt;
+(07)             &lt;wsp:Policy&gt;
+(08)               &lt;sp:Basic256Rsa15 /&gt;
+(09)             &lt;/wsp:Policy&gt;
+(10)           &lt;/sp:AlgorithmSuite&gt;
+(11)           &lt;sp:TransportToken&gt;
+(12)             &lt;wsp:Policy&gt;
+                   &lt;sp:HttpsToken&gt;
+                     &lt;wsp:Policy/&gt;
+                   &lt;/sp:HttpsToken&gt;
+(14)             &lt;/wsp:Policy&gt;
+(15)           &lt;/sp:TransportToken&gt;
+               &lt;!-- Details omitted for readability --&gt;
+(16)         &lt;/wsp:Policy&gt;
+(17)       &lt;/sp:TransportBinding&gt;
+(18)     &lt;/wsp:All&gt;
+(19)     &lt;wsp:All&gt;
+(20)       &lt;sp:TransportBinding&gt;
+(21)         &lt;wsp:Policy&gt;
+(22)           &lt;sp:AlgorithmSuite&gt;
+(23)             &lt;wsp:Policy&gt;
+(24)               &lt;sp:TripleDesRsa15 /&gt;
+(25)             &lt;/wsp:Policy&gt;
+(26)           &lt;/sp:AlgorithmSuite&gt;
+(27)           &lt;sp:TransportToken&gt;
+(28)             &lt;wsp:Policy&gt;
+                   &lt;sp:HttpsToken&gt;
+                     &lt;wsp:Policy/&gt;
+                   &lt;/sp:HttpsToken&gt;
+(30)             &lt;/wsp:Policy&gt;
+(31)           &lt;/sp:TransportToken&gt;
+               &lt;!-- Details omitted for readability --&gt;
+(32)         &lt;/wsp:Policy&gt;
+(33)       &lt;/sp:TransportBinding&gt;
+(34)     &lt;/wsp:All&gt;
+(35)   &lt;/wsp:ExactlyOne&gt;
+(36) &lt;/wsp:Policy&gt;
+</pre></div>
+<p>In the listing above, the transport binding and its nested
+policy expression have been duplicated once for each of the nested
+alternatives in Lines (07-08) of the compact policy. The first
+alternative (Lines 03-18) contains a single nested algorithm suite
+alternative (Line 08) as does the second alternative (Lines 19-34
+and 24).</p>
+</div>
+<div class="div3">
+<h4><a name="Policy_Operators" id="Policy_Operators"></a>4.3.3
+Policy Operators</h4>
+<p><a title="policy" href="#policy">Policies</a> are used to convey
+a set of capabilities, requirements, and general characteristics of
+entities (see <a href="#tocRange"><b>1. Introduction</b></a>).
+These are generally expressible as a set of <a title=
+"policy alternative" href="#policy_alternative">policy
+alternatives</a>. Policy operators (<code>wsp:Policy</code>,
+<code>wsp:All</code> and <code>wsp:ExactlyOne</code> elements) are
+used to group <a title="policy assertion" href=
+"#policy_assertion">policy assertions</a> into <a title=
+"policy alternative" href="#policy_alternative">policy
+alternatives</a>. To compactly express complex policies, policy
+operators <span class="rfc2119">MAY</span> be recursively nested;
+that is, one or more instances of <code>wsp:Policy</code>,
+<code>wsp:All</code>, and/or <code>wsp:ExactlyOne</code>
+<span class="rfc2119">MAY</span> be nested within
+<code>wsp:Policy</code>, <code>wsp:All</code>, and/or
+<code>wsp:ExactlyOne</code>.</p>
+<p>The schema outline for the <code>wsp:Policy</code> element in
+the compact form is as follows:</p>
+<div class="exampleInner">
+<pre>
+(01) &lt;wsp:Policy … &gt;
+(02)   ( &lt;wsp:Policy …&gt;…&lt;/wsp:Policy&gt; |
+(03)     &lt;wsp:ExactlyOne&gt;…&lt;/wsp:ExactlyOne&gt; |         
+(04)     &lt;wsp:All&gt;…&lt;/wsp:All&gt; |
+(05)     &lt;wsp:PolicyReference … &gt;…&lt;/wsp:PolicyReference&gt; |
+(06)     …
+(07)   )* 
+(08) &lt;/wsp:Policy&gt;
+</pre></div>
+<p>The following describes the Attribute and Element Information
+Items defined in the schema outline above:</p>
+<dl>
+<dt class="label"><code>/wsp:Policy</code></dt>
+<dd>
+<p>This element is the <code>wsp:Policy</code> operator.</p>
+</dd>
+<dt class="label"><code>/wsp:Policy/wsp:Policy</code></dt>
+<dd>
+<p>This element is a nested <code>wsp:Policy</code> operator.</p>
+</dd>
+<dt class="label"><code>/wsp:Policy/wsp:ExactlyOne</code></dt>
+<dd>
+<p>This element is a nested <code>wsp:ExactlyOne</code>
+operator.</p>
+</dd>
+<dt class="label"><code>/wsp:Policy/wsp:All</code></dt>
+<dd>
+<p>This element is a nested <code>wsp:All</code> operator.</p>
+</dd>
+<dt class="label"><code>/wsp:Policy/wsp:PolicyReference</code></dt>
+<dd>
+<p>This element references a policy expression to be included per
+Section <a href="#Policy_Inclusion"><b>4.3.5 Policy
+Inclusion</b></a>.</p>
+</dd>
+<dt class="label"><code>/wsp:Policy/@{any}</code></dt>
+<dd>
+<p>Additional attributes <span class="rfc2119">MAY</span> be
+specified but <span class="rfc2119">MUST NOT</span> contradict the
+semantics of the <strong>[owner element]</strong>; if an attribute
+is not recognized, it <span class="rfc2119">SHOULD</span> be
+ignored.</p>
+</dd>
+<dt class="label"><code>/wsp:Policy/{any}</code></dt>
+<dd>
+<p>Additional elements <span class="rfc2119">MAY</span> be
+specified. Such elements <span class="rfc2119">MUST NOT</span> use
+the Web Services Policy language XML namespace name and
+<span class="rfc2119">MUST NOT</span> contradict the semantics of
+the <strong>[parent element]</strong>.</p>
+</dd>
+</dl>
+<p>The schema outline for the <code>wsp:ExactlyOne</code> element
+in the compact form is as follows:</p>
+<div class="exampleInner">
+<pre>
+(01) &lt;wsp:ExactlyOne&gt;
+(02)   ( &lt;wsp:Policy … &gt;…&lt;/wsp:Policy&gt; |
+(03)     &lt;wsp:ExactlyOne&gt;…&lt;/wsp:ExactlyOne&gt; |
+(04)     &lt;wsp:All&gt;…&lt;/wsp:All&gt; |
+(05)     &lt;wsp:PolicyReference … &gt;…&lt;/wsp:PolicyReference&gt; |
+(06)     …
+(07)   )* 
+(08) &lt;/wsp:ExactlyOne&gt;
+</pre></div>
+<p>The following describes the Attribute and Element Information
+Items defined in the schema outline above:</p>
+<dl>
+<dt class="label"><code>/wsp:ExactlyOne</code></dt>
+<dd>
+<p>This element is the <code>wsp:ExactlyOne</code> operator.</p>
+</dd>
+<dt class="label"><code>/wsp:ExactlyOne/wsp:Policy</code></dt>
+<dd>
+<p>This element is a nested <code>wsp:Policy</code> operator.</p>
+</dd>
+<dt class="label"><code>/wsp:ExactlyOne/wsp:ExactlyOne</code></dt>
+<dd>
+<p>This element is a nested <code>wsp:ExactlyOne</code>
+operator.</p>
+</dd>
+<dt class="label"><code>/wsp:ExactlyOne/wsp:All</code></dt>
+<dd>
+<p>This element is a nested <code>wsp:All operator</code>.</p>
+</dd>
+<dt class="label">
+<code>/wsp:ExactlyOne/wsp:PolicyReference</code></dt>
+<dd>
+<p>This element references a policy expression to be included per
+Section <a href="#Policy_Inclusion"><b>4.3.5 Policy
+Inclusion</b></a>.</p>
+</dd>
+<dt class="label"><code>/wsp:ExactlyOne/{any}</code></dt>
+<dd>
+<p>Additional elements <span class="rfc2119">MAY</span> be
+specified. Such elements <span class="rfc2119">MUST NOT</span> use
+the Web Services Policy language XML namespace name and
+<span class="rfc2119">MUST NOT</span> contradict the semantics of
+the <strong>[parent element]</strong>.</p>
+</dd>
+</dl>
+<p>The schema outline for the <code>wsp:All</code> element in the
+compact form is as follows:</p>
+<div class="exampleInner">
+<pre>
+(01) &lt;wsp:All&gt;
+(02)   ( &lt;wsp:Policy … &gt;…&lt;/wsp:Policy&gt; |
+(03)     &lt;wsp:ExactlyOne&gt;…&lt;/wsp:ExactlyOne&gt; |
+(04)     &lt;wsp:All&gt;…&lt;/wsp:All&gt; |
+(05)     &lt;wsp:PolicyReference … &gt;…&lt;/wsp:PolicyReference&gt; |
+(06)     …
+(07)   )* 
+(08) &lt;/wsp:All&gt;
+</pre></div>
+<p>The following describes the Attribute and Element Information
+Items defined in the schema outline above:</p>
+<dl>
+<dt class="label"><code>/wsp:All</code></dt>
+<dd>
+<p>This element is the <code>wsp:All</code> operator.</p>
+</dd>
+<dt class="label"><code>/wsp:All/wsp:Policy</code></dt>
+<dd>
+<p>This element is a nested <code>wsp:Policy</code> operator.</p>
+</dd>
+<dt class="label"><code>/wsp:All/wsp:ExactlyOne</code></dt>
+<dd>
+<p>This element is a nested <code>wsp:ExactlyOne</code>
+operator.</p>
+</dd>
+<dt class="label"><code>/wsp:All/wsp:All</code></dt>
+<dd>
+<p>This element is a nested <code>wsp:All</code> operator.</p>
+</dd>
+<dt class="label"><code>/wsp:All/wsp:PolicyReference</code></dt>
+<dd>
+<p>This element references a policy expression to be included per
+Section <a href="#Policy_Inclusion"><b>4.3.5 Policy
+Inclusion</b></a>.</p>
+</dd>
+<dt class="label"><code>/wsp:All/{any}</code></dt>
+<dd>
+<p>Additional elements <span class="rfc2119">MAY</span> be
+specified. Such elements <span class="rfc2119">MUST NOT</span> use
+the Web Services Policy language XML namespace name and
+<span class="rfc2119">MUST NOT</span> contradict the semantics of
+the <strong>[parent element]</strong>.</p>
+</dd>
+</dl>
+<div class="note">
+<p class="prefix"><b>Note:</b></p>
+<p>The <code>wsp:All</code> and <code>wsp:ExactlyOne</code>
+elements do not allow attribute extensibility because such
+attributes cannot be preserved through normalization.</p>
+</div>
+<p>The following rules are used to transform a compact policy
+expression into a normal form policy expression:</p>
+<dl>
+<dt class="label">Equivalence</dt>
+<dd>
+<p>Use of <code>wsp:Policy</code> as an operator within a policy
+expression is equivalent to <code>wsp:All</code>.</p>
+<p>A collection of assertions in an <code>wsp:All</code> operator
+is equivalent to a <a title="policy alternative" href=
+"#policy_alternative">policy alternative</a>. For instance,</p>
+<div class="exampleInner">
+<pre>
+(01) &lt;wsp:All&gt;
+(02)   &lt;!-- assertion 1 --&gt;
+(03)   &lt;!-- assertion 2 --&gt;
+(04) &lt;/wsp:All&gt;
+</pre></div>
+<p>is equivalent to:</p>
+<div class="exampleInner">
+<pre>
+(01) &lt;wsp:ExactlyOne&gt;
+(02)   &lt;wsp:All&gt;
+(03)     &lt;!-- assertion 1 --&gt;
+(04)     &lt;!-- assertion 2 --&gt;
+(05)   &lt;/wsp:All&gt;
+(06) &lt;/wsp:ExactlyOne&gt;
+</pre></div>
+</dd>
+<dt class="label">Empty</dt>
+<dd>
+<ul>
+<li>
+<p><code>&lt;wsp:All /&gt;</code> expresses a policy alternative
+with zero policy assertions. Note that since
+<code>wsp:Policy</code> is equivalent to <code>wsp:All</code>,
+<code>&lt;wsp:Policy /&gt;</code> is therefore equivalent to
+<code>&lt;wsp:All /&gt;</code>, i.e., a policy alternative with
+zero assertions.</p>
+</li>
+<li>
+<p><code>&lt;wsp:ExactlyOne /&gt;</code> expresses a policy with
+zero policy alternatives.</p>
+</li>
+</ul>
+</dd>
+<dt class="label">Commutative</dt>
+<dd>
+<p>In line with the previous statements that policy assertions
+within a policy alternative and policy alternatives within a policy
+are not ordered (see <a href="#rPolicy_Alternative"><b>3.2 Policy
+Alternative</b></a> and <a href="#rPolicy"><b>3.3 Policy</b></a>,
+respectively), <code>wsp:All</code> and <code>wsp:ExactlyOne</code>
+are commutative. For example,</p>
+<div class="exampleInner">
+<pre>
+(01) &lt;wsp:All&gt; <b>&lt;!-- assertion 1 --&gt; &lt;!-- assertion 2 --&gt; </b>&lt;/wsp:All&gt;
+</pre></div>
+<p>is equivalent to:</p>
+<div class="exampleInner">
+<pre>
+(01) &lt;wsp:All&gt; <b>&lt;!-- assertion 2 --&gt; &lt;!-- assertion 1 --&gt; </b>&lt;/wsp:All&gt;
+</pre></div>
+<p>and:</p>
+<div class="exampleInner">
+<pre>
+(01) &lt;wsp:ExactlyOne&gt;
+(02)   <b>&lt;!-- assertion 1 --&gt; &lt;!-- assertion 2 --&gt;</b>
+(03) &lt;/wsp:ExactlyOne&gt;
+</pre></div>
+<p>is equivalent to:</p>
+<div class="exampleInner">
+<pre>
+(01) &lt;wsp:ExactlyOne&gt;
+(02)   <b>&lt;!-- assertion 2 --&gt; &lt;!-- assertion 1 --&gt;</b>
+(03) &lt;/wsp:ExactlyOne&gt;
+</pre></div>
+</dd>
+<dt class="label">Associative</dt>
+<dd>
+<p><code>wsp:All</code> and <code>wsp:ExactlyOne</code> are
+associative. For example,</p>
+<div class="exampleInner">
+<pre>
+(01) &lt;wsp:All&gt;
+(02)   <b>&lt;!-- assertion 1 --&gt;</b>
+(03) <b>  </b>&lt;wsp:All&gt; <b>&lt;!-- assertion 2 --&gt; </b>&lt;/wsp:All&gt;
+(04) &lt;/wsp:All&gt;
+</pre></div>
+<p>is equivalent to:</p>
+<div class="exampleInner">
+<pre>
+(01) &lt;wsp:All&gt; <b>&lt;!-- assertion 1 --&gt; &lt;!-- assertion 2 --&gt; </b>&lt;/wsp:All&gt;
+</pre></div>
+<p>and:</p>
+<div class="exampleInner">
+<pre>
+(01) &lt;wsp:ExactlyOne&gt;
+(02)   <b>&lt;!-- assertion 1 --&gt;</b>
+(03) <b>  </b>&lt;wsp:ExactlyOne&gt; <b>&lt;!-- assertion 2 --&gt; </b>&lt;/wsp:ExactlyOne&gt;
+(04) &lt;/wsp:ExactlyOne&gt;
+</pre></div>
+<p>is equivalent to:</p>
+<div class="exampleInner">
+<pre>
+(01) &lt;wsp:ExactlyOne&gt;
+(02)   <b>&lt;!-- assertion 1 --&gt; &lt;!-- assertion 2 --&gt;</b>
+(03) &lt;/wsp:ExactlyOne&gt;
+</pre></div>
+</dd>
+<dt class="label">Idempotent</dt>
+<dd>
+<p><code>wsp:All</code> and <code>wsp:ExactlyOne</code> are
+idempotent. For example,</p>
+<div class="exampleInner">
+<pre>
+(01) &lt;wsp:All&gt;
+(02)   &lt;wsp:All&gt; <b>&lt;!-- assertion 1 --&gt; &lt;!-- assertion 2 --&gt; </b>&lt;/wsp:All&gt;
+(03) &lt;/wsp:All&gt;
+</pre></div>
+<p>is equivalent to:</p>
+<div class="exampleInner">
+<pre>
+(01) &lt;wsp:All&gt; <b>&lt;!-- assertion 1 --&gt; &lt;!-- assertion 2 --&gt; </b>&lt;/wsp:All&gt;
+</pre></div>
+<p>and:</p>
+<div class="exampleInner">
+<pre>
+(01) &lt;wsp:ExactlyOne&gt;
+(02)   &lt;wsp:ExactlyOne&gt;
+(03)     <b>&lt;!-- assertion 1 --&gt; &lt;!-- assertion 2 --&gt;</b>
+(04) <b>  </b>&lt;/wsp:ExactlyOne&gt;
+(05) &lt;/wsp:ExactlyOne&gt;
+</pre></div>
+<p>is equivalent to:</p>
+<div class="exampleInner">
+<pre>
+(01) &lt;wsp:ExactlyOne&gt;
+(02)   <b>&lt;!-- assertion 1 --&gt; &lt;!-- assertion 2 --&gt;</b>
+(03) &lt;/wsp:ExactlyOne&gt;
+</pre></div>
+</dd>
+<dt class="label">Distributive</dt>
+<dd>
+<p><code>wsp:All</code> is distributive over
+<code>wsp:ExactlyOne</code>. That is, a <code>wsp:All</code>
+element containing only <code>wsp:ExactlyOne</code> child elements
+is equivalent to a <code>wsp:ExactlyOne</code> element containing,
+for each possible combination of one child element from each of the
+<code>wsp:ExactlyOne</code> element over which being distributed, a
+<code>wsp:All</code> element containing that combination. For
+example,</p>
+<div class="exampleInner">
+<pre>
+(01) &lt;wsp:All&gt;
+(02)   &lt;wsp:ExactlyOne&gt;
+(03) <b>    &lt;!-- assertion 1 --&gt;</b>
+(04) <b>    &lt;!-- assertion 2 --&gt;</b>
+(05)   &lt;/wsp:ExactlyOne&gt;
+(06) &lt;/wsp:All&gt;
+</pre></div>
+<p>is equivalent to:</p>
+<div class="exampleInner">
+<pre>
+(01) &lt;wsp:ExactlyOne&gt;
+(02)   &lt;wsp:All&gt;
+(03) <b>    &lt;!-- assertion 1 --&gt;</b>
+(04)   &lt;/wsp:All&gt;
+(05)   &lt;wsp:All&gt;
+(06) <b>    &lt;!-- assertion 2 --&gt;</b>
+(07)   &lt;/wsp:All&gt;
+(08) &lt;/wsp:ExactlyOne&gt;
+</pre></div>
+<p>Similarly by repeatedly distributing wsp:All over
+wsp:ExactlyOne,</p>
+<div class="exampleInner">
+<pre>
+(01) &lt;wsp:All&gt;
+(02)   &lt;wsp:ExactlyOne&gt;
+(03) <b>    &lt;!-- assertion 1 --&gt;</b>
+(04) <b>    &lt;!-- assertion 2 --&gt;</b>
+(05)   &lt;/wsp:ExactlyOne&gt;
+(06)   &lt;wsp:ExactlyOne&gt;
+(07) <b>    &lt;!-- assertion 3 --&gt;</b>
+(08) <b>    &lt;!-- assertion 4 --&gt;</b>
+(09)   &lt;/wsp:ExactlyOne&gt;
+(10) &lt;/wsp:All&gt;
+</pre></div>
+<p>is equivalent to:</p>
+<div class="exampleInner">
+<pre>
+(01) &lt;wsp:ExactlyOne&gt;
+(02)   &lt;wsp:All&gt;<b>&lt;!-- assertion 1 --&gt;&lt;!-- assertion 3 --&gt;</b>&lt;/wsp:All&gt;
+(03)   &lt;wsp:All&gt;<b>&lt;!-- assertion 1 --&gt;&lt;!-- assertion 4 --&gt;</b>&lt;/wsp:All&gt;
+(04)   &lt;wsp:All&gt;<b>&lt;!-- assertion 2 --&gt;&lt;!-- assertion 3 --&gt;</b>&lt;/wsp:All&gt;
+(05)   &lt;wsp:All&gt;<b>&lt;!-- assertion 2 --&gt;&lt;!-- assertion 4 --&gt;</b>&lt;/wsp:All&gt;
+(06) &lt;/wsp:ExactlyOne&gt;
+</pre></div>
+<p>Distributing <code>wsp:All</code> over an empty
+<code>wsp:ExactlyOne</code> is equivalent to no alternatives. For
+example,</p>
+<div class="exampleInner">
+<pre>
+(01) &lt;wsp:All&gt;
+(02)   &lt;wsp:ExactlyOne /&gt;
+(03) &lt;/wsp:All&gt;
+</pre></div>
+<p>is equivalent to:</p>
+<div class="exampleInner">
+<pre>
+(01) &lt;wsp:ExactlyOne /&gt;
+</pre></div>
+<p>and:</p>
+<div class="exampleInner">
+<pre>
+(01) &lt;wsp:All&gt;
+(02)   &lt;wsp:ExactlyOne&gt;
+(03) <b>    &lt;!-- assertion 1 --&gt;</b>
+(04) <b>    &lt;!-- assertion 2 --&gt;</b>
+(05)   &lt;/wsp:ExactlyOne&gt;
+(06)   &lt;wsp:ExactlyOne /&gt;
+(07) &lt;/wsp:All&gt;
+</pre></div>
+<p>is equivalent to:</p>
+<div class="exampleInner">
+<pre>
+(01) &lt;wsp:ExactlyOne /&gt;
+</pre></div>
+</dd>
+</dl>
+<p>For example, given the following compact policy expression:</p>
+<div class="exampleInner">
+<pre>
+(01) &lt;wsp:Policy
+        xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702"
+        xmlns:wsp="http://www.w3.org/ns/ws-policy" &gt;
+(02)   &lt;sp:RequireDerivedKeys wsp:Optional="true" /&gt;
+(03)   &lt;wsp:ExactlyOne&gt;
+(04)     &lt;sp:WssUsernameToken10 /&gt;
+(05)     &lt;sp:WssUsernameToken11 /&gt;
+(06)   &lt;/wsp:ExactlyOne&gt;
+(07) &lt;/wsp:Policy&gt;
+</pre></div>
+<p>Applying Section <a href="#Optional_Policy_Assertions"><b>4.3.1
+Optional Policy Assertions</b></a> to <code>@wsp:Optional</code> in
+Line (02), and distributing <code>wsp:All</code> over
+<code>wsp:ExactlyOne</code> per Section <a href=
+"#Policy_Operators"><b>4.3.3 Policy Operators</b></a> for the
+assertions in Lines (04-05) yields:</p>
+<div class="exampleInner">
+<pre>
+(01) &lt;wsp:Policy
+        xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702"
+        xmlns:wsp="http://www.w3.org/ns/ws-policy" &gt;
+(02)   &lt;wsp:ExactlyOne&gt;
+(03)     &lt;wsp:All&gt; &lt;!-- @wsp:Optional alternative with assertion --&gt;
+(04)       &lt;sp:RequireDerivedKeys /&gt;
+(05)     &lt;/wsp:All&gt;
+(06)     &lt;wsp:All /&gt; &lt;!-- @wsp:Optional alternative without --&gt;
+(07)   &lt;/wsp:ExactlyOne&gt;
+(08)   &lt;wsp:ExactlyOne&gt;
+(09)     &lt;wsp:All&gt;
+(10)       &lt;sp:WssUsernameToken10 /&gt;
+(11)     &lt;/wsp:All&gt;
+(12)     &lt;wsp:All&gt;
+(13)       &lt;sp:WssUsernameToken11 /&gt;
+(14)     &lt;/wsp:All&gt;
+(15)   &lt;/wsp:ExactlyOne&gt;
+(16) &lt;/wsp:Policy&gt;
+</pre></div>
+<p>Note that the assertion listed in Line (02) in the first listing
+expands into the two alternatives in Lines (03-06) in the second
+listing.</p>
+<p>Finally, noting that <code>wsp:Policy</code> is equivalent to
+<code>wsp:All</code>, and distributing <code>wsp:All</code> over
+<code>wsp:ExactlyOne</code> yields the following normal form policy
+expression:</p>
+<div class="exampleInner">
+<pre>
+(01) &lt;wsp:Policy
+        xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702"
+        xmlns:wsp="http://www.w3.org/ns/ws-policy" &gt;
+(02)   &lt;wsp:ExactlyOne&gt;
+(03)     &lt;wsp:All&gt;
+(04)       &lt;sp:RequireDerivedKeys /&gt;
+(05)       &lt;sp:WssUsernameToken10 /&gt;
+(06)     &lt;/wsp:All&gt;
+(07)     &lt;wsp:All&gt;
+(08)       &lt;sp:RequireDerivedKeys /&gt;
+(09)       &lt;sp:WssUsernameToken11 /&gt;
+(10)     &lt;/wsp:All&gt;
+(11)     &lt;wsp:All&gt;
+(12)       &lt;sp:WssUsernameToken10 /&gt;
+(13)     &lt;/wsp:All&gt;
+(14)     &lt;wsp:All&gt;
+(15)       &lt;sp:WssUsernameToken11 /&gt;
+(16)     &lt;/wsp:All&gt;
+(17)   &lt;/wsp:ExactlyOne&gt;
+(18) &lt;/wsp:Policy&gt;
+</pre></div>
+<p>Note that the two alternatives listed in Lines (03-06) in the
+second listing are combined with the two alternatives listed in
+Lines (09-14) in the second listing to create four alternatives in
+the normalized policy, Lines (03-06), (07-10), (11-13), and
+(14-16).</p>
+<p>Consider another example, given the following compact policy
+expression:</p>
+<div class="exampleInner">
+<pre>
+(01) &lt;wsp:Policy
+        xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702"
+        xmlns:wsp="http://www.w3.org/ns/ws-policy" &gt;
+(02)   &lt;sp:RequireDerivedKeys /&gt;
+(03)   &lt;wsp:ExactlyOne&gt;
+(04)     &lt;sp:WssUsernameToken10 /&gt;
+(05)     &lt;sp:WssUsernameToken11 /&gt;
+(06)   &lt;/wsp:ExactlyOne&gt;
+(07) &lt;/wsp:Policy&gt;
+</pre></div>
+<p>Applying Section <a href="#Optional_Policy_Assertions"><b>4.3.1
+Optional Policy Assertions</b></a> to
+<code>@wsp:Optional="false"</code> in Line (02), and distributing
+wsp:All over wsp:ExactlyOne per Section <a href=
+"#Policy_Operators"><b>4.3.3 Policy Operators</b></a> for the
+assertions in Lines (04-05) yields:</p>
+<div class="exampleInner">
+<pre>
+(01) &lt;wsp:Policy
+        xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702"
+        xmlns:wsp="http://www.w3.org/ns/ws-policy" &gt;
+(02)   &lt;wsp:ExactlyOne&gt;
+(03)     &lt;wsp:All&gt;
+(04)       &lt;sp:RequireDerivedKeys /&gt;
+(05)     &lt;/wsp:All&gt;
+(06)   &lt;/wsp:ExactlyOne&gt;
+(07)   &lt;wsp:ExactlyOne&gt;
+(08)     &lt;wsp:All&gt;
+(09)       &lt;sp:WssUsernameToken10 /&gt;
+(10)     &lt;/wsp:All&gt;
+(11)     &lt;wsp:All&gt;
+(12)       &lt;sp:WssUsernameToken11 /&gt;
+(13)     &lt;/wsp:All&gt;
+(14)   &lt;/wsp:ExactlyOne&gt;
+(15) &lt;/wsp:Policy&gt;
+</pre></div>
+<p>Note that the assertion listed in Line (02) in the first listing
+expands into an alternative in Lines (03-05) in the second
+listing.</p>
+<p>Finally, noting that <code>wsp:Policy</code> is equivalent to
+<code>wsp:All</code>, and distributing <code>wsp:All</code> over
+<code>wsp:ExactlyOne</code> yields the following normal form policy
+expression:</p>
+<div class="exampleInner">
+<pre>
+(01) &lt;wsp:Policy
+        xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702"
+        xmlns:wsp="http://www.w3.org/ns/ws-policy" &gt;
+(02)   &lt;wsp:ExactlyOne&gt;
+(03)     &lt;wsp:All&gt;
+(04)       &lt;sp:RequireDerivedKeys /&gt;
+(05)       &lt;sp:WssUsernameToken10 /&gt;
+(06)     &lt;/wsp:All&gt;
+(07)     &lt;wsp:All&gt;
+(08)       &lt;sp:RequireDerivedKeys /&gt;
+(09)       &lt;sp:WssUsernameToken11 /&gt;
+(10)     &lt;/wsp:All&gt;
+(11)   &lt;/wsp:ExactlyOne&gt;
+(12) &lt;/wsp:Policy&gt;
+</pre></div>
+<p>Note that the first alternative listed in Lines (03-05) in the
+second listing is combined with the two alternatives listed in
+Lines (08-13) in the second listing to create two alternatives in
+the normalized policy, Lines (03-06) and (07-10).</p>
+</div>
+<div class="div3">
+<h4><a name="Policy_References" id="Policy_References"></a>4.3.4
+Policy References</h4>
+<p>The <code>wsp:PolicyReference</code> element is used to
+reference <a title="policy expression" href=
+"#policy_expression">policy expressions</a>. The semantics of the
+<code>wsp:PolicyReference</code> element are determined by the
+context in which it is used (for an example, see <a href=
+"#Policy_Inclusion"><b>4.3.5 Policy Inclusion</b></a>).</p>
+<p>The schema outline for the <code>wsp:PolicyReference</code>
+element is as follows:</p>
+<div class="exampleInner">
+<pre>
+(01) &lt;wsp:PolicyReference
+(02)     URI="<b>xs:anyURI</b>"
+(03)   ( Digest="<b>xs:base64Binary</b>" ( DigestAlgorithm="<b>xs:anyURI</b>" )? )?
+(04)     … &gt;
+(05)    …
+(06) &lt;/wsp:PolicyReference&gt;
+</pre></div>
+<p>The following describes the Attribute and Element Information
+Items defined in the schema outline above:</p>
+<dl>
+<dt class="label"><code>/wsp:PolicyReference</code></dt>
+<dd>
+<p>This element references a policy expression that is being
+referenced.</p>
+</dd>
+<dt class="label"><code>/wsp:PolicyReference/@URI</code></dt>
+<dd>
+<p>This attribute references a policy expression by an IRI. For a
+policy expression within the same XML Document, the reference
+<span class="rfc2119">SHOULD</span> be an IRI-reference to a policy
+expression identified by an <code>ID</code>. For an external policy
+expression, there is no requirement that the IRI be resolvable;
+retrieval mechanisms are beyond the scope of this specification.
+After retrieval, there is no requirement to check that the
+retrieved policy expression is associated (Section <a href=
+"#Policy_Identification"><b>4.2 Policy Identification</b></a>) with
+this IRI. &nbsp; The IRI included in the retrieved policy
+expression, if any, <span class="rfc2119">MAY</span> be different
+than the IRI used to retrieve the policy expression.</p>
+</dd>
+<dt class="label"><code>/wsp:PolicyReference/@Digest</code></dt>
+<dd>
+<p>This attribute is of type <code>xs:base64Binary</code> and
+specifies the digest of the referenced policy expression. This is
+used to ensure the included policy is the expected policy. If
+omitted, there is no implied value.</p>
+</dd>
+<dt class="label">
+<code>/wsp:PolicyReference/@DigestAlgorithm</code></dt>
+<dd>
+<p>This optional URI attribute specifies the digest algorithms
+being used. This specification predefines the default algorithm
+below, although additional algorithms can be expressed.</p>
+</dd>
+</dl>
+<table cellspacing="0" cellpadding="5" border="1">
+<thead>
+<tr>
+<th rowspan="1" colspan="1">URI</th>
+<th rowspan="1" colspan="1">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td rowspan="1" colspan="1">
+<code>http://www.w3.org/ns/ws-policy/Sha1Exc</code> (implied)</td>
+<td rowspan="1" colspan="1">The digest is a SHA1 hash over the
+octet stream resulting from using the Exclusive XML
+canonicalization defined for XML Signature [<cite><a href=
+"#XML-Signature">XML-Signature</a></cite>].</td>
+</tr>
+</tbody>
+</table>
+<br />
+<dl>
+<dt class="label"><code>/wsp:PolicyReference/@{any}</code></dt>
+<dd>
+<p>Additional attributes <span class="rfc2119">MAY</span> be
+specified but <span class="rfc2119">MUST NOT</span> contradict the
+semantics of the <strong>[owner element]</strong>; if an attribute
+is not recognized, it <span class="rfc2119">SHOULD</span> be
+ignored.</p>
+</dd>
+<dt class="label"><code>/wsp:PolicyReference/{any}</code></dt>
+<dd>
+<p>Additional elements <span class="rfc2119">MAY</span> be
+specified but <span class="rfc2119">MUST NOT</span> contradict the
+semantics of the <strong>[parent element]</strong>; if an element
+is not recognized, it <span class="rfc2119">SHOULD</span> be
+ignored.</p>
+</dd>
+</dl>
+</div>
+<div class="div3">
+<h4><a name="Policy_Inclusion" id="Policy_Inclusion"></a>4.3.5
+Policy Inclusion</h4>
+<p>In order to share <a title="policy assertion" href=
+"#policy_assertion">assertions</a> across <a title=
+"policy expression" href="#policy_expression">policy
+expressions</a>, the <code>wsp:PolicyReference</code> element
+<span class="rfc2119">MAY</span> be present anywhere a policy
+assertion is allowed inside a policy expression. This element is
+used to include the content of one policy expression in another
+policy expression.</p>
+<p>When a <code>wsp:PolicyReference</code> element references a
+<code>wsp:Policy</code> element, then the semantics of inclusion
+are simply to replace the <code>wsp:PolicyReference</code> element
+with a <code>wsp:All</code> element whose
+<strong>[children]</strong> property is the same as the
+<strong>[children]</strong> property of the referenced
+<code>wsp:Policy</code> element. That is, the contents of the
+referenced policy conceptually replace the
+<code>wsp:PolicyReference</code> element and are wrapped in a
+<code>wsp:All</code> operator. Using the
+<code>wsp:PolicyReference</code> element, a policy expression
+<span class="rfc2119">MUST NOT</span> reference itself either
+directly or indirectly. (Note: References that have a
+<code>@Digest</code> attribute <span class="rfc2119">SHOULD</span>
+be validated before being included.)</p>
+<p>In the example below two policies include and extend a common
+policy. In the first example there is a single policy document
+containing two policy assertions. The expression is given an
+identifier but not a fully qualified location. The second and third
+expressions reference the first expression by URI indicating the
+referenced expression is within the document.</p>
+<div class="exampleInner">
+<pre>
+(01) &lt;wsp:Policy
+        xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702"
+        xmlns:wsp="http://www.w3.org/ns/ws-policy"
+        xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+        wsu:Id="Protection" &gt;
+(02)   &lt;sp:EncryptSignature wsp:Optional="true" /&gt;
+(03)   &lt;sp:ProtectTokens wsp:Optional="true" /&gt;
+(04) &lt;/wsp:Policy&gt;
+</pre></div>
+<div class="exampleInner">
+<pre>
+(01) &lt;wsp:Policy
+        xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702"
+        xmlns:wsp="http://www.w3.org/ns/ws-policy" &gt;
+(02)   &lt;wsp:PolicyReference URI="#Protection" /&gt;
+(03)   &lt;sp:OnlySignEntireHeadersAndBody /&gt;
+(04) &lt;/wsp:Policy&gt;
+</pre></div>
+<div class="exampleInner">
+<pre>
+(01) &lt;wsp:Policy
+        xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702"
+        xmlns:wsp="http://www.w3.org/ns/ws-policy" &gt;
+(02)   &lt;sp:IncludeTimestamp /&gt;
+(03)   &lt;wsp:PolicyReference URI="#Protection" /&gt;
+(04)   &lt;sp:OnlySignEntireHeadersAndBody /&gt;
+(05) &lt;/wsp:Policy&gt;
+</pre></div>
+<p>There are times when it is desirable to "re-use" a portion of a
+policy expression. Generally, this can be accomplished by placing
+the common assertions in a separate policy expression and
+referencing it.</p>
+</div>
+<div class="div3">
+<h4><a name="normalization" id="normalization"></a>4.3.6
+Normalization</h4>
+<p>To interpret a compact <a title="policy expression" href=
+"#policy_expression">expression</a> in an interoperable form, a
+compact expression may be converted to the corresponding normal
+form expression by the following procedure:</p>
+<ol class="enumar">
+<li>
+<p>Start with the Element Information Item E (as defined in the XML
+Information Set [<cite><a href="#XMLInfoset">XML Information
+Set</a></cite>]) of the policy expression. The <strong>[namespace
+name]</strong> of E is always
+<code>"http://www.w3.org/ns/ws-policy"</code>. In the base case,
+the <strong>[local name]</strong> property of E is
+<code>"Policy"</code>; in the recursive case, the <strong>[local
+name]</strong> property of E is <code>"Policy"</code>,
+<code>"ExactlyOne"</code>, or <code>"All"</code>.</p>
+</li>
+<li>
+<p>Expand Element Information Items (as defined in the XML
+Information Set [<cite><a href="#XMLInfoset">XML Information
+Set</a></cite>]) in the <strong>[children]</strong> property of E
+that are policy references per Section <a href=
+"#Policy_Inclusion"><b>4.3.5 Policy Inclusion</b></a>.</p>
+</li>
+<li>
+<p>Convert each Element Information Item C in the
+<strong>[children]</strong> property of E into normal form.</p>
+<ol class="enumla">
+<li>
+<p>If the <strong>[namespace name]</strong> property of C is
+<code>"http://www.w3.org/ns/ws-policy"</code> and the
+<strong>[local name]</strong> property of C is
+<code>"Policy"</code>, <code>"ExactlyOne"</code>, or
+<code>"All"</code>, C is an expression of a policy operator;
+normalize C by recursively applying this procedure.</p>
+</li>
+<li>
+<p>Otherwise the Element Information Item C is an assertion;
+normalize C per Sections <a href=
+"#Optional_Policy_Assertions"><b>4.3.1 Optional Policy
+Assertions</b></a> and <a href="#Policy_Assertion_Nesting"><b>4.3.2
+Policy Assertion Nesting</b></a>.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Apply the policy operator indicated by E to the normalized
+Element Information Items in its <strong>[children]</strong>
+property and construct a normal form per Section <a href=
+"#Policy_Operators"><b>4.3.3 Policy Operators</b></a> and <a href=
+"#Normal_Form_Policy_Expression"><b>4.1 Normal Form Policy
+Expression</b></a>.</p>
+</li>
+</ol>
+<p>Note that an implementation may use a more efficient procedure
+and is not required to explicitly convert a compact expression into
+the normal form as long as the processing results are
+indistinguishable from doing so.</p>
+</div>
+</div>
+<div class="div2">
+<h3><a name="ignorable-policy-assertions" id=
+"ignorable-policy-assertions"></a>4.4 Ignorable Policy
+Assertions</h3>
+<p>The <code>wsp:Ignorable</code> attribute indicates if a policy
+assertion is an <a title="ignorable policy assertion" href=
+"#ignorable_policy_assertion">ignorable policy assertion</a>. The
+behavior implied by an ignorable assertion is expected to be a
+behavior that need not be engaged for successful interoperation
+with the entity that includes such ignorable assertions in its
+policy.</p>
+<p>The schema outline for the <code>wsp:Ignorable</code> attribute
+is as follows:</p>
+<div class="exampleInner">
+<pre>
+(01) &lt;Assertion ( wsp:Ignorable="xs:boolean" )? … &gt; … &lt;/Assertion&gt;
+</pre></div>
+<p>The following describes the Attribute Information Item defined
+in the schema outline above:</p>
+<dl>
+<dt class="label"><code>/Assertion/@wsp:Ignorable</code></dt>
+<dd>
+<p>This attribute is of type <code>xs:boolean</code>. If the actual
+value (See XML Schema Part 1 [<cite><a href="#XMLSchemaPart1">XML
+Schema Structures</a></cite>]) is true, the assertion is an
+<a title="ignorable policy assertion" href=
+"#ignorable_policy_assertion">ignorable policy assertion</a>. If
+the actual value is false, the assertion is not an <a title=
+"ignorable policy assertion" href=
+"#ignorable_policy_assertion">ignorable policy assertion</a>.
+Omitting this attribute is semantically equivalent to including it
+with a value of false.</p>
+</dd>
+</dl>
+</div>
+<div class="div2">
+<h3><a name="Policy_Intersection" id="Policy_Intersection"></a>4.5
+Policy Intersection</h3>
+<p>Policy intersection is OPTIONAL but, a useful tool when two or
+more parties express <a title="policy" href="#policy">policy</a>
+and want to limit the <a title="policy alternative" href=
+"#policy_alternative">policy alternatives</a> to those that are
+mutually compatible. For example, when a requester and a provider
+express requirements on a message exchange, intersection identifies
+compatible policy alternatives (if any) included in both requester
+and provider policies. Policy Intersection is a commutative
+operation performed on two policies that yields a policy that
+contains a collection of the compatible policy alternatives. (Note:
+while policy intersection at times is analogous with set
+intersection, it does not imply formal set intersection semantics).
+There are two modes for intersection: strict and lax. How the mode
+is selected or indicated for the policy intersection is outside the
+scope of this specification.</p>
+<p>As a first approximation, an intersection algorithm is defined
+below that approximates compatibility of <a title=
+"policy assertion" href="#policy_assertion">policy assertions</a>
+in a domain-independent manner. Mechanisms for determining
+<a title="policy assertion parameter" href=
+"#policy_assertion_parameter">assertion parameter</a> compatibility
+are not part of this domain-independent policy intersection.
+Determining whether two <a title="policy assertion" href=
+"#policy_assertion">policy assertions</a> of the same type are
+compatible may involve domain-specific processing for purposes of
+determining <a title="policy assertion parameter" href=
+"#policy_assertion_parameter">assertion parameter</a>
+compatibility. Domain-independent policy intersection may be
+extended to include domain-specific processing. If a
+domain-specific intersection processing algorithm is required this
+will be known from the QName of the specific <a title=
+"policy assertion type" href="#policy_assertion_type">assertion
+type</a> involved in the <a title="policy alternative" href=
+"#policy_alternative">policy alternative</a>. However, regardless
+of whether an assertion's QName indicates domain-specific
+processing, an implementation of the domain-independent
+intersection need not apply the domain-specific processing.</p>
+<p>The domain-independent policy intersection algorithm is:</p>
+<ul>
+<li>
+<p>Two <a title="policy assertion" href="#policy_assertion">policy
+assertions</a> are compatible if they have the same <a title=
+"policy assertion type" href="#policy_assertion_type">type</a>
+and</p>
+</li>
+<li>
+<p>If either assertion contains a nested <a title=
+"policy expression" href="#policy_expression">policy
+expression</a>, the two assertions are compatible if they both have
+a nested policy expression and the alternative in the nested policy
+expression of one is compatible with the alternative in the nested
+policy expression of the other.</p>
+</li>
+</ul>
+<p><a title="policy assertion parameter" href=
+"#policy_assertion_parameter">Assertion parameters</a> are not part
+of the domain-independent compatibility determination defined
+herein but this domain-independent policy intersection may be
+extended to include domain-specific processing for purposes of
+determining <a title="policy assertion parameter" href=
+"#policy_assertion_parameter">Assertion parameter</a>
+compatibility.</p>
+<ul>
+<li>
+<p>If the mode is strict, two <a title="policy alternative" href=
+"#policy_alternative">policy alternatives</a> A and B are
+compatible:</p>
+<ul>
+<li>
+<p>if each assertion in A is compatible with an assertion in B,
+and</p>
+</li>
+<li>
+<p>if each assertion in B is compatible with an assertion in A.</p>
+</li>
+</ul>
+<p>If the mode is lax, two <a title="policy alternative" href=
+"#policy_alternative">policy alternatives</a> A and B are
+compatible:</p>
+<ul>
+<li>
+<p>if each assertion in A that is not an <a title=
+"ignorable policy assertion" href=
+"#ignorable_policy_assertion">ignorable policy assertion</a> is
+compatible with an assertion in B, and</p>
+</li>
+<li>
+<p>if each assertion in B that is not an <a title=
+"ignorable policy assertion" href=
+"#ignorable_policy_assertion">ignorable policy assertion</a> is
+compatible with an assertion in A.</p>
+</li>
+</ul>
+<p>If two alternatives are compatible, their intersection is an
+alternative containing all of the occurrences of all of the
+assertions from both alternatives (i.e., the bag union of the two),
+regardless of whether or not they are marked with the
+<code>wsp:Ignorable='true'</code> attribute.</p>
+</li>
+<li>
+<p>Two <a title="policy" href="#policy">policies</a> are compatible
+if an alternative in one is compatible with an alternative in the
+other. If two policies are compatible, their intersection is the
+set of the intersections between all pairs of compatible
+alternatives, choosing one alternative from each policy. If two
+policies are not compatible, their intersection has no policy
+alternatives.</p>
+</li>
+<li>
+<p>The result of policy intersection can be zero or more <a title=
+"policy alternative" href="#policy_alternative">alternatives</a>.
+Each <a title="policy alternative" href=
+"#policy_alternative">alternative</a> may contain more than one
+<a title="policy assertion" href="#policy_assertion">assertion</a>
+of the same <a title="policy assertion type" href=
+"#policy_assertion_type">type</a> which may come from different
+input <a title="policy" href="#policy">policies</a>. See Section
+<a href="#rPolicy_Alternative"><b>3.2 Policy Alternative</b></a>
+for mechanisms for determining the aggregate behavior indicated by
+multiple <a title="policy assertion" href=
+"#policy_assertion">assertions</a> of the same <a title=
+"policy assertion type" href="#policy_assertion_type">policy
+assertion type</a>. If policy assertion authors did not specify the
+semantics of multiple <a title="policy assertion" href=
+"#policy_assertion">assertions</a> of the same <a title=
+"policy assertion type" href="#policy_assertion_type">assertion
+type</a> within a <a title="policy alternative" href=
+"#policy_alternative">policy alternative</a> and the <a title=
+"policy assertion type" href="#policy_assertion_type">type</a> and
+its descendant <a title="policy assertion type" href=
+"#policy_assertion_type">assertion types</a> (within a <a title=
+"nested policy expression" href="#nested_policy_expression">nested
+policy expression</a> outline, if any) do not allow any <a title=
+"policy assertion parameter" href=
+"#policy_assertion_parameter">parameters</a>, then multiple
+<a title="policy assertion" href="#policy_assertion">assertions</a>
+of the <a title="policy assertion type" href=
+"#policy_assertion_type">type</a> within a <a title=
+"policy alternative" href="#policy_alternative">policy
+alternative</a> in the intersection result have the same meaning as
+a single <a title="policy assertion" href=
+"#policy_assertion">assertion</a> of the <a title=
+"policy assertion type" href="#policy_assertion_type">type</a>
+within the <a title="policy alternative" href=
+"#policy_alternative">policy alternative</a>.</p>
+</li>
+</ul>
+<p>An entity applies all the behaviors implied by a policy
+alternative when that policy alternative is chosen from the
+intersection result (see <a href="#Web_services"><b>3.4 Policies of
+Entities in a Web Services Based System</b></a>). If an entity
+includes a policy assertion type A in its policy, and this policy
+assertion type A does not occur in an intersected result, then that
+entity SHOULD not apply the behavior implied by assertion type A.
+If a policy assertion type Z is not included in the input policies
+being intersected then the intersection result is silent about the
+behavior implied by the assertion type Z.</p>
+<p>As an example of intersection, consider two input policies in
+normal form:</p>
+<div class="exampleInner">
+<pre>
+(01) &lt;wsp:Policy
+        xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702"
+        xmlns:wsp="http://www.w3.org/ns/ws-policy" &gt;
+       &lt;!-- Policy P1 --&gt;
+(02)   &lt;wsp:ExactlyOne&gt;
+(03)     &lt;wsp:All&gt; &lt;!-- Alternative A1 --&gt;
+(04)       &lt;sp:SignedElements&gt;
+(05)         &lt;sp:XPath&gt;/S:Envelope/S:Body&lt;/sp:XPath&gt;
+(06)       &lt;/sp:SignedElements&gt;
+(07)       &lt;sp:EncryptedElements&gt;
+(08)         &lt;sp:XPath&gt;/S:Envelope/S:Body&lt;/sp:XPath&gt;
+(09)       &lt;/sp:EncryptedElements&gt;
+(10)     &lt;/wsp:All&gt;
+(11)     &lt;wsp:All&gt; &lt;!-- Alternative A2 --&gt;
+(12)       &lt;sp:SignedParts&gt;
+(13)         &lt;sp:Body /&gt;
+(14)         &lt;sp:Header
+                Namespace="http://www.w3.org/2005/08/addressing" /&gt;
+(15)       &lt;/sp:SignedParts&gt;
+(16)       &lt;sp:EncryptedParts&gt;
+(17)         &lt;sp:Body /&gt;
+(18)       &lt;/sp:EncryptedParts&gt;
+(19)     &lt;/wsp:All&gt;
+(20)   &lt;/wsp:ExactlyOne&gt;
+(21) &lt;/wsp:Policy&gt;
+</pre></div>
+<p>The listing above contains two policy alternatives. The first
+alternative, (Lines 03-10) contains two policy assertions. One
+indicates which elements should be signed (Lines 04-06); its type
+is <code>sp:SignedElements</code> (Line 04), and its parameters
+include an XPath expression for the content to be signed (Line 05).
+The other assertion (Lines 07-09) has a similar structure: type
+(Line 07) and parameters (Line 08).</p>
+<p>The second alternative (Lines 11-19) also contains two
+assertions, each with type (Line 12 and Line 16) and parameters
+(Lines 13-14 and Line 17).</p>
+<p>As this example illustrates, compatibility between two policy
+assertions is based on assertion type and delegates parameter
+processing to domain-specific processing.</p>
+<div class="exampleInner">
+<pre>
+(01) &lt;wsp:Policy
+        xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702"
+        xmlns:wsp="http://www.w3.org/ns/ws-policy" &gt;
+       &lt;!-- Policy P2 --&gt;
+(02)   &lt;wsp:ExactlyOne&gt;
+(03)     &lt;wsp:All&gt; &lt;!-- Alternative A3 --&gt;
+(04)       &lt;sp:SignedParts /&gt;
+(05)       &lt;sp:EncryptedParts&gt;
+(06)         &lt;sp:Body /&gt;
+(07)       &lt;/sp:EncryptedParts&gt;
+(08)     &lt;/wsp:All&gt;
+(09)     &lt;wsp:All&gt; &lt;!-- Alternative A4 --&gt;
+(10)       &lt;sp:SignedElements&gt;
+(11)         &lt;sp:XPath&gt;/S:Envelope/S:Body&lt;/sp:XPath&gt;
+(12)       &lt;/sp:SignedElements&gt;
+(13)     &lt;/wsp:All&gt;
+(14)   &lt;/wsp:ExactlyOne&gt;
+(15) &lt;/wsp:Policy&gt;
+</pre></div>
+<p>Because there is only one alternative (A2) in policy P1 with the
+same assertion type as another alternative (A3) in policy P2, the
+intersection is a policy with a single alternative that contains
+all of the assertions in A2 and in A3.</p>
+<div class="exampleInner">
+<pre>
+(01) &lt;wsp:Policy
+        xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702"
+        xmlns:wsp="http://www.w3.org/ns/ws-policy" &gt;
+       &lt;!-- Intersection of P1 and P2 --&gt;
+(02)   &lt;wsp:ExactlyOne&gt;
+(03)     &lt;wsp:All&gt;
+(04)       &lt;sp:SignedParts &gt;
+(05)         &lt;sp:Body /&gt;
+(06)         &lt;sp:Header
+                Namespace="http://www.w3.org/2005/08/addressing" /&gt;
+(07)       &lt;/sp:SignedParts&gt;
+(08)       &lt;sp:EncryptedParts&gt;
+(09)         &lt;sp:Body /&gt;
+(10)       &lt;/sp:EncryptedParts&gt;
+(11)       &lt;sp:SignedParts /&gt;
+(12)       &lt;sp:EncryptedParts&gt;
+(13)         &lt;sp:Body /&gt;
+(14)       &lt;/sp:EncryptedParts&gt;
+(15)     &lt;/wsp:All&gt;
+(16)   &lt;/wsp:ExactlyOne&gt;
+(17) &lt;/wsp:Policy&gt;
+</pre></div>
+<p>Note that there are two <a title="policy assertion" href=
+"#policy_assertion">assertions</a> of the type
+<code>sp:SignedParts</code> and two <a title="policy assertion"
+href="#policy_assertion">assertions</a> of the <a title=
+"policy assertion type" href="#policy_assertion_type">type</a>
+<code>sp:EncryptedParts</code>, one from each of the input
+<a title="policy" href="#policy">Policies</a>. In general, whether
+two <a title="policy assertion" href=
+"#policy_assertion">assertions</a> of the same <a title=
+"policy assertion type" href="#policy_assertion_type">type</a> are
+compatible or repetition is redundancy depends on the
+domain-specific semantics of the <a title="policy assertion type"
+href="#policy_assertion_type">assertion type</a>. As mentioned
+above, if the <a title="policy assertion" href=
+"#policy_assertion">assertions</a> have no <a title=
+"policy assertion parameter" href=
+"#policy_assertion_parameter">parameters</a> and the <a title=
+"policy assertion" href="#policy_assertion">assertions</a> in
+<a title="nested policy expression" href=
+"#nested_policy_expression">nested policiy expressions</a> have no
+<a title="policy assertion parameter" href=
+"#policy_assertion_parameter">parameters</a>, then multiple
+<a title="policy assertion" href="#policy_assertion">assertions</a>
+of the <a title="policy assertion type" href=
+"#policy_assertion_type">type</a> within a <a title=
+"policy alternative" href="#policy_alternative">policy
+alternative</a> in the intersection result have the same meaning as
+a single <a title="policy assertion" href=
+"#policy_assertion">assertion</a> of the <a title=
+"policy assertion type" href="#policy_assertion_type">type</a>
+within the <a title="policy alternative" href=
+"#policy_alternative">policy alternative</a>.</p>
+<p>Based on the semantics of multiple <a title="policy assertion"
+href="#policy_assertion">assertions</a> of the EncryptedParts
+<a title="policy assertion type" href=
+"#policy_assertion_type">assertion type</a>, as specified in the
+WS-SecurityPolicy [<cite><a href=
+"#WS-SecurityPolicy">WS-SecurityPolicy</a></cite>] specification,
+one of the <code>sp:EncryptedParts</code> <a title=
+"policy assertion" href="#policy_assertion">assertion</a> in the
+above example is redundant.</p>
+<p>Whether the two <code>sp:SignedParts</code> <a title=
+"policy assertion" href="#policy_assertion">assertions</a> are
+compatible or one of them is redundant depends on the semantics
+defined for this <a title="policy assertion type" href=
+"#policy_assertion_type">assertion type</a>.</p>
+<p>As another example of intersection of WS-Addressing assertions
+that utilize the framework intersection algorithm, consider two
+input policies:</p>
+<div class="exampleInner">
+<pre>
+(01) &lt;wsp:Policy
+      xmlns:wsp="http://www.w3.org/ns/ws-policy"
+      xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" &gt;
+(02)   &lt;wsp:ExactlyOne&gt;
+(03)     &lt;wsp:All&gt;        &lt;!-- Alternative A5 --&gt;
+(04)       &lt;wsam:Addressing&gt;
+(05)         &lt;wsp:Policy/&gt;
+(06)       &lt;/wsam:Addressing&gt;
+(07)     &lt;/wsp:All&gt;
+(08)   &lt;/wsp:ExactlyOne&gt;
+(09) &lt;/wsp:Policy&gt;
+</pre></div>
+<p>Lines (04)-(06) in the above policy expression contain an
+addressing policy assertion with the empty
+<code>&lt;wsp:Policy/&gt;</code> in line (05). The empty
+<code>&lt;wsp:Policy/&gt;</code> is a nested policy expression with
+an alternative that has zero assertions. In the example above, the
+addressing assertion indicates the use of addressing without any
+restriction.</p>
+<div class="exampleInner">
+<pre>
+(01) &lt;wsp:Policy
+      xmlns:wsp="http://www.w3.org/ns/ws-policy"
+      xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" &gt;
+(02)   &lt;wsp:ExactlyOne&gt;
+(03)     &lt;wsp:All&gt;       &lt;!-- Alternative A6 --&gt;
+(04)       &lt;wsam:Addressing&gt;
+(05)         &lt;wsp:Policy&gt;
+(06)           &lt;wsam:AnonymousResponses/&gt;
+(07)         &lt;/wsp:Policy&gt;
+(08)       &lt;/wsam:Addressing&gt;
+(09)     &lt;/wsp:All&gt;
+(10)   &lt;/wsp:ExactlyOne&gt;
+(11) &lt;/wsp:Policy&gt;
+</pre></div>
+<p>Lines (04)-(08) in the above policy expression contain an
+addressing policy assertion with a nested policy expression in
+lines (05)-(06). The nested policy expression indicates that the
+provider requires request messages to use response endpoint EPRs
+that contain the anonymous URI. The nested policy expression
+contains an alternative that has one assertion,
+<code>wsam:AnonymousResponses</code>.</p>
+<p>The two assertions in alternatives A5 and A6 have the same
+assertion type and have nested policy expressions. The nested
+policy expression within the addressing assertion in the
+alternative A5 contains an alternative that has zero assertions.
+The nested policy expression within the addressing assertion in the
+alternative A6 contains an alternative that has one assertion. The
+nested policy expressions within these two assertions are
+incompatible because the alternative in one is incompatible with
+the alternative in the other.</p>
+<p>Therefore, the two assertions are incompatible and hence the two
+alternatives are incompatible.</p>
+</div>
+<div class="div2">
+<h3><a name="IRI_Policy_Expressions" id=
+"IRI_Policy_Expressions"></a>4.6 Use of IRIs in Policy
+Expressions</h3>
+<p>Policy expressions use IRIs for some identifiers. This document
+does not define a base URI but relies on the mechanisms defined in
+XML Base [<cite><a href="#XMLBASE">XML BASE</a></cite>] and RFCs
+3023 [<cite><a href="#RFC3023">IETF RFC 3023</a></cite>], 3986
+[<cite><a href="#RFC3986">IETF RFC 3986</a></cite>] and 3987
+[<cite><a href="#RFC3987">IETF RFC 3987</a></cite>] for
+establishing a base URI against which relative IRIs can be made
+absolute.</p>
+</div>
+</div>
+<div class="div1">
+<h2><a name="Security_Considerations" id=
+"Security_Considerations"></a>5. Security Considerations</h2>
+<p>It is <span class="rfc2119">RECOMMENDED</span> that <a title=
+"policy" href="#policy">policies</a> and <a title=
+"policy assertion" href="#policy_assertion">assertions</a> be
+integrity protected to permit the detection of tampering. This can
+be done using a technology such as XML DSig [<cite><a href=
+"#XML-Signature">XML-Signature</a></cite>], SSL/TLS [<cite><a href=
+"#RFC2246">IETF RFC 2246</a></cite>], or WS-Security 2004
+[<cite><a href="#WS-Security">WS-Security 2004</a></cite>].</p>
+<p>Policies <span class="rfc2119">SHOULD NOT</span> be accepted
+unless they are signed and have an associated security token to
+specify the signer has the right to "speak for" the <a title=
+"policy scope" href="#policy_scope">scope</a> containing the
+policy. That is, a relying party shouldn't rely on a policy unless
+the policy is signed and presented with sufficient credentials to
+pass the relying parties' acceptance criteria.</p>
+<p>It should be noted that the mechanisms described in this
+document could be secured as part of a SOAP message [<cite><a href=
+"#SOAP11">SOAP 1.1</a></cite>, <cite><a href="#SOAP12">SOAP 1.2
+Messaging Framework</a></cite>] using WS-Security [<cite><a href=
+"#WS-Security">WS-Security 2004</a></cite>] or embedded within
+other objects using object-specific security mechanisms.</p>
+<p>This section describes the security considerations that service
+providers, requestors, policy authors, policy assertion authors,
+and policy implementers need to consider when exposing, consuming
+and designing <a title="policy expression" href=
+"#policy_expression">policy expressions</a>, authoring policy
+assertions or implementing policy.</p>
+<div class="div2">
+<h3><a name="information-disclosure-threats" id=
+"information-disclosure-threats"></a>5.1 Information Disclosure
+Threats</h3>
+<p>A policy is used to represent the capabilities and requirements
+of a Web Service. Policies may include sensitive information.
+Malicious consumers may acquire sensitive information, fingerprint
+the service and infer service vulnerabilities. These threats can be
+mitigated by requiring authentication for sensitive information, by
+omitting sensitive information from the policy or by securing
+access to the policy. For securing access to policy metadata,
+policy providers can use mechanisms from other Web Services
+specifications such as WS-Security [<cite><a href=
+"#WS-Security">WS-Security 2004</a></cite>] and WS-MetadataExchange
+[<cite><a href=
+"#WS-MetadataExchange">WS-MetadataExchange</a></cite>] .</p>
+</div>
+<div class="div2">
+<h3><a name="spoofing-and-tampering-threats" id=
+"spoofing-and-tampering-threats"></a>5.2 Spoofing and Tampering
+Threats</h3>
+<p>If a policy expression is unsigned it could be easily tampered
+with or replaced. To prevent tampering or spoofing of policy,
+requestors should discard a policy unless it is signed by the
+provider and presented with sufficient credentials. Requestors
+should also check that the signer is actually authorized to express
+policies for the given policy subject.</p>
+</div>
+<div class="div2">
+<h3><a name="downgrade-threats" id="downgrade-threats"></a>5.3
+Downgrade Threats</h3>
+<p>A policy may offer several alternatives that vary from weak to
+strong set of requirements. An adversary may interfere and remove
+all the alternatives except the weakest one (say no security
+requirements). Or, an adversary may interfere and discard this
+policy and insert a weaker policy previously issued by the same
+provider. Policy authors or providers can mitigate these threats by
+sun-setting older or weaker policy alternatives. Requestors can
+mitigate these threats by discarding policies unless they are
+signed by the provider.</p>
+</div>
+<div class="div2">
+<h3><a name="repudiation-threats" id="repudiation-threats"></a>5.4
+Repudiation Threats</h3>
+<p>Malicious providers may include policy assertions in its policy
+whose behavior cannot be verified by examining the wire message
+from the provider to requestor. In general, requestors have no
+guarantee that a provider will behave as described in the
+provider’s policy expression. The provider may not and perform a
+malicious activity. For example, say the policy assertion is
+privacy notice information and the provider violates the semantics
+by disclosing private information. Requestors can mitigate this
+threat by discarding policy alternatives which include assertions
+whose behavior cannot be verified by examining the wire message
+from the provider to requestor. Assertion authors can mitigate this
+threat by not designing assertions whose behavior cannot be
+verified using wire messages.</p>
+</div>
+<div class="div2">
+<h3><a name="denial-of-service-threats" id=
+"denial-of-service-threats"></a>5.5 Denial of Service Threats</h3>
+<p>Malicious providers may provide a policy expression with a large
+number of alternatives, a large number of assertions in
+alternatives, deeply nested policy expressions or chains of
+PolicyReference elements that expand exponentially (see the chained
+sample below; this is similar to the well-known DTD entity
+expansion attack). Policy implementers need to anticipate these
+rogue providers and use a configurable bound with defaults on
+number of policy alternatives, number of assertions in an
+alternative, depth of nested policy expressions, etc.</p>
+<div class="exampleOuter">
+<p style="text-align: left" class="exampleHead"><a name=
+"ex-chained-policy-reference-elements" id=
+"ex-chained-policy-reference-elements"></a><i><span>Example
+5-1.</span> Chained Policy Reference Elements</i></p>
+<div class="exampleInner">
+<pre>
+(01) &lt;wsp:Policy wsu:Id="p1"&gt;
+(02)   &lt;wsp:PolicyReference URI="#p2"/ &gt;
+(03)   &lt;wsp:PolicyReference URI="#p2"/&gt;
+(04) &lt;/wsp:Policy&gt;
+(05)                 
+(06) &lt;wsp:Policy wsu:Id="p2" &gt;
+(07)   &lt;wsp:PolicyReference URI="#p3"/&gt;
+(08)   &lt;wsp:PolicyReference URI="#p3"/&gt;
+(09) &lt;/wsp:Policy&gt;
+(10)                 
+(11) &lt;wsp:Policy wsu:Id="p3" &gt;
+(12)   &lt;wsp:PolicyReference URI="#p4"/&gt;
+(13)   &lt;wsp:PolicyReference URI="#p4"/&gt;
+(14) &lt;/wsp:Policy&gt;
+(15)                 
+(16) &lt;!-- Policy/@wsu:Id p4 through p99 --&gt;
+(17)                 
+(18) &lt;wsp:Policy wsu:Id="p100" &gt;
+(19)   &lt;wsp:PolicyReference URI="#p101"/&gt;
+(20)   &lt;wsp:PolicyReference URI="#p101"/&gt;
+(21) &lt;/wsp:Policy&gt;
+(22)                 
+(23) &lt;wsp:Policy wsu:Id="p101" &gt;
+(24)   &lt;mtom:OptimizedMimeSerialization /&gt;
+(25) &lt;/wsp:Policy&gt;
+</pre></div>
+</div>
+<p>Malicious providers may provide a policy expression that
+includes multiple PolicyReference elements that use a large number
+of different internet addresses. These may require the consumers to
+establish a large number of TCP connections. Policy implementers
+need to anticipate such rogue providers and use a configurable
+bound with defaults on number of PolicyReference elements per
+policy expression.</p>
+</div>
+<div class="div2">
+<h3><a name="general-xml-considerations" id=
+"general-xml-considerations"></a>5.6 General XML
+Considerations</h3>
+<p>Implementers of Web Services policy language should be careful
+to protect their software against general XML threats like deeply
+nested XML or XML that contains malicious content.</p>
+</div>
+</div>
+<div class="div1">
+<h2><a name="Conformance" id="Conformance"></a>6. Conformance</h2>
+<p>An element information item whose namespace name is
+"http://www.w3.org/ns/ws-policy" and whose local part is Policy or
+PolicyReference conforms to this specification if it is valid
+according to the XML Schema [<cite><a href="#XMLSchemaPart1">XML
+Schema Structures</a></cite>] for that element as defined by this
+specification (<a href=
+"http://www.w3.org/2007/02/ws-policy.xsd">http://www.w3.org/2007/02/ws-policy.xsd</a>)
+and additionally adheres to all the constraints contained in this
+specification. Such a conformant element information item
+constitutes a <a title="policy expression" href=
+"#policy_expression">policy expression</a>.</p>
+</div>
+</div>
+<div class="back">
+<div class="div1">
+<h2><a name="media-type" id="media-type"></a>A. The
+application/wspolicy+xml Media Type</h2>
+<p>This appendix defines the "application/wspolicy+xml" media type
+which can be used to describe Web Services Policy documents
+serialized as XML. Either <code>wsp:Policy</code> or
+<code>wsp:PolicyAttachment</code> could be the root element of such
+a document.</p>
+<div class="div2">
+<h3><a name="ietf-reg" id="ietf-reg"></a>A.1 Registration</h3>
+<dl>
+<dt class="label">MIME media type name:</dt>
+<dd>
+<p>application</p>
+</dd>
+<dt class="label">MIME subtype name:</dt>
+<dd>
+<p>wspolicy+xml</p>
+</dd>
+<dt class="label">Required parameters:</dt>
+<dd>
+<p>none</p>
+</dd>
+<dt class="label">Optional parameters:</dt>
+<dd>
+<dl>
+<dt class="label">charset</dt>
+<dd>
+<p>This parameter has identical semantics to the charset parameter
+of the "application/xml" media type as specified in <cite><a href=
+"#RFC3023">IETF RFC 3023</a></cite>.</p>
+</dd>
+</dl>
+</dd>
+<dt class="label">Encoding considerations:</dt>
+<dd>
+<p>Identical to those of "application/xml" as described in
+<cite><a href="#RFC3023">IETF RFC 3023</a></cite>, section 3.2, as
+applied to the Web Services Policy document Infoset.</p>
+</dd>
+<dt class="label">Security considerations:</dt>
+<dd>
+<p>See section <a href="#Security_Considerations"><b>5. Security
+Considerations</b></a> in this document, and the Security
+Consideration section in <cite><a href="#WS-PolicyAttachment">Web
+Services Policy Attachment</a></cite>.</p>
+</dd>
+<dt class="label">Interoperability considerations:</dt>
+<dd>
+<p>There are no known interoperability issues.</p>
+</dd>
+<dt class="label">Published specifications:</dt>
+<dd>
+<p>This document and <cite><a href="#WS-PolicyAttachment">Web
+Services Policy Attachment</a></cite>.</p>
+</dd>
+<dt class="label">Applications which use this media type:</dt>
+<dd>
+<p>This new media type is being registered to allow for deployment
+of Web Services Policy and references to Web Services Policy on the
+World Wide Web.</p>
+</dd>
+<dt class="label">Additional information:</dt>
+<dd>
+<dl>
+<dt class="label">File extension:</dt>
+<dd>
+<p>wspolicy</p>
+</dd>
+<dt class="label">Fragment identifiers:</dt>
+<dd>
+<p>A syntax identical to that of "application/xml" as described in
+<cite><a href="#RFC3023">IETF RFC 3023</a></cite>.</p>
+</dd>
+<dt class="label">Base URI:</dt>
+<dd>
+<p>As specified in <cite><a href="#RFC3023">IETF RFC
+3023</a></cite>, section 6. Also see section <a href=
+"#IRI_Policy_Expressions"><b>4.6 Use of IRIs in Policy
+Expressions</b></a> in this document and <a href=
+"http://www.w3.org/TR/2007/REC-ws-policy-attach-20070904#IRI_Policy_Attachment">
+section 3.5 Use of IRIs in Policy Attachment</a> in <cite><a href=
+"#WS-PolicyAttachment">Web Services Policy
+Attachment</a></cite>.</p>
+</dd>
+<dt class="label">Macintosh File Type code:</dt>
+<dd>
+<p>TEXT</p>
+</dd>
+<dt class="label">Person and email address to contact for further
+information:</dt>
+<dd>
+<p>World Wide Web Consortium &lt;web-human@w3.org&gt;</p>
+</dd>
+<dt class="label">Intended usage:</dt>
+<dd>
+<p>COMMON</p>
+</dd>
+<dt class="label">Author/Change controller:</dt>
+<dd>
+<p>The Web Services Policy 1.5 specification set is a work product
+of the World Wide Web Consortium's <a href=
+"http://www.w3.org/2002/ws/desc/">Web Service Policy Working
+Group</a>. The W3C has change control over these
+specifications.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</div>
+</div>
+<div class="div1">
+<h2><a name="References" id="References"></a>B. References</h2>
+<div class="div2">
+<h3><a name="Normative-References" id=
+"Normative-References"></a>B.1 Normative References</h3>
+<dl>
+<dt class="label"><a name="WS-PolicyAttachment" id=
+"WS-PolicyAttachment"></a>[Web Services Policy Attachment]</dt>
+<dd><cite><a href=
+"http://www.w3.org/TR/2007/REC-ws-policy-attach-20070904">Web
+Services Policy 1.5 - Attachment</a></cite>, A. S. Vedamuthu, D.
+Orchard, F. Hirsch, M. Hondo, P. Yendluri, T. Boubez and Ü.
+Yalçinalp, Editors. World Wide Web Consortium, 04, September 2007.
+This version of the specification of the Web Services Policy 1.5 -
+Attachment specification is
+http://www.w3.org/TR/2007/REC-ws-policy-attach-20070904. The
+<a href="http://www.w3.org/TR/ws-policy-attach">latest version of
+Web Services Policy 1.5 - Attachment</a> is available at
+http://www.w3.org/TR/ws-policy-attach.</dd>
+<dt class="label"><a name="RFC2119" id="RFC2119"></a>[IETF RFC
+2119]</dt>
+<dd><cite><a href="http://www.ietf.org/rfc/rfc2119.txt">Key words
+for use in RFCs to Indicate Requirement Levels</a></cite>, S.
+Bradner, Author. Internet Engineering Task Force, March 1997.
+Available at http://www.ietf.org/rfc/rfc2119.txt.</dd>
+<dt class="label"><a name="RFC3986" id="RFC3986"></a>[IETF RFC
+3986]</dt>
+<dd><cite><a href="http://www.ietf.org/rfc/rfc3986.txt">Uniform
+Resource Identifier (URI): Generic Syntax</a></cite> , T.
+Berners-Lee, R. Fielding and L. Masinter, Authors. Network Working
+Group, January 2005. Available at
+http://www.ietf.org/rfc/rfc3986.txt.</dd>
+<dt class="label"><a name="RFC3987" id="RFC3987"></a>[IETF RFC
+3987]</dt>
+<dd><cite><a href=
+"http://www.ietf.org/rfc/rfc3987.txt">Internationalized Resource
+Identifiers (IRIs)</a></cite> , M. Duerst and M. Suignard, Authors.
+Internet Engineering Task Force, January 2005. Available at
+http://www.ietf.org/rfc/rfc3987.txt.</dd>
+<dt class="label"><a name="WS-Security" id=
+"WS-Security"></a>[WS-Security 2004]</dt>
+<dd><cite><a href=
+"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0.pdf">
+Web Services Security: SOAP Message Security 1.0 (WS-Security
+2004)</a></cite>, A. Nadalin, C. Kaler, P. Hallam-Baker, and R.
+Monzillo, Editors. Organization for the Advancement of Structured
+Information Standards, March 2004. Available at
+http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0.pdf.</dd>
+<dt class="label"><a name="XMLBASE" id="XMLBASE"></a>[XML
+BASE]</dt>
+<dd><cite><a href=
+"http://www.w3.org/TR/2001/REC-xmlbase-20010627/">XML
+Base</a></cite>, Jonathan Marsh, Editor. World Wide Web Consortium,
+27 June 2001. This version of the XML Base Recommendation is
+http://www.w3.org/TR/2001/REC-xmlbase-20010627/. The <a href=
+"http://www.w3.org/TR/xmlbase/">latest version of XML Base</a> is
+available at http://www.w3.org/TR/xmlbase/.</dd>
+<dt class="label"><a name="XML10" id="XML10"></a>[XML 1.0]</dt>
+<dd><cite><a href=
+"http://www.w3.org/TR/2006/REC-xml-20060816">Extensible Markup
+Language (XML) 1.0 (Fourth Edition)</a></cite>, T. Bray, J. Paoli,
+C. M. Sperberg-McQueen, and E. Maler, Editors. World Wide Web
+Consortium, 10 February 1998, revised 16 August 2006. This version
+of the XML 1.0 Recommendation is
+http://www.w3.org/TR/2006/REC-xml-20060816. The <a href=
+"http://www.w3.org/TR/REC-xml/">latest version of XML 1.0</a> is
+available at http://www.w3.org/TR/REC-xml.</dd>
+<dt class="label"><a name="XMLID" id="XMLID"></a>[XML ID]</dt>
+<dd><cite><a href=
+"http://www.w3.org/TR/2005/REC-xml-id-20050909/">xml:id Version
+1.0</a></cite>, J. Marsh, D. Veillard and N. Walsh, Editors. World
+Wide Web Consortium, 9 September 2005. This version of the xml:id
+Version 1.0 Recommendation is
+http://www.w3.org/TR/2005/REC-xml-id-20050909/. The <a href=
+"http://www.w3.org/TR/xml-id/">latest version of xml:id Version
+1.0</a> is available at http://www.w3.org/TR/xml-id/.</dd>
+<dt class="label"><a name="XMLInfoset" id="XMLInfoset"></a>[XML
+Information Set]</dt>
+<dd><cite><a href=
+"http://www.w3.org/TR/2004/REC-xml-infoset-20040204/">XML
+Information Set (Second Edition)</a></cite>, J. Cowan and R. Tobin,
+Editors. World Wide Web Consortium, 24 October 2001, revised 4
+February 2004. This version of the XML Information Set
+Recommendation is
+http://www.w3.org/TR/2004/REC-xml-infoset-20040204. The <a href=
+"http://www.w3.org/TR/xml-infoset/">latest version of XML
+Information Set</a> is available at
+http://www.w3.org/TR/xml-infoset.</dd>
+<dt class="label"><a name="XML-NS" id="XML-NS"></a>[XML
+Namespaces]</dt>
+<dd><cite><a href=
+"http://www.w3.org/TR/2006/REC-xml-names-20060816/">Namespaces in
+XML 1.0</a></cite>, T. Bray, D. Hollander, A. Layman, and R. Tobin,
+Editors. World Wide Web Consortium, 14 January 1999, revised 16
+August 2006. This version of the Namespaces in XML Recommendation
+is http://www.w3.org/TR/2006/REC-xml-names-20060816/. The <a href=
+"http://www.w3.org/TR/REC-xml-names/">latest version of Namespaces
+in XML</a> is available at http://www.w3.org/TR/REC-xml-names.</dd>
+<dt class="label"><a name="XMLSchemaPart1" id=
+"XMLSchemaPart1"></a>[XML Schema Structures]</dt>
+<dd><cite><a href=
+"http://www.w3.org/TR/2004/REC-xmlschema-1-20041028/">XML Schema
+Part 1: Structures Second Edition</a></cite>, H. Thompson, D.
+Beech, M. Maloney, and N. Mendelsohn, Editors. World Wide Web
+Consortium, 2 May 2001, revised 28 October 2004. This version of
+the XML Schema Part 1 Recommendation is
+http://www.w3.org/TR/2004/REC-xmlschema-1-20041028. The <a href=
+"http://www.w3.org/TR/xmlschema-1/">latest version of XML Schema
+Part 1</a> is available at http://www.w3.org/TR/xmlschema-1.</dd>
+<dt class="label"><a name="XMLSchemaPart2" id=
+"XMLSchemaPart2"></a>[XML Schema Datatypes]</dt>
+<dd><cite><a href=
+"http://www.w3.org/TR/2004/REC-xmlschema-2-20041028/">XML Schema
+Part 2: Datatypes Second Edition</a></cite>, P. Byron and A.
+Malhotra, Editors. World Wide Web Consortium, 2 May 2001, revised
+28 October 2004. This version of the XML Schema Part 2
+Recommendation is
+http://www.w3.org/TR/2004/REC-xmlschema-2-20041028. The <a href=
+"http://www.w3.org/TR/xmlschema-2/">latest version of XML Schema
+Part 2</a> is available at http://www.w3.org/TR/xmlschema-2.</dd>
+<dt class="label"><a name="RFC3023" id="RFC3023"></a>[IETF RFC
+3023]</dt>
+<dd>IETF "RFC 3023: XML Media Types", M. Murata, S. St. Laurent, D.
+Kohn, July 1998. (See <cite><a href=
+"http://www.ietf.org/rfc/rfc3023.txt">http://www.ietf.org/rfc/rfc3023.txt</a></cite>.)</dd>
+</dl>
+</div>
+<div class="div2">
+<h3><a name="Informative-References" id=
+"Informative-References"></a>B.2 Other References</h3>
+<dl>
+<dt class="label"><a name="C14NNOTE" id="C14NNOTE"></a>[C14N 1.0
+Note]</dt>
+<dd><cite><a href=
+"http://www.w3.org/TR/2006/NOTE-C14N-issues-20061220/">Known Issues
+with Canonical XML 1.0 (C14N/1.0)</a></cite>, J. Kahan and K. Lanz,
+Editors. World Wide Web Consortium, 20 December 2006. Available at
+http://www.w3.org/TR/2006/NOTE-C14N-issues-20061220/.</dd>
+<dt class="label"><a name="RFC2246" id="RFC2246"></a>[IETF RFC
+2246]</dt>
+<dd>IETF "RFC 2246: The TLS Protocol", T. Dierks, C. Allen, January
+1999. (See <cite><a href=
+"http://www.ietf.org/rfc/rfc2246.txt">http://www.ietf.org/rfc/rfc2246.txt</a></cite>.)</dd>
+<dt class="label"><a name="SOAP11" id="SOAP11"></a>[SOAP 1.1]</dt>
+<dd><cite><a href=
+"http://www.w3.org/TR/2000/NOTE-SOAP-20000508/">Simple Object
+Access Protocol (SOAP) 1.1</a></cite>, D. Box, et al, Editors.
+World Wide Web Consortium, 8 May 2000. Available at
+http://www.w3.org/TR/2000/NOTE-SOAP-20000508/.</dd>
+<dt class="label"><a name="SOAP12" id="SOAP12"></a>[SOAP 1.2
+Messaging Framework]</dt>
+<dd><cite><a href=
+"http://www.w3.org/TR/2007/REC-soap12-part1-20070427/">SOAP Version
+1.2 Part 1: Messaging Framework</a></cite>, M. Gudgin, M. Hadley,
+N. Mendelsohn, J-J. Moreau, H. Frystyk Nielsen, Editors. World Wide
+Web Consortium, 24 June 2003, revised 27 April 2007. This version
+of the SOAP Version 1.2 Part 1: Messaging Framework Recommendation
+is http://www.w3.org/TR/2007/REC-soap12-part1-20070427/. The
+<a href="http://www.w3.org/TR/soap12-part1/">latest version of SOAP
+Version 1.2 Part 1: Messaging Framework</a> is available at
+http://www.w3.org/TR/soap12-part1/.</dd>
+<dt class="label"><a name="SecSpecMaintWG" id=
+"SecSpecMaintWG"></a>[SecSpecMaintWG]</dt>
+<dd><cite><a href="http://www.w3.org/2007/xmlsec">XML Security
+Specifications Maintenance Working Group</a></cite> , See
+http://www.w3.org/2007/xmlsec.</dd>
+<dt class="label"><a name="UDDIAPI20" id="UDDIAPI20"></a>[UDDI API
+2.0]</dt>
+<dd><cite><a href=
+"http://uddi.org/pubs/ProgrammersAPI-V2.04-Published-20020719.htm">UDDI
+Version 2.04 API</a></cite>, T. Bellwood, Editor. Organization for
+the Advancement of Structured Information Standards, 19 July 2002.
+This version of UDDI Version 2.0 API is
+http://uddi.org/pubs/ProgrammersAPI-V2.04-Published-20020719.htm.
+The <a href="http://uddi.org/pubs/ProgrammersAPI_v2.htm">latest
+version of the UDDI 2.0 API</a> is available at
+http://uddi.org/pubs/ProgrammersAPI_v2.htm.</dd>
+<dt class="label"><a name="UDDIDataStructure20" id=
+"UDDIDataStructure20"></a>[UDDI Data Structure 2.0]</dt>
+<dd><cite><a href=
+"http://uddi.org/pubs/DataStructure-V2.03-Published-20020719.htm">UDDI
+Version 2.03 Data Structure Reference</a></cite>, C. von Riegen,
+Editor. Organization for the Advancement of Structured Information
+Standards, 19 July 2002. This version of UDDI Version 2.0 Data
+Structures is
+http://uddi.org/pubs/DataStructure-V2.03-Published-20020719.htm.
+The <a href="http://uddi.org/pubs/DataStructure_v2.htm">latest
+version of the UDDI 2.0 Data Structures</a> is available at
+http://uddi.org/pubs/DataStructure_v2.htm.</dd>
+<dt class="label"><a name="UDDI30" id="UDDI30"></a>[UDDI 3.0]</dt>
+<dd><cite><a href=
+"http://www.oasis-open.org/committees/uddi-spec/doc/spec/v3/uddi-v3.0.2-20041019.htm">
+UDDI Version 3.0.2</a></cite>, L. Clément, et al, Editors.
+Organization for the Advancement of Structured Information
+Standards, 19 October 2004. This version of the UDDI Version 3.0 is
+http://www.oasis-open.org/committees/uddi-spec/doc/spec/v3/uddi-v3.0.2-20041019.htm.
+The <a href="http://uddi.org/pubs/uddi_v3.htm">latest version of
+the UDDI 3.0</a> specification is available at
+http://uddi.org/pubs/uddi_v3.htm.</dd>
+<dt class="label"><a name="WS-AddressingMetadata" id=
+"WS-AddressingMetadata"></a>[WS-Addressing Metadata]</dt>
+<dd><cite><a href=
+"http://www.w3.org/TR/2007/REC-ws-addr-metadata-20070904/">Web
+Services Addressing 1.0 - Metadata</a></cite>, M. Gudgin, M.
+Hadley, T. Rogers and Ü. Yalçinalp, Editors. World Wide Web
+Consortium, 4 September 2007. This version of the Web Services
+Addressing 1.0 - Metadata is
+http://www.w3.org/TR/2007/REC-ws-addr-metadata-20070904/. The
+<a href="http://www.w3.org/TR/ws-addr-metadata">latest version of
+Web Services Addressing 1.0 - Metadata</a> is available at
+http://www.w3.org/TR/ws-addr-metadata.</dd>
+<dt class="label"><a name="WS-SecurityPolicy" id=
+"WS-SecurityPolicy"></a>[WS-SecurityPolicy]</dt>
+<dd><cite><a href=
+"http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702/ws-securitypolicy-1.2-spec-os.pdf">
+WS-SecurityPolicy v1.2</a></cite>, A. Nadalin, M. Goodner, M.
+Gudgin, A. Barbir, and H. Granqvist, Editors. Organization for the
+Advancement of Structured Information Standards, 1 July 2007.
+Available at
+http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702/ws-securitypolicy-1.2-spec-os.pdf.
+Namespace document available at
+http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702.</dd>
+<dt class="label"><a name="WSDL11" id="WSDL11"></a>[WSDL 1.1]</dt>
+<dd><cite><a href=
+"http://www.w3.org/TR/2001/NOTE-wsdl-20010315">Web Services
+Description Language (WSDL) 1.1</a></cite>, E. Christensen, et al,
+Authors. World Wide Web Consortium, March 2001. Available at
+http://www.w3.org/TR/2001/NOTE-wsdl-20010315.</dd>
+<dt class="label"><a name="WSDL20" id="WSDL20"></a>[WSDL 2.0 Core
+Language]</dt>
+<dd><cite><a href=
+"http://www.w3.org/TR/2007/REC-wsdl20-20070626/">Web Services
+Description Language (WSDL) Version 2.0 Part 1: Core
+Language</a></cite>, R. Chinnici, J. J. Moreau, A. Ryman, S.
+Weerawarana, Editors. World Wide Web Consortium, 26 June 2007. This
+version of the WSDL 2.0 specification is
+http://www.w3.org/TR/2007/REC-wsdl20-20070626/. The <a href=
+"http://www.w3.org/TR/wsdl20/">latest version of WSDL 2.0</a> is
+available at http://www.w3.org/TR/wsdl20/.</dd>
+<dt class="label"><a name="WS-MetadataExchange" id=
+"WS-MetadataExchange"></a>[WS-MetadataExchange]</dt>
+<dd><cite><a href="http://schemas.xmlsoap.org/ws/2004/09/mex/">Web
+Services Metadata Exchange (WS-MetadataExchange)</a></cite>, K.
+Ballinger, et al, Authors. BEA Systems Inc., Computer Associates
+International, Inc., International Business Machines Corporation,
+Microsoft Corporation, Inc., SAP AG, Sun Microsystems, and
+webMethods, August 2006. Available at
+http://schemas.xmlsoap.org/ws/2004/09/mex/.</dd>
+<dt class="label"><a name="XML-Signature" id=
+"XML-Signature"></a>[XML-Signature]</dt>
+<dd><cite><a href=
+"http://www.w3.org/TR/2002/REC-xmldsig-core-20020212/">XML-Signature
+Syntax and Processing</a></cite>, D. Eastlake, J. Reagle, and D.
+Solo, Editors. The Internet Society &amp; World Wide Web
+Consortium, 12 February 2002. This version of the XML-Signature
+Syntax and Processing Recommendation is
+http://www.w3.org/TR/2002/REC-xmldsig-core-20020212/. The <a href=
+"http://www.w3.org/TR/xmldsig-core/">latest version of
+XML-Signature Syntax and Processing</a> is available at
+http://www.w3.org/TR/xmldsig-core/.</dd>
+<dt class="label"><a name="C14N11" id="C14N11"></a>[C14N11]</dt>
+<dd><cite><a href="http://www.w3.org/TR/xml-c14n11/">Canonical XML
+1.1</a></cite>, J. Boyer and G. Marcy Authors. W3C Candidate
+Recommendation, 21 June 2007. This is a work in progress. This
+version is available at
+http://www.w3.org/TR/2007/CR-xml-c14n11-20070621. The <a href=
+"http://www.w3.org/TR/xml-c14n11/">latest version of Canonical XML
+1.1</a> is available at http://www.w3.org/TR//xml-c14n11/.</dd>
+</dl>
+</div>
+</div>
+<div class="div1">
+<h2><a name="acknowledgments" id="acknowledgments"></a>C.
+Acknowledgements (Non-Normative)</h2>
+<p>This document is the work of the <a href=
+"http://www.w3.org/2002/ws/policy/">W3C Web Services Policy Working
+Group</a>.</p>
+<p>Members of the Working Group are (at the time of writing, and by
+alphabetical order): Dimitar Angelov (SAP AG), Abbie Barbir (Nortel
+Networks), Charlton Barreto (Adobe Systems Inc.), Sergey Beryozkin
+(IONA Technologies, Inc.), Vladislav Bezrukov (SAP AG), Toufic
+Boubez (Layer 7 Technologies), Symon Chang (BEA Systems, Inc.),
+Paul Cotton (Microsoft Corporation), Glen Daniels (Progress
+Software), Doug Davis (IBM Corporation), Jacques Durand (Fujitsu
+Limited), Ruchith Fernando (WSO2), Christopher Ferris (IBM
+Corporation), William Henry (IONA Technologies, Inc.), Frederick
+Hirsch (Nokia), Maryann Hondo (IBM Corporation), Ondrej Hrebicek
+(Microsoft Corporation), Steve Jones (Layer 7 Technologies), Tom
+Jordahl (Adobe Systems Inc.), Paul Knight (Nortel Networks),
+Philippe Le Hégaret (W3C/MIT), Mark Little (JBoss Inc.), Mohammad
+Makarechian (Microsoft Corporation), Ashok Malhotra (Oracle
+Corporation), Jonathan Marsh (WSO2), Monica Martin (Sun
+Microsystems, Inc.), Arnaud Meyniel (Axway Software), Jeff
+Mischkinsky (Oracle Corporation), Dale Moberg (Axway Software),
+Anthony Nadalin (IBM Corporation), David Orchard (BEA Systems,
+Inc.), Sanjay Patil (SAP AG), Manjula Peiris (WSO2), Fabian
+Ritzmann (Sun Microsystems, Inc.), Daniel Roth (Microsoft
+Corporation), Tom Rutt (Fujitsu Limited), Sanka Samaranayake
+(WSO2), Felix Sasaki (W3C/Keio), Yakov Sverdlov (CA), Asir
+Vedamuthu (Microsoft Corporation), Sanjiva Weerawarana (WSO2), Ümit
+Yalçinalp (SAP AG), Prasad Yendluri (webMethods (A subsidiary of
+Software AG)).</p>
+<p>Previous members of the Working Group were: Jeffrey Crump, Jong
+Lee, Bob Natale, Eugene Osovetsky, Bijan Parsia, Skip Snow, Seumas
+Soltysik, Mark Temple-Raston.</p>
+<p>The people who have contributed to <a href=
+"http://lists.w3.org/Archives/Public/public-ws-policy/">discussions
+on public-ws-policy@w3.org</a> are also gratefully
+acknowledged.</p>
+</div>
+</div>
+</body>
+</html>
