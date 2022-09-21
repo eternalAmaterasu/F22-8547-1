@@ -1,0 +1,6 @@
+# For Intellij, I have added the below ignore lines
+.idea
+Algorithm_Analysis
+Linear_Data_Structure
+out
+*iml
