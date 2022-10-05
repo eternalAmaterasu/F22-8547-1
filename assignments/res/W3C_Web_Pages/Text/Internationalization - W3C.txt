@@ -46,9 +46,9 @@ Web Design and Applications
 
 
 * Skip
-* W3C » 
-* Standards » 
-* Web&#xA0;Design&#xA0;and&#xA0;Applications » 
+* W3Cï¿½ï¿½ï¿½
+* Standardsï¿½ï¿½ï¿½
+* Web&#xA0;Design&#xA0;and&#xA0;Applicationsï¿½ï¿½ï¿½
 * Internationalization
 
 
@@ -62,7 +62,7 @@ Internationalization
 * examples &#x2022;
 * learn&#xA0;more &#x2022;
 * what&#xA0;is&#xA0;the&#xA0;internationalization&#xA0;activity? &#x2022;
-* current&#xA0;status&#xA0;of&#xA0;specifications and groups
+* current&#xA0;status&#xA0;of&#xA0;specificationsï¿½andï¿½groups
 
 
 
@@ -90,7 +90,7 @@ set, Unicode. It may be necessary to also support other legacy character sets an
 
 
 There are other factors to consider, however, when using characters. For example, Unicode based encodings allow the exact same text to be stored using slightly different combinations of characters.
-For efficiency and accuracy in comparing, sorting and parsing text, the different sequences need to be recognised as 'canonically equivalent'. You need to consider how to manage this when developing
+For efficiency and accuracy in comparing, sort and parsing text, the different sequences need to be recognised as 'canonically equivalent'. You need to consider how to manage this when developing
 applications or specifications that perform or rely on such tasks.
 
 
@@ -255,7 +255,7 @@ W3C Updates
 * 
 
 
-Copyright © 2013 W3C ® ( , , Keio, Beihang) Usage policies apply.
+Copyright ï¿½ 2013 W3C ï¿½ ( , , Keio, Beihang) Usage policies apply.
 
 
 

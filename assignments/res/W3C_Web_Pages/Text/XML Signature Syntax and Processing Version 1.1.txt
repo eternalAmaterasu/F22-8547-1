@@ -2523,7 +2523,7 @@ application needs to sign the raw data associated with the encoded content of an
 
 This transform accepts either an octet-stream or a node-set as input. If an octet-string is given as input, then this octet-stream is processed directly. If an XPath node-set (or sufficiently
 functional alternative) is given as input, then it is converted to an octet stream by performing operations logically equivalent to 1) applying an XPath transform with expression self::text(), then
-2) sorting the nodeset by document order, then concatenating the string-value of each of the nodes into one long string. Thus, if an XML element is identified by a shortname XPointer in the
+2) sort the nodeset by document order, then concatenating the string-value of each of the nodes into one long string. Thus, if an XML element is identified by a shortname XPointer in the
 Reference URI, and its content consists solely of base64 encoded character data, then this transform automatically strips away the start and end tags of the identified element and any of its
 descendant elements as well as any descendant comments and processing instructions. The output of this transform is an octet stream.
 

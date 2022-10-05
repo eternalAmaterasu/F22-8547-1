@@ -46,8 +46,8 @@ Standards
 
 
 * Skip
-* W3C » 
-* Standards » 
+* W3Cï¿½ï¿½ï¿½
+* Standardsï¿½ï¿½ï¿½
 * Web Architecture
 
 
@@ -160,7 +160,7 @@ nearly 3,000 new Cantonese pronunciation entries, as well as new or clarified st
 
 Two other important Unicode specifications are maintained in synchrony with the Unicode Standard, and have updates for Version 7.0. These will be released at the same time:
 
-UTS #10, Unicode Collation Algorithm&#x2014; the standard for sorting Unicode text
+UTS #10, Unicode Collation Algorithm&#x2014; the standard for sort Unicode text
 UTS #46, Unicode IDNA Compatibility Processing&#x2014; for processing of non-ASCII URLs (IDNs)
 
 
@@ -212,7 +212,7 @@ Dropbox and Box Leaked Shared Private Files Through Google http://t.co/hvuSel9Xv
 
 
 
-URLs that allow a user to access an otherwise privileged resource or information are called  Capability URLs, and while they can be powerful, they can also cause potential problems when used
+URLs that allow a user to access an otherwise privileged resource or information are calledï¿½ Capability URLs, and while theyï¿½can be powerful, they can also cause potential problems when used
 improperly.
 
 TAG member Jeni Tennison has been working on a draft defining the space of capability URLs and outlining some good practices for usage. We think this document should be useful for web builders who
@@ -276,9 +276,9 @@ from W3C TAG Lines
 
 
 
-On April 4 th, with the much-appreciated help and support of Adobe Systems, the TAG organized an event in San Francisco called the Extensible Web Summit. As I wrote before the event, the intention
+On April 4 th, with the much-appreciated help and support of Adobe Systems, the TAG organized an event in San Francisco called the Extensible Web Summit. As I wroteï¿½before the event, the intention
 was to bring together web developers and web platform developers from the local area to discuss upcoming, in-development web platform technologies and standards both to throw a spotlight on some of
-the topics we think are key and to guide the TAG&#x2019;s thinking. Judging from the feedback we&#x2019;ve received, I we achieved these goals and more.
+the topics we think are key and toï¿½guideï¿½the TAG&#x2019;s thinking. Judging from the feedback we&#x2019;ve received, I we achieved these goals and more.
 
 There were quite a few positive views shared on Twitter, including:
 
@@ -306,9 +306,9 @@ The Extensible Web Summit was bloody great & should be done again. Notes at http
 
 
 
-&#x2026;and the summit has inspired a few blog posts, from Alan Sterns , Brian Kardell  and Simon St. Laurent.
+&#x2026;and the summit has inspired a few blog posts, from Alan Sterns , Brian Kardell ï¿½and Simon St. Laurent.
 
-The final schedule of sessions and links to the unfiltered notes from these sessions can be found on the Lanyrd pagefor the event. Thanks again to everyone who came along! Based on the feedback we
+The final schedule of sessions and links to the unfiltered notes from theseï¿½sessions can be found on the Lanyrd pagefor the event. Thanks again to everyone who came along! Based on the feedback we
 received, I think it&#x2019;s likely we&#x2019;ll be running events in the future in the same format. Watch this space and follow @w3ctagon Twitter to keep up to date.
 
 
@@ -366,7 +366,7 @@ We&#x2019;re running an event on Friday the 4 thof April in San Francisco and yo
 For the past year, along-side our regular face-to-face meetings, the TAG has been holding evening developer meet-ups under the moniker &#x201C;Meet the TAG.&#x201D; The radical idea has been to take
 advantage of the fact that our meetings are happening in cities with large concentrations of Web developers to connect with these developer communities in a meaningful and useful way. The hopeful
 outcome is to both keep developers informed about what we&#x2019;re doing, presumably on their behalf, with their platform, and to drive some feedback back into the TAG to help guide our thinking
-and our work. The results have generally been good, generating useful  criticism and feedbackwhich we&#x2019;ve tried to take on board, and making the TAG less of an echo chamber. In the mean time
+and our work. The results have generally been good, generating usefulï¿½ criticism and feedbackwhich we&#x2019;ve tried to take on board, and making the TAG less of an echo chamber. In the mean time
 we&#x2019;ve met lots of developers who take a keen interest in web architecture and the future of the web platform.
 
 For our next face-to-face meeting in San Francisco, we&#x2019;re planning to expand this idea to a full-fledged one-day event, bringing in web developers and web platformdevelopers, people who are
@@ -374,16 +374,16 @@ deeply invested in the web platform but may not be participating directly in sta
 
 As Twitter denizen Daniel Buchner put it:
 
-@briankardell  @wycats  @w3ctag are you telling me we&#x2019;re going to try developing API &#x201C;products&#x201D; using direct &#x201C;customer&#x201D; feedback? Mind = blown
+@briankardellï¿½ @wycatsï¿½ @w3ctagï¿½are you telling me we&#x2019;re going to try developing API &#x201C;products&#x201D; using direct &#x201C;customer&#x201D; feedback? Mind = blown
 
-&#x2014; Daniel Buchner (@csuwildcat)  December 9, 2013
+&#x2014; Daniel Buchner (@csuwildcat)ï¿½ December 9, 2013
 
 The web is 25 years old. What do we want this platform to look like 25 years from now? This event will bring together web platform developers and practitioners from different communities and
 backgrounds to focus on the future of the web architecture and platform. With the exception of some curated lightning talks at the beginning of the day to set the scene, the event will be run as an
-unconference, with the agenda self-organized by the participants. We&#x2019;d like to thank Adobe Systems for stepping forward as our host for this event.
+unconference, with the agenda self-organized by the participants.ï¿½We&#x2019;d like to thank Adobe Systems for stepping forward as our host for this event.
 
 Who should attend? We would ideally like to pack this event with platform developers, framework developers and web developers with an interest in helping to drive the future of the web platform. If
-you read and liked what you saw in the  Extensible Web Manifesto  and you&#x2019;d like to learn more and influence the direction of this thinking, then we&#x2019;d love to have you along. Likewise
+you read and liked what you saw in theï¿½ Extensible Web Manifesto ï¿½and you&#x2019;d like to learn more and influence the direction of this thinking, then we&#x2019;d love to have you along. Likewise
 if you are interested in other web technologies such as real time communication, platform & device APIs, security, permissions, manifests & packaging, offline usage, JavaScript promises & streams,
 push notifications and touch. The event is free to attend, but is filling up fast. If this sounds like your cup of tea, visit our Lanyrd pageand grab a ticket.
 
@@ -525,7 +525,7 @@ W3C Updates
 * 
 
 
-Copyright © 2013 W3C ® (MIT, ERCIM, Keio, Beihang) Usage policies apply.
+Copyright ï¿½ 2013 W3C ï¿½ (MIT, ERCIM, Keio, Beihang) Usage policies apply.
 
 
 

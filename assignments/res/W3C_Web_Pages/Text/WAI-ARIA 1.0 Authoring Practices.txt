@@ -3523,7 +3523,7 @@ Description:
 An example of a grid whose headers are sortable in either ascending or descending order based on the name in the grid column headers.
 
 This design pattern matches that of the grid design pattern where, specifically, the author has included use of the arrow keys to permit navigation to the row or column headers that contain a button
-for sorting the rows of the table. Sorting is based on the data cell contents in the column being sorted, the name in the column header, and whether the contents of the column are sorted in
+for sort the rows of the table. Sorting is based on the data cell contents in the column being sorted, the name in the column header, and whether the contents of the column are sorted in
 ascending or descending order. As the order of the cells change in the column the corresponding rows move in position with respect to that sort.
 
 Keyboard Interaction: 
@@ -3537,7 +3537,7 @@ It is recommended the developer use different styling for the selection when the
 
 WAI-ARIA Roles, States, and Properties: 
 * The same as the grid design pattern with the exception that each row or column header, signified by a role of columnheader and rowheader respectively, has an aria-sort value that reflects the
-  current state for sort for the associated row or column. If another row or column header adjusts the sort of the grid the remaining row or column header aria-sort values must reflect their sorting
+  current state for sort for the associated row or column. If another row or column header adjusts the sort of the grid the remaining row or column header aria-sort values must reflect their sort
   impact on the grid.
 
 Example: 

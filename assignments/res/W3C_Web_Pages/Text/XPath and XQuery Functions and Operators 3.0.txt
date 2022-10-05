@@ -31,9 +31,9 @@ Please check the errata for any errors or issues reported since publication.
 
 See also translations.
 
-This document is also available in these non-normative formats: XML and Change markings relative to previous edition.
+This document is also available in these non-normative formats: XML andï¿½Change markings relative to previous edition.
 
-Copyright Â© 2014 W3CÂ® (MIT, ERCIM, Keio, Beihang), All Rights Reserved. W3C liability, trademark and document use rules apply.
+Copyrightï¿½Â©ï¿½2014ï¿½W3CÂ® (MIT, ERCIM, Keio, Beihang), All Rights Reserved. W3C liability, trademark and document use rules apply.
 
 
 ========================================================================================================================================================================================================
@@ -97,54 +97,54 @@ Policy.
 Quick Contents
 
 
-* abs  acos  add-dayTimeDurations  add-dayTimeDuration-to-date  add-dayTimeDuration-to-dateTime  add-dayTimeDuration-to-time  add-yearMonthDurations  add-yearMonthDuration-to-date 
-  add-yearMonthDuration-to-dateTime  adjust-dateTime-to-timezone  adjust-date-to-timezone  adjust-time-to-timezone  analyze-string  asin  atan  atan2  available-environment-variables  avg 
+* absï¿½ acosï¿½ add-dayTimeDurationsï¿½ add-dayTimeDuration-to-dateï¿½ add-dayTimeDuration-to-dateTimeï¿½ add-dayTimeDuration-to-timeï¿½ add-yearMonthDurationsï¿½ add-yearMonthDuration-to-dateï¿½
+  add-yearMonthDuration-to-dateTimeï¿½ adjust-dateTime-to-timezoneï¿½ adjust-date-to-timezoneï¿½ adjust-time-to-timezoneï¿½ analyze-stringï¿½ asinï¿½ atanï¿½ atan2ï¿½ available-environment-variablesï¿½ avgï¿½
 
-* base64Binary-equal  base-uri  boolean  boolean-equal  boolean-greater-than  boolean-less-than 
+* base64Binary-equalï¿½ base-uriï¿½ booleanï¿½ boolean-equalï¿½ boolean-greater-thanï¿½ boolean-less-thanï¿½
 
-* ceiling  codepoint-equal  codepoints-to-string  collection  compare  concat  concatenate  contains  cos  count  current-date  current-dateTime  current-time 
+* ceilingï¿½ codepoint-equalï¿½ codepoints-to-stringï¿½ collectionï¿½ compareï¿½ concatï¿½ concatenateï¿½ containsï¿½ cosï¿½ countï¿½ current-dateï¿½ current-dateTimeï¿½ current-timeï¿½
 
-* data  date-equal  date-greater-than  date-less-than  dateTime  dateTime-equal  dateTime-greater-than  dateTime-less-than  day-from-date  day-from-dateTime  days-from-duration 
-  dayTimeDuration-greater-than  dayTimeDuration-less-than  deep-equal  default-collation  distinct-values  divide-dayTimeDuration  divide-dayTimeDuration-by-dayTimeDuration 
-  divide-yearMonthDuration  divide-yearMonthDuration-by-yearMonthDuration  doc  doc-available  document-uri  duration-equal 
+* dataï¿½ date-equalï¿½ date-greater-thanï¿½ date-less-thanï¿½ dateTimeï¿½ dateTime-equalï¿½ dateTime-greater-thanï¿½ dateTime-less-thanï¿½ day-from-dateï¿½ day-from-dateTimeï¿½ days-from-durationï¿½
+  dayTimeDuration-greater-thanï¿½ dayTimeDuration-less-thanï¿½ deep-equalï¿½ default-collationï¿½ distinct-valuesï¿½ divide-dayTimeDurationï¿½ divide-dayTimeDuration-by-dayTimeDurationï¿½
+  divide-yearMonthDurationï¿½ divide-yearMonthDuration-by-yearMonthDurationï¿½ docï¿½ doc-availableï¿½ document-uriï¿½ duration-equalï¿½
 
-* element-with-id  empty  encode-for-uri  ends-with  environment-variable  error  escape-html-uri  exactly-one  except  exists  exp  exp10 
+* element-with-idï¿½ emptyï¿½ encode-for-uriï¿½ ends-withï¿½ environment-variableï¿½ errorï¿½ escape-html-uriï¿½ exactly-oneï¿½ exceptï¿½ existsï¿½ expï¿½ exp10ï¿½
 
-* false  filter  floor  fold-left  fold-right  for-each  for-each-pair  format-date  format-dateTime  format-integer  format-number  format-time  function-arity  function-lookup  function-name 
+* falseï¿½ filterï¿½ floorï¿½ fold-leftï¿½ fold-rightï¿½ for-eachï¿½ for-each-pairï¿½ format-dateï¿½ format-dateTimeï¿½ format-integerï¿½ format-numberï¿½ format-timeï¿½ function-arityï¿½ function-lookupï¿½ function-nameï¿½
 
-* gDay-equal  generate-id  gMonthDay-equal  gMonth-equal  gYear-equal  gYearMonth-equal 
+* gDay-equalï¿½ generate-idï¿½ gMonthDay-equalï¿½ gMonth-equalï¿½ gYear-equalï¿½ gYearMonth-equalï¿½
 
-* has-children  head  hexBinary-equal  hours-from-dateTime  hours-from-duration  hours-from-time 
+* has-childrenï¿½ headï¿½ hexBinary-equalï¿½ hours-from-dateTimeï¿½ hours-from-durationï¿½ hours-from-timeï¿½
 
-* id  idref  implicit-timezone  index-of  innermost  in-scope-prefixes  insert-before  intersect  iri-to-uri  is-same-node 
+* idï¿½ idrefï¿½ implicit-timezoneï¿½ index-ofï¿½ innermostï¿½ in-scope-prefixesï¿½ insert-beforeï¿½ intersectï¿½ iri-to-uriï¿½ is-same-nodeï¿½
 
-* lang  last  local-name  local-name-from-QName  log  log10  lower-case 
+* langï¿½ lastï¿½ local-nameï¿½ local-name-from-QNameï¿½ logï¿½ log10ï¿½ lower-caseï¿½
 
-* matches  max  min  minutes-from-dateTime  minutes-from-duration  minutes-from-time  month-from-date  month-from-dateTime  months-from-duration  multiply-dayTimeDuration 
-  multiply-yearMonthDuration 
+* matchesï¿½ maxï¿½ minï¿½ minutes-from-dateTimeï¿½ minutes-from-durationï¿½ minutes-from-timeï¿½ month-from-dateï¿½ month-from-dateTimeï¿½ months-from-durationï¿½ multiply-dayTimeDurationï¿½
+  multiply-yearMonthDurationï¿½
 
-* name  namespace-uri  namespace-uri-for-prefix  namespace-uri-from-QName  nilled  node-after  node-before  node-name  normalize-space  normalize-unicode  not  NOTATION-equal  number  numeric-add 
-  numeric-divide  numeric-equal  numeric-greater-than  numeric-integer-divide  numeric-less-than  numeric-mod  numeric-multiply  numeric-subtract  numeric-unary-minus  numeric-unary-plus 
+* nameï¿½ namespace-uriï¿½ namespace-uri-for-prefixï¿½ namespace-uri-from-QNameï¿½ nilledï¿½ node-afterï¿½ node-beforeï¿½ node-nameï¿½ normalize-spaceï¿½ normalize-unicodeï¿½ notï¿½ NOTATION-equalï¿½ numberï¿½ numeric-addï¿½
+  numeric-divideï¿½ numeric-equalï¿½ numeric-greater-thanï¿½ numeric-integer-divideï¿½ numeric-less-thanï¿½ numeric-modï¿½ numeric-multiplyï¿½ numeric-subtractï¿½ numeric-unary-minusï¿½ numeric-unary-plusï¿½
 
-* one-or-more  outermost 
+* one-or-moreï¿½ outermostï¿½
 
-* parse-xml  parse-xml-fragment  path  pi  position  pow  prefix-from-QName 
+* parse-xmlï¿½ parse-xml-fragmentï¿½ pathï¿½ piï¿½ positionï¿½ powï¿½ prefix-from-QNameï¿½
 
-* QName  QName-equal 
+* QNameï¿½ QName-equalï¿½
 
-* remove  replace  resolve-QName  resolve-uri  reverse  root  round  round-half-to-even 
+* removeï¿½ replaceï¿½ resolve-QNameï¿½ resolve-uriï¿½ reverseï¿½ rootï¿½ roundï¿½ round-half-to-evenï¿½
 
-* seconds-from-dateTime  seconds-from-duration  seconds-from-time  serialize  sin  sqrt  starts-with  static-base-uri  string  string-join  string-length  string-to-codepoints  subsequence 
-  substring  substring-after  substring-before  subtract-dates  subtract-dateTimes  subtract-dayTimeDuration-from-date  subtract-dayTimeDuration-from-dateTime  subtract-dayTimeDuration-from-time 
-  subtract-dayTimeDurations  subtract-times  subtract-yearMonthDuration-from-date  subtract-yearMonthDuration-from-dateTime  subtract-yearMonthDurations  sum 
+* seconds-from-dateTimeï¿½ seconds-from-durationï¿½ seconds-from-timeï¿½ serializeï¿½ sinï¿½ sqrtï¿½ starts-withï¿½ static-base-uriï¿½ stringï¿½ string-joinï¿½ string-lengthï¿½ string-to-codepointsï¿½ subsequenceï¿½
+  substringï¿½ substring-afterï¿½ substring-beforeï¿½ subtract-datesï¿½ subtract-dateTimesï¿½ subtract-dayTimeDuration-from-dateï¿½ subtract-dayTimeDuration-from-dateTimeï¿½ subtract-dayTimeDuration-from-timeï¿½
+  subtract-dayTimeDurationsï¿½ subtract-timesï¿½ subtract-yearMonthDuration-from-dateï¿½ subtract-yearMonthDuration-from-dateTimeï¿½ subtract-yearMonthDurationsï¿½ sumï¿½
 
-* tail  tan  time-equal  time-greater-than  time-less-than  timezone-from-date  timezone-from-dateTime  timezone-from-time  to  tokenize  trace  translate  true 
+* tailï¿½ tanï¿½ time-equalï¿½ time-greater-thanï¿½ time-less-thanï¿½ timezone-from-dateï¿½ timezone-from-dateTimeï¿½ timezone-from-timeï¿½ toï¿½ tokenizeï¿½ traceï¿½ translateï¿½ trueï¿½
 
-* union  unordered  unparsed-text  unparsed-text-available  unparsed-text-lines  upper-case  uri-collection 
+* unionï¿½ unorderedï¿½ unparsed-textï¿½ unparsed-text-availableï¿½ unparsed-text-linesï¿½ upper-caseï¿½ uri-collectionï¿½
 
-* year-from-date  year-from-dateTime  yearMonthDuration-greater-than  yearMonthDuration-less-than  years-from-duration 
+* year-from-dateï¿½ year-from-dateTimeï¿½ yearMonthDuration-greater-thanï¿½ yearMonthDuration-less-thanï¿½ years-from-durationï¿½
 
-* zero-or-one 
+* zero-or-oneï¿½
 
 
 
@@ -154,340 +154,340 @@ Table of Contents
 
 
 1 Introduction
-    1.1 Conformance
-    1.2 Namespaces and prefixes
-    1.3 Function overloading
-    1.4 Function signatures and descriptions
-    1.5 Type system
-    1.6 Terminology
-        1.6.1 Strings, characters, and codepoints
-        1.6.2 Namespaces and URIs
-        1.6.3 Conformance terminology
-        1.6.4 Properties of functions
+ï¿½ï¿½ï¿½ï¿½1.1 Conformance
+ï¿½ï¿½ï¿½ï¿½1.2 Namespaces and prefixes
+ï¿½ï¿½ï¿½ï¿½1.3 Function overloading
+ï¿½ï¿½ï¿½ï¿½1.4 Function signatures and descriptions
+ï¿½ï¿½ï¿½ï¿½1.5 Type system
+ï¿½ï¿½ï¿½ï¿½1.6 Terminology
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½1.6.1 Strings, characters, and codepoints
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½1.6.2 Namespaces and URIs
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½1.6.3 Conformance terminology
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½1.6.4 Properties of functions
 2 Accessors
-    2.1 fn:node-name
-    2.2 fn:nilled
-    2.3 fn:string
-    2.4 fn:data
-    2.5 fn:base-uri
-    2.6 fn:document-uri
+ï¿½ï¿½ï¿½ï¿½2.1 fn:node-name
+ï¿½ï¿½ï¿½ï¿½2.2 fn:nilled
+ï¿½ï¿½ï¿½ï¿½2.3 fn:string
+ï¿½ï¿½ï¿½ï¿½2.4 fn:data
+ï¿½ï¿½ï¿½ï¿½2.5 fn:base-uri
+ï¿½ï¿½ï¿½ï¿½2.6 fn:document-uri
 3 Errors and diagnostics
-    3.1 Raising errors
-        3.1.1 fn:error
-    3.2 Diagnostic tracing
-        3.2.1 fn:trace
+ï¿½ï¿½ï¿½ï¿½3.1 Raising errors
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½3.1.1 fn:error
+ï¿½ï¿½ï¿½ï¿½3.2 Diagnostic tracing
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½3.2.1 fn:trace
 4 Functions and operators on numerics
-    4.1 Numeric types
-    4.2 Arithmetic operators on numeric values
-        4.2.1 op:numeric-add
-        4.2.2 op:numeric-subtract
-        4.2.3 op:numeric-multiply
-        4.2.4 op:numeric-divide
-        4.2.5 op:numeric-integer-divide
-        4.2.6 op:numeric-mod
-        4.2.7 op:numeric-unary-plus
-        4.2.8 op:numeric-unary-minus
-    4.3 Comparison operators on numeric values
-        4.3.1 op:numeric-equal
-        4.3.2 op:numeric-less-than
-        4.3.3 op:numeric-greater-than
-    4.4 Functions on numeric values
-        4.4.1 fn:abs
-        4.4.2 fn:ceiling
-        4.4.3 fn:floor
-        4.4.4 fn:round
-        4.4.5 fn:round-half-to-even
-    4.5 Parsing numbers
-        4.5.1 fn:number
-    4.6 Formatting integers
-        4.6.1 fn:format-integer
-    4.7 Formatting numbers
-        4.7.1 Defining a decimal format
-        4.7.2 fn:format-number
-        4.7.3 Syntax of the picture string
-        4.7.4 Analysing the picture string
-        4.7.5 Formatting the number
-    4.8 Trigonometric and exponential functions
-        4.8.1 math:pi
-        4.8.2 math:exp
-        4.8.3 math:exp10
-        4.8.4 math:log
-        4.8.5 math:log10
-        4.8.6 math:pow
-        4.8.7 math:sqrt
-        4.8.8 math:sin
-        4.8.9 math:cos
-        4.8.10 math:tan
-        4.8.11 math:asin
-        4.8.12 math:acos
-        4.8.13 math:atan
-        4.8.14 math:atan2
+ï¿½ï¿½ï¿½ï¿½4.1 Numeric types
+ï¿½ï¿½ï¿½ï¿½4.2 Arithmetic operators on numeric values
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½4.2.1 op:numeric-add
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½4.2.2 op:numeric-subtract
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½4.2.3 op:numeric-multiply
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½4.2.4 op:numeric-divide
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½4.2.5 op:numeric-integer-divide
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½4.2.6 op:numeric-mod
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½4.2.7 op:numeric-unary-plus
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½4.2.8 op:numeric-unary-minus
+ï¿½ï¿½ï¿½ï¿½4.3 Comparison operators on numeric values
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½4.3.1 op:numeric-equal
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½4.3.2 op:numeric-less-than
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½4.3.3 op:numeric-greater-than
+ï¿½ï¿½ï¿½ï¿½4.4 Functions on numeric values
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½4.4.1 fn:abs
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½4.4.2 fn:ceiling
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½4.4.3 fn:floor
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½4.4.4 fn:round
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½4.4.5 fn:round-half-to-even
+ï¿½ï¿½ï¿½ï¿½4.5 Parsing numbers
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½4.5.1 fn:number
+ï¿½ï¿½ï¿½ï¿½4.6 Formatting integers
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½4.6.1 fn:format-integer
+ï¿½ï¿½ï¿½ï¿½4.7 Formatting numbers
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½4.7.1 Defining a decimal format
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½4.7.2 fn:format-number
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½4.7.3 Syntax of the picture string
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½4.7.4 Analysing the picture string
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½4.7.5 Formatting the number
+ï¿½ï¿½ï¿½ï¿½4.8 Trigonometric and exponential functions
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½4.8.1 math:pi
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½4.8.2 math:exp
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½4.8.3 math:exp10
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½4.8.4 math:log
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½4.8.5 math:log10
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½4.8.6 math:pow
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½4.8.7 math:sqrt
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½4.8.8 math:sin
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½4.8.9 math:cos
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½4.8.10 math:tan
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½4.8.11 math:asin
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½4.8.12 math:acos
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½4.8.13 math:atan
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½4.8.14 math:atan2
 5 Functions on strings
-    5.1 String types
-    5.2 Functions to assemble and disassemble strings
-        5.2.1 fn:codepoints-to-string
-        5.2.2 fn:string-to-codepoints
-    5.3 Comparison of strings
-        5.3.1 Collations
-        5.3.2 The Unicode Codepoint Collation
-        5.3.3 Choosing a collation
-        5.3.4 fn:compare
-        5.3.5 fn:codepoint-equal
-    5.4 Functions on string values
-        5.4.1 fn:concat
-        5.4.2 fn:string-join
-        5.4.3 fn:substring
-        5.4.4 fn:string-length
-        5.4.5 fn:normalize-space
-        5.4.6 fn:normalize-unicode
-        5.4.7 fn:upper-case
-        5.4.8 fn:lower-case
-        5.4.9 fn:translate
-    5.5 Functions based on substring matching
-        5.5.1 fn:contains
-        5.5.2 fn:starts-with
-        5.5.3 fn:ends-with
-        5.5.4 fn:substring-before
-        5.5.5 fn:substring-after
-    5.6 String functions that use regular expressions
-        5.6.1 Regular expression syntax
-        5.6.2 fn:matches
-        5.6.3 fn:replace
-        5.6.4 fn:tokenize
-        5.6.5 fn:analyze-string
+ï¿½ï¿½ï¿½ï¿½5.1 String types
+ï¿½ï¿½ï¿½ï¿½5.2 Functions to assemble and disassemble strings
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½5.2.1 fn:codepoints-to-string
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½5.2.2 fn:string-to-codepoints
+ï¿½ï¿½ï¿½ï¿½5.3 Comparison of strings
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½5.3.1 Collations
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½5.3.2 The Unicode Codepoint Collation
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½5.3.3 Choosing a collation
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½5.3.4 fn:compare
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½5.3.5 fn:codepoint-equal
+ï¿½ï¿½ï¿½ï¿½5.4 Functions on string values
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½5.4.1 fn:concat
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½5.4.2 fn:string-join
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½5.4.3 fn:substring
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½5.4.4 fn:string-length
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½5.4.5 fn:normalize-space
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½5.4.6 fn:normalize-unicode
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½5.4.7 fn:upper-case
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½5.4.8 fn:lower-case
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½5.4.9 fn:translate
+ï¿½ï¿½ï¿½ï¿½5.5 Functions based on substring matching
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½5.5.1 fn:contains
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½5.5.2 fn:starts-with
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½5.5.3 fn:ends-with
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½5.5.4 fn:substring-before
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½5.5.5 fn:substring-after
+ï¿½ï¿½ï¿½ï¿½5.6 String functions that use regular expressions
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½5.6.1 Regular expression syntax
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½5.6.2 fn:matches
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½5.6.3 fn:replace
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½5.6.4 fn:tokenize
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½5.6.5 fn:analyze-string
 6 Functions that manipulate URIs
-    6.1 fn:resolve-uri
-    6.2 fn:encode-for-uri
-    6.3 fn:iri-to-uri
-    6.4 fn:escape-html-uri
+ï¿½ï¿½ï¿½ï¿½6.1 fn:resolve-uri
+ï¿½ï¿½ï¿½ï¿½6.2 fn:encode-for-uri
+ï¿½ï¿½ï¿½ï¿½6.3 fn:iri-to-uri
+ï¿½ï¿½ï¿½ï¿½6.4 fn:escape-html-uri
 7 Functions and operators on Boolean values
-    7.1 Boolean constant functions
-        7.1.1 fn:true
-        7.1.2 fn:false
-    7.2 Operators on Boolean values
-        7.2.1 op:boolean-equal
-        7.2.2 op:boolean-less-than
-        7.2.3 op:boolean-greater-than
-    7.3 Functions on Boolean values
-        7.3.1 fn:boolean
-        7.3.2 fn:not
+ï¿½ï¿½ï¿½ï¿½7.1 Boolean constant functions
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½7.1.1 fn:true
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½7.1.2 fn:false
+ï¿½ï¿½ï¿½ï¿½7.2 Operators on Boolean values
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½7.2.1 op:boolean-equal
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½7.2.2 op:boolean-less-than
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½7.2.3 op:boolean-greater-than
+ï¿½ï¿½ï¿½ï¿½7.3 Functions on Boolean values
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½7.3.1 fn:boolean
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½7.3.2 fn:not
 8 Functions and operators on durations
-    8.1 Two totally ordered subtypes of duration
-        8.1.1 xs:yearMonthDuration
-        8.1.2 xs:dayTimeDuration
-    8.2 Comparison operators on durations
-        8.2.1 op:yearMonthDuration-less-than
-        8.2.2 op:yearMonthDuration-greater-than
-        8.2.3 op:dayTimeDuration-less-than
-        8.2.4 op:dayTimeDuration-greater-than
-        8.2.5 op:duration-equal
-    8.3 Component extraction functions on durations
-        8.3.1 fn:years-from-duration
-        8.3.2 fn:months-from-duration
-        8.3.3 fn:days-from-duration
-        8.3.4 fn:hours-from-duration
-        8.3.5 fn:minutes-from-duration
-        8.3.6 fn:seconds-from-duration
-    8.4 Arithmetic operators on durations
-        8.4.1 op:add-yearMonthDurations
-        8.4.2 op:subtract-yearMonthDurations
-        8.4.3 op:multiply-yearMonthDuration
-        8.4.4 op:divide-yearMonthDuration
-        8.4.5 op:divide-yearMonthDuration-by-yearMonthDuration
-        8.4.6 op:add-dayTimeDurations
-        8.4.7 op:subtract-dayTimeDurations
-        8.4.8 op:multiply-dayTimeDuration
-        8.4.9 op:divide-dayTimeDuration
-        8.4.10 op:divide-dayTimeDuration-by-dayTimeDuration
+ï¿½ï¿½ï¿½ï¿½8.1 Two totally ordered subtypes of duration
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½8.1.1 xs:yearMonthDuration
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½8.1.2 xs:dayTimeDuration
+ï¿½ï¿½ï¿½ï¿½8.2 Comparison operators on durations
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½8.2.1 op:yearMonthDuration-less-than
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½8.2.2 op:yearMonthDuration-greater-than
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½8.2.3 op:dayTimeDuration-less-than
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½8.2.4 op:dayTimeDuration-greater-than
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½8.2.5 op:duration-equal
+ï¿½ï¿½ï¿½ï¿½8.3 Component extraction functions on durations
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½8.3.1 fn:years-from-duration
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½8.3.2 fn:months-from-duration
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½8.3.3 fn:days-from-duration
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½8.3.4 fn:hours-from-duration
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½8.3.5 fn:minutes-from-duration
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½8.3.6 fn:seconds-from-duration
+ï¿½ï¿½ï¿½ï¿½8.4 Arithmetic operators on durations
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½8.4.1 op:add-yearMonthDurations
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½8.4.2 op:subtract-yearMonthDurations
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½8.4.3 op:multiply-yearMonthDuration
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½8.4.4 op:divide-yearMonthDuration
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½8.4.5 op:divide-yearMonthDuration-by-yearMonthDuration
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½8.4.6 op:add-dayTimeDurations
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½8.4.7 op:subtract-dayTimeDurations
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½8.4.8 op:multiply-dayTimeDuration
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½8.4.9 op:divide-dayTimeDuration
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½8.4.10 op:divide-dayTimeDuration-by-dayTimeDuration
 9 Functions and operators on dates and times
-    9.1 Date and time types
-        9.1.1 Limits and precision
-    9.2 Date/time datatype values
-        9.2.1 Examples
-    9.3 Constructing a dateTime
-        9.3.1 fn:dateTime
-    9.4 Comparison operators on duration, date and time values
-        9.4.1 op:dateTime-equal
-        9.4.2 op:dateTime-less-than
-        9.4.3 op:dateTime-greater-than
-        9.4.4 op:date-equal
-        9.4.5 op:date-less-than
-        9.4.6 op:date-greater-than
-        9.4.7 op:time-equal
-        9.4.8 op:time-less-than
-        9.4.9 op:time-greater-than
-        9.4.10 op:gYearMonth-equal
-        9.4.11 op:gYear-equal
-        9.4.12 op:gMonthDay-equal
-        9.4.13 op:gMonth-equal
-        9.4.14 op:gDay-equal
-    9.5 Component extraction functions on dates and times
-        9.5.1 fn:year-from-dateTime
-        9.5.2 fn:month-from-dateTime
-        9.5.3 fn:day-from-dateTime
-        9.5.4 fn:hours-from-dateTime
-        9.5.5 fn:minutes-from-dateTime
-        9.5.6 fn:seconds-from-dateTime
-        9.5.7 fn:timezone-from-dateTime
-        9.5.8 fn:year-from-date
-        9.5.9 fn:month-from-date
-        9.5.10 fn:day-from-date
-        9.5.11 fn:timezone-from-date
-        9.5.12 fn:hours-from-time
-        9.5.13 fn:minutes-from-time
-        9.5.14 fn:seconds-from-time
-        9.5.15 fn:timezone-from-time
-    9.6 Timezone adjustment functions on dates and time values
-        9.6.1 fn:adjust-dateTime-to-timezone
-        9.6.2 fn:adjust-date-to-timezone
-        9.6.3 fn:adjust-time-to-timezone
-    9.7 Arithmetic operators on durations, dates and times
-        9.7.1 Limits and precision
-        9.7.2 op:subtract-dateTimes
-        9.7.3 op:subtract-dates
-        9.7.4 op:subtract-times
-        9.7.5 op:add-yearMonthDuration-to-dateTime
-        9.7.6 op:add-dayTimeDuration-to-dateTime
-        9.7.7 op:subtract-yearMonthDuration-from-dateTime
-        9.7.8 op:subtract-dayTimeDuration-from-dateTime
-        9.7.9 op:add-yearMonthDuration-to-date
-        9.7.10 op:add-dayTimeDuration-to-date
-        9.7.11 op:subtract-yearMonthDuration-from-date
-        9.7.12 op:subtract-dayTimeDuration-from-date
-        9.7.13 op:add-dayTimeDuration-to-time
-        9.7.14 op:subtract-dayTimeDuration-from-time
-    9.8 Formatting dates and times
-        9.8.1 fn:format-dateTime
-        9.8.2 fn:format-date
-        9.8.3 fn:format-time
-        9.8.4 The date/time formatting functions
-        9.8.5 Examples of date and time formatting
+ï¿½ï¿½ï¿½ï¿½9.1 Date and time types
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½9.1.1 Limits and precision
+ï¿½ï¿½ï¿½ï¿½9.2 Date/time datatype values
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½9.2.1 Examples
+ï¿½ï¿½ï¿½ï¿½9.3 Constructing a dateTime
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½9.3.1 fn:dateTime
+ï¿½ï¿½ï¿½ï¿½9.4 Comparison operators on duration, date and time values
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½9.4.1 op:dateTime-equal
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½9.4.2 op:dateTime-less-than
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½9.4.3 op:dateTime-greater-than
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½9.4.4 op:date-equal
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½9.4.5 op:date-less-than
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½9.4.6 op:date-greater-than
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½9.4.7 op:time-equal
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½9.4.8 op:time-less-than
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½9.4.9 op:time-greater-than
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½9.4.10 op:gYearMonth-equal
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½9.4.11 op:gYear-equal
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½9.4.12 op:gMonthDay-equal
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½9.4.13 op:gMonth-equal
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½9.4.14 op:gDay-equal
+ï¿½ï¿½ï¿½ï¿½9.5 Component extraction functions on dates and times
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½9.5.1 fn:year-from-dateTime
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½9.5.2 fn:month-from-dateTime
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½9.5.3 fn:day-from-dateTime
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½9.5.4 fn:hours-from-dateTime
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½9.5.5 fn:minutes-from-dateTime
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½9.5.6 fn:seconds-from-dateTime
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½9.5.7 fn:timezone-from-dateTime
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½9.5.8 fn:year-from-date
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½9.5.9 fn:month-from-date
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½9.5.10 fn:day-from-date
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½9.5.11 fn:timezone-from-date
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½9.5.12 fn:hours-from-time
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½9.5.13 fn:minutes-from-time
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½9.5.14 fn:seconds-from-time
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½9.5.15 fn:timezone-from-time
+ï¿½ï¿½ï¿½ï¿½9.6 Timezone adjustment functions on dates and time values
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½9.6.1 fn:adjust-dateTime-to-timezone
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½9.6.2 fn:adjust-date-to-timezone
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½9.6.3 fn:adjust-time-to-timezone
+ï¿½ï¿½ï¿½ï¿½9.7 Arithmetic operators on durations, dates and times
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½9.7.1 Limits and precision
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½9.7.2 op:subtract-dateTimes
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½9.7.3 op:subtract-dates
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½9.7.4 op:subtract-times
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½9.7.5 op:add-yearMonthDuration-to-dateTime
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½9.7.6 op:add-dayTimeDuration-to-dateTime
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½9.7.7 op:subtract-yearMonthDuration-from-dateTime
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½9.7.8 op:subtract-dayTimeDuration-from-dateTime
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½9.7.9 op:add-yearMonthDuration-to-date
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½9.7.10 op:add-dayTimeDuration-to-date
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½9.7.11 op:subtract-yearMonthDuration-from-date
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½9.7.12 op:subtract-dayTimeDuration-from-date
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½9.7.13 op:add-dayTimeDuration-to-time
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½9.7.14 op:subtract-dayTimeDuration-from-time
+ï¿½ï¿½ï¿½ï¿½9.8 Formatting dates and times
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½9.8.1 fn:format-dateTime
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½9.8.2 fn:format-date
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½9.8.3 fn:format-time
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½9.8.4 The date/time formatting functions
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½9.8.5 Examples of date and time formatting
 10 Functions related to QNames
-    10.1 Functions to create a QName
-        10.1.1 fn:resolve-QName
-        10.1.2 fn:QName
-    10.2 Functions and operators related to QNames
-        10.2.1 op:QName-equal
-        10.2.2 fn:prefix-from-QName
-        10.2.3 fn:local-name-from-QName
-        10.2.4 fn:namespace-uri-from-QName
-        10.2.5 fn:namespace-uri-for-prefix
-        10.2.6 fn:in-scope-prefixes
+ï¿½ï¿½ï¿½ï¿½10.1 Functions to create a QName
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½10.1.1 fn:resolve-QName
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½10.1.2 fn:QName
+ï¿½ï¿½ï¿½ï¿½10.2 Functions and operators related to QNames
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½10.2.1 op:QName-equal
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½10.2.2 fn:prefix-from-QName
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½10.2.3 fn:local-name-from-QName
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½10.2.4 fn:namespace-uri-from-QName
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½10.2.5 fn:namespace-uri-for-prefix
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½10.2.6 fn:in-scope-prefixes
 11 Operators on base64Binary and hexBinary
-    11.1 Comparisons of base64Binary and hexBinary values
-        11.1.1 op:hexBinary-equal
-        11.1.2 op:base64Binary-equal
+ï¿½ï¿½ï¿½ï¿½11.1 Comparisons of base64Binary and hexBinary values
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½11.1.1 op:hexBinary-equal
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½11.1.2 op:base64Binary-equal
 12 Operators on NOTATION
-    12.1 op:NOTATION-equal
+ï¿½ï¿½ï¿½ï¿½12.1 op:NOTATION-equal
 13 Functions and operators on nodes
-    13.1 fn:name
-    13.2 fn:local-name
-    13.3 fn:namespace-uri
-    13.4 fn:lang
-    13.5 op:is-same-node
-    13.6 op:node-before
-    13.7 op:node-after
-    13.8 fn:root
-    13.9 fn:path
-    13.10 fn:has-children
-    13.11 fn:innermost
-    13.12 fn:outermost
+ï¿½ï¿½ï¿½ï¿½13.1 fn:name
+ï¿½ï¿½ï¿½ï¿½13.2 fn:local-name
+ï¿½ï¿½ï¿½ï¿½13.3 fn:namespace-uri
+ï¿½ï¿½ï¿½ï¿½13.4 fn:lang
+ï¿½ï¿½ï¿½ï¿½13.5 op:is-same-node
+ï¿½ï¿½ï¿½ï¿½13.6 op:node-before
+ï¿½ï¿½ï¿½ï¿½13.7 op:node-after
+ï¿½ï¿½ï¿½ï¿½13.8 fn:root
+ï¿½ï¿½ï¿½ï¿½13.9 fn:path
+ï¿½ï¿½ï¿½ï¿½13.10 fn:has-children
+ï¿½ï¿½ï¿½ï¿½13.11 fn:innermost
+ï¿½ï¿½ï¿½ï¿½13.12 fn:outermost
 14 Functions and operators on sequences
-    14.1 General functions and operators on sequences
-        14.1.1 op:concatenate
-        14.1.2 fn:empty
-        14.1.3 fn:exists
-        14.1.4 fn:head
-        14.1.5 fn:tail
-        14.1.6 fn:insert-before
-        14.1.7 fn:remove
-        14.1.8 fn:reverse
-        14.1.9 fn:subsequence
-        14.1.10 fn:unordered
-    14.2 Functions that compare values in sequences
-        14.2.1 fn:distinct-values
-        14.2.2 fn:index-of
-        14.2.3 fn:deep-equal
-    14.3 Functions that test the cardinality of sequences
-        14.3.1 fn:zero-or-one
-        14.3.2 fn:one-or-more
-        14.3.3 fn:exactly-one
-    14.4 Union, intersection and difference
-        14.4.1 op:union
-        14.4.2 op:intersect
-        14.4.3 op:except
-    14.5 Aggregate functions
-        14.5.1 fn:count
-        14.5.2 fn:avg
-        14.5.3 fn:max
-        14.5.4 fn:min
-        14.5.5 fn:sum
-    14.6 Functions and operators that generate sequences
-        14.6.1 op:to
-    14.7 Functions on node identifiers
-        14.7.1 fn:id
-        14.7.2 fn:element-with-id
-        14.7.3 fn:idref
-        14.7.4 fn:generate-id
-    14.8 Functions giving access to external information
-        14.8.1 fn:doc
-        14.8.2 fn:doc-available
-        14.8.3 fn:collection
-        14.8.4 fn:uri-collection
-        14.8.5 fn:unparsed-text
-        14.8.6 fn:unparsed-text-lines
-        14.8.7 fn:unparsed-text-available
-        14.8.8 fn:environment-variable
-        14.8.9 fn:available-environment-variables
-    14.9 Parsing and serializing
-        14.9.1 fn:parse-xml
-        14.9.2 fn:parse-xml-fragment
-        14.9.3 fn:serialize
+ï¿½ï¿½ï¿½ï¿½14.1 General functions and operators on sequences
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½14.1.1 op:concatenate
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½14.1.2 fn:empty
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½14.1.3 fn:exists
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½14.1.4 fn:head
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½14.1.5 fn:tail
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½14.1.6 fn:insert-before
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½14.1.7 fn:remove
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½14.1.8 fn:reverse
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½14.1.9 fn:subsequence
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½14.1.10 fn:unordered
+ï¿½ï¿½ï¿½ï¿½14.2 Functions that compare values in sequences
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½14.2.1 fn:distinct-values
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½14.2.2 fn:index-of
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½14.2.3 fn:deep-equal
+ï¿½ï¿½ï¿½ï¿½14.3 Functions that test the cardinality of sequences
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½14.3.1 fn:zero-or-one
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½14.3.2 fn:one-or-more
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½14.3.3 fn:exactly-one
+ï¿½ï¿½ï¿½ï¿½14.4 Union, intersection and difference
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½14.4.1 op:union
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½14.4.2 op:intersect
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½14.4.3 op:except
+ï¿½ï¿½ï¿½ï¿½14.5 Aggregate functions
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½14.5.1 fn:count
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½14.5.2 fn:avg
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½14.5.3 fn:max
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½14.5.4 fn:min
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½14.5.5 fn:sum
+ï¿½ï¿½ï¿½ï¿½14.6 Functions and operators that generate sequences
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½14.6.1 op:to
+ï¿½ï¿½ï¿½ï¿½14.7 Functions on node identifiers
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½14.7.1 fn:id
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½14.7.2 fn:element-with-id
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½14.7.3 fn:idref
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½14.7.4 fn:generate-id
+ï¿½ï¿½ï¿½ï¿½14.8 Functions giving access to external information
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½14.8.1 fn:doc
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½14.8.2 fn:doc-available
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½14.8.3 fn:collection
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½14.8.4 fn:uri-collection
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½14.8.5 fn:unparsed-text
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½14.8.6 fn:unparsed-text-lines
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½14.8.7 fn:unparsed-text-available
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½14.8.8 fn:environment-variable
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½14.8.9 fn:available-environment-variables
+ï¿½ï¿½ï¿½ï¿½14.9 Parsing and serializing
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½14.9.1 fn:parse-xml
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½14.9.2 fn:parse-xml-fragment
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½14.9.3 fn:serialize
 15 Context functions
-    15.1 fn:position
-    15.2 fn:last
-    15.3 fn:current-dateTime
-    15.4 fn:current-date
-    15.5 fn:current-time
-    15.6 fn:implicit-timezone
-    15.7 fn:default-collation
-    15.8 fn:static-base-uri
+ï¿½ï¿½ï¿½ï¿½15.1 fn:position
+ï¿½ï¿½ï¿½ï¿½15.2 fn:last
+ï¿½ï¿½ï¿½ï¿½15.3 fn:current-dateTime
+ï¿½ï¿½ï¿½ï¿½15.4 fn:current-date
+ï¿½ï¿½ï¿½ï¿½15.5 fn:current-time
+ï¿½ï¿½ï¿½ï¿½15.6 fn:implicit-timezone
+ï¿½ï¿½ï¿½ï¿½15.7 fn:default-collation
+ï¿½ï¿½ï¿½ï¿½15.8 fn:static-base-uri
 16 Higher-order functions
-    16.1 Functions on functions
-        16.1.1 fn:function-lookup
-        16.1.2 fn:function-name
-        16.1.3 fn:function-arity
-    16.2 Basic higher-order functions
-        16.2.1 fn:for-each
-        16.2.2 fn:filter
-        16.2.3 fn:fold-left
-        16.2.4 fn:fold-right
-        16.2.5 fn:for-each-pair
+ï¿½ï¿½ï¿½ï¿½16.1 Functions on functions
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½16.1.1 fn:function-lookup
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½16.1.2 fn:function-name
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½16.1.3 fn:function-arity
+ï¿½ï¿½ï¿½ï¿½16.2 Basic higher-order functions
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½16.2.1 fn:for-each
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½16.2.2 fn:filter
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½16.2.3 fn:fold-left
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½16.2.4 fn:fold-right
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½16.2.5 fn:for-each-pair
 17 Constructor functions
-    17.1 Constructor functions for XML Schema built-in atomic types
-    17.2 Constructor functions for xs:QName and xs:NOTATION
-    17.3 Constructor functions for XML Schema built-in list types
-    17.4 Constructor functions for XML Schema built-in union types
-    17.5 Constructor functions for user-defined types
+ï¿½ï¿½ï¿½ï¿½17.1 Constructor functions for XML Schema built-in atomic types
+ï¿½ï¿½ï¿½ï¿½17.2 Constructor functions for xs:QName and xs:NOTATION
+ï¿½ï¿½ï¿½ï¿½17.3 Constructor functions for XML Schema built-in list types
+ï¿½ï¿½ï¿½ï¿½17.4 Constructor functions for XML Schema built-in union types
+ï¿½ï¿½ï¿½ï¿½17.5 Constructor functions for user-defined types
 18 Casting
-    18.1 Casting from primitive types to primitive types
-        18.1.1 Casting to xs:string and xs:untypedAtomic
-        18.1.2 Casting to numeric types
-        18.1.3 Casting to duration types
-        18.1.4 Casting to date and time types
-        18.1.5 Casting to xs:boolean
-        18.1.6 Casting to xs:base64Binary and xs:hexBinary
-        18.1.7 Casting to xs:anyURI
-        18.1.8 Casting to xs:QName and xs:NOTATION
-        18.1.9 Casting to xs:ENTITY
-    18.2 Casting from xs:string and xs:untypedAtomic
-    18.3 Casting involving non-primitive types
-        18.3.1 Casting to derived types
-        18.3.2 Casting from derived types to parent types
-        18.3.3 Casting within a branch of the type hierarchy
-        18.3.4 Casting across the type hierarchy
-        18.3.5 Casting to union types
-        18.3.6 Casting to list types
+ï¿½ï¿½ï¿½ï¿½18.1 Casting from primitive types to primitive types
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½18.1.1 Casting to xs:string and xs:untypedAtomic
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½18.1.2 Casting to numeric types
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½18.1.3 Casting to duration types
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½18.1.4 Casting to date and time types
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½18.1.5 Casting to xs:boolean
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½18.1.6 Casting to xs:base64Binary and xs:hexBinary
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½18.1.7 Casting to xs:anyURI
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½18.1.8 Casting to xs:QName and xs:NOTATION
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½18.1.9 Casting to xs:ENTITY
+ï¿½ï¿½ï¿½ï¿½18.2 Casting from xs:string and xs:untypedAtomic
+ï¿½ï¿½ï¿½ï¿½18.3 Casting involving non-primitive types
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½18.3.1 Casting to derived types
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½18.3.2 Casting from derived types to parent types
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½18.3.3 Casting within a branch of the type hierarchy
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½18.3.4 Casting across the type hierarchy
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½18.3.5 Casting to union types
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½18.3.6 Casting to list types
 
 
 
@@ -495,35 +495,35 @@ Appendices
 
 
 A References
-    A.1 Normative references
-    A.2 Non-normative references
+ï¿½ï¿½ï¿½ï¿½A.1 Normative references
+ï¿½ï¿½ï¿½ï¿½A.2 Non-normative references
 B Error summary
 C Illustrative user-written functions (Non-Normative)
-    C.1 eg:if-empty and eg:if-absent
-        C.1.1 eg:if-empty
-        C.1.2 eg:if-absent
-    C.2 Union, intersection and difference on sequences of values
-        C.2.1 eg:value-union
-        C.2.2 eg:value-intersect
-        C.2.3 eg:value-except
-    C.3 eg:index-of-node
-    C.4 eg:string-pad
-    C.5 eg:distinct-nodes-stable
-    C.6 Finding minima and maxima
-        C.6.1 eg:highest
-        C.6.2 eg:lowest
-    C.7 Sorting
+ï¿½ï¿½ï¿½ï¿½C.1 eg:if-empty and eg:if-absent
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½C.1.1 eg:if-empty
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½C.1.2 eg:if-absent
+ï¿½ï¿½ï¿½ï¿½C.2 Union, intersection and difference on sequences of values
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½C.2.1 eg:value-union
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½C.2.2 eg:value-intersect
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½C.2.3 eg:value-except
+ï¿½ï¿½ï¿½ï¿½C.3 eg:index-of-node
+ï¿½ï¿½ï¿½ï¿½C.4 eg:string-pad
+ï¿½ï¿½ï¿½ï¿½C.5 eg:distinct-nodes-stable
+ï¿½ï¿½ï¿½ï¿½C.6 Finding minima and maxima
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½C.6.1 eg:highest
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½C.6.2 eg:lowest
+ï¿½ï¿½ï¿½ï¿½C.7 Sorting
 D Checklist of implementation-defined features (Non-Normative)
 E Changes since previous Recommendation (Non-Normative)
-    E.1 Substantive changes (15 December 2009)
-    E.2 Substantive changes (18 June 2012)
-    E.3 Substantive changes (Candidate Recommendation)
-    E.4 Substantive changes (post Candidate Recommendation)
-    E.5 Editorial changes
-    E.6 Changes since the Proposed Recommendation
+ï¿½ï¿½ï¿½ï¿½E.1 Substantive changes (15 December 2009)
+ï¿½ï¿½ï¿½ï¿½E.2 Substantive changes (18 June 2012)
+ï¿½ï¿½ï¿½ï¿½E.3 Substantive changes (Candidate Recommendation)
+ï¿½ï¿½ï¿½ï¿½E.4 Substantive changes (post Candidate Recommendation)
+ï¿½ï¿½ï¿½ï¿½E.5 Editorial changes
+ï¿½ï¿½ï¿½ï¿½E.6 Changes since the Proposed Recommendation
 F Compatibility with Previous Versions (Non-Normative)
-    F.1 Compatibility between XPath 2.0 and XPath 1.0
-    F.2 Compatibility between XPath 3.0 and XPath 2.0
+ï¿½ï¿½ï¿½ï¿½F.1 Compatibility between XPath 2.0 and XPath 1.0
+ï¿½ï¿½ï¿½ï¿½F.2 Compatibility between XPath 3.0 and XPath 2.0
 
 
 
@@ -637,7 +637,7 @@ The URIs of the namespaces and the conventional prefixes associated with them ar
   no namespace is associated with the op prefix. For example, multiplication is generally associated with the * operator, but it is described as a function in this document:
 
 
-  fn:numeric-multiply($arg1 as numeric, $arg2 as numeric) as numeric
+  fn:numeric-multiply($arg1ï¿½asï¿½numeric, $arg2ï¿½asï¿½numeric)ï¿½asï¿½numeric
 
 
 
@@ -664,7 +664,7 @@ Each function is defined by specifying its signature, a description of the retur
 Each function's signature is presented in a form like this:
 
 
-fn:function-name($parameter-name as parameter-type, ...) as return-type
+fn:function-name($parameter-nameï¿½asï¿½parameter-type, ...)ï¿½asï¿½return-type
 
 
 In this notation, function-name, in bold-face, is the name of the function whose signature is being specified. If the function takes no parameters, then the name is followed by an empty parameter
@@ -680,25 +680,25 @@ In some cases the word " numeric " is used in function signatures as a shorthand
 signature:
 
 
-fn:numeric-function($arg as numeric) as ...
+fn:numeric-function($argï¿½asï¿½numeric)ï¿½asï¿½...
 
 
 represents the following four function signatures:
 
 
-fn:numeric-function($arg as xs:integer) as ...
+fn:numeric-function($argï¿½asï¿½xs:integer)ï¿½asï¿½...
 
 
 
-fn:numeric-function($arg as xs:decimal) as ...
+fn:numeric-function($argï¿½asï¿½xs:decimal)ï¿½asï¿½...
 
 
 
-fn:numeric-function($arg as xs:float) as ...
+fn:numeric-function($argï¿½asï¿½xs:float)ï¿½asï¿½...
 
 
 
-fn:numeric-function($arg as xs:double) as ...
+fn:numeric-function($argï¿½asï¿½xs:double)ï¿½asï¿½...
 
 
 For most functions there is an initial paragraph describing what the function does followed by semantic rules. These rules are meant to be followed in the order that they appear in this document.
@@ -726,7 +726,7 @@ Some functions accept a single value or the empty sequence as an argument and so
 parameter or return type name with a question mark: "?", indicating that either a single value or the empty sequence must appear. See below.
 
 
-fn:function-name($parameter-name as parameter-type?) as return-type?
+fn:function-name($parameter-nameï¿½asï¿½parameter-type?)ï¿½asï¿½return-type?
 
 
 Note that this function signature is different from a signature in which the parameter is omitted. See, for example, the two signatures for fn:string. In the first signature, the parameter is
@@ -736,7 +736,7 @@ Some functions accept a sequence of zero or more values as an argument. This is 
 items of the named type. For example, the function below accepts a sequence of xs:double and returns a xs:double or the empty sequence.
 
 
-fn:median($arg as xs:double*) as xs:double?
+fn:median($argï¿½asï¿½xs:double*)ï¿½asï¿½xs:double?
 
 
 
@@ -1065,11 +1065,11 @@ Summary
 Signatures
 
 
-        fn:node-name() as xs:QName?
+        fn:node-name()ï¿½asï¿½xs:QName?
 
 
 
-        fn:node-name($arg as node()?) as xs:QName?
+        fn:node-name($argï¿½asï¿½node()?)ï¿½asï¿½xs:QName?
 
 
 Properties
@@ -1120,11 +1120,11 @@ Summary
 Signatures
 
 
-        fn:nilled() as xs:boolean
+        fn:nilled()ï¿½asï¿½xs:boolean
 
 
 
-        fn:nilled($arg as node()?) as xs:boolean?
+        fn:nilled($argï¿½asï¿½node()?)ï¿½asï¿½xs:boolean?
 
 
 Properties
@@ -1173,11 +1173,11 @@ Summary
 Signatures
 
 
-        fn:string() as xs:string
+        fn:string()ï¿½asï¿½xs:string
 
 
 
-        fn:string($arg as item()?) as xs:string
+        fn:string($argï¿½asï¿½item()?)ï¿½asï¿½xs:string
 
 
 Properties
@@ -1237,11 +1237,11 @@ Summary
 Signatures
 
 
-        fn:data() as xs:anyAtomicType*
+        fn:data()ï¿½asï¿½xs:anyAtomicType*
 
 
 
-        fn:data($arg as item()*) as xs:anyAtomicType*
+        fn:data($argï¿½asï¿½item()*)ï¿½asï¿½xs:anyAtomicType*
 
 
 Properties
@@ -1308,11 +1308,11 @@ Summary
 Signatures
 
 
-        fn:base-uri() as xs:anyURI?
+        fn:base-uri()ï¿½asï¿½xs:anyURI?
 
 
 
-        fn:base-uri($arg as node()?) as xs:anyURI?
+        fn:base-uri($argï¿½asï¿½node()?)ï¿½asï¿½xs:anyURI?
 
 
 Properties
@@ -1362,11 +1362,11 @@ Summary
 Signatures
 
 
-        fn:document-uri() as xs:anyURI?
+        fn:document-uri()ï¿½asï¿½xs:anyURI?
 
 
 
-        fn:document-uri($arg as node()?) as xs:anyURI?
+        fn:document-uri($argï¿½asï¿½node()?)ï¿½asï¿½xs:anyURI?
 
 
 Properties
@@ -1435,22 +1435,22 @@ Summary
 Signatures
 
 
-        fn:error() as none
+        fn:error()ï¿½asï¿½none
 
 
 
-        fn:error($code as xs:QName) as none
+        fn:error($codeï¿½asï¿½xs:QName)ï¿½asï¿½none
 
 
 
-        fn:error($code as xs:QName?, $description as xs:string) as none
+        fn:error($codeï¿½asï¿½xs:QName?, $descriptionï¿½asï¿½xs:string)ï¿½asï¿½none
 
 
 
 
-        fn:error( $code  as xs:QName?,
-        $description  as xs:string,
-        $error-object  as item()*) as none
+        fn:error( $code ï¿½asï¿½xs:QName?,
+        $description ï¿½asï¿½xs:string,
+        $error-object ï¿½asï¿½item()*)ï¿½asï¿½none
 
 
 
@@ -1539,7 +1539,7 @@ Summary
 Signature
 
 
-        fn:trace($value as item()*, $label as xs:string) as item()*
+        fn:trace($valueï¿½asï¿½item()*, $labelï¿½asï¿½xs:string)ï¿½asï¿½item()*
 
 
 Properties
@@ -1724,7 +1724,7 @@ Operator Mapping
 Signature
 
 
-        op:numeric-add($arg1 as numeric, $arg2 as numeric) as numeric
+        op:numeric-add($arg1ï¿½asï¿½numeric, $arg2ï¿½asï¿½numeric)ï¿½asï¿½numeric
 
 
 Rules
@@ -1753,7 +1753,7 @@ Operator Mapping
 Signature
 
 
-        op:numeric-subtract($arg1 as numeric, $arg2 as numeric) as numeric
+        op:numeric-subtract($arg1ï¿½asï¿½numeric, $arg2ï¿½asï¿½numeric)ï¿½asï¿½numeric
 
 
 Rules
@@ -1782,7 +1782,7 @@ Operator Mapping
 Signature
 
 
-        op:numeric-multiply($arg1 as numeric, $arg2 as numeric) as numeric
+        op:numeric-multiply($arg1ï¿½asï¿½numeric, $arg2ï¿½asï¿½numeric)ï¿½asï¿½numeric
 
 
 Rules
@@ -1811,7 +1811,7 @@ Operator Mapping
 Signature
 
 
-        op:numeric-divide($arg1 as numeric, $arg2 as numeric) as numeric
+        op:numeric-divide($arg1ï¿½asï¿½numeric, $arg2ï¿½asï¿½numeric)ï¿½asï¿½numeric
 
 
 Rules
@@ -1847,7 +1847,7 @@ Operator Mapping
 Signature
 
 
-        op:numeric-integer-divide($arg1 as numeric, $arg2 as numeric) as xs:integer
+        op:numeric-integer-divide($arg1ï¿½asï¿½numeric, $arg2ï¿½asï¿½numeric)ï¿½asï¿½xs:integer
 
 
 Rules
@@ -1917,7 +1917,7 @@ Operator Mapping
 Signature
 
 
-        op:numeric-mod($arg1 as numeric, $arg2 as numeric) as numeric
+        op:numeric-mod($arg1ï¿½asï¿½numeric, $arg2ï¿½asï¿½numeric)ï¿½asï¿½numeric
 
 
 Rules
@@ -1973,7 +1973,7 @@ Operator Mapping
 Signature
 
 
-        op:numeric-unary-plus($arg as numeric) as numeric
+        op:numeric-unary-plus($argï¿½asï¿½numeric)ï¿½asï¿½numeric
 
 
 Rules
@@ -2004,7 +2004,7 @@ Operator Mapping
 Signature
 
 
-        op:numeric-unary-minus($arg as numeric) as numeric
+        op:numeric-unary-minus($argï¿½asï¿½numeric)ï¿½asï¿½numeric
 
 
 Rules
@@ -2047,7 +2047,7 @@ Operator Mapping
 Signature
 
 
-        op:numeric-equal($arg1 as numeric, $arg2 as numeric) as xs:boolean
+        op:numeric-equal($arg1ï¿½asï¿½numeric, $arg2ï¿½asï¿½numeric)ï¿½asï¿½xs:boolean
 
 
 Rules
@@ -2073,7 +2073,7 @@ Operator Mapping
 Signature
 
 
-        op:numeric-less-than($arg1 as numeric, $arg2 as numeric) as xs:boolean
+        op:numeric-less-than($arg1ï¿½asï¿½numeric, $arg2ï¿½asï¿½numeric)ï¿½asï¿½xs:boolean
 
 
 Rules
@@ -2100,7 +2100,7 @@ Operator Mapping
 Signature
 
 
-        op:numeric-greater-than($arg1 as numeric, $arg2 as numeric) as xs:boolean
+        op:numeric-greater-than($arg1ï¿½asï¿½numeric, $arg2ï¿½asï¿½numeric)ï¿½asï¿½xs:boolean
 
 
 Rules
@@ -2157,7 +2157,7 @@ Summary
 Signature
 
 
-        fn:abs($arg as numeric?) as numeric?
+        fn:abs($argï¿½asï¿½numeric?)ï¿½asï¿½numeric?
 
 
 Properties
@@ -2195,7 +2195,7 @@ Summary
 Signature
 
 
-        fn:ceiling($arg as numeric?) as numeric?
+        fn:ceiling($argï¿½asï¿½numeric?)ï¿½asï¿½numeric?
 
 
 Properties
@@ -2233,7 +2233,7 @@ Summary
 Signature
 
 
-        fn:floor($arg as numeric?) as numeric?
+        fn:floor($argï¿½asï¿½numeric?)ï¿½asï¿½numeric?
 
 
 Properties
@@ -2270,11 +2270,11 @@ Summary
 Signatures
 
 
-        fn:round($arg as numeric?) as numeric?
+        fn:round($argï¿½asï¿½numeric?)ï¿½asï¿½numeric?
 
 
 
-        fn:round($arg as numeric?, $precision as xs:integer) as numeric?
+        fn:round($argï¿½asï¿½numeric?, $precisionï¿½asï¿½xs:integer)ï¿½asï¿½numeric?
 
 
 Properties
@@ -2335,11 +2335,11 @@ Summary
 Signatures
 
 
-        fn:round-half-to-even($arg as numeric?) as numeric?
+        fn:round-half-to-even($argï¿½asï¿½numeric?)ï¿½asï¿½numeric?
 
 
 
-        fn:round-half-to-even($arg as numeric?, $precision as xs:integer) as numeric?
+        fn:round-half-to-even($argï¿½asï¿½numeric?, $precisionï¿½asï¿½xs:integer)ï¿½asï¿½numeric?
 
 
 Properties
@@ -2412,11 +2412,11 @@ Summary
 Signatures
 
 
-        fn:number() as xs:double
+        fn:number()ï¿½asï¿½xs:double
 
 
 
-        fn:number($arg as xs:anyAtomicType?) as xs:double
+        fn:number($argï¿½asï¿½xs:anyAtomicType?)ï¿½asï¿½xs:double
 
 
 Properties
@@ -2475,14 +2475,14 @@ Summary
 Signatures
 
 
-        fn:format-integer($value as xs:integer?, $picture as xs:string) as xs:string
+        fn:format-integer($valueï¿½asï¿½xs:integer?, $pictureï¿½asï¿½xs:string)ï¿½asï¿½xs:string
 
 
 
 
-        fn:format-integer( $value  as xs:integer?,
-        $picture  as xs:string,
-        $lang  as xs:string?) as xs:string
+        fn:format-integer( $value ï¿½asï¿½xs:integer?,
+        $picture ï¿½asï¿½xs:string,
+        $lang ï¿½asï¿½xs:string?)ï¿½asï¿½xs:string
 
 
 
@@ -2734,14 +2734,14 @@ Summary
 Signatures
 
 
-        fn:format-number($value as numeric?, $picture as xs:string) as xs:string
+        fn:format-number($valueï¿½asï¿½numeric?, $pictureï¿½asï¿½xs:string)ï¿½asï¿½xs:string
 
 
 
 
-        fn:format-number( $value  as numeric?,
-        $picture  as xs:string,
-        $decimal-format-name  as xs:string?) as xs:string
+        fn:format-number( $value ï¿½asï¿½numeric?,
+        $picture ï¿½asï¿½xs:string,
+        $decimal-format-name ï¿½asï¿½xs:string?)ï¿½asï¿½xs:string
 
 
 
@@ -3025,7 +3025,7 @@ Summary
 Signature
 
 
-        math:pi() as xs:double
+        math:pi()ï¿½asï¿½xs:double
 
 
 Properties
@@ -3055,7 +3055,7 @@ Summary
 Signature
 
 
-        math:exp($arg as xs:double?) as xs:double?
+        math:exp($argï¿½asï¿½xs:double?)ï¿½asï¿½xs:double?
 
 
 Properties
@@ -3106,7 +3106,7 @@ Summary
 Signature
 
 
-        math:exp10($arg as xs:double?) as xs:double?
+        math:exp10($argï¿½asï¿½xs:double?)ï¿½asï¿½xs:double?
 
 
 Properties
@@ -3154,7 +3154,7 @@ Summary
 Signature
 
 
-        math:log($arg as xs:double?) as xs:double?
+        math:log($argï¿½asï¿½xs:double?)ï¿½asï¿½xs:double?
 
 
 Properties
@@ -3205,7 +3205,7 @@ Summary
 Signature
 
 
-        math:log10($arg as xs:double?) as xs:double?
+        math:log10($argï¿½asï¿½xs:double?)ï¿½asï¿½xs:double?
 
 
 Properties
@@ -3256,7 +3256,7 @@ Summary
 Signature
 
 
-        math:pow($x as xs:double?, $y as numeric) as xs:double?
+        math:pow($xï¿½asï¿½xs:double?, $yï¿½asï¿½numeric)ï¿½asï¿½xs:double?
 
 
 Properties
@@ -3362,7 +3362,7 @@ Summary
 Signature
 
 
-        math:sqrt($arg as xs:double?) as xs:double?
+        math:sqrt($argï¿½asï¿½xs:double?)ï¿½asï¿½xs:double?
 
 
 Properties
@@ -3415,7 +3415,7 @@ Summary
 Signature
 
 
-        math:sin($Î¸ as xs:double?) as xs:double?
+        math:sin($Î¸ï¿½asï¿½xs:double?)ï¿½asï¿½xs:double?
 
 
 Properties
@@ -3471,7 +3471,7 @@ Summary
 Signature
 
 
-        math:cos($Î¸ as xs:double?) as xs:double?
+        math:cos($Î¸ï¿½asï¿½xs:double?)ï¿½asï¿½xs:double?
 
 
 Properties
@@ -3529,7 +3529,7 @@ Summary
 Signature
 
 
-        math:tan($Î¸ as xs:double?) as xs:double?
+        math:tan($Î¸ï¿½asï¿½xs:double?)ï¿½asï¿½xs:double?
 
 
 Properties
@@ -3585,7 +3585,7 @@ Summary
 Signature
 
 
-        math:asin($arg as xs:double?) as xs:double?
+        math:asin($argï¿½asï¿½xs:double?)ï¿½asï¿½xs:double?
 
 
 Properties
@@ -3642,7 +3642,7 @@ Summary
 Signature
 
 
-        math:acos($arg as xs:double?) as xs:double?
+        math:acos($argï¿½asï¿½xs:double?)ï¿½asï¿½xs:double?
 
 
 Properties
@@ -3697,7 +3697,7 @@ Summary
 Signature
 
 
-        math:atan($arg as xs:double?) as xs:double?
+        math:atan($argï¿½asï¿½xs:double?)ï¿½asï¿½xs:double?
 
 
 Properties
@@ -3752,7 +3752,7 @@ Summary
 Signature
 
 
-        math:atan2($y as xs:double, $x as xs:double) as xs:double
+        math:atan2($yï¿½asï¿½xs:double, $xï¿½asï¿½xs:double)ï¿½asï¿½xs:double
 
 
 Properties
@@ -3850,7 +3850,7 @@ Summary
 Signature
 
 
-        fn:codepoints-to-string($arg as xs:integer*) as xs:string
+        fn:codepoints-to-string($argï¿½asï¿½xs:integer*)ï¿½asï¿½xs:string
 
 
 Properties
@@ -3888,7 +3888,7 @@ Summary
 Signature
 
 
-        fn:string-to-codepoints($arg as xs:string?) as xs:integer*
+        fn:string-to-codepoints($argï¿½asï¿½xs:string?)ï¿½asï¿½xs:integer*
 
 
 Properties
@@ -3996,7 +3996,7 @@ follows:
 Note:
 
 While the Unicode codepoint collation does not produce results suitable for quality publishing of printed indexes or directories, it is adequate for many purposes where a restricted alphabet is
-used, such as sorting of vehicle registrations.
+used, such as sort of vehicle registrations.
 
 
 
@@ -4043,14 +4043,14 @@ Summary
 Signatures
 
 
-        fn:compare($comparand1 as xs:string?, $comparand2 as xs:string?) as xs:integer?
+        fn:compare($comparand1ï¿½asï¿½xs:string?, $comparand2ï¿½asï¿½xs:string?)ï¿½asï¿½xs:integer?
 
 
 
 
-        fn:compare( $comparand1  as xs:string?,
-        $comparand2  as xs:string?,
-        $collation  as xs:string) as xs:integer?
+        fn:compare( $comparand1 ï¿½asï¿½xs:string?,
+        $comparand2 ï¿½asï¿½xs:string?,
+        $collation ï¿½asï¿½xs:string)ï¿½asï¿½xs:integer?
 
 
 
@@ -4098,8 +4098,8 @@ Signature
 
 
 
-        fn:codepoint-equal( $comparand1  as xs:string?,
-        $comparand2  as xs:string?) as xs:boolean?
+        fn:codepoint-equal( $comparand1 ï¿½asï¿½xs:string?,
+        $comparand2 ï¿½asï¿½xs:string?)ï¿½asï¿½xs:boolean?
 
 
 
@@ -4176,9 +4176,9 @@ Signature
 
 
 
-        fn:concat( $arg1  as xs:anyAtomicType?,
-        $arg2  as xs:anyAtomicType?,
-        ... ) as xs:string
+        fn:concat( $arg1 ï¿½asï¿½xs:anyAtomicType?,
+        $arg2 ï¿½asï¿½xs:anyAtomicType?,
+        ... )ï¿½asï¿½xs:string
 
 
 
@@ -4257,11 +4257,11 @@ Summary
 Signatures
 
 
-        fn:string-join($arg1 as xs:string*) as xs:string
+        fn:string-join($arg1ï¿½asï¿½xs:string*)ï¿½asï¿½xs:string
 
 
 
-        fn:string-join($arg1 as xs:string*, $arg2 as xs:string) as xs:string
+        fn:string-join($arg1ï¿½asï¿½xs:string*, $arg2ï¿½asï¿½xs:string)ï¿½asï¿½xs:string
 
 
 Properties
@@ -4318,14 +4318,14 @@ Summary
 Signatures
 
 
-        fn:substring($sourceString as xs:string?, $start as xs:double) as xs:string
+        fn:substring($sourceStringï¿½asï¿½xs:string?, $startï¿½asï¿½xs:double)ï¿½asï¿½xs:string
 
 
 
 
-        fn:substring( $sourceString  as xs:string?,
-        $start  as xs:double,
-        $length  as xs:double) as xs:string
+        fn:substring( $sourceString ï¿½asï¿½xs:string?,
+        $start ï¿½asï¿½xs:double,
+        $length ï¿½asï¿½xs:double)ï¿½asï¿½xs:string
 
 
 
@@ -4395,11 +4395,11 @@ Summary
 Signatures
 
 
-        fn:string-length() as xs:integer
+        fn:string-length()ï¿½asï¿½xs:integer
 
 
 
-        fn:string-length($arg as xs:string?) as xs:integer
+        fn:string-length($argï¿½asï¿½xs:string?)ï¿½asï¿½xs:integer
 
 
 Properties
@@ -4443,11 +4443,11 @@ Summary
 Signatures
 
 
-        fn:normalize-space() as xs:string
+        fn:normalize-space()ï¿½asï¿½xs:string
 
 
 
-        fn:normalize-space($arg as xs:string?) as xs:string
+        fn:normalize-space($argï¿½asï¿½xs:string?)ï¿½asï¿½xs:string
 
 
 Properties
@@ -4477,7 +4477,7 @@ Notes
 
 Examples
 
-        The expression fn:normalize-space(" The    wealthy curled darlings                                         of    our    nation. ") returns "The wealthy curled darlings of our nation.".
+        The expression fn:normalize-space("ï¿½Theï¿½ï¿½ï¿½ï¿½wealthyï¿½curledï¿½darlings ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ofï¿½ï¿½ï¿½ï¿½ourï¿½ï¿½ï¿½ï¿½nation.ï¿½") returns "The wealthy curled darlings of our nation.".
 
         The expression fn:normalize-space(()) returns "".
 
@@ -4494,13 +4494,13 @@ Summary
 Signatures
 
 
-        fn:normalize-unicode($arg as xs:string?) as xs:string
+        fn:normalize-unicode($argï¿½asï¿½xs:string?)ï¿½asï¿½xs:string
 
 
 
 
-        fn:normalize-unicode( $arg  as xs:string?,
-        $normalizationForm  as xs:string) as xs:string
+        fn:normalize-unicode( $arg ï¿½asï¿½xs:string?,
+        $normalizationForm ï¿½asï¿½xs:string)ï¿½asï¿½xs:string
 
 
 
@@ -4578,7 +4578,7 @@ Summary
 Signature
 
 
-        fn:upper-case($arg as xs:string?) as xs:string
+        fn:upper-case($argï¿½asï¿½xs:string?)ï¿½asï¿½xs:string
 
 
 Properties
@@ -4626,7 +4626,7 @@ Summary
 Signature
 
 
-        fn:lower-case($arg as xs:string?) as xs:string
+        fn:lower-case($argï¿½asï¿½xs:string?)ï¿½asï¿½xs:string
 
 
 Properties
@@ -4675,9 +4675,9 @@ Signature
 
 
 
-        fn:translate( $arg  as xs:string?,
-        $mapString  as xs:string,
-        $transString  as xs:string) as xs:string
+        fn:translate( $arg ï¿½asï¿½xs:string?,
+        $mapString ï¿½asï¿½xs:string,
+        $transString ï¿½asï¿½xs:string)ï¿½asï¿½xs:string
 
 
 
@@ -4778,14 +4778,14 @@ Summary
 Signatures
 
 
-        fn:contains($arg1 as xs:string?, $arg2 as xs:string?) as xs:boolean
+        fn:contains($arg1ï¿½asï¿½xs:string?, $arg2ï¿½asï¿½xs:string?)ï¿½asï¿½xs:boolean
 
 
 
 
-        fn:contains( $arg1  as xs:string?,
-        $arg2  as xs:string?,
-        $collation  as xs:string) as xs:boolean
+        fn:contains( $arg1 ï¿½asï¿½xs:string?,
+        $arg2 ï¿½asï¿½xs:string?,
+        $collation ï¿½asï¿½xs:string)ï¿½asï¿½xs:boolean
 
 
 
@@ -4852,14 +4852,14 @@ Summary
 Signatures
 
 
-        fn:starts-with($arg1 as xs:string?, $arg2 as xs:string?) as xs:boolean
+        fn:starts-with($arg1ï¿½asï¿½xs:string?, $arg2ï¿½asï¿½xs:string?)ï¿½asï¿½xs:boolean
 
 
 
 
-        fn:starts-with( $arg1  as xs:string?,
-        $arg2  as xs:string?,
-        $collation  as xs:string) as xs:boolean
+        fn:starts-with( $arg1 ï¿½asï¿½xs:string?,
+        $arg2 ï¿½asï¿½xs:string?,
+        $collation ï¿½asï¿½xs:string)ï¿½asï¿½xs:boolean
 
 
 
@@ -4927,14 +4927,14 @@ Summary
 Signatures
 
 
-        fn:ends-with($arg1 as xs:string?, $arg2 as xs:string?) as xs:boolean
+        fn:ends-with($arg1ï¿½asï¿½xs:string?, $arg2ï¿½asï¿½xs:string?)ï¿½asï¿½xs:boolean
 
 
 
 
-        fn:ends-with( $arg1  as xs:string?,
-        $arg2  as xs:string?,
-        $collation  as xs:string) as xs:boolean
+        fn:ends-with( $arg1 ï¿½asï¿½xs:string?,
+        $arg2 ï¿½asï¿½xs:string?,
+        $collation ï¿½asï¿½xs:string)ï¿½asï¿½xs:boolean
 
 
 
@@ -5002,14 +5002,14 @@ Summary
 Signatures
 
 
-        fn:substring-before($arg1 as xs:string?, $arg2 as xs:string?) as xs:string
+        fn:substring-before($arg1ï¿½asï¿½xs:string?, $arg2ï¿½asï¿½xs:string?)ï¿½asï¿½xs:string
 
 
 
 
-        fn:substring-before( $arg1  as xs:string?,
-        $arg2  as xs:string?,
-        $collation  as xs:string) as xs:string
+        fn:substring-before( $arg1 ï¿½asï¿½xs:string?,
+        $arg2 ï¿½asï¿½xs:string?,
+        $collation ï¿½asï¿½xs:string)ï¿½asï¿½xs:string
 
 
 
@@ -5076,14 +5076,14 @@ Summary
 Signatures
 
 
-        fn:substring-after($arg1 as xs:string?, $arg2 as xs:string?) as xs:string
+        fn:substring-after($arg1ï¿½asï¿½xs:string?, $arg2ï¿½asï¿½xs:string?)ï¿½asï¿½xs:string
 
 
 
 
-        fn:substring-after( $arg1  as xs:string?,
-        $arg2  as xs:string?,
-        $collation  as xs:string) as xs:string
+        fn:substring-after( $arg1 ï¿½asï¿½xs:string?,
+        $arg2 ï¿½asï¿½xs:string?,
+        $collation ï¿½asï¿½xs:string)ï¿½asï¿½xs:string
 
 
 
@@ -5425,14 +5425,14 @@ Summary
 Signatures
 
 
-        fn:matches($input as xs:string?, $pattern as xs:string) as xs:boolean
+        fn:matches($inputï¿½asï¿½xs:string?, $patternï¿½asï¿½xs:string)ï¿½asï¿½xs:boolean
 
 
 
 
-        fn:matches( $input  as xs:string?,
-        $pattern  as xs:string,
-        $flags  as xs:string) as xs:boolean
+        fn:matches( $input ï¿½asï¿½xs:string?,
+        $pattern ï¿½asï¿½xs:string,
+        $flags ï¿½asï¿½xs:string)ï¿½asï¿½xs:boolean
 
 
 
@@ -5514,18 +5514,18 @@ Signatures
 
 
 
-        fn:replace( $input  as xs:string?,
-        $pattern  as xs:string,
-        $replacement  as xs:string) as xs:string
+        fn:replace( $input ï¿½asï¿½xs:string?,
+        $pattern ï¿½asï¿½xs:string,
+        $replacement ï¿½asï¿½xs:string)ï¿½asï¿½xs:string
 
 
 
 
 
-        fn:replace( $input  as xs:string?,
-        $pattern  as xs:string,
-        $replacement  as xs:string,
-        $flags  as xs:string) as xs:string
+        fn:replace( $input ï¿½asï¿½xs:string?,
+        $pattern ï¿½asï¿½xs:string,
+        $replacement ï¿½asï¿½xs:string,
+        $flags ï¿½asï¿½xs:string)ï¿½asï¿½xs:string
 
 
 
@@ -5629,14 +5629,14 @@ Summary
 Signatures
 
 
-        fn:tokenize($input as xs:string?, $pattern as xs:string) as xs:string*
+        fn:tokenize($inputï¿½asï¿½xs:string?, $patternï¿½asï¿½xs:string)ï¿½asï¿½xs:string*
 
 
 
 
-        fn:tokenize( $input  as xs:string?,
-        $pattern  as xs:string,
-        $flags  as xs:string) as xs:string*
+        fn:tokenize( $input ï¿½asï¿½xs:string?,
+        $pattern ï¿½asï¿½xs:string,
+        $flags ï¿½asï¿½xs:string)ï¿½asï¿½xs:string*
 
 
 
@@ -5706,16 +5706,16 @@ Signatures
 
 
 
-        fn:analyze-string( $input  as xs:string?,
-        $pattern  as xs:string) as element(fn:analyze-string-result)
+        fn:analyze-string( $input ï¿½asï¿½xs:string?,
+        $pattern ï¿½asï¿½xs:string)ï¿½asï¿½element(fn:analyze-string-result)
 
 
 
 
 
-        fn:analyze-string( $input  as xs:string?,
-        $pattern  as xs:string,
-        $flags  as xs:string) as element(fn:analyze-string-result)
+        fn:analyze-string( $input ï¿½asï¿½xs:string?,
+        $pattern ï¿½asï¿½xs:string,
+        $flags ï¿½asï¿½xs:string)ï¿½asï¿½element(fn:analyze-string-result)
 
 
 
@@ -5897,11 +5897,11 @@ Summary
 Signatures
 
 
-        fn:resolve-uri($relative as xs:string?) as xs:anyURI?
+        fn:resolve-uri($relativeï¿½asï¿½xs:string?)ï¿½asï¿½xs:anyURI?
 
 
 
-        fn:resolve-uri($relative as xs:string?, $base as xs:string) as xs:anyURI?
+        fn:resolve-uri($relativeï¿½asï¿½xs:string?, $baseï¿½asï¿½xs:string)ï¿½asï¿½xs:anyURI?
 
 
 Properties
@@ -5961,7 +5961,7 @@ Summary
 Signature
 
 
-        fn:encode-for-uri($uri-part as xs:string?) as xs:string
+        fn:encode-for-uri($uri-partï¿½asï¿½xs:string?)ï¿½asï¿½xs:string
 
 
 Properties
@@ -6010,7 +6010,7 @@ Summary
 Signature
 
 
-        fn:iri-to-uri($iri as xs:string?) as xs:string
+        fn:iri-to-uri($iriï¿½asï¿½xs:string?)ï¿½asï¿½xs:string
 
 
 Properties
@@ -6059,7 +6059,7 @@ Summary
 Signature
 
 
-        fn:escape-html-uri($uri as xs:string?) as xs:string
+        fn:escape-html-uri($uriï¿½asï¿½xs:string?)ï¿½asï¿½xs:string
 
 
 Properties
@@ -6117,7 +6117,7 @@ Summary
 Signature
 
 
-        fn:true() as xs:boolean
+        fn:true()ï¿½asï¿½xs:boolean
 
 
 Properties
@@ -6145,7 +6145,7 @@ Summary
 Signature
 
 
-        fn:false() as xs:boolean
+        fn:false()ï¿½asï¿½xs:boolean
 
 
 Properties
@@ -6193,7 +6193,7 @@ Operator Mapping
 Signature
 
 
-        op:boolean-equal($value1 as xs:boolean, $value2 as xs:boolean) as xs:boolean
+        op:boolean-equal($value1ï¿½asï¿½xs:boolean, $value2ï¿½asï¿½xs:boolean)ï¿½asï¿½xs:boolean
 
 
 Rules
@@ -6217,7 +6217,7 @@ Operator Mapping
 Signature
 
 
-        op:boolean-less-than($arg1 as xs:boolean, $arg2 as xs:boolean) as xs:boolean
+        op:boolean-less-than($arg1ï¿½asï¿½xs:boolean, $arg2ï¿½asï¿½xs:boolean)ï¿½asï¿½xs:boolean
 
 
 Rules
@@ -6241,7 +6241,7 @@ Operator Mapping
 Signature
 
 
-        op:boolean-greater-than($arg1 as xs:boolean, $arg2 as xs:boolean) as xs:boolean
+        op:boolean-greater-than($arg1ï¿½asï¿½xs:boolean, $arg2ï¿½asï¿½xs:boolean)ï¿½asï¿½xs:boolean
 
 
 Rules
@@ -6273,7 +6273,7 @@ Summary
 Signature
 
 
-        fn:boolean($arg as item()*) as xs:boolean
+        fn:boolean($argï¿½asï¿½item()*)ï¿½asï¿½xs:boolean
 
 
 Rules
@@ -6325,7 +6325,7 @@ Summary
 Signature
 
 
-        fn:not($arg as item()*) as xs:boolean
+        fn:not($argï¿½asï¿½item()*)ï¿½asï¿½xs:boolean
 
 
 Properties
@@ -6555,8 +6555,8 @@ Signature
 
 
 
-        op:yearMonthDuration-less-than( $arg1  as xs:yearMonthDuration,
-        $arg2  as xs:yearMonthDuration) as xs:boolean
+        op:yearMonthDuration-less-than( $arg1 ï¿½asï¿½xs:yearMonthDuration,
+        $arg2 ï¿½asï¿½xs:yearMonthDuration)ï¿½asï¿½xs:boolean
 
 
 
@@ -6588,8 +6588,8 @@ Signature
 
 
 
-        op:yearMonthDuration-greater-than( $arg1  as xs:yearMonthDuration,
-        $arg2  as xs:yearMonthDuration) as xs:boolean
+        op:yearMonthDuration-greater-than( $arg1 ï¿½asï¿½xs:yearMonthDuration,
+        $arg2 ï¿½asï¿½xs:yearMonthDuration)ï¿½asï¿½xs:boolean
 
 
 
@@ -6615,8 +6615,8 @@ Signature
 
 
 
-        op:dayTimeDuration-less-than( $arg1  as xs:dayTimeDuration,
-        $arg2  as xs:dayTimeDuration) as xs:boolean
+        op:dayTimeDuration-less-than( $arg1 ï¿½asï¿½xs:dayTimeDuration,
+        $arg2 ï¿½asï¿½xs:dayTimeDuration)ï¿½asï¿½xs:boolean
 
 
 
@@ -6648,8 +6648,8 @@ Signature
 
 
 
-        op:dayTimeDuration-greater-than( $arg1  as xs:dayTimeDuration,
-        $arg2  as xs:dayTimeDuration) as xs:boolean
+        op:dayTimeDuration-greater-than( $arg1 ï¿½asï¿½xs:dayTimeDuration,
+        $arg2 ï¿½asï¿½xs:dayTimeDuration)ï¿½asï¿½xs:boolean
 
 
 
@@ -6674,7 +6674,7 @@ Operator Mapping
 Signature
 
 
-        op:duration-equal($arg1 as xs:duration, $arg2 as xs:duration) as xs:boolean
+        op:duration-equal($arg1ï¿½asï¿½xs:duration, $arg2ï¿½asï¿½xs:duration)ï¿½asï¿½xs:boolean
 
 
 Rules
@@ -6753,7 +6753,7 @@ Summary
 Signature
 
 
-        fn:years-from-duration($arg as xs:duration?) as xs:integer?
+        fn:years-from-duration($argï¿½asï¿½xs:duration?)ï¿½asï¿½xs:integer?
 
 
 Properties
@@ -6792,7 +6792,7 @@ Summary
 Signature
 
 
-        fn:months-from-duration($arg as xs:duration?) as xs:integer?
+        fn:months-from-duration($argï¿½asï¿½xs:duration?)ï¿½asï¿½xs:integer?
 
 
 Properties
@@ -6831,7 +6831,7 @@ Summary
 Signature
 
 
-        fn:days-from-duration($arg as xs:duration?) as xs:integer?
+        fn:days-from-duration($argï¿½asï¿½xs:duration?)ï¿½asï¿½xs:integer?
 
 
 Properties
@@ -6870,7 +6870,7 @@ Summary
 Signature
 
 
-        fn:hours-from-duration($arg as xs:duration?) as xs:integer?
+        fn:hours-from-duration($argï¿½asï¿½xs:duration?)ï¿½asï¿½xs:integer?
 
 
 Properties
@@ -6911,7 +6911,7 @@ Summary
 Signature
 
 
-        fn:minutes-from-duration($arg as xs:duration?) as xs:integer?
+        fn:minutes-from-duration($argï¿½asï¿½xs:duration?)ï¿½asï¿½xs:integer?
 
 
 Properties
@@ -6948,7 +6948,7 @@ Summary
 Signature
 
 
-        fn:seconds-from-duration($arg as xs:duration?) as xs:decimal?
+        fn:seconds-from-duration($argï¿½asï¿½xs:duration?)ï¿½asï¿½xs:decimal?
 
 
 Properties
@@ -7010,8 +7010,8 @@ Signature
 
 
 
-        op:add-yearMonthDurations( $arg1  as xs:yearMonthDuration,
-        $arg2  as xs:yearMonthDuration) as xs:yearMonthDuration
+        op:add-yearMonthDurations( $arg1 ï¿½asï¿½xs:yearMonthDuration,
+        $arg2 ï¿½asï¿½xs:yearMonthDuration)ï¿½asï¿½xs:yearMonthDuration
 
 
 
@@ -7048,8 +7048,8 @@ Signature
 
 
 
-        op:subtract-yearMonthDurations( $arg1  as xs:yearMonthDuration,
-        $arg2  as xs:yearMonthDuration) as xs:yearMonthDuration
+        op:subtract-yearMonthDurations( $arg1 ï¿½asï¿½xs:yearMonthDuration,
+        $arg2 ï¿½asï¿½xs:yearMonthDuration)ï¿½asï¿½xs:yearMonthDuration
 
 
 
@@ -7086,8 +7086,8 @@ Signature
 
 
 
-        op:multiply-yearMonthDuration( $arg1  as xs:yearMonthDuration,
-        $arg2  as xs:double) as xs:yearMonthDuration
+        op:multiply-yearMonthDuration( $arg1 ï¿½asï¿½xs:yearMonthDuration,
+        $arg2 ï¿½asï¿½xs:double)ï¿½asï¿½xs:yearMonthDuration
 
 
 
@@ -7131,8 +7131,8 @@ Signature
 
 
 
-        op:divide-yearMonthDuration( $arg1  as xs:yearMonthDuration,
-        $arg2  as xs:double) as xs:yearMonthDuration
+        op:divide-yearMonthDuration( $arg1 ï¿½asï¿½xs:yearMonthDuration,
+        $arg2 ï¿½asï¿½xs:double)ï¿½asï¿½xs:yearMonthDuration
 
 
 
@@ -7176,8 +7176,8 @@ Signature
 
 
 
-        op:divide-yearMonthDuration-by-yearMonthDuration( $arg1  as xs:yearMonthDuration,
-        $arg2  as xs:yearMonthDuration) as xs:decimal
+        op:divide-yearMonthDuration-by-yearMonthDuration( $arg1 ï¿½asï¿½xs:yearMonthDuration,
+        $arg2 ï¿½asï¿½xs:yearMonthDuration)ï¿½asï¿½xs:decimal
 
 
 
@@ -7217,8 +7217,8 @@ Signature
 
 
 
-        op:add-dayTimeDurations( $arg1  as xs:dayTimeDuration,
-        $arg2  as xs:dayTimeDuration) as xs:dayTimeDuration
+        op:add-dayTimeDurations( $arg1 ï¿½asï¿½xs:dayTimeDuration,
+        $arg2 ï¿½asï¿½xs:dayTimeDuration)ï¿½asï¿½xs:dayTimeDuration
 
 
 
@@ -7255,8 +7255,8 @@ Signature
 
 
 
-        op:subtract-dayTimeDurations( $arg1  as xs:dayTimeDuration,
-        $arg2  as xs:dayTimeDuration) as xs:dayTimeDuration
+        op:subtract-dayTimeDurations( $arg1 ï¿½asï¿½xs:dayTimeDuration,
+        $arg2 ï¿½asï¿½xs:dayTimeDuration)ï¿½asï¿½xs:dayTimeDuration
 
 
 
@@ -7293,8 +7293,8 @@ Signature
 
 
 
-        op:multiply-dayTimeDuration( $arg1  as xs:dayTimeDuration,
-        $arg2  as xs:double) as xs:dayTimeDuration
+        op:multiply-dayTimeDuration( $arg1 ï¿½asï¿½xs:dayTimeDuration,
+        $arg2 ï¿½asï¿½xs:double)ï¿½asï¿½xs:dayTimeDuration
 
 
 
@@ -7338,8 +7338,8 @@ Signature
 
 
 
-        op:divide-dayTimeDuration( $arg1  as xs:dayTimeDuration,
-        $arg2  as xs:double) as xs:dayTimeDuration
+        op:divide-dayTimeDuration( $arg1 ï¿½asï¿½xs:dayTimeDuration,
+        $arg2 ï¿½asï¿½xs:double)ï¿½asï¿½xs:dayTimeDuration
 
 
 
@@ -7383,8 +7383,8 @@ Signature
 
 
 
-        op:divide-dayTimeDuration-by-dayTimeDuration( $arg1  as xs:dayTimeDuration,
-        $arg2  as xs:dayTimeDuration) as xs:decimal
+        op:divide-dayTimeDuration-by-dayTimeDuration( $arg1 ï¿½asï¿½xs:dayTimeDuration,
+        $arg2 ï¿½asï¿½xs:dayTimeDuration)ï¿½asï¿½xs:decimal
 
 
 
@@ -7514,7 +7514,7 @@ Summary
 Signature
 
 
-        fn:dateTime($arg1 as xs:date?, $arg2 as xs:time?) as xs:dateTime?
+        fn:dateTime($arg1ï¿½asï¿½xs:date?, $arg2ï¿½asï¿½xs:time?)ï¿½asï¿½xs:dateTime?
 
 
 Properties
@@ -7635,7 +7635,7 @@ Operator Mapping
 Signature
 
 
-        op:dateTime-equal($arg1 as xs:dateTime, $arg2 as xs:dateTime) as xs:boolean
+        op:dateTime-equal($arg1ï¿½asï¿½xs:dateTime, $arg2ï¿½asï¿½xs:dateTime)ï¿½asï¿½xs:boolean
 
 
 Properties
@@ -7684,7 +7684,7 @@ Operator Mapping
 Signature
 
 
-        op:dateTime-less-than($arg1 as xs:dateTime, $arg2 as xs:dateTime) as xs:boolean
+        op:dateTime-less-than($arg1ï¿½asï¿½xs:dateTime, $arg2ï¿½asï¿½xs:dateTime)ï¿½asï¿½xs:boolean
 
 
 Properties
@@ -7716,8 +7716,8 @@ Signature
 
 
 
-        op:dateTime-greater-than( $arg1  as xs:dateTime,
-        $arg2  as xs:dateTime) as xs:boolean
+        op:dateTime-greater-than( $arg1 ï¿½asï¿½xs:dateTime,
+        $arg2 ï¿½asï¿½xs:dateTime)ï¿½asï¿½xs:boolean
 
 
 
@@ -7746,7 +7746,7 @@ Operator Mapping
 Signature
 
 
-        op:date-equal($arg1 as xs:date, $arg2 as xs:date) as xs:boolean
+        op:date-equal($arg1ï¿½asï¿½xs:date, $arg2ï¿½asï¿½xs:date)ï¿½asï¿½xs:boolean
 
 
 Properties
@@ -7789,7 +7789,7 @@ Operator Mapping
 Signature
 
 
-        op:date-less-than($arg1 as xs:date, $arg2 as xs:date) as xs:boolean
+        op:date-less-than($arg1ï¿½asï¿½xs:date, $arg2ï¿½asï¿½xs:date)ï¿½asï¿½xs:boolean
 
 
 Rules
@@ -7827,7 +7827,7 @@ Operator Mapping
 Signature
 
 
-        op:date-greater-than($arg1 as xs:date, $arg2 as xs:date) as xs:boolean
+        op:date-greater-than($arg1ï¿½asï¿½xs:date, $arg2ï¿½asï¿½xs:date)ï¿½asï¿½xs:boolean
 
 
 Properties
@@ -7861,7 +7861,7 @@ Operator Mapping
 Signature
 
 
-        op:time-equal($arg1 as xs:time, $arg2 as xs:time) as xs:boolean
+        op:time-equal($arg1ï¿½asï¿½xs:time, $arg2ï¿½asï¿½xs:time)ï¿½asï¿½xs:boolean
 
 
 Properties
@@ -7914,7 +7914,7 @@ Operator Mapping
 Signature
 
 
-        op:time-less-than($arg1 as xs:time, $arg2 as xs:time) as xs:boolean
+        op:time-less-than($arg1ï¿½asï¿½xs:time, $arg2ï¿½asï¿½xs:time)ï¿½asï¿½xs:boolean
 
 
 Properties
@@ -7963,7 +7963,7 @@ Operator Mapping
 Signature
 
 
-        op:time-greater-than($arg1 as xs:time, $arg2 as xs:time) as xs:boolean
+        op:time-greater-than($arg1ï¿½asï¿½xs:time, $arg2ï¿½asï¿½xs:time)ï¿½asï¿½xs:boolean
 
 
 Properties
@@ -7996,8 +7996,8 @@ Signature
 
 
 
-        op:gYearMonth-equal( $arg1  as xs:gYearMonth,
-        $arg2  as xs:gYearMonth) as xs:boolean
+        op:gYearMonth-equal( $arg1 ï¿½asï¿½xs:gYearMonth,
+        $arg2 ï¿½asï¿½xs:gYearMonth)ï¿½asï¿½xs:boolean
 
 
 
@@ -8035,7 +8035,7 @@ Operator Mapping
 Signature
 
 
-        op:gYear-equal($arg1 as xs:gYear, $arg2 as xs:gYear) as xs:boolean
+        op:gYear-equal($arg1ï¿½asï¿½xs:gYear, $arg2ï¿½asï¿½xs:gYear)ï¿½asï¿½xs:boolean
 
 
 Properties
@@ -8073,7 +8073,7 @@ Operator Mapping
 Signature
 
 
-        op:gMonthDay-equal($arg1 as xs:gMonthDay, $arg2 as xs:gMonthDay) as xs:boolean
+        op:gMonthDay-equal($arg1ï¿½asï¿½xs:gMonthDay, $arg2ï¿½asï¿½xs:gMonthDay)ï¿½asï¿½xs:boolean
 
 
 Properties
@@ -8112,7 +8112,7 @@ Operator Mapping
 Signature
 
 
-        op:gMonth-equal($arg1 as xs:gMonth, $arg2 as xs:gMonth) as xs:boolean
+        op:gMonth-equal($arg1ï¿½asï¿½xs:gMonth, $arg2ï¿½asï¿½xs:gMonth)ï¿½asï¿½xs:boolean
 
 
 Properties
@@ -8150,7 +8150,7 @@ Operator Mapping
 Signature
 
 
-        op:gDay-equal($arg1 as xs:gDay, $arg2 as xs:gDay) as xs:boolean
+        op:gDay-equal($arg1ï¿½asï¿½xs:gDay, $arg2ï¿½asï¿½xs:gDay)ï¿½asï¿½xs:boolean
 
 
 Properties
@@ -8216,7 +8216,7 @@ Summary
 Signature
 
 
-        fn:year-from-dateTime($arg as xs:dateTime?) as xs:integer?
+        fn:year-from-dateTime($argï¿½asï¿½xs:dateTime?)ï¿½asï¿½xs:integer?
 
 
 Properties
@@ -8252,7 +8252,7 @@ Summary
 Signature
 
 
-        fn:month-from-dateTime($arg as xs:dateTime?) as xs:integer?
+        fn:month-from-dateTime($argï¿½asï¿½xs:dateTime?)ï¿½asï¿½xs:integer?
 
 
 Properties
@@ -8286,7 +8286,7 @@ Summary
 Signature
 
 
-        fn:day-from-dateTime($arg as xs:dateTime?) as xs:integer?
+        fn:day-from-dateTime($argï¿½asï¿½xs:dateTime?)ï¿½asï¿½xs:integer?
 
 
 Properties
@@ -8320,7 +8320,7 @@ Summary
 Signature
 
 
-        fn:hours-from-dateTime($arg as xs:dateTime?) as xs:integer?
+        fn:hours-from-dateTime($argï¿½asï¿½xs:dateTime?)ï¿½asï¿½xs:integer?
 
 
 Properties
@@ -8358,7 +8358,7 @@ Summary
 Signature
 
 
-        fn:minutes-from-dateTime($arg as xs:dateTime?) as xs:integer?
+        fn:minutes-from-dateTime($argï¿½asï¿½xs:dateTime?)ï¿½asï¿½xs:integer?
 
 
 Properties
@@ -8390,7 +8390,7 @@ Summary
 Signature
 
 
-        fn:seconds-from-dateTime($arg as xs:dateTime?) as xs:decimal?
+        fn:seconds-from-dateTime($argï¿½asï¿½xs:dateTime?)ï¿½asï¿½xs:decimal?
 
 
 Properties
@@ -8420,7 +8420,7 @@ Summary
 Signature
 
 
-        fn:timezone-from-dateTime($arg as xs:dateTime?) as xs:dayTimeDuration?
+        fn:timezone-from-dateTime($argï¿½asï¿½xs:dateTime?)ï¿½asï¿½xs:dayTimeDuration?
 
 
 Properties
@@ -8455,7 +8455,7 @@ Summary
 Signature
 
 
-        fn:year-from-date($arg as xs:date?) as xs:integer?
+        fn:year-from-date($argï¿½asï¿½xs:date?)ï¿½asï¿½xs:integer?
 
 
 Properties
@@ -8487,7 +8487,7 @@ Summary
 Signature
 
 
-        fn:month-from-date($arg as xs:date?) as xs:integer?
+        fn:month-from-date($argï¿½asï¿½xs:date?)ï¿½asï¿½xs:integer?
 
 
 Properties
@@ -8519,7 +8519,7 @@ Summary
 Signature
 
 
-        fn:day-from-date($arg as xs:date?) as xs:integer?
+        fn:day-from-date($argï¿½asï¿½xs:date?)ï¿½asï¿½xs:integer?
 
 
 Properties
@@ -8551,7 +8551,7 @@ Summary
 Signature
 
 
-        fn:timezone-from-date($arg as xs:date?) as xs:dayTimeDuration?
+        fn:timezone-from-date($argï¿½asï¿½xs:date?)ï¿½asï¿½xs:dayTimeDuration?
 
 
 Properties
@@ -8584,7 +8584,7 @@ Summary
 Signature
 
 
-        fn:hours-from-time($arg as xs:time?) as xs:integer?
+        fn:hours-from-time($argï¿½asï¿½xs:time?)ï¿½asï¿½xs:integer?
 
 
 Properties
@@ -8624,7 +8624,7 @@ Summary
 Signature
 
 
-        fn:minutes-from-time($arg as xs:time?) as xs:integer?
+        fn:minutes-from-time($argï¿½asï¿½xs:time?)ï¿½asï¿½xs:integer?
 
 
 Properties
@@ -8654,7 +8654,7 @@ Summary
 Signature
 
 
-        fn:seconds-from-time($arg as xs:time?) as xs:decimal?
+        fn:seconds-from-time($argï¿½asï¿½xs:time?)ï¿½asï¿½xs:decimal?
 
 
 Properties
@@ -8684,7 +8684,7 @@ Summary
 Signature
 
 
-        fn:timezone-from-time($arg as xs:time?) as xs:dayTimeDuration?
+        fn:timezone-from-time($argï¿½asï¿½xs:time?)ï¿½asï¿½xs:dayTimeDuration?
 
 
 Properties
@@ -8732,13 +8732,13 @@ Summary
 Signatures
 
 
-        fn:adjust-dateTime-to-timezone($arg as xs:dateTime?) as xs:dateTime?
+        fn:adjust-dateTime-to-timezone($argï¿½asï¿½xs:dateTime?)ï¿½asï¿½xs:dateTime?
 
 
 
 
-        fn:adjust-dateTime-to-timezone( $arg  as xs:dateTime?,
-        $timezone  as xs:dayTimeDuration?) as xs:dateTime?
+        fn:adjust-dateTime-to-timezone( $arg ï¿½asï¿½xs:dateTime?,
+        $timezone ï¿½asï¿½xs:dayTimeDuration?)ï¿½asï¿½xs:dateTime?
 
 
 
@@ -8801,13 +8801,13 @@ Summary
 Signatures
 
 
-        fn:adjust-date-to-timezone($arg as xs:date?) as xs:date?
+        fn:adjust-date-to-timezone($argï¿½asï¿½xs:date?)ï¿½asï¿½xs:date?
 
 
 
 
-        fn:adjust-date-to-timezone( $arg  as xs:date?,
-        $timezone  as xs:dayTimeDuration?) as xs:date?
+        fn:adjust-date-to-timezone( $arg ï¿½asï¿½xs:date?,
+        $timezone ï¿½asï¿½xs:dayTimeDuration?)ï¿½asï¿½xs:date?
 
 
 
@@ -8875,13 +8875,13 @@ Summary
 Signatures
 
 
-        fn:adjust-time-to-timezone($arg as xs:time?) as xs:time?
+        fn:adjust-time-to-timezone($argï¿½asï¿½xs:time?)ï¿½asï¿½xs:time?
 
 
 
 
-        fn:adjust-time-to-timezone( $arg  as xs:time?,
-        $timezone  as xs:dayTimeDuration?) as xs:time?
+        fn:adjust-time-to-timezone( $arg ï¿½asï¿½xs:time?,
+        $timezone ï¿½asï¿½xs:dayTimeDuration?)ï¿½asï¿½xs:time?
 
 
 
@@ -8992,8 +8992,8 @@ Signature
 
 
 
-        op:subtract-dateTimes( $arg1  as xs:dateTime,
-        $arg2  as xs:dateTime) as xs:dayTimeDuration
+        op:subtract-dateTimes( $arg1 ï¿½asï¿½xs:dateTime,
+        $arg2 ï¿½asï¿½xs:dateTime)ï¿½asï¿½xs:dayTimeDuration
 
 
 
@@ -9034,7 +9034,7 @@ Operator Mapping
 Signature
 
 
-        op:subtract-dates($arg1 as xs:date, $arg2 as xs:date) as xs:dayTimeDuration
+        op:subtract-dates($arg1ï¿½asï¿½xs:date, $arg2ï¿½asï¿½xs:date)ï¿½asï¿½xs:dayTimeDuration
 
 
 Properties
@@ -9083,7 +9083,7 @@ Operator Mapping
 Signature
 
 
-        op:subtract-times($arg1 as xs:time, $arg2 as xs:time) as xs:dayTimeDuration
+        op:subtract-times($arg1ï¿½asï¿½xs:time, $arg2ï¿½asï¿½xs:time)ï¿½asï¿½xs:dayTimeDuration
 
 
 Properties
@@ -9140,8 +9140,8 @@ Signature
 
 
 
-        op:add-yearMonthDuration-to-dateTime( $arg1  as xs:dateTime,
-        $arg2  as xs:yearMonthDuration) as xs:dateTime
+        op:add-yearMonthDuration-to-dateTime( $arg1 ï¿½asï¿½xs:dateTime,
+        $arg2 ï¿½asï¿½xs:yearMonthDuration)ï¿½asï¿½xs:dateTime
 
 
 
@@ -9178,8 +9178,8 @@ Signature
 
 
 
-        op:add-dayTimeDuration-to-dateTime( $arg1  as xs:dateTime,
-        $arg2  as xs:dayTimeDuration) as xs:dateTime
+        op:add-dayTimeDuration-to-dateTime( $arg1 ï¿½asï¿½xs:dateTime,
+        $arg2 ï¿½asï¿½xs:dayTimeDuration)ï¿½asï¿½xs:dateTime
 
 
 
@@ -9216,8 +9216,8 @@ Signature
 
 
 
-        op:subtract-yearMonthDuration-from-dateTime( $arg1  as xs:dateTime,
-        $arg2  as xs:yearMonthDuration) as xs:dateTime
+        op:subtract-yearMonthDuration-from-dateTime( $arg1 ï¿½asï¿½xs:dateTime,
+        $arg2 ï¿½asï¿½xs:yearMonthDuration)ï¿½asï¿½xs:dateTime
 
 
 
@@ -9251,8 +9251,8 @@ Signature
 
 
 
-        op:subtract-dayTimeDuration-from-dateTime( $arg1  as xs:dateTime,
-        $arg2  as xs:dayTimeDuration) as xs:dateTime
+        op:subtract-dayTimeDuration-from-dateTime( $arg1 ï¿½asï¿½xs:dateTime,
+        $arg2 ï¿½asï¿½xs:dayTimeDuration)ï¿½asï¿½xs:dateTime
 
 
 
@@ -9282,8 +9282,8 @@ Signature
 
 
 
-        op:add-yearMonthDuration-to-date( $arg1  as xs:date,
-        $arg2  as xs:yearMonthDuration) as xs:date
+        op:add-yearMonthDuration-to-date( $arg1 ï¿½asï¿½xs:date,
+        $arg2 ï¿½asï¿½xs:yearMonthDuration)ï¿½asï¿½xs:date
 
 
 
@@ -9317,8 +9317,8 @@ Signature
 
 
 
-        op:add-dayTimeDuration-to-date( $arg1  as xs:date,
-        $arg2  as xs:dayTimeDuration) as xs:date
+        op:add-dayTimeDuration-to-date( $arg1 ï¿½asï¿½xs:date,
+        $arg2 ï¿½asï¿½xs:dayTimeDuration)ï¿½asï¿½xs:date
 
 
 
@@ -9353,8 +9353,8 @@ Signature
 
 
 
-        op:subtract-yearMonthDuration-from-date( $arg1  as xs:date,
-        $arg2  as xs:yearMonthDuration) as xs:date
+        op:subtract-yearMonthDuration-from-date( $arg1 ï¿½asï¿½xs:date,
+        $arg2 ï¿½asï¿½xs:yearMonthDuration)ï¿½asï¿½xs:date
 
 
 
@@ -9392,8 +9392,8 @@ Signature
 
 
 
-        op:subtract-dayTimeDuration-from-date( $arg1  as xs:date,
-        $arg2  as xs:dayTimeDuration) as xs:date
+        op:subtract-dayTimeDuration-from-date( $arg1 ï¿½asï¿½xs:date,
+        $arg2 ï¿½asï¿½xs:dayTimeDuration)ï¿½asï¿½xs:date
 
 
 
@@ -9427,8 +9427,8 @@ Signature
 
 
 
-        op:add-dayTimeDuration-to-time( $arg1  as xs:time,
-        $arg2  as xs:dayTimeDuration) as xs:time
+        op:add-dayTimeDuration-to-time( $arg1 ï¿½asï¿½xs:time,
+        $arg2 ï¿½asï¿½xs:dayTimeDuration)ï¿½asï¿½xs:time
 
 
 
@@ -9464,8 +9464,8 @@ Signature
 
 
 
-        op:subtract-dayTimeDuration-from-time( $arg1  as xs:time,
-        $arg2  as xs:dayTimeDuration) as xs:time
+        op:subtract-dayTimeDuration-from-time( $arg1 ï¿½asï¿½xs:time,
+        $arg2 ï¿½asï¿½xs:dayTimeDuration)ï¿½asï¿½xs:time
 
 
 
@@ -9510,16 +9510,16 @@ Summary
 Signatures
 
 
-        fn:format-dateTime($value as xs:dateTime?, $picture as xs:string) as xs:string?
+        fn:format-dateTime($valueï¿½asï¿½xs:dateTime?, $pictureï¿½asï¿½xs:string)ï¿½asï¿½xs:string?
 
 
 
 
-        fn:format-dateTime( $value  as xs:dateTime?,
-        $picture  as xs:string,
-        $language  as xs:string?,
-        $calendar  as xs:string?,
-        $place  as xs:string?) as xs:string?
+        fn:format-dateTime( $value ï¿½asï¿½xs:dateTime?,
+        $picture ï¿½asï¿½xs:string,
+        $language ï¿½asï¿½xs:string?,
+        $calendar ï¿½asï¿½xs:string?,
+        $place ï¿½asï¿½xs:string?)ï¿½asï¿½xs:string?
 
 
 
@@ -9546,16 +9546,16 @@ Summary
 Signatures
 
 
-        fn:format-date($value as xs:date?, $picture as xs:string) as xs:string?
+        fn:format-date($valueï¿½asï¿½xs:date?, $pictureï¿½asï¿½xs:string)ï¿½asï¿½xs:string?
 
 
 
 
-        fn:format-date( $value  as xs:date?,
-        $picture  as xs:string,
-        $language  as xs:string?,
-        $calendar  as xs:string?,
-        $place  as xs:string?) as xs:string?
+        fn:format-date( $value ï¿½asï¿½xs:date?,
+        $picture ï¿½asï¿½xs:string,
+        $language ï¿½asï¿½xs:string?,
+        $calendar ï¿½asï¿½xs:string?,
+        $place ï¿½asï¿½xs:string?)ï¿½asï¿½xs:string?
 
 
 
@@ -9582,16 +9582,16 @@ Summary
 Signatures
 
 
-        fn:format-time($value as xs:time?, $picture as xs:string) as xs:string?
+        fn:format-time($valueï¿½asï¿½xs:time?, $pictureï¿½asï¿½xs:string)ï¿½asï¿½xs:string?
 
 
 
 
-        fn:format-time( $value  as xs:time?,
-        $picture  as xs:string,
-        $language  as xs:string?,
-        $calendar  as xs:string?,
-        $place  as xs:string?) as xs:string?
+        fn:format-time( $value ï¿½asï¿½xs:time?,
+        $picture ï¿½asï¿½xs:string,
+        $language ï¿½asï¿½xs:string?,
+        $calendar ï¿½asï¿½xs:string?,
+        $place ï¿½asï¿½xs:string?)ï¿½asï¿½xs:string?
 
 
 
@@ -9713,7 +9713,7 @@ Whether or not a presentation modifier is included, a width modifier may be supp
 
 The width modifier, if present, is introduced by a comma or semicolon. It takes the form:
 
-   ","  min-width ("-" max-width)?
+ï¿½ï¿½ï¿½","ï¿½ï¿½min-width ("-" max-width)?
 
 where min-width is either an unsigned integer indicating the minimum number of characters to be output, or * indicating that there is no explicit minimum, and max-width is either an unsigned integer
 indicating the maximum number of characters to be output, or * indicating that there is no explicit maximum; if max-width is omitted then * is assumed. Both integers, if present, must be greater
@@ -9796,7 +9796,7 @@ timezones are used (format ZZ) in which case the string "J" is output, indicatin
 The following examples illustrate options for timezone formatting.
 
 Variable marker $place Timezone offsets (with time = 12:00:00)
-    -10:00 -05:00 +00:00 +05:30 +13:00
+ï¿½ ï¿½ -10:00 -05:00 +00:00 +05:30 +13:00
 [Z] () -10:00 -05:00 +00:00 +05:30 +13:00
 [Z0] () -10 -5 +0 +5:30 +13
 [Z0:00] () -10:00 -5:00 +0:00 +5:30 +13:00
@@ -10037,7 +10037,7 @@ Summary
 Signature
 
 
-        fn:resolve-QName($qname as xs:string?, $element as element()) as xs:QName?
+        fn:resolve-QName($qnameï¿½asï¿½xs:string?, $elementï¿½asï¿½element())ï¿½asï¿½xs:QName?
 
 
 Properties
@@ -10095,7 +10095,7 @@ Summary
 Signature
 
 
-        fn:QName($paramURI as xs:string?, $paramQName as xs:string) as xs:QName
+        fn:QName($paramURIï¿½asï¿½xs:string?, $paramQNameï¿½asï¿½xs:string)ï¿½asï¿½xs:QName
 
 
 Properties
@@ -10158,7 +10158,7 @@ Operator Mapping
 Signature
 
 
-        op:QName-equal($arg1 as xs:QName, $arg2 as xs:QName) as xs:boolean
+        op:QName-equal($arg1ï¿½asï¿½xs:QName, $arg2ï¿½asï¿½xs:QName)ï¿½asï¿½xs:boolean
 
 
 Properties
@@ -10192,7 +10192,7 @@ Summary
 Signature
 
 
-        fn:prefix-from-QName($arg as xs:QName?) as xs:NCName?
+        fn:prefix-from-QName($argï¿½asï¿½xs:QName?)ï¿½asï¿½xs:NCName?
 
 
 Properties
@@ -10220,7 +10220,7 @@ Summary
 Signature
 
 
-        fn:local-name-from-QName($arg as xs:QName?) as xs:NCName?
+        fn:local-name-from-QName($argï¿½asï¿½xs:QName?)ï¿½asï¿½xs:NCName?
 
 
 Properties
@@ -10250,7 +10250,7 @@ Summary
 Signature
 
 
-        fn:namespace-uri-from-QName($arg as xs:QName?) as xs:anyURI?
+        fn:namespace-uri-from-QName($argï¿½asï¿½xs:QName?)ï¿½asï¿½xs:anyURI?
 
 
 Properties
@@ -10283,8 +10283,8 @@ Signature
 
 
 
-        fn:namespace-uri-for-prefix( $prefix  as xs:string?,
-        $element  as element()) as xs:anyURI?
+        fn:namespace-uri-for-prefix( $prefix ï¿½asï¿½xs:string?,
+        $element ï¿½asï¿½element())ï¿½asï¿½xs:anyURI?
 
 
 
@@ -10338,7 +10338,7 @@ Summary
 Signature
 
 
-        fn:in-scope-prefixes($element as element()) as xs:string*
+        fn:in-scope-prefixes($elementï¿½asï¿½element())ï¿½asï¿½xs:string*
 
 
 Properties
@@ -10394,8 +10394,8 @@ Signature
 
 
 
-        op:hexBinary-equal( $value1  as xs:hexBinary,
-        $value2  as xs:hexBinary) as xs:boolean
+        op:hexBinary-equal( $value1 ï¿½asï¿½xs:hexBinary,
+        $value2 ï¿½asï¿½xs:hexBinary)ï¿½asï¿½xs:boolean
 
 
 
@@ -10421,8 +10421,8 @@ Signature
 
 
 
-        op:base64Binary-equal( $value1  as xs:base64Binary,
-        $value2  as xs:base64Binary) as xs:boolean
+        op:base64Binary-equal( $value1 ï¿½asï¿½xs:base64Binary,
+        $value2 ï¿½asï¿½xs:base64Binary)ï¿½asï¿½xs:boolean
 
 
 
@@ -10459,7 +10459,7 @@ Operator Mapping
 Signature
 
 
-        op:NOTATION-equal($arg1 as xs:NOTATION, $arg2 as xs:NOTATION) as xs:boolean
+        op:NOTATION-equal($arg1ï¿½asï¿½xs:NOTATION, $arg2ï¿½asï¿½xs:NOTATION)ï¿½asï¿½xs:boolean
 
 
 Rules
@@ -10546,11 +10546,11 @@ Summary
 Signatures
 
 
-        fn:name() as xs:string
+        fn:name()ï¿½asï¿½xs:string
 
 
 
-        fn:name($arg as node()?) as xs:string
+        fn:name($argï¿½asï¿½node()?)ï¿½asï¿½xs:string
 
 
 Properties
@@ -10592,11 +10592,11 @@ Summary
 Signatures
 
 
-        fn:local-name() as xs:string
+        fn:local-name()ï¿½asï¿½xs:string
 
 
 
-        fn:local-name($arg as node()?) as xs:string
+        fn:local-name($argï¿½asï¿½node()?)ï¿½asï¿½xs:string
 
 
 Properties
@@ -10639,11 +10639,11 @@ Summary
 Signatures
 
 
-        fn:namespace-uri() as xs:anyURI
+        fn:namespace-uri()ï¿½asï¿½xs:anyURI
 
 
 
-        fn:namespace-uri($arg as node()?) as xs:anyURI
+        fn:namespace-uri($argï¿½asï¿½node()?)ï¿½asï¿½xs:anyURI
 
 
 Properties
@@ -10686,11 +10686,11 @@ Summary
 Signatures
 
 
-        fn:lang($testlang as xs:string?) as xs:boolean
+        fn:lang($testlangï¿½asï¿½xs:string?)ï¿½asï¿½xs:boolean
 
 
 
-        fn:lang($testlang as xs:string?, $node as node()) as xs:boolean
+        fn:lang($testlangï¿½asï¿½xs:string?, $nodeï¿½asï¿½node())ï¿½asï¿½xs:boolean
 
 
 Properties
@@ -10767,7 +10767,7 @@ Operator Mapping
 Signature
 
 
-        op:is-same-node($arg1 as node(), $arg2 as node()) as xs:boolean
+        op:is-same-node($arg1ï¿½asï¿½node(), $arg2ï¿½asï¿½node())ï¿½asï¿½xs:boolean
 
 
 Rules
@@ -10798,7 +10798,7 @@ Operator Mapping
 Signature
 
 
-        op:node-before($arg1 as node(), $arg2 as node()) as xs:boolean
+        op:node-before($arg1ï¿½asï¿½node(), $arg2ï¿½asï¿½node())ï¿½asï¿½xs:boolean
 
 
 Rules
@@ -10830,7 +10830,7 @@ Operator Mapping
 Signature
 
 
-        op:node-after($arg1 as node(), $arg2 as node()) as xs:boolean
+        op:node-after($arg1ï¿½asï¿½node(), $arg2ï¿½asï¿½node())ï¿½asï¿½xs:boolean
 
 
 Rules
@@ -10860,11 +10860,11 @@ Summary
 Signatures
 
 
-        fn:root() as node()
+        fn:root()ï¿½asï¿½node()
 
 
 
-        fn:root($arg as node()?) as node()?
+        fn:root($argï¿½asï¿½node()?)ï¿½asï¿½node()?
 
 
 Properties
@@ -10948,11 +10948,11 @@ Summary
 Signatures
 
 
-        fn:path() as xs:string?
+        fn:path()ï¿½asï¿½xs:string?
 
 
 
-        fn:path($arg as node()?) as xs:string?
+        fn:path($argï¿½asï¿½node()?)ï¿½asï¿½xs:string?
 
 
 Properties
@@ -11058,11 +11058,11 @@ Summary
 Signatures
 
 
-        fn:has-children() as xs:boolean
+        fn:has-children()ï¿½asï¿½xs:boolean
 
 
 
-        fn:has-children($node as node()?) as xs:boolean
+        fn:has-children($nodeï¿½asï¿½node()?)ï¿½asï¿½xs:boolean
 
 
 Properties
@@ -11123,7 +11123,7 @@ Summary
 Signature
 
 
-        fn:innermost($nodes as node()*) as node()*
+        fn:innermost($nodesï¿½asï¿½node()*)ï¿½asï¿½node()*
 
 
 Properties
@@ -11154,7 +11154,7 @@ Summary
 Signature
 
 
-        fn:outermost($nodes as node()*) as node()*
+        fn:outermost($nodesï¿½asï¿½node()*)ï¿½asï¿½node()*
 
 
 Properties
@@ -11229,7 +11229,7 @@ Operator Mapping
 Signature
 
 
-        op:concatenate($seq1 as item()*, $seq2 as item()*) as item()*
+        op:concatenate($seq1ï¿½asï¿½item()*, $seq2ï¿½asï¿½item()*)ï¿½asï¿½item()*
 
 
 Properties
@@ -11265,7 +11265,7 @@ Summary
 Signature
 
 
-        fn:empty($arg as item()*) as xs:boolean
+        fn:empty($argï¿½asï¿½item()*)ï¿½asï¿½xs:boolean
 
 
 Properties
@@ -11295,7 +11295,7 @@ Summary
 Signature
 
 
-        fn:exists($arg as item()*) as xs:boolean
+        fn:exists($argï¿½asï¿½item()*)ï¿½asï¿½xs:boolean
 
 
 Properties
@@ -11325,7 +11325,7 @@ Summary
 Signature
 
 
-        fn:head($arg as item()*) as item()?
+        fn:head($argï¿½asï¿½item()*)ï¿½asï¿½item()?
 
 
 Properties
@@ -11361,7 +11361,7 @@ Summary
 Signature
 
 
-        fn:tail($arg as item()*) as item()*
+        fn:tail($argï¿½asï¿½item()*)ï¿½asï¿½item()*
 
 
 Properties
@@ -11400,9 +11400,9 @@ Signature
 
 
 
-        fn:insert-before( $target  as item()*,
-        $position  as xs:integer,
-        $inserts  as item()*) as item()*
+        fn:insert-before( $target ï¿½asï¿½item()*,
+        $position ï¿½asï¿½xs:integer,
+        $inserts ï¿½asï¿½item()*)ï¿½asï¿½item()*
 
 
 
@@ -11451,7 +11451,7 @@ Summary
 Signature
 
 
-        fn:remove($target as item()*, $position as xs:integer) as item()*
+        fn:remove($targetï¿½asï¿½item()*, $positionï¿½asï¿½xs:integer)ï¿½asï¿½item()*
 
 
 Properties
@@ -11493,7 +11493,7 @@ Summary
 Signature
 
 
-        fn:reverse($arg as item()*) as item()*
+        fn:reverse($argï¿½asï¿½item()*)ï¿½asï¿½item()*
 
 
 Properties
@@ -11532,14 +11532,14 @@ Summary
 Signatures
 
 
-        fn:subsequence($sourceSeq as item()*, $startingLoc as xs:double) as item()*
+        fn:subsequence($sourceSeqï¿½asï¿½item()*, $startingLocï¿½asï¿½xs:double)ï¿½asï¿½item()*
 
 
 
 
-        fn:subsequence( $sourceSeq  as item()*,
-        $startingLoc  as xs:double,
-        $length  as xs:double) as item()*
+        fn:subsequence( $sourceSeq ï¿½asï¿½item()*,
+        $startingLoc ï¿½asï¿½xs:double,
+        $length ï¿½asï¿½xs:double)ï¿½asï¿½item()*
 
 
 
@@ -11605,7 +11605,7 @@ Summary
 Signature
 
 
-        fn:unordered($sourceSeq as item()*) as item()*
+        fn:unordered($sourceSeqï¿½asï¿½item()*)ï¿½asï¿½item()*
 
 
 Properties
@@ -11652,13 +11652,13 @@ Summary
 Signatures
 
 
-        fn:distinct-values($arg as xs:anyAtomicType*) as xs:anyAtomicType*
+        fn:distinct-values($argï¿½asï¿½xs:anyAtomicType*)ï¿½asï¿½xs:anyAtomicType*
 
 
 
 
-        fn:distinct-values( $arg  as xs:anyAtomicType*,
-        $collation  as xs:string) as xs:anyAtomicType*
+        fn:distinct-values( $arg ï¿½asï¿½xs:anyAtomicType*,
+        $collation ï¿½asï¿½xs:string)ï¿½asï¿½xs:anyAtomicType*
 
 
 
@@ -11731,16 +11731,16 @@ Signatures
 
 
 
-        fn:index-of( $seq  as xs:anyAtomicType*,
-        $search  as xs:anyAtomicType) as xs:integer*
+        fn:index-of( $seq ï¿½asï¿½xs:anyAtomicType*,
+        $search ï¿½asï¿½xs:anyAtomicType)ï¿½asï¿½xs:integer*
 
 
 
 
 
-        fn:index-of( $seq  as xs:anyAtomicType*,
-        $search  as xs:anyAtomicType,
-        $collation  as xs:string) as xs:integer*
+        fn:index-of( $seq ï¿½asï¿½xs:anyAtomicType*,
+        $search ï¿½asï¿½xs:anyAtomicType,
+        $collation ï¿½asï¿½xs:string)ï¿½asï¿½xs:integer*
 
 
 
@@ -11798,14 +11798,14 @@ Summary
 Signatures
 
 
-        fn:deep-equal($parameter1 as item()*, $parameter2 as item()*) as xs:boolean
+        fn:deep-equal($parameter1ï¿½asï¿½item()*, $parameter2ï¿½asï¿½item()*)ï¿½asï¿½xs:boolean
 
 
 
 
-        fn:deep-equal( $parameter1  as item()*,
-        $parameter2  as item()*,
-        $collation  as xs:string) as xs:boolean
+        fn:deep-equal( $parameter1 ï¿½asï¿½item()*,
+        $parameter2 ï¿½asï¿½item()*,
+        $collation ï¿½asï¿½xs:string)ï¿½asï¿½xs:boolean
 
 
 
@@ -11962,7 +11962,7 @@ Summary
 Signature
 
 
-        fn:zero-or-one($arg as item()*) as item()?
+        fn:zero-or-one($argï¿½asï¿½item()*)ï¿½asï¿½item()?
 
 
 Properties
@@ -11990,7 +11990,7 @@ Summary
 Signature
 
 
-        fn:one-or-more($arg as item()*) as item()+
+        fn:one-or-more($argï¿½asï¿½item()*)ï¿½asï¿½item()+
 
 
 Properties
@@ -12018,7 +12018,7 @@ Summary
 Signature
 
 
-        fn:exactly-one($arg as item()*) as item()
+        fn:exactly-one($argï¿½asï¿½item()*)ï¿½asï¿½item()
 
 
 Properties
@@ -12041,9 +12041,9 @@ Error Conditions
 
 
 Function Meaning
-op:union Constructs a sequence containing every node that occurs in the values of either $arg1 or $arg2, eliminating duplicates and sorting the result in document order.
-op:intersect Constructs a sequence containing every node that occurs in the values of both $arg1 and $arg2, eliminating duplicates and sorting the result in document order.
-op:except Constructs a sequence containing every node that occurs in the value of $arg1 but not in the value of $arg2, eliminating duplicates and sorting the result in document order.
+op:union Constructs a sequence containing every node that occurs in the values of either $arg1 or $arg2, eliminating duplicates and sort the result in document order.
+op:intersect Constructs a sequence containing every node that occurs in the values of both $arg1 and $arg2, eliminating duplicates and sort the result in document order.
+op:except Constructs a sequence containing every node that occurs in the value of $arg1 but not in the value of $arg2, eliminating duplicates and sort the result in document order.
 
 As in the previous sections, for the illustrative examples below, assume an XQuery or transformation operating on a Purchase Order document containing a number of line-item elements. The variables
 $item1, $item2, etc. are bound to individual line-item nodes in the sequence. We use sequences of these nodes in some of the examples below.
@@ -12055,7 +12055,7 @@ $item1, $item2, etc. are bound to individual line-item nodes in the sequence. We
 
 Summary
 
-        Constructs a sequence containing every node that occurs in the values of either $arg1 or $arg2, eliminating duplicates and sorting the result in document order.
+        Constructs a sequence containing every node that occurs in the values of either $arg1 or $arg2, eliminating duplicates and sort the result in document order.
 
 Operator Mapping
 
@@ -12064,7 +12064,7 @@ Operator Mapping
 Signature
 
 
-        op:union($arg1 as node()*, $arg2 as node()*) as node()*
+        op:union($arg1ï¿½asï¿½node()*, $arg2ï¿½asï¿½node()*)ï¿½asï¿½node()*
 
 
 Rules
@@ -12099,7 +12099,7 @@ Examples
 
 Summary
 
-        Constructs a sequence containing every node that occurs in the values of both $arg1 and $arg2, eliminating duplicates and sorting the result in document order.
+        Constructs a sequence containing every node that occurs in the values of both $arg1 and $arg2, eliminating duplicates and sort the result in document order.
 
 Operator Mapping
 
@@ -12108,7 +12108,7 @@ Operator Mapping
 Signature
 
 
-        op:intersect($arg1 as node()*, $arg2 as node()*) as node()*
+        op:intersect($arg1ï¿½asï¿½node()*, $arg2ï¿½asï¿½node()*)ï¿½asï¿½node()*
 
 
 Rules
@@ -12145,7 +12145,7 @@ Examples
 
 Summary
 
-        Constructs a sequence containing every node that occurs in the value of $arg1 but not in the value of $arg2, eliminating duplicates and sorting the result in document order.
+        Constructs a sequence containing every node that occurs in the value of $arg1 but not in the value of $arg2, eliminating duplicates and sort the result in document order.
 
 Operator Mapping
 
@@ -12154,7 +12154,7 @@ Operator Mapping
 Signature
 
 
-        op:except($arg1 as node()*, $arg2 as node()*) as node()*
+        op:except($arg1ï¿½asï¿½node()*, $arg2ï¿½asï¿½node()*)ï¿½asï¿½node()*
 
 
 Rules
@@ -12218,7 +12218,7 @@ Summary
 Signature
 
 
-        fn:count($arg as item()*) as xs:integer
+        fn:count($argï¿½asï¿½item()*)ï¿½asï¿½xs:integer
 
 
 Properties
@@ -12262,7 +12262,7 @@ Summary
 Signature
 
 
-        fn:avg($arg as xs:anyAtomicType*) as xs:anyAtomicType?
+        fn:avg($argï¿½asï¿½xs:anyAtomicType*)ï¿½asï¿½xs:anyAtomicType?
 
 
 Properties
@@ -12318,11 +12318,11 @@ Summary
 Signatures
 
 
-        fn:max($arg as xs:anyAtomicType*) as xs:anyAtomicType?
+        fn:max($argï¿½asï¿½xs:anyAtomicType*)ï¿½asï¿½xs:anyAtomicType?
 
 
 
-        fn:max($arg as xs:anyAtomicType*, $collation as xs:string) as xs:anyAtomicType?
+        fn:max($argï¿½asï¿½xs:anyAtomicType*, $collationï¿½asï¿½xs:string)ï¿½asï¿½xs:anyAtomicType?
 
 
 Properties
@@ -12380,7 +12380,7 @@ Notes
 
         If the converted sequence contains exactly one value then that value is returned.
 
-        The default type when the fn:max function is applied to xs:untypedAtomic values is xs:double. This differs from the default type for operators such as gt, and for sorting in XQuery and XSLT,
+        The default type when the fn:max function is applied to xs:untypedAtomic values is xs:double. This differs from the default type for operators such as gt, and for sort in XQuery and XSLT,
         which is xs:string.
 
 Examples
@@ -12408,11 +12408,11 @@ Summary
 Signatures
 
 
-        fn:min($arg as xs:anyAtomicType*) as xs:anyAtomicType?
+        fn:min($argï¿½asï¿½xs:anyAtomicType*)ï¿½asï¿½xs:anyAtomicType?
 
 
 
-        fn:min($arg as xs:anyAtomicType*, $collation as xs:string) as xs:anyAtomicType?
+        fn:min($argï¿½asï¿½xs:anyAtomicType*, $collationï¿½asï¿½xs:string)ï¿½asï¿½xs:anyAtomicType?
 
 
 Properties
@@ -12470,7 +12470,7 @@ Notes
 
         If the converted sequence contains exactly one value then that value is returned.
 
-        The default type when the fn:min function is applied to xs:untypedAtomic values is xs:double. This differs from the default type for operators such as lt, and for sorting in XQuery and XSLT,
+        The default type when the fn:min function is applied to xs:untypedAtomic values is xs:double. This differs from the default type for operators such as lt, and for sort in XQuery and XSLT,
         which is xs:string.
 
 Examples
@@ -12500,13 +12500,13 @@ Summary
 Signatures
 
 
-        fn:sum($arg as xs:anyAtomicType*) as xs:anyAtomicType
+        fn:sum($argï¿½asï¿½xs:anyAtomicType*)ï¿½asï¿½xs:anyAtomicType
 
 
 
 
-        fn:sum( $arg  as xs:anyAtomicType*,
-        $zero  as xs:anyAtomicType?) as xs:anyAtomicType?
+        fn:sum( $arg ï¿½asï¿½xs:anyAtomicType*,
+        $zero ï¿½asï¿½xs:anyAtomicType?)ï¿½asï¿½xs:anyAtomicType?
 
 
 
@@ -12609,7 +12609,7 @@ Operator Mapping
 Signature
 
 
-        op:to($firstval as xs:integer, $lastval as xs:integer) as xs:integer*
+        op:to($firstvalï¿½asï¿½xs:integer, $lastvalï¿½asï¿½xs:integer)ï¿½asï¿½xs:integer*
 
 
 Rules
@@ -12647,11 +12647,11 @@ Summary
 Signatures
 
 
-        fn:id($arg as xs:string*) as element()*
+        fn:id($argï¿½asï¿½xs:string*)ï¿½asï¿½element()*
 
 
 
-        fn:id($arg as xs:string*, $node as node()) as element()*
+        fn:id($argï¿½asï¿½xs:string*, $nodeï¿½asï¿½node())ï¿½asï¿½element()*
 
 
 Properties
@@ -12761,11 +12761,11 @@ Summary
 Signatures
 
 
-        fn:element-with-id($arg as xs:string*) as element()*
+        fn:element-with-id($argï¿½asï¿½xs:string*)ï¿½asï¿½element()*
 
 
 
-        fn:element-with-id($arg as xs:string*, $node as node()) as element()*
+        fn:element-with-id($argï¿½asï¿½xs:string*, $nodeï¿½asï¿½node())ï¿½asï¿½element()*
 
 
 Properties
@@ -12883,11 +12883,11 @@ Summary
 Signatures
 
 
-        fn:idref($arg as xs:string*) as node()*
+        fn:idref($argï¿½asï¿½xs:string*)ï¿½asï¿½node()*
 
 
 
-        fn:idref($arg as xs:string*, $node as node()) as node()*
+        fn:idref($argï¿½asï¿½xs:string*, $nodeï¿½asï¿½node())ï¿½asï¿½node()*
 
 
 Properties
@@ -12971,11 +12971,11 @@ Summary
 Signatures
 
 
-        fn:generate-id() as xs:string
+        fn:generate-id()ï¿½asï¿½xs:string
 
 
 
-        fn:generate-id($arg as node()?) as xs:string
+        fn:generate-id($argï¿½asï¿½node()?)ï¿½asï¿½xs:string
 
 
 Properties
@@ -13048,7 +13048,7 @@ Summary
 Signature
 
 
-        fn:doc($uri as xs:string?) as document-node()?
+        fn:doc($uriï¿½asï¿½xs:string?)ï¿½asï¿½document-node()?
 
 
 Properties
@@ -13137,7 +13137,7 @@ Summary
 Signature
 
 
-        fn:doc-available($uri as xs:string?) as xs:boolean
+        fn:doc-available($uriï¿½asï¿½xs:string?)ï¿½asï¿½xs:boolean
 
 
 Properties
@@ -13170,11 +13170,11 @@ Summary
 Signatures
 
 
-        fn:collection() as node()*
+        fn:collection()ï¿½asï¿½node()*
 
 
 
-        fn:collection($arg as xs:string?) as node()*
+        fn:collection($argï¿½asï¿½xs:string?)ï¿½asï¿½node()*
 
 
 Properties
@@ -13228,11 +13228,11 @@ Summary
 Signatures
 
 
-        fn:uri-collection() as xs:anyURI*
+        fn:uri-collection()ï¿½asï¿½xs:anyURI*
 
 
 
-        fn:uri-collection($arg as xs:string?) as xs:anyURI*
+        fn:uri-collection($argï¿½asï¿½xs:string?)ï¿½asï¿½xs:anyURI*
 
 
 Properties
@@ -13301,11 +13301,11 @@ Summary
 Signatures
 
 
-        fn:unparsed-text($href as xs:string?) as xs:string?
+        fn:unparsed-text($hrefï¿½asï¿½xs:string?)ï¿½asï¿½xs:string?
 
 
 
-        fn:unparsed-text($href as xs:string?, $encoding as xs:string) as xs:string?
+        fn:unparsed-text($hrefï¿½asï¿½xs:string?, $encodingï¿½asï¿½xs:string)ï¿½asï¿½xs:string?
 
 
 Properties
@@ -13413,13 +13413,13 @@ Summary
 Signatures
 
 
-        fn:unparsed-text-lines($href as xs:string?) as xs:string*
+        fn:unparsed-text-lines($hrefï¿½asï¿½xs:string?)ï¿½asï¿½xs:string*
 
 
 
 
-        fn:unparsed-text-lines( $href  as xs:string?,
-        $encoding  as xs:string) as xs:string*
+        fn:unparsed-text-lines( $href ï¿½asï¿½xs:string?,
+        $encoding ï¿½asï¿½xs:string)ï¿½asï¿½xs:string*
 
 
 
@@ -13460,13 +13460,13 @@ Summary
 Signatures
 
 
-        fn:unparsed-text-available($href as xs:string?) as xs:boolean
+        fn:unparsed-text-available($hrefï¿½asï¿½xs:string?)ï¿½asï¿½xs:boolean
 
 
 
 
-        fn:unparsed-text-available( $href  as xs:string?,
-        $encoding  as xs:string) as xs:boolean
+        fn:unparsed-text-available( $href ï¿½asï¿½xs:string?,
+        $encoding ï¿½asï¿½xs:string)ï¿½asï¿½xs:boolean
 
 
 
@@ -13510,7 +13510,7 @@ Summary
 Signature
 
 
-        fn:environment-variable($name as xs:string) as xs:string?
+        fn:environment-variable($nameï¿½asï¿½xs:string)ï¿½asï¿½xs:string?
 
 
 Properties
@@ -13563,7 +13563,7 @@ Summary
 Signature
 
 
-        fn:available-environment-variables() as xs:string*
+        fn:available-environment-variables()ï¿½asï¿½xs:string*
 
 
 Properties
@@ -13604,7 +13604,7 @@ Summary
 Signature
 
 
-        fn:parse-xml($arg as xs:string?) as document-node(element(*))?
+        fn:parse-xml($argï¿½asï¿½xs:string?)ï¿½asï¿½document-node(element(*))?
 
 
 Properties
@@ -13664,7 +13664,7 @@ Summary
 Signature
 
 
-        fn:parse-xml-fragment($arg as xs:string?) as document-node()?
+        fn:parse-xml-fragment($argï¿½asï¿½xs:string?)ï¿½asï¿½document-node()?
 
 
 Properties
@@ -13740,13 +13740,13 @@ Summary
 Signatures
 
 
-        fn:serialize($arg as item()*) as xs:string
+        fn:serialize($argï¿½asï¿½item()*)ï¿½asï¿½xs:string
 
 
 
 
-        fn:serialize( $arg  as item()*,
-        $params  as element(output:serialization-parameters)?) as xs:string
+        fn:serialize( $arg ï¿½asï¿½item()*,
+        $params ï¿½asï¿½element(output:serialization-parameters)?)ï¿½asï¿½xs:string
 
 
 
@@ -13845,7 +13845,7 @@ Summary
 Signature
 
 
-        fn:position() as xs:integer
+        fn:position()ï¿½asï¿½xs:integer
 
 
 Properties
@@ -13873,7 +13873,7 @@ Summary
 Signature
 
 
-        fn:last() as xs:integer
+        fn:last()ï¿½asï¿½xs:integer
 
 
 Properties
@@ -13905,7 +13905,7 @@ Summary
 Signature
 
 
-        fn:current-dateTime() as xs:dateTimeStamp
+        fn:current-dateTime()ï¿½asï¿½xs:dateTimeStamp
 
 
 Properties
@@ -13944,7 +13944,7 @@ Summary
 Signature
 
 
-        fn:current-date() as xs:date
+        fn:current-date()ï¿½asï¿½xs:date
 
 
 Properties
@@ -13979,7 +13979,7 @@ Summary
 Signature
 
 
-        fn:current-time() as xs:time
+        fn:current-time()ï¿½asï¿½xs:time
 
 
 Properties
@@ -14014,7 +14014,7 @@ Summary
 Signature
 
 
-        fn:implicit-timezone() as xs:dayTimeDuration
+        fn:implicit-timezone()ï¿½asï¿½xs:dayTimeDuration
 
 
 Properties
@@ -14038,7 +14038,7 @@ Summary
 Signature
 
 
-        fn:default-collation() as xs:string
+        fn:default-collation()ï¿½asï¿½xs:string
 
 
 Properties
@@ -14067,7 +14067,7 @@ Summary
 Signature
 
 
-        fn:static-base-uri() as xs:anyURI?
+        fn:static-base-uri()ï¿½asï¿½xs:anyURI?
 
 
 Properties
@@ -14116,7 +14116,7 @@ Summary
 Signature
 
 
-        fn:function-lookup($name as xs:QName, $arity as xs:integer) as function(*)?
+        fn:function-lookup($nameï¿½asï¿½xs:QName, $arityï¿½asï¿½xs:integer)ï¿½asï¿½function(*)?
 
 
 Properties
@@ -14187,7 +14187,7 @@ Summary
 Signature
 
 
-        fn:function-name($func as function(*)) as xs:QName?
+        fn:function-name($funcï¿½asï¿½function(*))ï¿½asï¿½xs:QName?
 
 
 Properties
@@ -14221,7 +14221,7 @@ Summary
 Signature
 
 
-        fn:function-arity($func as function(*)) as xs:integer
+        fn:function-arity($funcï¿½asï¿½function(*))ï¿½asï¿½xs:integer
 
 
 Properties
@@ -14268,7 +14268,7 @@ Summary
 Signature
 
 
-        fn:for-each($seq as item()*, $f as function(item()) as item()*) as item()*
+        fn:for-each($seqï¿½asï¿½item()*, $fï¿½asï¿½function(item()) as item()*)ï¿½asï¿½item()*
 
 
 Properties
@@ -14329,7 +14329,7 @@ Summary
 Signature
 
 
-        fn:filter($seq as item()*, $f as function(item()) as xs:boolean) as item()*
+        fn:filter($seqï¿½asï¿½item()*, $fï¿½asï¿½function(item()) as xs:boolean)ï¿½asï¿½item()*
 
 
 Properties
@@ -14399,9 +14399,9 @@ Signature
 
 
 
-        fn:fold-left( $seq  as item()*,
-        $zero  as item()*,
-        $f  as function(item()*, item()) as item()*) as item()*
+        fn:fold-left( $seq ï¿½asï¿½item()*,
+        $zero ï¿½asï¿½item()*,
+        $f ï¿½asï¿½function(item()*, item()) as item()*)ï¿½asï¿½item()*
 
 
 
@@ -14492,9 +14492,9 @@ Signature
 
 
 
-        fn:fold-right( $seq  as item()*,
-        $zero  as item()*,
-        $f  as function(item()*, item()) as item()*) as item()*
+        fn:fold-right( $seq ï¿½asï¿½item()*,
+        $zero ï¿½asï¿½item()*,
+        $f ï¿½asï¿½function(item()*, item()) as item()*)ï¿½asï¿½item()*
 
 
 
@@ -14577,9 +14577,9 @@ Signature
 
 
 
-        fn:for-each-pair( $seq1  as item()*,
-        $seq2  as item()*,
-        $f  as function(item(), item()) as item()*) as item()*
+        fn:for-each-pair( $seq1 ï¿½asï¿½item()*,
+        $seq2 ï¿½asï¿½item()*,
+        $f ï¿½asï¿½function(item(), item()) as item()*)ï¿½asï¿½item()*
 
 
 
@@ -14652,14 +14652,14 @@ XP30) contains a type derived from xs:NOTATION then a constructor function is de
 The form of the constructor function for an atomic type eg:TYPE is:
 
 
-eg:TYPE($arg as xs:anyAtomicType?) as eg:TYPE?
+eg:TYPE($argï¿½asï¿½xs:anyAtomicType?)ï¿½asï¿½eg:TYPE?
 
 
 If $arg is the empty sequence, the empty sequence is returned. For example, the signature of the constructor function corresponding to the xs:unsignedInt type defined in [XML Schema Part 2:
 Datatypes Second Edition] is:
 
 
-xs:unsignedInt($arg as xs:anyAtomicType?) as xs:unsignedInt?
+xs:unsignedInt($argï¿½asï¿½xs:anyAtomicType?)ï¿½asï¿½xs:unsignedInt?
 
 
 Calling the constructor function xs:unsignedInt(12) returns the xs:unsignedInt value 12. Another call of that constructor function that returns the same xs:unsignedInt value is xs:unsignedInt("12").
@@ -14675,106 +14675,106 @@ Special rules apply to constructor functions for xs:QName and types derived from
 
 The following constructor functions for the built-in atomic types are supported:
 
-* xs:string($arg as xs:anyAtomicType?) as xs:string?
+* xs:string($argï¿½asï¿½xs:anyAtomicType?)ï¿½asï¿½xs:string?
 
-* xs:boolean($arg as xs:anyAtomicType?) as xs:boolean?
+* xs:boolean($argï¿½asï¿½xs:anyAtomicType?)ï¿½asï¿½xs:boolean?
 
-* xs:decimal($arg as xs:anyAtomicType?) as xs:decimal?
+* xs:decimal($argï¿½asï¿½xs:anyAtomicType?)ï¿½asï¿½xs:decimal?
 
-* xs:float($arg as xs:anyAtomicType?) as xs:float?
+* xs:float($argï¿½asï¿½xs:anyAtomicType?)ï¿½asï¿½xs:float?
 
   Implementations should return negative zero for xs:float("-0.0E0"). But because [XML Schema Part 2: Datatypes Second Edition] does not distinguish between the values positive zero and negative
   zero. implementations Â· return positive zero in this case.
 
-* xs:double($arg as xs:anyAtomicType?) as xs:double?
+* xs:double($argï¿½asï¿½xs:anyAtomicType?)ï¿½asï¿½xs:double?
 
   Implementations should return negative zero for xs:double("-0.0E0"). But because [XML Schema Part 2: Datatypes Second Edition] does not distinguish between the values positive zero and negative
   zero. implementations Â· return positive zero in this case.
 
-* xs:duration($arg as xs:anyAtomicType?) as xs:duration?
+* xs:duration($argï¿½asï¿½xs:anyAtomicType?)ï¿½asï¿½xs:duration?
 
-* xs:dateTime($arg as xs:anyAtomicType?) as xs:dateTime?
+* xs:dateTime($argï¿½asï¿½xs:anyAtomicType?)ï¿½asï¿½xs:dateTime?
 
-* xs:time($arg as xs:anyAtomicType?) as xs:time?
+* xs:time($argï¿½asï¿½xs:anyAtomicType?)ï¿½asï¿½xs:time?
 
-* xs:date($arg as xs:anyAtomicType?) as xs:date?
+* xs:date($argï¿½asï¿½xs:anyAtomicType?)ï¿½asï¿½xs:date?
 
-* xs:gYearMonth($arg as xs:anyAtomicType?) as xs:gYearMonth?
+* xs:gYearMonth($argï¿½asï¿½xs:anyAtomicType?)ï¿½asï¿½xs:gYearMonth?
 
-* xs:gYear($arg as xs:anyAtomicType?) as xs:gYear?
+* xs:gYear($argï¿½asï¿½xs:anyAtomicType?)ï¿½asï¿½xs:gYear?
 
-* xs:gMonthDay($arg as xs:anyAtomicType?) as xs:gMonthDay?
+* xs:gMonthDay($argï¿½asï¿½xs:anyAtomicType?)ï¿½asï¿½xs:gMonthDay?
 
-* xs:gDay($arg as xs:anyAtomicType?) as xs:gDay?
+* xs:gDay($argï¿½asï¿½xs:anyAtomicType?)ï¿½asï¿½xs:gDay?
 
-* xs:gMonth($arg as xs:anyAtomicType?) as xs:gMonth?
+* xs:gMonth($argï¿½asï¿½xs:anyAtomicType?)ï¿½asï¿½xs:gMonth?
 
-* xs:hexBinary($arg as xs:anyAtomicType?) as xs:hexBinary?
+* xs:hexBinary($argï¿½asï¿½xs:anyAtomicType?)ï¿½asï¿½xs:hexBinary?
 
-* xs:base64Binary($arg as xs:anyAtomicType?) as xs:base64Binary?
+* xs:base64Binary($argï¿½asï¿½xs:anyAtomicType?)ï¿½asï¿½xs:base64Binary?
 
-* xs:anyURI($arg as xs:anyAtomicType?) as xs:anyURI?
+* xs:anyURI($argï¿½asï¿½xs:anyAtomicType?)ï¿½asï¿½xs:anyURI?
 
-* xs:QName($arg as xs:anyAtomicType?) as xs:QName?
+* xs:QName($argï¿½asï¿½xs:anyAtomicType?)ï¿½asï¿½xs:QName?
 
   See 17.2 Constructor functions for xs:QName and xs:NOTATION for special rules.
 
 
-* xs:normalizedString($arg as xs:anyAtomicType?) as xs:normalizedString?
+* xs:normalizedString($argï¿½asï¿½xs:anyAtomicType?)ï¿½asï¿½xs:normalizedString?
 
-* xs:token($arg as xs:anyAtomicType?) as xs:token?
+* xs:token($argï¿½asï¿½xs:anyAtomicType?)ï¿½asï¿½xs:token?
 
-* xs:language($arg as xs:anyAtomicType?) as xs:language?
+* xs:language($argï¿½asï¿½xs:anyAtomicType?)ï¿½asï¿½xs:language?
 
-* xs:NMTOKEN($arg as xs:anyAtomicType?) as xs:NMTOKEN?
+* xs:NMTOKEN($argï¿½asï¿½xs:anyAtomicType?)ï¿½asï¿½xs:NMTOKEN?
 
-* xs:Name($arg as xs:anyAtomicType?) as xs:Name?
+* xs:Name($argï¿½asï¿½xs:anyAtomicType?)ï¿½asï¿½xs:Name?
 
-* xs:NCName($arg as xs:anyAtomicType?) as xs:NCName?
+* xs:NCName($argï¿½asï¿½xs:anyAtomicType?)ï¿½asï¿½xs:NCName?
 
-* xs:ID($arg as xs:anyAtomicType?) as xs:ID?
+* xs:ID($argï¿½asï¿½xs:anyAtomicType?)ï¿½asï¿½xs:ID?
 
-* xs:IDREF($arg as xs:anyAtomicType?) as xs:IDREF?
+* xs:IDREF($argï¿½asï¿½xs:anyAtomicType?)ï¿½asï¿½xs:IDREF?
 
-* xs:ENTITY($arg as xs:anyAtomicType?) as xs:ENTITY?
+* xs:ENTITY($argï¿½asï¿½xs:anyAtomicType?)ï¿½asï¿½xs:ENTITY?
 
   See 18.1.9 Casting to xs:ENTITY for rules related to constructing values of type xs:ENTITY and types derived from it.
 
-* xs:integer($arg as xs:anyAtomicType?) as xs:integer?
+* xs:integer($argï¿½asï¿½xs:anyAtomicType?)ï¿½asï¿½xs:integer?
 
-* xs:nonPositiveInteger($arg as xs:anyAtomicType?) as xs:nonPositiveInteger?
+* xs:nonPositiveInteger($argï¿½asï¿½xs:anyAtomicType?)ï¿½asï¿½xs:nonPositiveInteger?
 
-* xs:negativeInteger($arg as xs:anyAtomicType?) as xs:negativeInteger?
+* xs:negativeInteger($argï¿½asï¿½xs:anyAtomicType?)ï¿½asï¿½xs:negativeInteger?
 
-* xs:long($arg as xs:anyAtomicType?) as xs:long?
+* xs:long($argï¿½asï¿½xs:anyAtomicType?)ï¿½asï¿½xs:long?
 
-* xs:int($arg as xs:anyAtomicType?) as xs:int?
+* xs:int($argï¿½asï¿½xs:anyAtomicType?)ï¿½asï¿½xs:int?
 
-* xs:short($arg as xs:anyAtomicType?) as xs:short?
+* xs:short($argï¿½asï¿½xs:anyAtomicType?)ï¿½asï¿½xs:short?
 
-* xs:byte($arg as xs:anyAtomicType?) as xs:byte?
+* xs:byte($argï¿½asï¿½xs:anyAtomicType?)ï¿½asï¿½xs:byte?
 
-* xs:nonNegativeInteger($arg as xs:anyAtomicType?) as xs:nonNegativeInteger?
+* xs:nonNegativeInteger($argï¿½asï¿½xs:anyAtomicType?)ï¿½asï¿½xs:nonNegativeInteger?
 
-* xs:unsignedLong($arg as xs:anyAtomicType?) as xs:unsignedLong?
+* xs:unsignedLong($argï¿½asï¿½xs:anyAtomicType?)ï¿½asï¿½xs:unsignedLong?
 
-* xs:unsignedInt($arg as xs:anyAtomicType?) as xs:unsignedInt?
+* xs:unsignedInt($argï¿½asï¿½xs:anyAtomicType?)ï¿½asï¿½xs:unsignedInt?
 
-* xs:unsignedShort($arg as xs:anyAtomicType?) as xs:unsignedShort?
+* xs:unsignedShort($argï¿½asï¿½xs:anyAtomicType?)ï¿½asï¿½xs:unsignedShort?
 
-* xs:unsignedByte($arg as xs:anyAtomicType?) as xs:unsignedByte?
+* xs:unsignedByte($argï¿½asï¿½xs:anyAtomicType?)ï¿½asï¿½xs:unsignedByte?
 
-* xs:positiveInteger($arg as xs:anyAtomicType?) as xs:positiveInteger?
-
-
-* xs:yearMonthDuration($arg as xs:anyAtomicType?) as xs:yearMonthDuration?
-
-* xs:dayTimeDuration($arg as xs:anyAtomicType?) as xs:dayTimeDuration?
-
-* xs:untypedAtomic($arg as xs:anyAtomicType?) as xs:untypedAtomic?
+* xs:positiveInteger($argï¿½asï¿½xs:anyAtomicType?)ï¿½asï¿½xs:positiveInteger?
 
 
-* xs:dateTimeStamp($arg as xs:anyAtomicType?) as xs:dateTimeStamp?
+* xs:yearMonthDuration($argï¿½asï¿½xs:anyAtomicType?)ï¿½asï¿½xs:yearMonthDuration?
+
+* xs:dayTimeDuration($argï¿½asï¿½xs:anyAtomicType?)ï¿½asï¿½xs:dayTimeDuration?
+
+* xs:untypedAtomic($argï¿½asï¿½xs:anyAtomicType?)ï¿½asï¿½xs:untypedAtomic?
+
+
+* xs:dateTimeStamp($argï¿½asï¿½xs:anyAtomicType?)ï¿½asï¿½xs:dateTimeStamp?
 
   Available only if the implementation supports XSD 1.1.
 
@@ -14826,11 +14826,11 @@ Each of the three built-in list types defined in [XML Schema Part 2: Datatypes S
 
 The function signatures are as follows:
 
-* xs:NMTOKENS($arg as xs:anyAtomicType?) as xs:NMTOKEN*
+* xs:NMTOKENS($argï¿½asï¿½xs:anyAtomicType?)ï¿½asï¿½xs:NMTOKEN*
 
-* xs:ENTITIES($arg as xs:anyAtomicType?) as xs:ENTITY*
+* xs:ENTITIES($argï¿½asï¿½xs:anyAtomicType?)ï¿½asï¿½xs:ENTITY*
 
-* xs:IDREFS($arg as xs:anyAtomicType?) as xs:IDREF*
+* xs:IDREFS($argï¿½asï¿½xs:anyAtomicType?)ï¿½asï¿½xs:IDREF*
 
 
 The semantics are equivalent to casting to the corresponding types from xs:string.
@@ -14857,7 +14857,7 @@ In the case of an implementation that supports XSD 1.1, there is a constructor f
 
 The function signature is as follows:
 
-* xs:error($arg as xs:anyAtomicType?) as xs:error?
+* xs:error($argï¿½asï¿½xs:anyAtomicType?)ï¿½asï¿½xs:error?
 
 
 The semantics are equivalent to casting to the corresponding union type (see 18.3.5 Casting to union types).
@@ -14886,7 +14886,7 @@ Consider a situation where the static context contains an atomic type called hat
 function is available to users:
 
 
-eg:hatSize($arg as xs:anyAtomicType?) as my:hatSize?
+eg:hatSize($argï¿½asï¿½xs:anyAtomicType?)ï¿½asï¿½my:hatSize?
 
 
 In the case of an atomic type A, the return type of the function is A?, reflecting the fact that the result will be an empty sequence if the input is an empty sequence. For a union or list type, the
@@ -15828,17 +15828,17 @@ Unicode Regular Expressions
 
 Extensible Markup Language (XML) 1.0 (Fifth Edition)
 
-        Extensible Markup Language (XML) 1.0 (Fifth Edition), Tim Bray, Jean Paoli, Michael Sperberg-McQueen, et. al., Editors. World Wide Web Consortium, 26 Nov 2008. This version is
+        Extensible Markup Language (XML) 1.0 (Fifth Edition), Tim Bray, Jean Paoli, Michael Sperberg-McQueen, et. al., Editors. World Wide Web Consortium, 26ï¿½Novï¿½2008. This version is
         http://www.w3.org/TR/2008/REC-xml-20081126/. The latest version is available at http://www.w3.org/TR/xml.
 
 Extensible Markup Language (XML) 1.1 Recommendation
 
-        Extensible Markup Language (XML) 1.1 (Second Edition), Tim Bray, Jean Paoli, Michael Sperberg-McQueen, et. al., Editors. World Wide Web Consortium, 16 Aug 2006. This version is
+        Extensible Markup Language (XML) 1.1 (Second Edition), Tim Bray, Jean Paoli, Michael Sperberg-McQueen, et. al., Editors. World Wide Web Consortium, 16ï¿½Augï¿½2006. This version is
         http://www.w3.org/TR/2006/REC-xml11-20060816. The latest version is available at http://www.w3.org/TR/xml11/.
 
 XML Path Language (XPath) Version 1.0
 
-        XML Path Language (XPath) Version 1.0, James Clark and Steven DeRose, Editors. World Wide Web Consortium, 16 Nov 1999. This version is http://www.w3.org/TR/1999/REC-xpath-19991116. The
+        XML Path Language (XPath) Version 1.0, James Clark and Steven DeRose, Editors. World Wide Web Consortium, 16ï¿½Novï¿½1999. This version is http://www.w3.org/TR/1999/REC-xpath-19991116. The
         latest version is available at http://www.w3.org/TR/xpath.
 
 XML Path Language (XPath) 2.0
@@ -15888,7 +15888,7 @@ XQuery 3.0: An XML Query Language
 
 XML Inclusions (XInclude) Version 1.0 (Second Edition)
 
-        XML Inclusions (XInclude) Version 1.0 (Second Edition), Jonathan Marsh, David Orchard, and Daniel Veillard, Editors. World Wide Web Consortium, 15 Nov 2006. This version is
+        XML Inclusions (XInclude) Version 1.0 (Second Edition), Jonathan Marsh, David Orchard, and Daniel Veillard, Editors. World Wide Web Consortium, 15ï¿½Novï¿½2006. This version is
         http://www.w3.org/TR/2006/REC-xinclude-20061115/. The latest version is available at http://www.w3.org/TR/xinclude/.
 
 XML Schema Part 2: Datatypes Second Edition
@@ -15897,12 +15897,12 @@ XML Schema Part 2: Datatypes Second Edition
 
 Schema 1.1 Part 2
 
-        W3C XML Schema Definition Language (XSD) 1.1 Part 2: Datatypes, David Peterson, Sandy Gao, Ashok Malhotra, et. al., Editors. World Wide Web Consortium, 05 Apr 2012. This version is
+        W3C XML Schema Definition Language (XSD) 1.1 Part 2: Datatypes, David Peterson, Sandy Gao, Ashok Malhotra, et. al., Editors. World Wide Web Consortium, 05ï¿½Aprï¿½2012. This version is
         http://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/. The latest version is available at http://www.w3.org/TR/xmlschema11-2/.
 
 Namespaces in XML
 
-        Namespaces in XML 1.0 (Third Edition), Tim Bray, Dave Hollander, Andrew Layman, et. al., Editors. World Wide Web Consortium, 08 Dec 2009. This version is
+        Namespaces in XML 1.0 (Third Edition), Tim Bray, Dave Hollander, Andrew Layman, et. al., Editors. World Wide Web Consortium, 08ï¿½Decï¿½2009. This version is
         http://www.w3.org/TR/2009/REC-xml-names-20091208/. The latest version is available at http://www.w3.org/TR/xml-names.
 
 
@@ -16173,7 +16173,7 @@ C.1.1 eg:if-empty
 
 
 
-eg:if-empty($node as node()?, $value as xs:anyAtomicType) as xs:anyAtomicType*
+eg:if-empty($nodeï¿½asï¿½node()?, $valueï¿½asï¿½xs:anyAtomicType)ï¿½asï¿½xs:anyAtomicType*
 
 
 If the first argument is the empty sequence or an element without simple or complex content, eg:if-empty() returns the second argument; otherwise, it returns the content of the first argument.
@@ -16211,7 +16211,7 @@ C.1.2 eg:if-absent
 
 
 
-eg:if-absent($node as node()?, $value as xs:anyAtomicType) as xs:anyAtomicType*
+eg:if-absent($nodeï¿½asï¿½node()?, $valueï¿½asï¿½xs:anyAtomicType)ï¿½asï¿½xs:anyAtomicType*
 
 
 If the first argument is the empty sequence, eg:if-absent() returns the second argument; otherwise, it returns the content of the first argument.
@@ -16256,8 +16256,8 @@ C.2.1 eg:value-union
 
 
 
-eg:value-union( $arg1  as xs:anyAtomicType*,
-$arg2  as xs:anyAtomicType*) as xs:anyAtomicType*
+eg:value-union( $arg1 ï¿½asï¿½xs:anyAtomicType*,
+$arg2 ï¿½asï¿½xs:anyAtomicType*)ï¿½asï¿½xs:anyAtomicType*
 
 
 
@@ -16298,8 +16298,8 @@ C.2.2 eg:value-intersect
 
 
 
-eg:value-intersect( $arg1  as xs:anyAtomicType*,
-$arg2  as xs:anyAtomicType*) as xs:anyAtomicType*
+eg:value-intersect( $arg1 ï¿½asï¿½xs:anyAtomicType*,
+$arg2 ï¿½asï¿½xs:anyAtomicType*)ï¿½asï¿½xs:anyAtomicType*
 
 
 
@@ -16340,8 +16340,8 @@ C.2.3 eg:value-except
 
 
 
-eg:value-except( $arg1  as xs:anyAtomicType*,
-$arg2  as xs:anyAtomicType*) as xs:anyAtomicType*
+eg:value-except( $arg1 ï¿½asï¿½xs:anyAtomicType*,
+$arg2 ï¿½asï¿½xs:anyAtomicType*)ï¿½asï¿½xs:anyAtomicType*
 
 
 
@@ -16381,7 +16381,7 @@ C.3 eg:index-of-node
 
 
 
-eg:index-of-node($seq as node()*, $search as node()) as xs:integer*
+eg:index-of-node($seqï¿½asï¿½node()*, $searchï¿½asï¿½node())ï¿½asï¿½xs:integer*
 
 
 This function returns a sequence of positive integers giving the positions within the sequence $seq of nodes that are identical to $search.
@@ -16446,7 +16446,7 @@ C.4 eg:string-pad
 
 
 
-eg:string-pad($padString as xs:string?, $padCount as xs:integer) as xs:string
+eg:string-pad($padStringï¿½asï¿½xs:string?, $padCountï¿½asï¿½xs:integer)ï¿½asï¿½xs:string
 
 
 Returns a xs:string consisting of a given number of copies of an xs:string argument concatenated together.
@@ -16489,7 +16489,7 @@ C.5 eg:distinct-nodes-stable
 
 
 
-eg:distinct-nodes-stable($arg as node()*) as node()*
+eg:distinct-nodes-stable($argï¿½asï¿½node()*)ï¿½asï¿½node()*
 
 
 This function illustrates one possible implementation of a distinct-nodes function. It removes duplicate nodes by identity, preserving the first occurrence of each node.
@@ -16681,7 +16681,7 @@ eg:lowest(function($emp){sum($emp/timesheet/period/hours}, //employee)
 C.7 Sorting
 
 
-Both XSLT and XQuery include constructs for sorting sequences. However, it can often be convenient to invoke sorting via a simple function call. The example function in this section takes two
+Both XSLT and XQuery include constructs for sort sequences. However, it can often be convenient to invoke sort via a simple function call. The example function in this section takes two
 arguments, a sequence to be sorted, and a function to compute a sort key, and it returns the items from the input sequence in sorted order of this sort key.
 
 XSLT implementation

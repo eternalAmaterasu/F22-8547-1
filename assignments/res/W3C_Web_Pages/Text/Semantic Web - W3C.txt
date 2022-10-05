@@ -46,8 +46,8 @@ Standards
 
 
 * Skip
-* W3C » 
-* Standards » 
+* W3Cï¿½ï¿½ï¿½
+* Standardsï¿½ï¿½ï¿½
 * Semantic Web
 
 
@@ -160,7 +160,7 @@ nearly 3,000 new Cantonese pronunciation entries, as well as new or clarified st
 
 Two other important Unicode specifications are maintained in synchrony with the Unicode Standard, and have updates for Version 7.0. These will be released at the same time:
 
-UTS #10, Unicode Collation Algorithm&#x2014; the standard for sorting Unicode text
+UTS #10, Unicode Collation Algorithm&#x2014; the standard for sort Unicode text
 UTS #46, Unicode IDNA Compatibility Processing&#x2014; for processing of non-ASCII URLs (IDNs)
 
 
@@ -454,7 +454,7 @@ W3C Updates
 * 
 
 
-Copyright © 2013 W3C ® (MIT, ERCIM, Keio, Beihang) Usage policies apply.
+Copyright ï¿½ 2013 W3C ï¿½ (MIT, ERCIM, Keio, Beihang) Usage policies apply.
 
 
 
