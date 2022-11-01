@@ -1,9 +1,10 @@
-package Assignment2;
+package assignment_two;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.StringTokenizer;
+import static assignment_one.DocumentTextExtractionMode.REGEX;
 
 public class SimilarWord {
 	public static StringBuilder Builder = new StringBuilder();
