@@ -1,5 +1,11 @@
 package assignment_two;
 
+/** 
+    *Author: Raj Dattani
+    *Date: 10/31/2022
+    *Student No.: 110094663
+  */
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
