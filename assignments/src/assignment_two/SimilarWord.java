@@ -24,7 +24,7 @@ public class SimilarWord {
 	public static void readFile(String fileName) {
 		//Read the Filename
 		try {
-		    BufferedReader in = new BufferedReader(new FileReader("Assignment2/resources/W3C Web Pages/" + fileName + ".htm"));
+		    BufferedReader in = new BufferedReader(new FileReader("assignment/assignment_two/res/W3C_Web_Pages/" + fileName + ".htm"));
 		    String str;
 		    while ((str = in.readLine()) != null) {
 		    	Builder.append(str);
