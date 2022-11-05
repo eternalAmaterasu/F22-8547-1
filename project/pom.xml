@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.uwindsor.mac</groupId>
-    <artifactId>f22.acc.compute-engine</artifactId>
+    <groupId>org.uwindsor.mac.f22.acc</groupId>
+    <artifactId>compute-engine.flight-price-analysis</artifactId>
     <version>1.0-SNAPSHOT</version>
     <description>ACC project by Compute Engine</description>
     <packaging>jar</packaging>
@@ -13,7 +13,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <java.version>11</java.version>
+        <java.version>1.8</java.version>
         <spring-cloud.version>Hoxton.SR8</spring-cloud.version>
         <spring-cloud-feign.version>1.4.7.RELEASE</spring-cloud-feign.version>
         <gson.version>2.10</gson.version>

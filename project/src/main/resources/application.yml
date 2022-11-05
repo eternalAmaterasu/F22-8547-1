@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: compute-engine-flight-price
+
+server:
+  port: 3131
+
+user:
+  timezone: UTC
