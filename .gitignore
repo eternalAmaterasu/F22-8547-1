@@ -6,5 +6,10 @@ Search_Trees
 Sorting
 AdvancedDesignAndAnalysis
 Graphs
+MemoryManagement
+TextProcessing
 out
+target/
 *iml
+
+*.dat
