@@ -7,9 +7,11 @@ import org.springframework.context.annotation.Configuration;
 import org.uwindsor.mac.f22.acc.compute_engine.model.AirportData;
 import org.uwindsor.mac.f22.acc.compute_engine.reader.ReadAirportCodes;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * @author Vivek
@@ -26,10 +28,15 @@ public class BeanStore {
 
     @Bean
     @Qualifier("cityXAirportMap")
-    public Map<String, AirportData> getCityAndAirportDataMap() {
+    public Map<String, List<AirportData>> getCityAndAirportDataMap() {
         List<AirportData> data = getAirportDataList();
-        Map<String, AirportData> map = new HashMap<>();
-        data.forEach(airportData -> map.put(airportData.getCity(), airportData));
+        Map<String, List<AirportData>> map = new HashMap<>();
+        data.forEach(airportData -> {
+            List<AirportData> dataWithSameCityName = map.get(airportData.getCity());
+            if (Objects.isNull(dataWithSameCityName)) dataWithSameCityName = new ArrayList<>();
+            dataWithSameCityName.add(airportData);
+            map.put(airportData.getCity(), dataWithSameCityName);
+        });
         return map;
     }
 

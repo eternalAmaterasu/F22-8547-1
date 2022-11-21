@@ -1,3 +1,5 @@
 Windsor, ON|Canada|YQG
 Yerevan|Armenia|EVN
 Mumbai|India|BOM
+London|Canada|YXU
+London|England|LHR

@@ -2,16 +2,14 @@ package org.uwindsor.mac.f22.acc.compute_engine.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.uwindsor.mac.f22.acc.compute_engine.engine.ComputeEngine;
-import org.uwindsor.mac.f22.acc.compute_engine.model.AirportData;
+import org.uwindsor.mac.f22.acc.compute_engine.service.ComputeEngineService;
 
 import java.util.Date;
-import java.util.Map;
+import java.util.List;
 
 /**
  * @author Vivek
@@ -23,15 +21,7 @@ import java.util.Map;
 public class FlightDataController {
 
     @Autowired
-    @Qualifier("codeXAirportMap")
-    private Map<String, AirportData> codeAndAirportDataMap;
-
-    @Autowired
-    @Qualifier("cityXAirportMap")
-    private Map<String, AirportData> cityAndAirportDataMap;
-
-    @Autowired
-    private ComputeEngine computeEngine;
+    private ComputeEngineService computeEngineService;
 
     @GetMapping("/time/system")
     public String getSystemTime() {
@@ -39,16 +29,14 @@ public class FlightDataController {
     }
 
     @GetMapping("/data/nearest/code")
-    public String getNearestCode(@RequestParam("input") String code, @RequestParam(value = "topRelevantMatchCount", defaultValue = "3") int topN) {
-        log.info(codeAndAirportDataMap.toString());
+    public List<String> getNearestCode(@RequestParam("input") String code, @RequestParam(value = "topRelevantMatchCount", defaultValue = "10") int topN) {
         code = code.toLowerCase();
-        return computeEngine.getTopNNearestStrings(code, codeAndAirportDataMap.keySet(), topN).toString();
+        return computeEngineService.getTopNNearestCityCodes(code, topN);
     }
 
     @GetMapping("/data/nearest/city")
-    public String getNearestCity(@RequestParam("input") String city, @RequestParam(value = "topRelevantMatchCount", defaultValue = "3") int topN) {
-        log.info(cityAndAirportDataMap.toString());
+    public List<String> getNearestCity(@RequestParam("input") String city, @RequestParam(value = "topRelevantMatchCount", defaultValue = "10") int topN) {
         city = city.toLowerCase();
-        return computeEngine.getTopNNearestStrings(city, cityAndAirportDataMap.keySet(), topN).toString();
+        return computeEngineService.getTopNNearestCityCodesBasedOnNames(city, topN);
     }
 }
