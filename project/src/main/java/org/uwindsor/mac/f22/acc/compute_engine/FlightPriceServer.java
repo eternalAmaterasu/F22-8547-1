@@ -23,6 +23,7 @@ public class FlightPriceServer {
 
     public static void main(String[] args) {
         TimeZone.setDefault(TimeZone.getTimeZone(ZoneId.of("EST", ZoneId.SHORT_IDS))); //force setting, because for some reason my jvm runs in IST time
+        System.setProperty("webdriver.gecko.driver", "/etc/WEBDRIVER/FIREFOX/geckodriver-v0.32.0-linux64/geckodriver");
         SpringApplication.run(FlightPriceServer.class, args);
     }
 
