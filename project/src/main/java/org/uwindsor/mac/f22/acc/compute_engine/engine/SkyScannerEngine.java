@@ -10,10 +10,10 @@ import java.util.concurrent.TimeUnit;
  * @author Vivek
  * @since 20/11/22
  */
-public class SeleniumEngine {
+public class SkyScannerEngine {
 
     public static void main(String[] args) throws InterruptedException {
-        System.setProperty("webdriver.gecko.driver", "/etc/WEBDRIVER/FIREFOX/geckodriver");
+        System.setProperty("webdriver.gecko.driver", "/etc/WEBDRIVER/FIREFOX/geckodriver-v0.32.0-linux64/geckodriver");
 
         FirefoxOptions options = new FirefoxOptions();
         //options.setHeadless(true);
@@ -22,9 +22,9 @@ public class SeleniumEngine {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
 
-        driver.get("https://www.skyscanner.ca/transport/flights/cdg/yul/221123/?adults=1&adultsv2=1&cabinclass=economy&children=0&childrenv2=&destinationentityid=27536613&inboundaltsenabled=false&infants=0&originentityid=27537339&outboundaltsenabled=false&preferdirects=false&ref=home&rtn=0");
+        driver.get("https://www.skyscanner.ca/transport/flights/bom/del/221123/?adults=1&adultsv2=1&cabinclass=economy&children=0&childrenv2=&destinationentityid=27536613&inboundaltsenabled=false&infants=0&originentityid=27537339&outboundaltsenabled=false&preferdirects=false&ref=home&rtn=0");
 
-        Thread.sleep(20 * 1000);
+        Thread.sleep(5 * 1000);
         System.out.println(driver.getPageSource());
 
         driver.close();
