@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.uwindsor.mac.f22.acc.compute_engine.engine.KayakEngine;
+import org.uwindsor.mac.f22.acc.compute_engine.model.SearchRequest;
 import org.uwindsor.mac.f22.acc.compute_engine.service.ComputeEngineService;
 
 import java.util.Date;
@@ -23,6 +25,9 @@ public class FlightDataController {
     @Autowired
     private ComputeEngineService computeEngineService;
 
+    @Autowired
+    private KayakEngine kayakEngine;
+
     @GetMapping("/time/system")
     public String getSystemTime() {
         return (new Date()).toString();
@@ -38,5 +43,11 @@ public class FlightDataController {
     public List<String> getNearestCity(@RequestParam("input") String city, @RequestParam(value = "topRelevantMatchCount", defaultValue = "10") int topN) {
         city = city.toLowerCase();
         return computeEngineService.getTopNNearestCityCodesBasedOnNames(city, topN);
+    }
+
+    @GetMapping("/fire/kayak")
+    public String fireUpKayak(@RequestParam(value = "seleniumWaitTime", defaultValue = "7") int seleniumWaitTime) {
+        SearchRequest searchRequest = new SearchRequest("HYD", "BOM", 2, 20221124, "economy");
+        return kayakEngine.getInformationFromKayak(searchRequest, seleniumWaitTime).toString();
     }
 }
