@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.uwindsor.mac.f22.acc.compute_engine.engine.KayakEngine;
+import org.uwindsor.mac.f22.acc.compute_engine.engine.selenium.KayakEngine;
 import org.uwindsor.mac.f22.acc.compute_engine.model.SearchRequest;
 import org.uwindsor.mac.f22.acc.compute_engine.service.ComputeEngineService;
 

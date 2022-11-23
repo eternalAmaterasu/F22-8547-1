@@ -1,4 +1,4 @@
-package org.uwindsor.mac.f22.acc.compute_engine.engine;
+package org.uwindsor.mac.f22.acc.compute_engine.engine.selenium;
 
 import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.WebDriver;
@@ -26,21 +26,8 @@ public class KayakEngine {
     public List<SearchResponse> getInformationFromKayak(SearchRequest searchRequest, int seleniumWaitTime) {
         log.info("Starting exec of search request part!");
 
-        int year = searchRequest.getTravelDate() / 10000;
-        int buffer = searchRequest.getTravelDate() % 10000;
-        int month = buffer / 100;
-        int day = buffer % 100;
-
-        String kayakUrl = String.format(KAYAK_ENDPOINT_STRING,
-                searchRequest.getFrom().toUpperCase(),
-                searchRequest.getTo().toUpperCase(),
-                year,
-                month,
-                day,
-                searchRequest.getNumberOfPassengers()
-        );
+        String kayakUrl = getKayakEndpointString(searchRequest);
         log.info("Will be hitting {}", kayakUrl);
-
         driver.get(kayakUrl);
 
         try {
@@ -55,4 +42,22 @@ public class KayakEngine {
         List<SearchResponse> searchResponses = new ArrayList<>();
         return searchResponses;
     }
+
+    String getKayakEndpointString(SearchRequest searchRequest) {
+        int year = searchRequest.getTravelDate() / 10000;
+        int buffer = searchRequest.getTravelDate() % 10000;
+        int month = buffer / 100;
+        int day = buffer % 100;
+
+        return String.format(KAYAK_ENDPOINT_STRING,
+                searchRequest.getFrom().toUpperCase(),
+                searchRequest.getTo().toUpperCase(),
+                year,
+                month,
+                day,
+                searchRequest.getNumberOfPassengers()
+        );
+    }
+
+
 }

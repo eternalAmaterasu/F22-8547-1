@@ -1,4 +1,4 @@
-package org.uwindsor.mac.f22.acc.compute_engine.engine;
+package org.uwindsor.mac.f22.acc.compute_engine.engine.selenium;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
