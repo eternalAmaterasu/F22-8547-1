@@ -3,6 +3,7 @@ package org.uwindsor.mac.f22.acc.compute_engine.engine;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.uwindsor.mac.f22.acc.compute_engine.model.EditDistanceNode;
+import org.uwindsor.mac.f22.acc.compute_engine.model.TrieNode;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -61,5 +62,38 @@ public class ComputeEngine {
         return editDistanceNodes.subList(0, Math.min(editDistanceNodes.size(), topN))
                 .stream().map(EditDistanceNode::getWord)
                 .collect(Collectors.toList());
+    }
+
+    public List<String> getAutoCompleteForPrefix(String prefix, TrieNode root) {
+        List<String> result = new ArrayList<>();
+
+        if (prefix.isEmpty() || root.getChildAt(prefix.charAt(0)) == null) return result;
+        TrieNode seekLast = navigateToPrefixEnd(prefix, root);
+        if (seekLast == null) return result;
+        runAutoComplete(prefix, seekLast, result, "");
+        return result;
+    }
+
+    private TrieNode navigateToPrefixEnd(String prefix, TrieNode root) {
+        TrieNode current = root;
+        for (int i = 0; i < prefix.length(); i++) {
+            TrieNode next = current.getChildAt(prefix.charAt(i));
+            if (next == null) return null;
+            current = next;
+        }
+        return current;
+    }
+
+    private void runAutoComplete(String prefix, TrieNode node, List<String> result, String lastWord) {
+        TrieNode[] children = node.getChildren();
+        boolean leaf = true;
+        for (int i = 0; i < children.length; i++) {
+            if (children[i] != null) {
+                String newPrefix = prefix + (char) i;
+                leaf = false;
+                runAutoComplete(newPrefix, children[i], result, newPrefix);
+            }
+        }
+        if (leaf) result.add(lastWord);
     }
 }
