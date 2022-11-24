@@ -8,7 +8,6 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.uwindsor.mac.f22.acc.compute_engine.engine.ComputeEngine;
 import org.uwindsor.mac.f22.acc.compute_engine.model.AirportData;
 import org.uwindsor.mac.f22.acc.compute_engine.model.TrieNode;
 import org.uwindsor.mac.f22.acc.compute_engine.reader.ReadAirportCodes;
@@ -81,41 +80,13 @@ public class BeanStore {
     @Bean
     @Qualifier("trieOfCityCodes")
     public TrieNode getTrieCodeRoot() {
-        TrieNode root = generateTrieFromSet(getCodeAndAirportDataMap().keySet());
-
-        ComputeEngine computeEngine = new ComputeEngine();
-        String prefix = "y";
-        List<String> autoCompletedCodes = computeEngine.getAutoCompleteForPrefix(prefix, root);
-        log.info("Autocompleted values for prefix: {} => {}", prefix, autoCompletedCodes.toString());
-
-        prefix = "b";
-        autoCompletedCodes = computeEngine.getAutoCompleteForPrefix(prefix, root);
-        log.info("Autocompleted values for prefix: {} => {}", prefix, autoCompletedCodes.toString());
-
-        prefix = "v";
-        autoCompletedCodes = computeEngine.getAutoCompleteForPrefix(prefix, root);
-        log.info("Autocompleted values for prefix: {} => {}", prefix, autoCompletedCodes.toString());
-        return root;
+        return generateTrieFromSet(getCodeAndAirportDataMap().keySet());
     }
 
     @Bean
     @Qualifier("trieOfCityNames")
     public TrieNode getTrieNameRoot() {
-        TrieNode root = generateTrieFromSet(getCityAndAirportDataMap().keySet());
-
-        ComputeEngine computeEngine = new ComputeEngine();
-        String prefix = "y";
-        List<String> autoCompletedCodes = computeEngine.getAutoCompleteForPrefix(prefix, root);
-        log.info("Autocompleted values for prefix: {} => {}", prefix, autoCompletedCodes.toString());
-
-        prefix = "b";
-        autoCompletedCodes = computeEngine.getAutoCompleteForPrefix(prefix, root);
-        log.info("Autocompleted values for prefix: {} => {}", prefix, autoCompletedCodes.toString());
-
-        prefix = "v";
-        autoCompletedCodes = computeEngine.getAutoCompleteForPrefix(prefix, root);
-        log.info("Autocompleted values for prefix: {} => {}", prefix, autoCompletedCodes.toString());
-        return root;
+        return generateTrieFromSet(getCityAndAirportDataMap().keySet());
     }
 
     private TrieNode generateTrieFromSet(Set<String> data) {
