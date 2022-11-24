@@ -16,9 +16,10 @@ public class FlightPriceServer {
 
     public static void main(String[] args) {
         TimeZone.setDefault(TimeZone.getTimeZone(ZoneId.of("EST", ZoneId.SHORT_IDS))); //force setting, because for some reason my jvm runs in IST time
-        System.setProperty("webdriver.gecko.driver", "/etc/WEBDRIVER/FIREFOX/geckodriver");
-        System.setProperty(FirefoxDriver.SystemProperty.DRIVER_USE_MARIONETTE, "true");
-        System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, "/dev/null");
+        System.setProperty("webdriver.gecko.driver", "/etc/WEBDRIVER/FIREFOX/geckodriver"); //setting path of the firefox driver for the server
+        System.setProperty(FirefoxDriver.SystemProperty.DRIVER_USE_MARIONETTE, "true"); //for suppressing selenium logs
+        System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, "/dev/null"); //for suppressing selenium logs
+
         SpringApplication.run(FlightPriceServer.class, args);
     }
 }
