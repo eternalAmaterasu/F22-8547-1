@@ -11,6 +11,7 @@ import org.uwindsor.mac.f22.acc.compute_engine.service.ComputeEngineService;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.List;
 
 /**
  * @author Vivek
@@ -36,7 +37,7 @@ public class Orchestrator {
                 break;
             }
             log.info("Search request received: {}", searchRequest);
-            log.info(computeEngineService.getAutoCompleteForPrefixOnCodes(searchRequest.getFrom()).toString());
+            //log.info(computeEngineService.getAutoCompleteForPrefixOnCodes(searchRequest.getFrom()).toString());
 
             /*log.info(computeEngineService.getAutoCompleteForPrefixOnCodes("y").toString());
             log.info(computeEngineService.getAutoCompleteForPrefixOnCodes("e").toString());
@@ -56,6 +57,24 @@ public class Orchestrator {
         boolean isCodeSelected = input == 1;
         log.info("Enter the source: ");
         String src = in.readLine();
+        if (input == 1) {
+            List<String> autoCompleteCodes = computeEngineService.getAutoCompleteForPrefixOnCodes(src);
+            log.info(autoCompleteCodes.toString());
+            if (!autoCompleteCodes.isEmpty()) {
+                log.info("Please view the airport code you want as source:-");
+                for (int i = 0; i < autoCompleteCodes.size(); i++) log.info("{} - {}", i + 1, autoCompleteCodes.get(i));
+                log.info("Please enter the airport code you want as source: ");
+                int selection = Integer.parseInt(in.readLine());
+                src = autoCompleteCodes.get(selection - 1);
+            } else {
+                List<String> topNearestCodes = computeEngineService.getTopNNearestCityCodes(src, 5);
+                log.info("Please view the airport code you want as source:-");
+                for (int i = 0; i < topNearestCodes.size(); i++) log.info("{} - {}", i + 1, topNearestCodes.get(i));
+                log.info("Please enter the airport code you want as source: ");
+                int selection = Integer.parseInt(in.readLine());
+                src = topNearestCodes.get(selection - 1);
+            }
+        }
         //check if src matches any of the existing names or codes - present the auto complete option if any is matching or present the best matching strings?
 
         log.info("Enter the destination: ");
