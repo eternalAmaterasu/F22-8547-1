@@ -8,7 +8,9 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.uwindsor.mac.f22.acc.compute_engine.engine.ComputeEngine;
 import org.uwindsor.mac.f22.acc.compute_engine.model.AirportData;
+import org.uwindsor.mac.f22.acc.compute_engine.model.TrieNode;
 import org.uwindsor.mac.f22.acc.compute_engine.reader.ReadAirportCodes;
 
 import java.util.ArrayList;
@@ -16,6 +18,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -73,5 +76,61 @@ public class BeanStore {
         Map<String, AirportData> map = new HashMap<>();
         data.forEach(airportData -> map.put(airportData.getCode(), airportData));
         return map;
+    }
+
+    @Bean
+    @Qualifier("trieOfCityCodes")
+    public TrieNode getTrieCodeRoot() {
+        TrieNode root = generateTrieFromSet(getCodeAndAirportDataMap().keySet());
+
+        ComputeEngine computeEngine = new ComputeEngine();
+        String prefix = "y";
+        List<String> autoCompletedCodes = computeEngine.getAutoCompleteForPrefix(prefix, root);
+        log.info("Autocompleted values for prefix: {} => {}", prefix, autoCompletedCodes.toString());
+
+        prefix = "b";
+        autoCompletedCodes = computeEngine.getAutoCompleteForPrefix(prefix, root);
+        log.info("Autocompleted values for prefix: {} => {}", prefix, autoCompletedCodes.toString());
+
+        prefix = "v";
+        autoCompletedCodes = computeEngine.getAutoCompleteForPrefix(prefix, root);
+        log.info("Autocompleted values for prefix: {} => {}", prefix, autoCompletedCodes.toString());
+        return root;
+    }
+
+    @Bean
+    @Qualifier("trieOfCityNames")
+    public TrieNode getTrieNameRoot() {
+        TrieNode root = generateTrieFromSet(getCityAndAirportDataMap().keySet());
+
+        ComputeEngine computeEngine = new ComputeEngine();
+        String prefix = "y";
+        List<String> autoCompletedCodes = computeEngine.getAutoCompleteForPrefix(prefix, root);
+        log.info("Autocompleted values for prefix: {} => {}", prefix, autoCompletedCodes.toString());
+
+        prefix = "b";
+        autoCompletedCodes = computeEngine.getAutoCompleteForPrefix(prefix, root);
+        log.info("Autocompleted values for prefix: {} => {}", prefix, autoCompletedCodes.toString());
+
+        prefix = "v";
+        autoCompletedCodes = computeEngine.getAutoCompleteForPrefix(prefix, root);
+        log.info("Autocompleted values for prefix: {} => {}", prefix, autoCompletedCodes.toString());
+        return root;
+    }
+
+    private TrieNode generateTrieFromSet(Set<String> data) {
+        TrieNode root = new TrieNode();
+        data.forEach(code -> {
+            TrieNode current = root;
+            for (int i = 0; i < code.length(); i++) {
+                char ch = code.charAt(i);
+                TrieNode value = current.getChildAt(ch);
+                if (value == null) {
+                    current.putChildAt(ch, new TrieNode());
+                }
+                current = current.getChildAt(ch);
+            }
+        });
+        return root;
     }
 }
