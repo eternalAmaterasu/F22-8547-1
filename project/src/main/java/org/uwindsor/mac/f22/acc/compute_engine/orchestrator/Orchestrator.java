@@ -57,7 +57,7 @@ public class Orchestrator {
         boolean isCodeSelected = input == 1;
         log.info("Enter the source: ");
         String src = in.readLine();
-        if (input == 1) {
+        if (isCodeSelected) {
             List<String> autoCompleteCodes = computeEngineService.getAutoCompleteForPrefixOnCodes(src);
             log.info(autoCompleteCodes.toString());
             if (!autoCompleteCodes.isEmpty()) {
