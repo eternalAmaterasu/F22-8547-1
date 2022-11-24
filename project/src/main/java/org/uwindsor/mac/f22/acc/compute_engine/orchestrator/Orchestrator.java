@@ -5,7 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
+import org.uwindsor.mac.f22.acc.compute_engine.engine.selenium.KayakEngine;
 import org.uwindsor.mac.f22.acc.compute_engine.model.SearchRequest;
+import org.uwindsor.mac.f22.acc.compute_engine.model.SearchResponse;
 import org.uwindsor.mac.f22.acc.compute_engine.service.ComputeEngineService;
 
 import java.io.BufferedReader;
@@ -25,6 +27,12 @@ public class Orchestrator {
     @Autowired
     private ComputeEngineService computeEngineService;
 
+    @Autowired
+    private KayakEngine kayakEngine;
+
+//    @Autowired
+//    private SkyScannerEngine skyScannerEngine;
+
     @EventListener(ApplicationReadyEvent.class)
     public void startup() throws IOException {
         log.info("Spring boot startup is complete and application is ready! Entering console mode!");
@@ -37,14 +45,8 @@ public class Orchestrator {
                 break;
             }
             log.info("Search request received: {}", searchRequest);
-            //log.info(computeEngineService.getAutoCompleteForPrefixOnCodes(searchRequest.getFrom()).toString());
-
-            /*log.info(computeEngineService.getAutoCompleteForPrefixOnCodes("y").toString());
-            log.info(computeEngineService.getAutoCompleteForPrefixOnCodes("e").toString());
-            log.info(computeEngineService.getAutoCompleteForPrefixOnCodes("bo").toString());
-
-            log.info(computeEngineService.getAutoCompleteForPrefixOnNames("bom").toString());
-            log.info(computeEngineService.getAutoCompleteForPrefixOnNames("wi").toString());*/
+            List<SearchResponse> responses = kayakEngine.getInformationFromKayak(searchRequest, 7);
+            //responses.sort(SearchResponse::getBestDealPrice);
         }
         shutdown();
     }
