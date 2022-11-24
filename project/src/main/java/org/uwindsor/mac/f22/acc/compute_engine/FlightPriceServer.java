@@ -1,6 +1,5 @@
 package org.uwindsor.mac.f22.acc.compute_engine;
 
-import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,7 +11,6 @@ import java.util.TimeZone;
  * @author Vivek
  * @since 04/11/22
  */
-@Slf4j
 @SpringBootApplication
 public class FlightPriceServer {
 
