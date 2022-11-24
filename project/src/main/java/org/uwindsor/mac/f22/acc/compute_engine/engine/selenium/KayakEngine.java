@@ -4,10 +4,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.WebDriver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.uwindsor.mac.f22.acc.compute_engine.engine.parser.KayakParser;
 import org.uwindsor.mac.f22.acc.compute_engine.model.SearchRequest;
 import org.uwindsor.mac.f22.acc.compute_engine.model.SearchResponse;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -36,12 +36,12 @@ public class KayakEngine {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        System.out.println(driver.getPageSource());
+        String pageSource = driver.getPageSource();
+        System.out.println(pageSource);
 
         driver.close();
 
-        List<SearchResponse> searchResponses = new ArrayList<>();
-        return searchResponses;
+        return KayakParser.parseKayakData(pageSource);
     }
 
     String getKayakEndpointString(SearchRequest searchRequest) {
