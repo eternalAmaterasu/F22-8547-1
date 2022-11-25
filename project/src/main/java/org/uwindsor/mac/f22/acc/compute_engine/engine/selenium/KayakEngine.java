@@ -37,9 +37,9 @@ public class KayakEngine {
             throw new RuntimeException(e);
         }
         String pageSource = driver.getPageSource();
-        System.out.println(pageSource);
+        //System.out.println(pageSource);
 
-        driver.close();
+        driver.manage().deleteAllCookies();
 
         return KayakParser.parseKayakData(pageSource);
     }
