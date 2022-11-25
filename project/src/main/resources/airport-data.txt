@@ -1,5 +1,9 @@
 Windsor, ON|Canada|YQG
+Toronto|Canada|YYZ
+Montreal|Canada|YUL
 Yerevan|Armenia|EVN
 Mumbai|India|BOM
 London|Canada|YXU
 London|England|LHR
+Delhi|India|DEL
+Paris|France|CDG
