@@ -65,4 +65,12 @@ public class ComputeEngineService {
         log.info("Autocompleted values for prefix: {} => {}", prefix, autoCompletedCodes.toString());
         return autoCompletedCodes;
     }
+
+    public boolean isCodePresent(String code) {
+        return codeAndAirportDataMap.containsKey(code);
+    }
+
+    public List<AirportData> getAirportDataList(String key) {
+        return cityAndAirportDataMap.getOrDefault(key, new ArrayList<>());
+    }
 }
