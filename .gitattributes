@@ -1,2 +1,2 @@
-project/src/test/resources/kayak-data.html linguist-vendored
-assignments/res/W3C_Web_Pages/*.html linguist-vendored
+project/src/test/resources/kayak-data.html linguist-language=Java
+assignments/res/W3C_Web_Pages/*.html linguist-language=Java
