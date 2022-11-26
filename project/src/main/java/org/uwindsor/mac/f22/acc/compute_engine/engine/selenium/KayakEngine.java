@@ -18,7 +18,7 @@ import java.util.List;
 @Component
 public class KayakEngine {
 
-    private static final String KAYAK_ENDPOINT_STRING = "https://www.ca.kayak.com/flights/%s-%s/%04d-%02d-%02d/%dadults?sort=bestflight_a";
+    private static final String KAYAK_ENDPOINT_STRING = "https://www.ca.kayak.com/flights/%s-%s/%04d-%02d-%02d/%s%dadults?sort=bestflight_a";
     //https://www.ca.kayak.com/flights/YQG-YUL/2022-12-21/2adults?sort=bestflight_a
 
     @Autowired
@@ -56,6 +56,7 @@ public class KayakEngine {
                 year,
                 month,
                 day,
+                searchRequest.getFlightClass().equals("business") ? "business/" : "",
                 searchRequest.getNumberOfPassengers()
         );
     }
