@@ -1,3 +1,3 @@
 project/src/test/resources/kayak-data.html linguist-language=Java
 project/src/main/resources/air-codes.html linguist-language=Java
-assignments/res/W3C_Web_Pages/**.html linguist-language=Java
+assignments/res/W3C_Web_Pages/* linguist-language=Java
