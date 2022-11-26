@@ -1,3 +1,2 @@
-linguist-vendored
-project/src/test/resources/kayak-data.html linguist-vendored=false
-assignments/res/W3C_Web_Pages/*.html linguist-vendored=false
+project/src/test/resources/kayak-data.html linguist-vendored
+assignments/res/W3C_Web_Pages/*.html linguist-vendored
