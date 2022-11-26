@@ -6,6 +6,7 @@ import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 import org.uwindsor.mac.f22.acc.compute_engine.engine.selenium.KayakEngine;
+import org.uwindsor.mac.f22.acc.compute_engine.engine.selenium.SkyScannerEngine;
 import org.uwindsor.mac.f22.acc.compute_engine.model.AirportData;
 import org.uwindsor.mac.f22.acc.compute_engine.model.SearchRequest;
 import org.uwindsor.mac.f22.acc.compute_engine.model.SearchResponse;
@@ -32,8 +33,8 @@ public class Orchestrator {
     @Autowired
     private KayakEngine kayakEngine;
 
-//    @Autowired
-//    private SkyScannerEngine skyScannerEngine;
+    @Autowired
+    private SkyScannerEngine skyScannerEngine;
 
     @EventListener(ApplicationReadyEvent.class)
     public void startup() throws IOException {
@@ -48,6 +49,7 @@ public class Orchestrator {
             }
             log.info("Search request received: {}", searchRequest);
             List<SearchResponse> responses = kayakEngine.getInformationFromKayak(searchRequest, 21);
+            responses.addAll(skyScannerEngine.getInformationFromSkyScanner(searchRequest, 7));
             responses.sort(Comparator.comparingDouble(SearchResponse::getBestDealPrice));
             log.info("Search response list in increasing order of cost: \n{}", responses);
         }
