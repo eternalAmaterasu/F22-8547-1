@@ -1,33 +1,61 @@
 package org.uwindsor.mac.f22.acc.compute_engine.engine.selenium;
 
+import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxOptions;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.uwindsor.mac.f22.acc.compute_engine.engine.parser.SkyScannerParser;
+import org.uwindsor.mac.f22.acc.compute_engine.model.SearchRequest;
+import org.uwindsor.mac.f22.acc.compute_engine.model.SearchResponse;
 
-import java.util.concurrent.TimeUnit;
+import java.util.List;
 
 /**
  * @author Vivek
  * @since 20/11/22
  */
+@Slf4j
+@Component
 public class SkyScannerEngine {
 
-    public static void main(String[] args) throws InterruptedException {
-        System.setProperty("webdriver.gecko.driver", "/etc/WEBDRIVER/FIREFOX/geckodriver-v0.32.0-linux64/geckodriver");
+    private static final String SKYSCANNER_ENDPOINT_STRING = "https://www.skyscanner.ca/transport/flights/%s/%s/%s/?adults=%d&adultsv2=1&cabinclass=%s";
+    //https://www.skyscanner.ca/transport/flights/bom/del/221123/?adults=1&adultsv2=1&cabinclass=economy
 
-        FirefoxOptions options = new FirefoxOptions();
-        //options.setHeadless(true);
-        WebDriver driver = new FirefoxDriver(options);
+    @Autowired
+    private WebDriver driver;
 
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.manage().window().maximize();
+    public List<SearchResponse> getInformationFromSkyScanner(SearchRequest searchRequest, int seleniumWaitTime) {
+        log.info("Starting exec of search request part!");
 
-        driver.get("https://www.skyscanner.ca/transport/flights/bom/del/221123/?adults=1&adultsv2=1&cabinclass=economy&children=0&childrenv2=&destinationentityid=27536613&inboundaltsenabled=false&infants=0&originentityid=27537339&outboundaltsenabled=false&preferdirects=false&ref=home&rtn=0");
+        String skyScannerUrl = getSkyScannerEndpointString(searchRequest);
+        log.info("Will be hitting {}", skyScannerUrl);
+        driver.get(skyScannerUrl);
 
-        Thread.sleep(5 * 1000);
-        System.out.println(driver.getPageSource());
+        try {
+            Thread.sleep(seleniumWaitTime * 1000L);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        String pageSource = driver.getPageSource();
+        //System.out.println(pageSource);
 
-        driver.close();
-        driver.quit();
+        driver.manage().deleteAllCookies();
+
+        return SkyScannerParser.parseSkyScannerData(pageSource);
+    }
+
+    String getSkyScannerEndpointString(SearchRequest searchRequest) {
+        int year = (searchRequest.getTravelDate() / 10000) % 100;
+        int buffer = searchRequest.getTravelDate() % 10000;
+        int month = buffer / 100;
+        int day = buffer % 100;
+
+        return String.format(SKYSCANNER_ENDPOINT_STRING,
+                searchRequest.getFrom().toLowerCase(),
+                searchRequest.getTo().toLowerCase(),
+                String.format("%02d%02d%02d", year, month, day),
+                searchRequest.getNumberOfPassengers(),
+                searchRequest.getFlightClass()
+        );
     }
 }
