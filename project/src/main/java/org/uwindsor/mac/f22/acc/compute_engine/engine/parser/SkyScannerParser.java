@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author Vivek
+ * @author Sila
  * @since 23/11/22
  */
 public class SkyScannerParser {
