@@ -48,7 +48,7 @@ public class Orchestrator {
                 break;
             }
             log.info("Search request received: {}", searchRequest);
-            List<SearchResponse> responses = kayakEngine.getInformationFromKayak(searchRequest, 21); // firing up search on kayak
+            List<SearchResponse> responses = kayakEngine.getInformationFromKayak(searchRequest, 11); // firing up search on kayak
             responses.addAll(skyScannerEngine.getInformationFromSkyScanner(searchRequest, 7)); //firing up search on skyscanner
             responses.sort(Comparator.comparingDouble(SearchResponse::getBestDealPrice)); //sorting the combined results on the basis of the best deal price
             log.info("Search response list in increasing order of cost:");
