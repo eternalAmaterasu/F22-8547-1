@@ -25,7 +25,7 @@ public class KayakEngine {
     private WebDriver driver;
 
     public List<SearchResponse> getInformationFromKayak(SearchRequest searchRequest, int seleniumWaitTime) {
-        log.info("Starting exec of search request part!");
+        log.info("Starting exec of search request part for Kayak!");
 
         String kayakUrl = getKayakEndpointString(searchRequest);
         log.info("Will be hitting {}", kayakUrl);
@@ -41,7 +41,9 @@ public class KayakEngine {
 
         driver.manage().deleteAllCookies();
 
-        return KayakParser.parseKayakData(pageSource);
+        List<SearchResponse> kayakSearchResponses = KayakParser.parseKayakData(pageSource);
+        log.info("Found {} responses from Kayak", kayakSearchResponses.size());
+        return kayakSearchResponses;
     }
 
     String getKayakEndpointString(SearchRequest searchRequest) {
