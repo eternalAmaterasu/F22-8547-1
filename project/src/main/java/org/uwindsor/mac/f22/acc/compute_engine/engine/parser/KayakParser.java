@@ -37,7 +37,9 @@ public class KayakParser {
             String destinationAirportCodeInString = null;
             String sourceAirportCodeInString = null;
             double priceInDouble = 0;
+
             try {
+
                 airlineInString = element.select("[class~=codeshares-airline-names]").get(0).text();
 
                 String takeoffTimeInString = element.select("[class~=depart-time base-time]").get(0).text();
@@ -51,7 +53,7 @@ public class KayakParser {
 
                 String stopsInString = element.select("[class~=stops-text]").get(0).text();
                 stopsInInt = 1;
-                if(!stopsInString.isEmpty() && stopsInString.equalsIgnoreCase("direct")){
+                if(stopsInString.equalsIgnoreCase("direct")){
                     stopsInInt = 0;
                 }
                 String destinationAirportInString = element.getElementsByAttributeValueMatching("id", Pattern.compile("[a-zA-Z]*-info-leg-.-destination-airport")).text();
@@ -64,26 +66,11 @@ public class KayakParser {
 
                 String priceInString = element.select("[class~=price option-text]").get(0).text();
                 String[] priceParts = priceInString.split(" ");
-                priceInDouble = Double.parseDouble(priceParts[1]);
-            } catch (NumberFormatException e) {
-                throw new RuntimeException(e);
-            }
+                priceInDouble = Double.parseDouble(priceParts[1].replaceAll(",", ""));
 
-//            System.out.println(airlineInString);
-//            System.out.println(takeoffTimeInString);
-//            System.out.println(takeoffTimeInInteger);
-//            System.out.println(durationTimeInString);
-//            System.out.println(durationInInteger);
-//            System.out.println(travelTimeInString);
-//            System.out.println(travelTimeInInteger);
-//            System.out.println(stopsInString);
-//            System.out.println(stopsInInt);
-//            System.out.println(destinationAirportInString);
-//            System.out.println(destinationAirportCodeInString);
-//            System.out.println(sourceAirportInString);
-//            System.out.println(sourceAirportCodeInString);
-//            System.out.println(priceInString);
-//            System.out.println(priceInDouble);
+            } catch (NumberFormatException e) {
+                log.error("Encountered error while generating SearchResponse in parsing: ", e);
+            }
 
             itemSearchResponse.setAirline(airlineInString);
             itemSearchResponse.setLaunchTime(takeoffTimeInInteger);
@@ -93,19 +80,9 @@ public class KayakParser {
             itemSearchResponse.setDestinationAirCode(destinationAirportCodeInString);
             itemSearchResponse.setSourceAirCode(sourceAirportCodeInString);
             itemSearchResponse.setBestDealPrice(priceInDouble);
-
-            System.out.println("The Final Output after parsing is:");
-            System.out.println("Airline: " + itemSearchResponse.getAirline() + ", LaunchTime: " +
-                    itemSearchResponse.getLaunchTime() + ", Land Time: "+ itemSearchResponse.getLandTime()
-                    + ", Travel Time: "+ itemSearchResponse.getTravelTime() + ", Stops: "+ itemSearchResponse.getStops() +
-                    ", Source AirCode: "+ itemSearchResponse.getSourceAirCode() + ", Destination AirCode:" +
-                    itemSearchResponse.getDestinationAirCode() + ", Best Deal Price: " + itemSearchResponse.getBestDealPrice());
-
+            
             list.add(itemSearchResponse);
-
             index.incrementAndGet();
-
-
         });
         return list;
 
