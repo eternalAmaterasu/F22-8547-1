@@ -25,14 +25,14 @@ public class SearchResponse {
     @Override
     public String toString() {
         return new ToStringBuilder(this, ToStringStyle.JSON_STYLE)
+                .append("bestDealPrice", bestDealPrice)
                 .append("airline", airline)
-                .append("launchTime", launchTime)
-                .append("landTime", landTime)
-                .append("travelTime", travelTime)
+                .append("launchTime", String.format("%04d", launchTime))
+                .append("landTime", String.format("%04d", landTime))
+                .append("travelTime", String.format("%02dh %02dm", travelTime / 60, travelTime - (travelTime / 60) * 60))
                 .append("stops", stops)
                 .append("sourceAirCode", sourceAirCode)
                 .append("destinationAirCode", destinationAirCode)
-                .append("bestDealPrice", bestDealPrice)
                 .toString();
     }
 }

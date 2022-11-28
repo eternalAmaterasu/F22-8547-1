@@ -1,4 +1,4 @@
-Windsor, ON|Canada|YQG
+Windsor|Canada|YQG
 Toronto|Canada|YYZ
 Montreal|Canada|YUL
 Yerevan|Armenia|EVN
@@ -7,3 +7,20 @@ London|Canada|YXU
 London|England|LHR
 Delhi|India|DEL
 Paris|France|CDG
+Vancouver|Canada|YVR
+Halifax|Canada|YHZ
+Winnipeg|Canada|YWG
+Edmonton|Canada|YEG
+Calgary|Canada|YYC
+Ottawa|Canada|YOW
+Dubai|UAE|DXB
+New York|USA|JFK
+New York|USA|LGA
+Detroit|USA|DTW
+Frankfurt|Germany|FRA
+Berlin|Germany|BER
+Istanbul|Turkey|IST
+Madrid|Spain|MAD
+Hong Kong|China|HKG
+Tokyo|Japan|HND
+Sydney|Australia|SYD

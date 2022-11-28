@@ -12,7 +12,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.regex.Pattern;
 
 /**
- * @author Vivek
+ * @author Sila
  * @since 23/11/22
  */
 @Slf4j
@@ -30,9 +30,9 @@ public class KayakParser {
             SearchResponse itemSearchResponse = new SearchResponse();
 
             String airlineInString = null;
-            Integer  takeoffTimeInInteger = null;
+            Integer takeoffTimeInInteger = null;
             Integer durationInInteger = null;
-            Integer  travelTimeInInteger = null;
+            Integer travelTimeInInteger = null;
             int stopsInInt = 0;
             String destinationAirportCodeInString = null;
             String sourceAirportCodeInString = null;
@@ -52,8 +52,7 @@ public class KayakParser {
                 travelTimeInInteger = convertTimeInSearchResponseFormat(travelTimeInString);
 
                 String stopsInString = element.select("[class~=stops-text]").get(0).text();
-
-                if(stopsInString.equalsIgnoreCase("direct")){
+                if (stopsInString.equalsIgnoreCase("direct")) {
                     stopsInInt = 0;
                 }
                 else{
@@ -85,7 +84,7 @@ public class KayakParser {
             itemSearchResponse.setDestinationAirCode(destinationAirportCodeInString);
             itemSearchResponse.setSourceAirCode(sourceAirportCodeInString);
             itemSearchResponse.setBestDealPrice(priceInDouble);
-            
+
             list.add(itemSearchResponse);
             index.incrementAndGet();
         });
@@ -103,14 +102,11 @@ public class KayakParser {
         String[] inputTimeMinutesUnits = inputTimeUnits[1].split(" "); //will break the string (in mm aa) up into an array
         int takeoffMinutes = Integer.parseInt(inputTimeMinutesUnits[0]); //first element
 
-        if(inputTimeMinutesUnits[1].equals("a.m."))
-        {
-            if(inputHours == 12)
+        if (inputTimeMinutesUnits[1].equals("a.m.")) {
+            if (inputHours == 12)
                 inputHours = 0;
-        }
-        else if(inputTimeMinutesUnits[1].equals("p.m."))
-        {
-            if(inputHours != 12)
+        } else if (inputTimeMinutesUnits[1].equals("p.m.")) {
+            if (inputHours != 12)
                 inputHours += 12;
         }
 
@@ -132,14 +128,14 @@ public class KayakParser {
         Integer outputDurationInMinutes = null;
 
         String[] durationTimeUnits = inputDurationInString.split(" "); //will break the string (in hh mm) up into an array
-        StringBuffer durationHoursSB= new StringBuffer(durationTimeUnits[0]);
+        StringBuffer durationHoursSB = new StringBuffer(durationTimeUnits[0]);
 
         //invoking the method
-        durationHoursSB.deleteCharAt(durationHoursSB.length()-1);
-        StringBuffer durationMinutesSB= new StringBuffer(durationTimeUnits[1]);
+        durationHoursSB.deleteCharAt(durationHoursSB.length() - 1);
+        StringBuffer durationMinutesSB = new StringBuffer(durationTimeUnits[1]);
 
         //invoking the method
-        durationMinutesSB.deleteCharAt(durationMinutesSB.length()-1);
+        durationMinutesSB.deleteCharAt(durationMinutesSB.length() - 1);
         outputDurationInMinutes = Integer.parseInt(durationHoursSB.toString()) * 60 + Integer.parseInt(durationMinutesSB.toString());
 
         return outputDurationInMinutes;

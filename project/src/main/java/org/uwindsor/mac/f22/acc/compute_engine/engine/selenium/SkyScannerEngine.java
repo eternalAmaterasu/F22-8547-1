@@ -25,7 +25,7 @@ public class SkyScannerEngine {
     private WebDriver driver;
 
     public List<SearchResponse> getInformationFromSkyScanner(SearchRequest searchRequest, int seleniumWaitTime) {
-        log.info("Starting exec of search request part!");
+        log.info("Starting exec of search request part for SkyScanner!");
 
         String skyScannerUrl = getSkyScannerEndpointString(searchRequest);
         log.info("Will be hitting {}", skyScannerUrl);
@@ -41,7 +41,9 @@ public class SkyScannerEngine {
 
         driver.manage().deleteAllCookies();
 
-        return SkyScannerParser.parseSkyScannerData(pageSource);
+        List<SearchResponse> skyScannerSearchResponses = SkyScannerParser.parseSkyScannerData(pageSource);
+        log.info("Found {} responses from SkyScanner", skyScannerSearchResponses.size());
+        return skyScannerSearchResponses;
     }
 
     String getSkyScannerEndpointString(SearchRequest searchRequest) {
