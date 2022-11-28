@@ -49,7 +49,7 @@ public class Orchestrator {
             }
             log.info("Search request received: {}", searchRequest);
             List<SearchResponse> responses = kayakEngine.getInformationFromKayak(searchRequest, 15); // firing up search on kayak
-            responses.addAll(skyScannerEngine.getInformationFromSkyScanner(searchRequest, 7)); //firing up search on skyscanner
+            responses.addAll(skyScannerEngine.getInformationFromSkyScanner(searchRequest, 5)); //firing up search on skyscanner
             responses.sort(Comparator.comparingDouble(SearchResponse::getBestDealPrice)); //sorting the combined results on the basis of the best deal price
             log.info("Search response list in increasing order of cost:");
             responses.forEach(searchResponse -> log.info(searchResponse.toString())); //printing out the result on each line
@@ -65,7 +65,7 @@ public class Orchestrator {
         boolean isCodeSelected = input == 1;
         String codeOrCity = isCodeSelected ? " code" : " city";
         log.info("Enter the source{}: ", codeOrCity); //request to input source city or code
-        String src = in.readLine();
+        String src = in.readLine().toLowerCase();
         if (isCodeSelected) {
             src = processSourceOrDestinationOnCode(src); //Process the source on the basis of code
         } else {
@@ -73,7 +73,7 @@ public class Orchestrator {
         }
 
         log.info("Enter the destination{}: ", codeOrCity); //request to input destination city or code
-        String dest = in.readLine();
+        String dest = in.readLine().toLowerCase();
         if (isCodeSelected) {
             dest = processSourceOrDestinationOnCode(dest); //Process the destination on the basis of code
         } else {
