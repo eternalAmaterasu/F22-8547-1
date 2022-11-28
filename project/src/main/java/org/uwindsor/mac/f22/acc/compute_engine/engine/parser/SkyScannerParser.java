@@ -19,7 +19,7 @@ public class SkyScannerParser {
 
         List<SearchResponse> list = new ArrayList<>();
         Document document = Jsoup.parse(pageSource);
-        Elements elementsByClass = document.getElementsByAttributeValueMatching("class", "flightsticket_container*");
+        Elements elementsByClass = document.getElementsByAttributeValueMatching("class", "[f|F]lights[t|T]icket_container*");
 
         elementsByClass.forEach(element -> {
 
