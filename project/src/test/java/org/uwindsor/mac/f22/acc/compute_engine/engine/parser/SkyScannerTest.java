@@ -13,7 +13,7 @@ public class SkyScannerTest {
     void testParseSkyScannerData() {
         StringBuilder data = new StringBuilder();
 
-        try (BufferedReader bufferedReader = new BufferedReader(new FileReader("src/test/resources/SkyScannerData1.html"))) {
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader("src/test/resources/SkyScannerData2.html"))) {
             String line;
             while ((line = bufferedReader.readLine()) != null) {
                 line = line.trim().toLowerCase();
@@ -23,5 +23,6 @@ public class SkyScannerTest {
         }
 
         List<SearchResponse> searchResponses = SkyScannerParser.parseSkyScannerData(data.toString());
+        //System.out.println(searchResponses);
     }
 }
