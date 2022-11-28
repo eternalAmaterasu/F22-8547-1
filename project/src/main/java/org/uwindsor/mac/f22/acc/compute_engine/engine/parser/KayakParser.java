@@ -52,10 +52,15 @@ public class KayakParser {
                 travelTimeInInteger = convertTimeInSearchResponseFormat(travelTimeInString);
 
                 String stopsInString = element.select("[class~=stops-text]").get(0).text();
-                stopsInInt = 1;
+
                 if(stopsInString.equalsIgnoreCase("direct")){
                     stopsInInt = 0;
                 }
+                else{
+                    String[] stopUnits = stopsInString.split(" ");
+                    stopsInInt = Integer.parseInt(stopUnits[0]);
+                }
+
                 String destinationAirportInString = element.getElementsByAttributeValueMatching("id", Pattern.compile("[a-zA-Z]*-info-leg-.-destination-airport")).text();
                 String[] destinationAirportParts = destinationAirportInString.split(" ");
                 destinationAirportCodeInString = destinationAirportParts[0];
