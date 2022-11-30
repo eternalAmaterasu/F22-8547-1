@@ -24,3 +24,4 @@ Madrid|Spain|MAD
 Hong Kong|China|HKG
 Tokyo|Japan|HND
 Sydney|Australia|SYD
+Islamabad|Pakistan|ISB
