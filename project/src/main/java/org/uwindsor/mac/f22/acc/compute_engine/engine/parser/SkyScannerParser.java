@@ -70,8 +70,8 @@ public class SkyScannerParser {
             itemSearchResponse.setLandTime(travelTimeInInteger);
             itemSearchResponse.setTravelTime(durationInInteger);
             itemSearchResponse.setStops(stopsInInt);
-            itemSearchResponse.setDestinationAirCode(destinationAirportCodeInString);
-            itemSearchResponse.setSourceAirCode(sourceAirportCodeInString);
+            itemSearchResponse.setDestinationAirCode(destinationAirportInString);
+            itemSearchResponse.setSourceAirCode(sourceAirportInString);
             itemSearchResponse.setBestDealPrice(priceInDouble);
 
             list.add(itemSearchResponse);
