@@ -1,4 +1,4 @@
-package algorithmDesign;
+package org.uwindsor.mac.f22.acc.compute_engine.InvertedIndex;
 
 //import java.io.BufferedReader;
 //import java.io.IOException;

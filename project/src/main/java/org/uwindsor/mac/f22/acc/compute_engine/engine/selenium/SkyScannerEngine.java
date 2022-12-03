@@ -4,10 +4,12 @@ import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.WebDriver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.uwindsor.mac.f22.acc.compute_engine.InvertedIndex.Index;
 import org.uwindsor.mac.f22.acc.compute_engine.engine.parser.SkyScannerParser;
 import org.uwindsor.mac.f22.acc.compute_engine.model.SearchRequest;
 import org.uwindsor.mac.f22.acc.compute_engine.model.SearchResponse;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -38,6 +40,11 @@ public class SkyScannerEngine {
         }
         String pageSource = driver.getPageSource();
         //System.out.println(pageSource);
+        try {
+            Index.FlightIni(pageSource,2);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
         driver.manage().deleteAllCookies();
 

@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
+import org.uwindsor.mac.f22.acc.compute_engine.InvertedIndex.Index;
 import org.uwindsor.mac.f22.acc.compute_engine.engine.selenium.KayakEngine;
 import org.uwindsor.mac.f22.acc.compute_engine.engine.selenium.SkyScannerEngine;
 import org.uwindsor.mac.f22.acc.compute_engine.model.AirportData;
@@ -53,6 +54,7 @@ public class Orchestrator {
             responses.sort(Comparator.comparingDouble(SearchResponse::getBestDealPrice)); //sorting the combined results on the basis of the best deal price
             log.info("Search response list in increasing order of cost:");
             responses.forEach(searchResponse -> log.info(searchResponse.toString())); //printing out the result on each line
+            Index.performInvertedIndex();
         }
         shutdown();
     }

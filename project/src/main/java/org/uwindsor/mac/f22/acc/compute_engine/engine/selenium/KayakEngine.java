@@ -4,10 +4,13 @@ import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.WebDriver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.uwindsor.mac.f22.acc.compute_engine.InvertedIndex.Index;
+import org.uwindsor.mac.f22.acc.compute_engine.InvertedIndex.StringToText;
 import org.uwindsor.mac.f22.acc.compute_engine.engine.parser.KayakParser;
 import org.uwindsor.mac.f22.acc.compute_engine.model.SearchRequest;
 import org.uwindsor.mac.f22.acc.compute_engine.model.SearchResponse;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -37,6 +40,11 @@ public class KayakEngine {
             throw new RuntimeException(e);
         }
         String pageSource = driver.getPageSource();
+        try {
+            Index.FlightIni(pageSource,1);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         //System.out.println(pageSource);
 
         driver.manage().deleteAllCookies();
