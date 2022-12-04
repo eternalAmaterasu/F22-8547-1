@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.WebDriver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.uwindsor.mac.f22.acc.compute_engine.Count.FrequencyCount;
 import org.uwindsor.mac.f22.acc.compute_engine.InvertedIndex.Index;
 import org.uwindsor.mac.f22.acc.compute_engine.InvertedIndex.StringToText;
 import org.uwindsor.mac.f22.acc.compute_engine.engine.parser.KayakParser;
@@ -42,6 +43,7 @@ public class KayakEngine {
         String pageSource = driver.getPageSource();
         try {
             Index.FlightIni(pageSource,1);
+            FrequencyCount.Frequency(pageSource);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
