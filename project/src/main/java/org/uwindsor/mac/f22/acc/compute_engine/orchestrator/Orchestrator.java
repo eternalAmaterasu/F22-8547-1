@@ -120,7 +120,7 @@ public class Orchestrator {
             return airportData.get(selection - 1).getCode(); //finalize the city and extract and return it's code
         }
         log.warn("Found no city names to autocomplete, thus switching to spell checking!"); //autocomplete turned up empty, so now go for spell checking and edit distance
-        List<String> topNearestCodes = computeEngineService.getTopNNearestCityCodesBasedOnNames(cityName, 5); //find best top 5 city names based on input
+        List<String> topNearestCodes = computeEngineService.getTopNNearestCityCodesBasedOnNames(cityName, 7); //find best top 5 city names based on input
         log.info("Please view the airport code you want:-");
         for (int i = 0; i < topNearestCodes.size(); i++) log.info("{} - {}", i + 1, topNearestCodes.get(i));
         log.info("Please enter the number of airport code you want: ");
@@ -141,7 +141,7 @@ public class Orchestrator {
             return autoCompleteCodes.get(selection - 1); //finalize the city code and return it
         }
         log.warn("Found no city names to autocomplete, thus switching to spell checking!"); //autocomplete turned up empty, so now go for spell checking and edit distance
-        List<String> topNearestCodes = computeEngineService.getTopNNearestCityCodes(src, 5); //find best top 5 city codes based on input
+        List<String> topNearestCodes = computeEngineService.getTopNNearestCityCodes(src, 7); //find best top 5 city codes based on input
         log.info("Please view the airport code you want:-");
         for (int i = 0; i < topNearestCodes.size(); i++) log.info("{} - {}", i + 1, topNearestCodes.get(i));
         log.info("Please enter the number of airport code you want: ");

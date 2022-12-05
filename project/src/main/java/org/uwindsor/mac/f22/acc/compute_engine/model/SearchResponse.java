@@ -22,6 +22,8 @@ public class SearchResponse {
     private String destinationAirCode;
     private double bestDealPrice;
 
+    private String source;
+
     @Override
     public String toString() {
         return new ToStringBuilder(this, ToStringStyle.JSON_STYLE)
@@ -33,6 +35,7 @@ public class SearchResponse {
                 .append("stops", stops)
                 .append("sourceAirCode", sourceAirCode)
                 .append("destinationAirCode", destinationAirCode)
+                .append("source", source)
                 .toString();
     }
 }
