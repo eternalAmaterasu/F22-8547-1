@@ -24,10 +24,8 @@ public class FrequencyCount {
            String text = ar;
 
            System.out.println("Computing Frequency for:");
-           BufferedReader reader = new BufferedReader(new InputStreamReader(new ByteArrayInputStream(text.getBytes(StandardCharsets.UTF_8))));
            String line;
-           while ((line = reader.readLine()) != null) {
-               String[] words = line.split("[^A-Za-z]+");
+               String[] words = text.split("[^A-Za-z]+");
                for (String word : words) {
                    if ("".equals(word)) {
                        continue;
@@ -43,9 +41,6 @@ public class FrequencyCount {
 
                    wordObj.frequency++;
                }
-           
-
-           reader.close();
 
            SortedSet<Word> sortedWords = new TreeSet<Word>(countMap.values());
            int i = 0;
@@ -67,7 +62,6 @@ public class FrequencyCount {
                }
 
            }
-       }
         
 
     }
