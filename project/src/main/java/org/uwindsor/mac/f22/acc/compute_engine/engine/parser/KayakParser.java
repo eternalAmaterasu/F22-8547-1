@@ -84,6 +84,7 @@ public class KayakParser {
             itemSearchResponse.setDestinationAirCode(destinationAirportCodeInString);
             itemSearchResponse.setSourceAirCode(sourceAirportCodeInString);
             itemSearchResponse.setBestDealPrice(priceInDouble);
+            itemSearchResponse.setSource("Kayak");
 
             list.add(itemSearchResponse);
             index.incrementAndGet();

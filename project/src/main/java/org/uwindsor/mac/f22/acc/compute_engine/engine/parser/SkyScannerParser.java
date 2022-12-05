@@ -73,6 +73,7 @@ public class SkyScannerParser {
             itemSearchResponse.setDestinationAirCode(destinationAirportInString);
             itemSearchResponse.setSourceAirCode(sourceAirportInString);
             itemSearchResponse.setBestDealPrice(priceInDouble);
+            itemSearchResponse.setSource("SkyScanner");
 
             list.add(itemSearchResponse);
 
