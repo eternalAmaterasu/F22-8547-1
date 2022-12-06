@@ -1,5 +1,6 @@
 package org.uwindsor.mac.f22.acc.compute_engine.engine.parser;
 
+import lombok.extern.slf4j.Slf4j;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -13,6 +14,7 @@ import java.util.List;
  * @author Sila
  * @since 23/11/22
  */
+@Slf4j
 public class SkyScannerParser {
 
     public static List<SearchResponse> parseSkyScannerData(String pageSource) {
@@ -23,61 +25,64 @@ public class SkyScannerParser {
 
         elementsByClass.forEach(element -> {
 
-            SearchResponse itemSearchResponse = new SearchResponse();
+            try {
+                SearchResponse itemSearchResponse = new SearchResponse();
 
-            String airlineInString = null;
-            Integer  takeoffTimeInInteger = null;
-            Integer durationInInteger = 0;
-            Integer  travelTimeInInteger = null;
-            int stopsInInt = 0;
-            String destinationAirportCodeInString = null;
-            String sourceAirportCodeInString = null;
-            double priceInDouble = 0;
+                String airlineInString = null;
+                Integer takeoffTimeInInteger = null;
+                Integer durationInInteger = 0;
+                Integer travelTimeInInteger = null;
+                int stopsInInt = 0;
+                String destinationAirportCodeInString = null;
+                String sourceAirportCodeInString = null;
+                double priceInDouble = 0;
 
-            String stopsInString = null;
+                String stopsInString = null;
 
-            Element divForAirline = element.getElementsByClass("LogoImage_container__MDU0Z UpperTicketBody_ticketLogo__Nzc1Z").first();
-            airlineInString = divForAirline.select("span").first().text();
+                Element divForAirline = element.getElementsByClass("LogoImage_container__MDU0Z UpperTicketBody_ticketLogo__Nzc1Z").first();
+                airlineInString = divForAirline.select("span").first().text();
 
-            Element divForTakeOffTime = element.getElementsByClass("LegInfo_routePartialDepart__NzEwY").first();
-            String takeoffTimeInString = divForTakeOffTime.select("span").first().text();
-            takeoffTimeInInteger = convertTimeInSearchResponseFormat(takeoffTimeInString);
+                Element divForTakeOffTime = element.getElementsByClass("LegInfo_routePartialDepart__NzEwY").first();
+                String takeoffTimeInString = divForTakeOffTime.select("span").first().text();
+                takeoffTimeInInteger = convertTimeInSearchResponseFormat(takeoffTimeInString);
 
-            Element divForTravelTime = element.getElementsByClass("LegInfo_routePartialArrive__Y2U1N").first();
-            String travelTimeInString = divForTravelTime.getElementsByClass("bpktext_bpk-text__zwizz bpktext_bpk-text--label-1__mzvmn").first().text();
-            travelTimeInInteger = convertTimeInSearchResponseFormat(travelTimeInString);
+                Element divForTravelTime = element.getElementsByClass("LegInfo_routePartialArrive__Y2U1N").first();
+                String travelTimeInString = divForTravelTime.getElementsByClass("bpktext_bpk-text__zwizz bpktext_bpk-text--label-1__mzvmn").first().text();
+                travelTimeInInteger = convertTimeInSearchResponseFormat(travelTimeInString);
 
-            Elements elementsForStops = element.getElementsByClass("BpkText_bpk-text__ZWIzZ BpkText_bpk-text--xs__MTAxY LegInfo_stopsLabelRed__NTY2Y");
-            if (elementsForStops.size() > 0){
-                stopsInString = elementsForStops.select("span").first().text();
-                String[] stopUnits = stopsInString.split(" ");
-                stopsInInt = Integer.parseInt(stopUnits[0]);
+                Elements elementsForStops = element.getElementsByClass("BpkText_bpk-text__ZWIzZ BpkText_bpk-text--xs__MTAxY LegInfo_stopsLabelRed__NTY2Y");
+                if (elementsForStops.size() > 0) {
+                    stopsInString = elementsForStops.select("span").first().text();
+                    String[] stopUnits = stopsInString.split(" ");
+                    stopsInInt = Integer.parseInt(stopUnits[0]);
+                }
+
+                String sourceAirportInString = element.getElementsByClass("BpkText_bpk-text__ZWIzZ BpkText_bpk-text--body-default__MzkyN LegInfo_routePartialCityTooltip__NTE4Z").get(0).text();
+                String destinationAirportInString = element.getElementsByClass("BpkText_bpk-text__ZWIzZ BpkText_bpk-text--body-default__MzkyN LegInfo_routePartialCityTooltip__NTE4Z").get(1).text();
+
+                Element divForPrice = element.getElementsByClass("Price_mainPriceContainer__MDM3O").first();
+                String priceInString = divForPrice.select("span").first().text();
+                priceInDouble = Double.parseDouble(priceInString.substring(2).replaceAll(",", ""));
+
+                Elements elementsForTravelTime = element.getElementsByClass("BpkText_bpk-text__ZWIzZ BpkText_bpk-text--xs__MTAxY Duration_duration__NmUyM");
+                String durationTimeInString = elementsForTravelTime.first().text();
+                durationInInteger = convertDurationInMinutes(durationTimeInString);
+
+                itemSearchResponse.setAirline(airlineInString);
+                itemSearchResponse.setLaunchTime(takeoffTimeInInteger);
+                itemSearchResponse.setLandTime(travelTimeInInteger);
+                itemSearchResponse.setTravelTime(durationInInteger);
+                itemSearchResponse.setStops(stopsInInt);
+                itemSearchResponse.setDestinationAirCode(destinationAirportInString);
+                itemSearchResponse.setSourceAirCode(sourceAirportInString);
+                itemSearchResponse.setBestDealPrice(priceInDouble);
+                itemSearchResponse.setSource("SkyScanner");
+
+                list.add(itemSearchResponse);
+
+            } catch (Exception e) {
+                log.error("Error while parsing skyscanner data: ", e);
             }
-
-            String sourceAirportInString = element.getElementsByClass("BpkText_bpk-text__ZWIzZ BpkText_bpk-text--body-default__MzkyN LegInfo_routePartialCityTooltip__NTE4Z").get(0).text();
-            String destinationAirportInString = element.getElementsByClass("BpkText_bpk-text__ZWIzZ BpkText_bpk-text--body-default__MzkyN LegInfo_routePartialCityTooltip__NTE4Z").get(1).text();
-
-            Element divForPrice = element.getElementsByClass("Price_mainPriceContainer__MDM3O").first();
-            String priceInString = divForPrice.select("span").first().text();
-            priceInDouble = Double.parseDouble(priceInString.substring(2).replaceAll(",", ""));
-
-            Elements elementsForTravelTime = element.getElementsByClass("BpkText_bpk-text__ZWIzZ BpkText_bpk-text--xs__MTAxY Duration_duration__NmUyM");
-            String durationTimeInString = elementsForTravelTime.first().text();
-            durationInInteger = convertDurationInMinutes(durationTimeInString);
-
-            itemSearchResponse.setAirline(airlineInString);
-            itemSearchResponse.setLaunchTime(takeoffTimeInInteger);
-            itemSearchResponse.setLandTime(travelTimeInInteger);
-            itemSearchResponse.setTravelTime(durationInInteger);
-            itemSearchResponse.setStops(stopsInInt);
-            itemSearchResponse.setDestinationAirCode(destinationAirportInString);
-            itemSearchResponse.setSourceAirCode(sourceAirportInString);
-            itemSearchResponse.setBestDealPrice(priceInDouble);
-            itemSearchResponse.setSource("SkyScanner");
-
-            list.add(itemSearchResponse);
-
-
         });
 
         return list;
@@ -93,14 +98,11 @@ public class SkyScannerParser {
         String[] inputTimeMinutesUnits = inputTimeUnits[1].split(" "); //will break the string (in mm aa) up into an array
         int takeoffMinutes = Integer.parseInt(inputTimeMinutesUnits[0]); //first element
 
-        if(inputTimeMinutesUnits[1].equals("a.m.") || inputTimeMinutesUnits[1].equals("AM"))
-        {
-            if(inputHours == 12)
+        if (inputTimeMinutesUnits[1].equals("a.m.") || inputTimeMinutesUnits[1].equals("AM")) {
+            if (inputHours == 12)
                 inputHours = 0;
-        }
-        else if(inputTimeMinutesUnits[1].equals("p.m.") || inputTimeMinutesUnits[1].equals("PM"))
-        {
-            if(inputHours != 12)
+        } else if (inputTimeMinutesUnits[1].equals("p.m.") || inputTimeMinutesUnits[1].equals("PM")) {
+            if (inputHours != 12)
                 inputHours += 12;
         }
 
@@ -123,17 +125,17 @@ public class SkyScannerParser {
         Integer durationMinutesInInteger = 0;
 
         String[] durationTimeUnits = inputDurationInString.split(" "); //will break the string (in hh mm) up into an array
-        StringBuffer durationHoursSB= new StringBuffer(durationTimeUnits[0]);
+        StringBuffer durationHoursSB = new StringBuffer(durationTimeUnits[0]);
 
         //invoking the method
-        durationHoursSB.deleteCharAt(durationHoursSB.length()-1);
+        durationHoursSB.deleteCharAt(durationHoursSB.length() - 1);
 
         if (durationTimeUnits.length > 1) {
 
-            StringBuffer durationMinutesSB= new StringBuffer(durationTimeUnits[1]);
+            StringBuffer durationMinutesSB = new StringBuffer(durationTimeUnits[1]);
 
             //invoking the method
-            durationMinutesSB.deleteCharAt(durationMinutesSB.length()-1);
+            durationMinutesSB.deleteCharAt(durationMinutesSB.length() - 1);
 
             durationMinutesInInteger = Integer.parseInt(durationMinutesSB.toString());
 
