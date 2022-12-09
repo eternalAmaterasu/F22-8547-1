@@ -81,7 +81,7 @@ public class SkyScannerParser {
                 list.add(itemSearchResponse);
 
             } catch (Exception e) {
-                log.error("Error while parsing skyscanner data: ", e);
+                //log.error("Error while parsing skyscanner data: ", e);
             }
         });
 

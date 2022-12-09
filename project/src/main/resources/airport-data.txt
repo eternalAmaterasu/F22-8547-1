@@ -5,6 +5,7 @@ Yerevan|Armenia|EVN
 Mumbai|India|BOM
 London|Canada|YXU
 London|England|LHR
+Islamabad|Pakistan|ISB
 Delhi|India|DEL
 Paris|France|CDG
 Vancouver|Canada|YVR
@@ -24,5 +25,9 @@ Madrid|Spain|MAD
 Hong Kong|China|HKG
 Tokyo|Japan|HND
 Sydney|Australia|SYD
-Islamabad|Pakistan|ISB
+Split Croatia|Croatia|SPU
 Warsaw|Poland|WAW
+Munich|Germany|MUC
+Providencials|Turks and Caicos|PLS
+Athens|Greece|ATH
+Kolkata|India|CCU
